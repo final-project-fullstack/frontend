@@ -1,17 +1,33 @@
 import "./App.css";
 // import klassen from "./klassen.json";
 // import rassen from "./rassen.json";
-import hintergrund from "./hintergrund.json";
+// import hintergrund from "./hintergrund.json";
+// import gesinnungen from "./gesinnung.json";
 
 function App() {
   return (
     <>
-      <h2>{hintergrund[0].name}</h2>
-      <div>
-        {hintergrund[0].text.map((info) => {
-          return <p dangerouslySetInnerHTML={{ __html: info }}></p>;
-        })}
-      </div>
+      {/* {rassen.map((rasse) => {
+        return (
+          <div>
+            <h2>{rasse.name}</h2>
+            {rasse.text.map((info) => {
+              return <p dangerouslySetInnerHTML={{ __html: info }}></p>;
+            })}
+          </div>
+        );
+      })} */}
+
+      {/* {gesinnungen.map((gesinnung) => {
+        return (
+          <div>
+            <h2>{gesinnung.name}</h2>
+            {gesinnung.Beschreibung.map((info) => {
+              return <p dangerouslySetInnerHTML={{ __html: info }}></p>;
+            })}
+          </div>
+        );
+      })} */}
     </>
   );
 }

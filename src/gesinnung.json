@@ -1,0 +1,83 @@
+[
+  {
+    "name": "Gesinnung",
+    "gruppe": true,
+    "Beschreibung": [
+      "Eine typische Kreatur in den Welten von DUNGEONS & DRAGONS besitzt eine Gesinnung, die grob ihre moralische und persönliche Einstellung beschreibt.",
+      "Die Gesinnung ist eine Kombination aus zwei Faktoren, wovon einer die moralische Haltung (gut, böse, neutral) und einer die Einstellung zur Gesellschaft und dem Gesetz angibt (rechtschaffen, chaotisch und neutral). Daraus ergeben sich neun mögliche Kombinationen für die Gesinnung.",
+      "Die folgenden kurzen Zusammenfassungen umschreiben das typische Verhalten einer Kreatur mit der jeweiligen Gesinnung, doch nur wenige handeln genau und jederzeit nach deren Vorschriften."
+    ]
+  },
+  {
+    "name": "Rechtschaffen gute (RG)",
+    "gesinnung": true,
+    "Beschreibung": [
+      "Kreaturen handeln stets nach dem, was in der Gesellschaft als das Richtige angesehen wird.",
+      "Goldene Drachen, Paladine und die meisten Zwerge sind rechtschaffen gut."
+    ]
+  },
+  {
+    "name": "Neutral gute (NG)",
+    "gesinnung": true,
+    "Beschreibung": [
+      "Individuen geben ihr Bestes, anderen entsprechend ihrer Bedürfnisse zu helfen.",
+      "Viele himmlische Wesen, einige Wolkenriesen und die meisten Gnome sind neutral gut."
+    ]
+  },
+  {
+    "name": "Chaotisch gute (CG)",
+    "gesinnung": true,
+    "Beschreibung": [
+      "Kreaturen handeln nur nach den Vorgaben ihres Gewissens und scheren sich kaum darum, was andere erwarten.",
+      "Kupferdrachen, Einhörner und viele Elfen sind chaotisch gut"
+    ]
+  },
+  {
+    "name": "Rechtschaffen neutrale (RN)",
+    "gesinnung": true,
+    "Beschreibung": [
+      "Individuen halten sich an das Gesetz, die Traditionen und persönliche Werte.",
+      "Viele  Mönche und einige Magier sind rechtschaffen neutral"
+    ]
+  },
+  {
+    "name": "Neutral (N)",
+    "gesinnung": true,
+    "Beschreibung": [
+      "ist die Gesinnung derer, die frei von moralischen Fragen durch das Leben gehen und auch keine Partei ergreifen möchten. Sie tun stets das, was sie gerade für das Beste halten.",
+      "Das Echsenvolk, die meisten Druiden und viele Menschen sind neutral."
+    ]
+  },
+  {
+    "name": "Chaotisch neutrale (CN)",
+    "gesinnung": true,
+    "Beschreibung": [
+      "Kreaturen folgen ihren Launen und stellen ihre  persönliche Freiheit über alles andere.",
+      "Viele Barbaren und Schurken sowie einige Barden sind chaotisch neutral."
+    ]
+  },
+  {
+    "name": "Rechtschaffen böse (RB)",
+    "gesinnung": true,
+    "Beschreibung": [
+      "Individuen nehmen s ich methodisch alles, was sie wollen, bleiben jedoch dabei im Rahmen der Gesetze, Traditionen und der Loyalität.",
+      " Teufel, blaue Drachen und Hobgoblins sind rechtschaffen böse."
+    ]
+  },
+  {
+    "name": "Neutral böse (NB)",
+    "gesinnung": true,
+    "Beschreibung": [
+      " ist die Gesinnung derer, die tun, womit auch immer sie durchkommen, ohne Mitleid oder Gewissensbisse.",
+      "Viele Drow, einige Wolkenriesen und Yugoloths sind neutral böse"
+    ]
+  },
+  {
+    "name": "Chaotisch böse (CB)",
+    "gesinnung": true,
+    "Beschreibung": [
+      "Kreaturen  handeln mit brutaler Gewalt, die von ihrer Gier, ihrem Hass und ihrer Blutlust befeuert wird.",
+      "Dämonen, rote Drachen und Orks sind chaotisch  böse"
+    ]
+  }
+]
