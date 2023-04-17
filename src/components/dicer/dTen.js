@@ -1,13 +1,13 @@
 import { useState } from "react";
 import style from "./DicerStyle.module.css";
 
-const DicerPoolWSix = () => {
+const DicerPoolDTen = () => {
   const [items, setItems] = useState([]);
 
-  const addWSix = () => {
+  const addDTen = () => {
     setItems((cur) => [
       ...cur,
-      { id: cur.length, number: Math.floor(Math.random() * 6 + 1) },
+      { id: cur.length, number: Math.floor(Math.random() * 10 + 1) },
     ]);
   };
 
@@ -16,8 +16,8 @@ const DicerPoolWSix = () => {
       <button className={style.button2} onClick={() => setItems([])}>
         Remove
       </button>
-      <button className={style.button} onClick={addWSix}>
-        Add <br /> W6
+      <button className={style.button} onClick={addDTen}>
+        + <br /> W10
         {items.map((item) => {
           return (
             <div key={item.id}>
@@ -40,4 +40,4 @@ const DicerPoolWSix = () => {
   );
 };
 
-export default DicerPoolWSix;
+export default DicerPoolDTen;
