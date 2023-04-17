@@ -1,0 +1,101 @@
+:root {
+    --size: 7vh;
+    --size-negative: calc(-1 * var(--size));
+    --distance: 7vh;
+    --size-half: calc(0.5 * var(--size));
+    --size-half-negative: calc(-0.5 * var(--size));
+    --font-size: calc(0.7 * var(--size));
+}
+
+.table {
+    display: flex;
+}
+
+.button {
+    display: flex;
+    flex-direction: column;
+    width: calc(var(--size) * 2);
+    background-color: rgb(7, 105, 17);
+    color: white;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid red;
+}
+
+.button2 {
+    display: flex;
+    flex-direction: column;
+    width: calc(var(--size) * 2);
+    background-color: rgb(97, 29, 0);
+    color: white;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.cube {
+    width: var(--size);
+    height: var(--size);
+    position: relative;
+    margin-top: 5vh;
+    transform-style: preserve-3d;
+    transform: rotateX(240deg) rotateY(-5deg) rotateZ(-155deg);
+}
+
+.button:hover {
+    color: #d6c106;
+    box-shadow: 1px 1px 5px #d6c10682, -1px -1px 5px #d6c1067e;
+    border-color: red;
+}
+
+.button:focus {
+    /* color: #d6c106;
+  box-shadow: 1px 1px 10px #d6c106, -1px -1px 10px #d6c1068d; */
+    border-color: red;
+}
+
+.img {
+    background-image: url(../src/assets/Diamond-Stag.png);
+    background-size: cover;
+    width: var(--size);
+    height: var(--size);
+}
+
+.a {
+    display: flex;
+    font-size: var(--font-size);
+
+    color: white;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.top,
+.front,
+.left {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(11, 28, 61);
+    position: absolute;
+    justify-content: center;
+}
+
+.top {
+    transform: translateZ(var(--size-negative)) rotateX(180deg) rotateZ(180deg);
+}
+
+.front {
+    transform: rotateX(90deg) rotateY(180deg);
+    transform-origin: bottom;
+}
+
+.left {
+    width: var(--size);
+    transform: translateZ(var(--size-negative)) rotateY(90deg);
+    transform-origin: right;
+}
