@@ -1,34 +1,58 @@
 import "./App.css";
-// import klassen from "./klassen.json";
-// import rassen from "./rassen.json";
-// import hintergrund from "./hintergrund.json";
-// import gesinnungen from "./gesinnung.json";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout";
+import routes from "./components/routes";
+import UserContext from "./context/userContext";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function App() {
-  return (
-    <>
-      {/* {rassen.map((rasse) => {
-        return (
-          <div>
-            <h2>{rasse.name}</h2>
-            {rasse.text.map((info) => {
-              return <p dangerouslySetInnerHTML={{ __html: info }}></p>;
-            })}
-          </div>
-        );
-      })} */}
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [spell, setSpell] = useState([]);
+  const [searchSpell, setSearchSpell] = useState([]);
+  const [filteredSpells, setFilteredSpells] = useState([]);
+  const [inhaltsverzeichnis, setInhaltsverzeichnis] = useState([]);
+  useEffect(() => {
+    // GET request using axios inside useEffect React hook
+    axios
+      .get("http://localhost:3001/user/spells")
+      .then((response) => setSpell(response.data))
+      .catch((err) => console.log(err));
 
-      {/* {gesinnungen.map((gesinnung) => {
-        return (
-          <div>
-            <h2>{gesinnung.name}</h2>
-            {gesinnung.Beschreibung.map((info) => {
-              return <p dangerouslySetInnerHTML={{ __html: info }}></p>;
+    axios
+      .get("http://localhost:3001/user/checkCookie", {
+        withCredentials: true,
+      })
+      .then((response) => setIsLoggedIn(response.data))
+      .catch((err) => console.log(err));
+    // empty dependency array means this effect will only run once (like componentDidMount in classes)
+  }, []);
+  console.log(isLoggedIn);
+  return (
+    <BrowserRouter>
+      <UserContext.Provider
+        value={{
+          setIsLoggedIn,
+          isLoggedIn,
+          spell,
+          setSpell,
+          searchSpell,
+          setSearchSpell,
+          filteredSpells,
+          setFilteredSpells,
+          inhaltsverzeichnis,
+          setInhaltsverzeichnis,
+        }}
+      >
+        <Layout>
+          <Routes>
+            {routes.map((route) => {
+              return <Route key={route.id} {...route} />;
             })}
-          </div>
-        );
-      })} */}
-    </>
+          </Routes>
+        </Layout>
+      </UserContext.Provider>
+    </BrowserRouter>
   );
 }
 
