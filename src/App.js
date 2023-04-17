@@ -15,7 +15,7 @@ function App() {
   useEffect(() => {
     // GET request using axios inside useEffect React hook
     axios
-      .get("http://localhost:3001/user/spells")
+      .get("http://localhost:3001/spell/getAll")
       .then((response) => setSpell(response.data))
       .catch((err) => console.log(err));
 
@@ -57,3 +57,4 @@ function App() {
 }
 
 export default App;
+

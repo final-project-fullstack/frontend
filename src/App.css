@@ -124,6 +124,14 @@ span {
 
 /* ------------------------------------------------------------------------------------- */
 
+.home{
+  padding: 2.5rem;
+}
+
+.home p {
+  font-size: 1.5rem;
+}
+
 nav {
   background-color: #f05454;
   display: flex;
@@ -194,7 +202,9 @@ label{
 }
 
 .zauber {
-  background-color: #E8E8E8;
+  background-image: url(./hd-wallpaper-1074131_1920.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
   padding: 2rem;
   margin: 1rem;
   border-radius: 5px;
@@ -223,7 +233,7 @@ h3{
   margin: 0;
 }
 
-p{
+.zauber p{
   margin-top: 0;
   margin-bottom: .8rem;
   line-height: 1rem;
@@ -252,6 +262,12 @@ text-align: center;
 
 .inhaltsverzeichnis a {
   cursor: pointer;
+}
+
+.search{
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
 }
 
 @media screen and (min-width: 800px){

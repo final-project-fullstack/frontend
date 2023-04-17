@@ -7,15 +7,7 @@ const Header = () => {
   const navigate = useNavigate();
   const [checkStatus, setChange] = useState(false);
   const [show, setShow] = useState(false);
-  const {
-    isLoggedIn,
-    setIsLoggedIn,
-    spell,
-    setSearchSpell,
-    searchSpell,
-    setFilteredSpells,
-    setInhaltsverzeichnis,
-  } = useContext(userContext);
+  const { isLoggedIn, setIsLoggedIn } = useContext(userContext);
 
   const handleSth = (e) => {
     setChange(!checkStatus);
@@ -39,19 +31,6 @@ const Header = () => {
     } else setShow(!show);
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const spellFilter = spell.filter((spell) => {
-      return spell.name.includes(searchSpell);
-    });
-    setFilteredSpells(spellFilter);
-    setInhaltsverzeichnis([]);
-    navigate("/");
-  };
-  const changeValue = (e) => {
-    setSearchSpell(e.target.value);
-  };
-
   return (
     <nav role="navigation">
       <div id="menuToggle">
@@ -62,6 +41,9 @@ const Header = () => {
         <ul id="menu">
           <NavLink to="/">
             <li onClick={handleSth}>Home</li>
+          </NavLink>
+          <NavLink to="/zauber">
+            <li onClick={handleSth}>Zauber</li>
           </NavLink>
           {!isLoggedIn ? (
             <>
@@ -110,22 +92,6 @@ const Header = () => {
           )}
         </ul>
       </div>
-      <form>
-        <input
-          onChange={changeValue}
-          type="text"
-          placeholder="Suchen"
-          list="Zauber"
-        />
-        <datalist id="Zauber">
-          {spell.map((spell) => {
-            return <option key={spell.name} value={spell.name} />;
-          })}
-        </datalist>
-        <button type="submit" onClick={handleSubmit}>
-          Senden
-        </button>
-      </form>
     </nav>
   );
 };
