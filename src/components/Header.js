@@ -39,55 +39,73 @@ const Header = () => {
         <span></span>
         <span></span>
         <ul id="menu">
-          <NavLink to="/">
-            <li onClick={handleSth}>Home</li>
-          </NavLink>
-          <NavLink to="/zauber">
-            <li onClick={handleSth}>Zauber</li>
-          </NavLink>
+          <li onClick={handleSth}>
+            {" "}
+            <NavLink to="/">Home</NavLink>
+          </li>
           {!isLoggedIn ? (
             <>
-              <NavLink to="/login">
-                <li onClick={handleSth}>Login</li>
-              </NavLink>
-              <NavLink to="/register">
-                <li onClick={handleSth}>Register</li>
-              </NavLink>
+              <li onClick={handleSth}>
+                <NavLink to="/login">Login</NavLink>
+              </li>
+
+              <li onClick={handleSth}>
+                <NavLink to="/register">Register</NavLink>
+              </li>
             </>
           ) : (
             <>
-              <NavLink to="/myspells">
-                <li onClick={handleSth}>Meine Zauber</li>
-              </NavLink>
-              <NavLink>
-                <li onClick={logout}>Logout</li>
-              </NavLink>
+              <li onClick={handleSth}>
+                {" "}
+                <NavLink>Wiki</NavLink>
+                <ul>
+                   <li onClick={handleSth}>
+                    <NavLink to="/Völker">Völker</NavLink>
+                  </li>
+                  <li onClick={handleSth}>
+                    <NavLink to="/zauber">Zauber</NavLink>
+                  </li>
+                </ul>
+              </li>
+
+              <li onClick={handleSth}>
+                <NavLink to="/myspells">Meine Zauber</NavLink>
+              </li>
+
+              <li onClick={logout}>
+                <NavLink>Logout</NavLink>
+              </li>
             </>
           )}
         </ul>
       </div>
       <div className="navbar-desktop">
         <ul>
-          <NavLink to="/">
-            <li onClick={handleSth}>Home</li>
-          </NavLink>
+          <li onClick={handleSth}>
+            <NavLink to="/">Home</NavLink>
+          </li>
+
           {!isLoggedIn ? (
             <>
-              <NavLink to="/login">
-                <li onClick={handleSth}>Login</li>
-              </NavLink>
-              <NavLink to="/register">
-                <li onClick={handleSth}>Register</li>
-              </NavLink>
+              <li onClick={handleSth}>
+                {" "}
+                <NavLink to="/login">Login</NavLink>
+              </li>
+
+              <li onClick={handleSth}>
+                <NavLink to="/register">Register</NavLink>
+              </li>
             </>
           ) : (
             <>
-              <NavLink to="/myspells">
-                <li onClick={handleSth}>Meine Zauber</li>
-              </NavLink>
-              <NavLink>
-                <li onClick={logout}>Logout</li>
-              </NavLink>
+              <li onClick={handleSth}>
+                {" "}
+                <NavLink to="/myspells">Meine Zauber</NavLink>
+              </li>
+
+              <li onClick={logout}>
+                <NavLink>Logout</NavLink>
+              </li>
             </>
           )}
         </ul>
