@@ -12,6 +12,7 @@ function App() {
   const [searchSpell, setSearchSpell] = useState([]);
   const [filteredSpells, setFilteredSpells] = useState([]);
   const [inhaltsverzeichnis, setInhaltsverzeichnis] = useState([]);
+  const [filterVolk, setFilterVolk] = useState({});
   const [volk, setVolk] = useState([]);
   useEffect(() => {
     // GET request using axios inside useEffect React hook
@@ -49,6 +50,8 @@ function App() {
           inhaltsverzeichnis,
           setInhaltsverzeichnis,
           volk,
+          filterVolk,
+          setFilterVolk,
         }}
       >
         <Layout>
