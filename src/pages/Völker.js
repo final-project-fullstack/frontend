@@ -15,7 +15,7 @@ export default function Völker() {
 
   return (
     <div className="völker">
-      <div className="select">
+      {volk.length> 0 && <div className="select">
         <div className="select-volk">
           <label>Volk auswählen:</label>
           <select onChange={onChangeVolk}>
@@ -30,7 +30,7 @@ export default function Völker() {
             <option>ZWERGE</option>
           </select>
         </div>
-      </div>
+      </div>}
       {filterVolk.length > 0 ? (
         <>
           {filterVolk.map((volk, i) => {
@@ -46,13 +46,13 @@ export default function Völker() {
             );
           })}
         </>
-      ) : (
-        <div className="volk">
+      ) : (<div>
+     {  volk.length> 0 && <div className="volk">
           <h3>{volk[2].name}</h3>
           {volk[2].text.map((info, i) => (
             <p dangerouslySetInnerHTML={{ __html: info }} key={i}></p>
           ))}
-        </div>
+        </div>}</div>
       )}
     </div>
   );
