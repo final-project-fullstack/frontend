@@ -55,15 +55,32 @@ const Header = () => {
             </>
           ) : (
             <>
-              <li onClick={handleSth}>
-                {" "}
-                <NavLink>Wiki</NavLink>
-                <ul>
-                   <li onClick={handleSth}>
-                    <NavLink to="/Völker">Völker</NavLink>
+              <li tabindex="0">
+                <NavLink className="subtitle">Wiki</NavLink>
+                <ul className="submenu">
+                  <li onClick={handleSth}>
+                    <NavLink to="/völker">Völker</NavLink>
+                  </li>
+                  <li onClick={handleSth}>
+                    <NavLink to="/klassen">Klassen</NavLink>
+                  </li>
+                  <li onClick={handleSth}>
+                    <NavLink to="/hintergrund">Hintergrund</NavLink>
+                  </li>
+                  <li onClick={handleSth}>
+                    <NavLink to="/gesinnung-sprachen">Gesinnung</NavLink>
                   </li>
                   <li onClick={handleSth}>
                     <NavLink to="/zauber">Zauber</NavLink>
+                  </li>
+                  <li onClick={handleSth}>
+                    <NavLink to="/waffen">Waffen</NavLink>
+                  </li>
+                  <li onClick={handleSth}>
+                    <NavLink to="/rüstung">Rüstung</NavLink>
+                  </li>
+                  <li onClick={handleSth}>
+                    <NavLink to="/werkzeuge">Werkzeuge</NavLink>
                   </li>
                 </ul>
               </li>
@@ -81,13 +98,13 @@ const Header = () => {
       </div>
       <div className="navbar-desktop">
         <ul>
-          <li onClick={handleSth}>
+          <li>
             <NavLink to="/">Home</NavLink>
           </li>
 
           {!isLoggedIn ? (
             <>
-              <li onClick={handleSth}>
+              <li>
                 {" "}
                 <NavLink to="/login">Login</NavLink>
               </li>
@@ -98,8 +115,39 @@ const Header = () => {
             </>
           ) : (
             <>
-              <li onClick={handleSth}>
-                {" "}
+            <li tabindex="0">
+                <NavLink className="subtitle">Wiki</NavLink>
+                <ul className="submenu">
+                  <li>
+                    <NavLink to="/völker">Völker</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/klassen">Klassen</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/hintergrund">Hintergrund</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/gesinnung-sprachen">Gesinnung</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/zauber">Zauber</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/waffen">Waffen</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/rüstung">Rüstung</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/abenteuerausrüstung">Abenteuerausrüstung</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/werkzeuge">Werkzeuge</NavLink>
+                  </li>
+                </ul>
+              </li>
+              <li>
                 <NavLink to="/myspells">Meine Zauber</NavLink>
               </li>
 
