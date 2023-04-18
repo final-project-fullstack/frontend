@@ -92,7 +92,7 @@ span {
  * Make this absolute positioned
  * at the top left of the screen
  */
-#menu {
+ #menu {
   position: absolute;
   width: 300px;
   margin: -100px 0 0 -50px;
@@ -109,6 +109,37 @@ span {
 
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
+
+/*     submenu navigation links      */
+nav .submenu { 
+  visibility: hidden;  
+  height: 0;
+  z-index: 1000; 
+}
+nav .submenu li { 
+  display: block; 
+  width: 15em;
+}
+nav .subtitle::after {
+	position: absolute;
+	content: " ▶";
+	color: currentColor;
+	display: inline-block;
+	width: 2em;
+	right: 0;
+}
+nav .subtitle:hover::after,
+nav .subtitle:focus::after {
+	content: " ▼";
+}
+/**     Show the submenu on hover, focus     **/
+nav li:hover  .submenu,
+nav li:active  .submenu, 
+nav li:focus  .submenu { 
+  visibility: visible;
+  height: auto;
+}
+
 
 #menu li {
   padding: 10px 0;
@@ -301,7 +332,7 @@ h3 {
   .navbar-desktop {
     display: flex;
   }
-  .navbar-desktop ul {
+  .navbar-desktop > ul{
     display: flex;
   }
   .navbar-desktop ul li {
@@ -319,4 +350,39 @@ h3 {
   #menuToggle {
     display: none;
   }
+
+  .navbar-desktop .subtitle::after {
+    position: absolute;
+    content: " ▶";
+    color: currentColor;
+    display: inline-block;
+    width: 2em;
+    right: 0;
+  }
+  .navbar-desktop .subtitle:hover::after,
+  .navbar-desktop .subtitle:focus::after {
+    content: " ▼";
+  }
+  .navbar-desktop .submenu {
+    visibility: hidden;
+    height: 0;
+    z-index: 1000;
+    position: absolute;
+  }
+  
+  .navbar-desktop .submenu li {
+    display: block;
+    /* width: 15em; */
+  }
+  /**     Show the submenu on hover, focus     **/
+  
+  .navbar-desktop li:hover .submenu,
+  .navbar-desktop li:active .submenu,
+  .navbar-desktop li:focus .submenu {
+    visibility: visible;
+    height: auto;
+  }
+
+  /*     submenu navigation links      */
+
 }
