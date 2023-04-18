@@ -92,7 +92,7 @@ span {
  * Make this absolute positioned
  * at the top left of the screen
  */
-#menu {
+ #menu {
   position: absolute;
   width: 300px;
   margin: -100px 0 0 -50px;
@@ -110,9 +110,40 @@ span {
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 }
 
+/*     submenu navigation links      */
+#menuToggle .submenu { 
+  visibility: hidden;  
+  height: 0;
+  z-index: 1000; 
+}
+#menuToggle .submenu li { 
+  display: block; 
+  width: 15em;
+}
+#menuToggle .subtitle::after {
+	position: absolute;
+	content: " ▶";
+	color: currentColor;
+	display: inline-block;
+	right: 0;
+}
+#menuToggle .subtitle:hover::after,
+#menuToggle .subtitle:focus::after {
+	content: " ▼";
+}
+/**     Show the submenu on hover, focus     **/
+#menuToggle li:hover  .submenu,
+#menuToggle li:active  .submenu, 
+#menuToggle li:focus  .submenu { 
+  visibility: visible;
+  height: auto;
+}
+
+
 #menu li {
   padding: 10px 0;
   font-size: 22px;
+  position: relative;
 }
 
 /*
@@ -124,12 +155,12 @@ span {
 
 /* ------------------------------------------------------------------------------------- */
 
-.home{
+.home {
   padding: 2.5rem;
 }
 
 .home p {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 nav {
@@ -170,7 +201,7 @@ nav form {
   margin: 2.5rem 0;
 }
 
-.home-form button{
+.home-form button {
   margin-top: 1.5rem;
   padding: 5px 10px;
 }
@@ -184,12 +215,12 @@ nav form {
   margin: 1rem;
   width: 130px;
 }
-label{
+label {
   width: 150px;
   padding-left: 1rem;
 }
 
-.select-klasse{
+.select-klasse {
   border-bottom: 2px solid #ffffff;
 }
 
@@ -197,7 +228,7 @@ label{
 .select-grad {
   display: flex;
   align-items: center;
-  background-color: #E8E8E8;
+  background-color: #e8e8e8;
   border-radius: 3px;
 }
 
@@ -209,87 +240,153 @@ label{
   margin: 1rem;
   border-radius: 5px;
   max-width: 430px;
-  box-shadow:  15px 15px 30px #d3d3d3,
-             -15px -15px 30px #fdfdfd;
+  box-shadow: 15px 15px 30px #d3d3d3, -15px -15px 30px #fdfdfd;
 }
 
 .zauber p {
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
 
-.alle-zauber{
+.alle-zauber {
   margin: 1rem;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.meine-zauber-header, .anzahl-zauber{
+.meine-zauber-header,
+.anzahl-zauber {
   text-align: center;
 }
 
-h3{
+h3 {
   padding: 0;
   margin: 0;
 }
 
-.zauber p{
+.zauber p {
   margin-top: 0;
-  margin-bottom: .8rem;
+  margin-bottom: 0.8rem;
   line-height: 1rem;
 }
 
-.navbar-desktop{
+.navbar-desktop {
   display: none;
 }
 
-.inhaltsverzeichnis{
+.inhaltsverzeichnis {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.inhaltsverzeichnis ul{
-list-style-type: none;
-margin: 0;
-padding: 0;
-text-align: center;
+.inhaltsverzeichnis ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
-.inhaltsverzeichnis ul li{
-  margin-bottom: .4rem;
+.inhaltsverzeichnis ul li {
+  margin-bottom: 0.4rem;
 }
 
 .inhaltsverzeichnis a {
   cursor: pointer;
 }
 
-.search{
+.search {
   display: flex;
   justify-content: center;
   margin-top: 2rem;
 }
 
-@media screen and (min-width: 800px){
-  .navbar-desktop{
+.völker {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(./hd-wallpaper-1074131_1920.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.völker select {
+  width: 160px;
+  text-align: center;
+}
+
+.völker .select-volk {
+  margin-top: 3rem;
+  background-color: #e8e8e8;
+  border-radius: 3px;
+}
+
+.volk {
+  padding: 3rem;
+  max-width: 800px;
+}
+
+@media screen and (min-width: 800px) {
+  .navbar-desktop {
     display: flex;
   }
-  .navbar-desktop ul{
+  .navbar-desktop > ul{
     display: flex;
   }
-  .navbar-desktop ul li{
+  .navbar-desktop > ul > li {
     list-style-type: none;
-    color: #ffffff;
     padding-bottom: 3px;
+    position: relative;
   }
-   .navbar-desktop a{
+  .navbar-desktop a {
     text-decoration: none;
+    color: #ffffff;
     margin: 0 1.5rem;
-   }
-   .navbar-desktop a:hover{
+  }
+  .navbar-desktop a:hover {
     border-bottom: 3px solid #ffffff;
-   }
-  #menuToggle{
+  }
+  #menuToggle {
     display: none;
   }
+
+  .navbar-desktop .subtitle::after {
+    position: absolute;
+    content: " ▶";
+    color: currentColor;
+    display: inline-block;
+    right: 0;
+  }
+  .navbar-desktop .subtitle:hover::after {
+    content: " ▼";
+  }
+  .navbar-desktop .submenu {
+    color: #232323;
+    visibility: hidden;
+    height: 0;
+    z-index: 1000;
+    position: absolute;
+    background-color: #f05454;
+    padding:0;
+  }
+  
+  .navbar-desktop .submenu li {
+    display: block;
+    padding: 5px 0px 5px 0px;
+
+    /* width: 15em; */
+  }
+  /**     Show the submenu on hover, focus     **/
+  
+  .navbar-desktop li:hover .submenu,
+  .navbar-desktop li:active .submenu,
+  .navbar-desktop li:focus .submenu {
+    visibility: visible;
+    height: auto;
+  }
+
+  /*     submenu navigation links      */
+
 }
