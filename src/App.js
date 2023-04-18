@@ -12,11 +12,18 @@ function App() {
   const [searchSpell, setSearchSpell] = useState([]);
   const [filteredSpells, setFilteredSpells] = useState([]);
   const [inhaltsverzeichnis, setInhaltsverzeichnis] = useState([]);
+  const [filterVolk, setFilterVolk] = useState({});
+  const [volk, setVolk] = useState([]);
   useEffect(() => {
     // GET request using axios inside useEffect React hook
     axios
       .get("http://localhost:3001/spell/getAll")
       .then((response) => setSpell(response.data))
+      .catch((err) => console.log(err));
+
+    axios
+      .get("http://localhost:3001/race/")
+      .then((response) => setVolk(response.data.allRace))
       .catch((err) => console.log(err));
 
     axios
@@ -42,6 +49,9 @@ function App() {
           setFilteredSpells,
           inhaltsverzeichnis,
           setInhaltsverzeichnis,
+          volk,
+          filterVolk,
+          setFilterVolk,
         }}
       >
         <Layout>
@@ -57,4 +67,3 @@ function App() {
 }
 
 export default App;
-

@@ -20,6 +20,10 @@ const Zauber = () => {
     setInhaltsverzeichnis,
   } = useContext(userContext);
 
+  function SortArray(x, y) {
+    return x.name.localeCompare(y.name);
+  }
+
   const onChangeKlasse = (event) => {
     const value = event.target.value;
     setSelectValue((selectValue) => ({ ...selectValue, klasse: value }));
@@ -31,7 +35,7 @@ const Zauber = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const spellFilter = spell.filter((spell) => {
+    const spellFilter = spell.sort(SortArray).filter((spell) => {
       return (
         spell.klassen.includes(selectValue.klasse) &&
         spell.grad === selectValue.grad
@@ -52,7 +56,7 @@ const Zauber = () => {
 
   const handleSearch = async (e) => {
     e.preventDefault();
-    const spellFilter = spell.filter((spell) => {
+    const spellFilter = spell.sort(SortArray).filter((spell) => {
       return spell.name.includes(searchSpell);
     });
     setFilteredSpells(spellFilter);
