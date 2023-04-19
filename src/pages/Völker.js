@@ -8,7 +8,7 @@ export default function Völker() {
   const onChangeVolk = (event) => {
     const value = event.target.value;
     const volkFilter = volk.filter((info) => {
-      return info.name === value;
+      return info.name === value.toUpperCase();
     });
     setFilterVolk(volkFilter);
   };
@@ -21,14 +21,14 @@ export default function Völker() {
           <label>Volk auswählen:</label>
           <select onChange={onChangeVolk}>
             <option>Volk auswählen</option>
-            <option>ELFEN</option>
-            <option>DRACHENBLÜTIGE</option>
-            <option>GNOME</option>
-            <option>HALBELFEN</option>
-            <option>HALBLINGE</option>
-            <option>MENSCHEN</option>
-            <option>TIEFLINGE</option>
-            <option>ZWERGE</option>
+            <option>Elfen</option>
+            <option>Drachenblütige</option>
+            <option>Gnome</option>
+            <option>Halbelfen</option>
+            <option>Halblinge</option>
+            <option>Menschen</option>
+            <option>Tieflinge</option>
+            <option>Zwerge</option>
           </select>
         </div>
       </div>}
