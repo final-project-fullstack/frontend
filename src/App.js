@@ -40,7 +40,7 @@ function App() {
       .catch((err) => console.log(err));
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }, []);
-  console.log(isLoggedIn);
+  console.log(isLoggedIn, volk);
   return (
     <BrowserRouter>
       <UserContext.Provider
