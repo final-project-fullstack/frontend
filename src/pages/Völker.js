@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import userContext from "../context/userContext";
 
 export default function Völker() {
-  const { volk, filterVolk, setFilterVolk } = useContext(userContext);
+  const { volk} = useContext(userContext);
+  const [filterVolk, setFilterVolk] = useState([]);
 
   const onChangeVolk = (event) => {
     const value = event.target.value;

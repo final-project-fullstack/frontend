@@ -1,6 +1,7 @@
 span {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   text-decoration: underline;
+  font-weight: 600;
 }
 
 #menuToggle {
@@ -92,7 +93,7 @@ span {
  * Make this absolute positioned
  * at the top left of the screen
  */
- #menu {
+#menu {
   position: absolute;
   width: 300px;
   margin: -100px 0 0 -50px;
@@ -114,7 +115,7 @@ span {
 #menuToggle .submenu { 
   visibility: hidden;  
   height: 0;
-  z-index: 1000; 
+  z-index: 1000;
 }
 #menuToggle .submenu li { 
   display: block; 
@@ -138,7 +139,6 @@ span {
   visibility: visible;
   height: auto;
 }
-
 
 #menu li {
   padding: 10px 0;
@@ -298,7 +298,7 @@ h3 {
 .search {
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
+  padding-top: 2rem;
 }
 
 .völker {
@@ -306,14 +306,11 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url(./hd-wallpaper-1074131_1920.jpg);
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
+  padding: 0 2rem;
 }
 
 .völker select {
-  width: 160px;
+  width: 150px;
   text-align: center;
 }
 
@@ -324,15 +321,31 @@ h3 {
 }
 
 .volk {
-  padding: 3rem;
   max-width: 800px;
+  width: 100%;
+  margin-top: 3rem;
+}
+
+.volk table {
+  margin-top: 1rem;
+  display: block;
+  overflow-x: scroll;
+}
+
+.volk table th,
+.volk table td {
+  padding: 2px 8px;
+}
+
+.volk table tr:nth-child(odd) {
+  background-color: rgb(172, 211, 172);
 }
 
 @media screen and (min-width: 800px) {
   .navbar-desktop {
     display: flex;
   }
-  .navbar-desktop > ul{
+  .navbar-desktop > ul {
     display: flex;
   }
   .navbar-desktop > ul > li {
@@ -371,7 +384,7 @@ h3 {
     background-color: #f05454;
     padding:0;
   }
-  
+
   .navbar-desktop .submenu li {
     display: block;
     padding: 5px 0px 5px 0px;
@@ -379,7 +392,7 @@ h3 {
     /* width: 15em; */
   }
   /**     Show the submenu on hover, focus     **/
-  
+
   .navbar-desktop li:hover .submenu,
   .navbar-desktop li:active .submenu,
   .navbar-desktop li:focus .submenu {
@@ -388,5 +401,7 @@ h3 {
   }
 
   /*     submenu navigation links      */
-
+  .volk {
+    margin-top: 2rem;
+  }
 }
