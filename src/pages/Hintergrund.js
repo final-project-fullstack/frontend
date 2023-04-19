@@ -46,8 +46,8 @@ export default function Hintergrund() {
         </>
       ) : (<div>
      {  hintergrund.length> 0 && <div className="hintergrund">
-          <h3>{hintergrund[2].name}</h3>
-          {hintergrund[2].text.map((info, i) => (
+          <h3>{hintergrund[3].name}</h3>
+          {hintergrund[3].text.map((info, i) => (
             <p dangerouslySetInnerHTML={{ __html: info }} key={i}></p>
           ))}
         </div>}</div>
