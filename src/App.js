@@ -12,8 +12,10 @@ function App() {
   const [searchSpell, setSearchSpell] = useState([]);
   const [filteredSpells, setFilteredSpells] = useState([]);
   const [inhaltsverzeichnis, setInhaltsverzeichnis] = useState([]);
-  const [filterVolk, setFilterVolk] = useState({});
+  const [filterVolk, setFilterVolk] = useState([]);
   const [volk, setVolk] = useState([]);
+  const [hintergrund, setHintergrund] = useState([]);
+  const [filterHintergrund, setFiltrHintergrund] = useState([]);
   useEffect(() => {
     // GET request using axios inside useEffect React hook
     axios
@@ -25,6 +27,10 @@ function App() {
       .get("http://localhost:3001/race/")
       .then((response) => setVolk(response.data.allRace))
       .catch((err) => console.log(err));
+    axios
+      .get("http://localhost:3001/background/getAll")
+      .then((response) => setHintergrund(response.data))
+      .catch((err) => console.log(err));
 
     axios
       .get("http://localhost:3001/user/checkCookie", {
@@ -34,7 +40,7 @@ function App() {
       .catch((err) => console.log(err));
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }, []);
-  console.log(isLoggedIn, volk);
+  console.log(isLoggedIn);
   return (
     <BrowserRouter>
       <UserContext.Provider
@@ -52,6 +58,9 @@ function App() {
           volk,
           filterVolk,
           setFilterVolk,
+          hintergrund,
+          filterHintergrund,
+          setFiltrHintergrund,
         }}
       >
         <Layout>
