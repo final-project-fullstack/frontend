@@ -12,8 +12,9 @@ function App() {
   const [searchSpell, setSearchSpell] = useState([]);
   const [filteredSpells, setFilteredSpells] = useState([]);
   const [inhaltsverzeichnis, setInhaltsverzeichnis] = useState([]);
-  const [filterVolk, setFilterVolk] = useState([]);
   const [volk, setVolk] = useState([]);
+  const [klassen, setKlassen] = useState([]);
+
   const [hintergrund, setHintergrund] = useState([]);
   const [filterHintergrund, setFiltrHintergrund] = useState([]);
   useEffect(() => {
@@ -30,6 +31,11 @@ function App() {
     axios
       .get("http://localhost:3001/background/getAll")
       .then((response) => setHintergrund(response.data))
+      .catch((err) => console.log(err));
+
+    axios
+      .get("http://localhost:3001/classes/")
+      .then((response) => setKlassen(response.data.allClasses))
       .catch((err) => console.log(err));
 
     axios
@@ -56,8 +62,7 @@ function App() {
           inhaltsverzeichnis,
           setInhaltsverzeichnis,
           volk,
-          filterVolk,
-          setFilterVolk,
+          klassen,
           hintergrund,
           filterHintergrund,
           setFiltrHintergrund,
