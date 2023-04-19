@@ -33,6 +33,11 @@ function App() {
       .catch((err) => console.log(err));
 
     axios
+      .get("http://localhost:3001/equipment/")
+      .then((response) => setKlassen(response.data.allEquipment))
+      .catch((err) => console.log(err));
+
+    axios
       .get("http://localhost:3001/user/checkCookie", {
         withCredentials: true,
       })
