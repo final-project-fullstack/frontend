@@ -12,7 +12,7 @@ export default function Völker() {
     });
     setFilterVolk(volkFilter);
   };
-  console.log(filterVolk);
+  console.log(volk);
 
   return (
     <div className="völker">
@@ -49,8 +49,8 @@ export default function Völker() {
         </>
       ) : (<div>
      {  volk.length> 0 && <div className="volk">
-          <h3>{volk[2].name}</h3>
-          {volk[2].text.map((info, i) => (
+          <h3>{volk[0].name}</h3>
+          {volk[0].text.map((info, i) => (
             <p dangerouslySetInnerHTML={{ __html: info }} key={i}></p>
           ))}
         </div>}</div>
