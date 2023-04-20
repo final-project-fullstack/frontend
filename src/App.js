@@ -14,7 +14,8 @@ function App() {
   const [inhaltsverzeichnis, setInhaltsverzeichnis] = useState([]);
   const [volk, setVolk] = useState([]);
   const [klassen, setKlassen] = useState([]);
-  const [ausrüstung, setAusrüstung] = useState([]);
+  const [ausrüstung, setAusrüstung] = useState([]);  const [gesinnung, setGesinnung] = useState([]);
+  const [sprachen, setSprachen] = useState([]);
   const [hintergrund, setHintergrund] = useState([]);
   const [filterHintergrund, setFiltrHintergrund] = useState([]);
   const [waffen, setWaffen] = useState([]);
@@ -56,6 +57,16 @@ function App() {
       .catch((err) => console.log(err));
 
     axios
+      .get("http://localhost:3001/language/getAll")
+      .then((response) => setSprachen(response.data.allLanguage))
+      .catch((err) => console.log(err));
+
+    axios
+      .get("http://localhost:3001/attitude/getAll")
+      .then((response) => setGesinnung(response.data.attitudes))
+      .catch((err) => console.log(err));
+
+    axios
       .get("http://localhost:3001/user/checkCookie", {
         withCredentials: true,
       })
@@ -63,7 +74,7 @@ function App() {
       .catch((err) => console.log(err));
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }, []);
-  console.log(isLoggedIn);
+  console.log(isLoggedIn, gesinnung);
   return (
     <BrowserRouter>
       <UserContext.Provider
@@ -86,6 +97,8 @@ function App() {
           ausrüstung,
           waffen,
           rüstung,
+          gesinnung,
+          sprachen,
         }}
       >
         <Layout>
