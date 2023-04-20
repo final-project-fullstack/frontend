@@ -7,7 +7,8 @@ const Header = () => {
   const navigate = useNavigate();
   const [checkStatus, setChange] = useState(false);
   const [show, setShow] = useState(false);
-  const { isLoggedIn, setIsLoggedIn } = useContext(userContext);
+  const { isLoggedIn, setIsLoggedIn, user, setUser } = useContext(userContext);
+
 
   const handleSth = (e) => {
     setChange(!checkStatus);
@@ -18,6 +19,7 @@ const Header = () => {
 
   const logout = async (e) => {
     setIsLoggedIn(false);
+    setUser([])
     setChange(!checkStatus);
     const response = await axios.get(
       "http://localhost:3001/user/delete-cookie",
@@ -39,6 +41,9 @@ const Header = () => {
         <span></span>
         <span></span>
         <ul id="menu">
+          <li >
+            <NavLink to="/">{user.userName}</NavLink>
+          </li>
           <li onClick={handleSth}>
             {" "}
             <NavLink to="/">Home</NavLink>
@@ -105,6 +110,9 @@ const Header = () => {
       </div>
       <div className="navbar-desktop">
         <ul>
+          <li >
+            <NavLink to="/">{user.userName}</NavLink>
+          </li>
           <li>
             <NavLink to="/">Home</NavLink>
           </li>
