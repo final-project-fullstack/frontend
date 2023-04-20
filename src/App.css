@@ -377,6 +377,10 @@ h3 {
   background-color: rgb(172, 211, 172);
 }
 
+.waffen{
+  max-width: 360px;
+}
+
 @media screen and (min-width: 800px) {
   .navbar-desktop {
     display: flex;

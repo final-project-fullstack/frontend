@@ -17,6 +17,7 @@ function App() {
   const [ausrüstung, setAusrüstung] = useState([]);
   const [hintergrund, setHintergrund] = useState([]);
   const [filterHintergrund, setFiltrHintergrund] = useState([]);
+  const [waffen, setWaffen] = useState([]);
   useEffect(() => {
     // GET request using axios inside useEffect React hook
     axios
@@ -42,6 +43,11 @@ function App() {
       .get("http://localhost:3001/equipment/")
       .then((response) => setAusrüstung(response.data.equipment))
       .catch((err) => console.log(err));
+
+      axios
+        .get("http://localhost:3001/weapon/")
+        .then((response) => setWaffen(response.data.allWeapon))
+        .catch((err) => console.log(err));
 
     axios
       .get("http://localhost:3001/user/checkCookie", {
@@ -71,7 +77,8 @@ function App() {
           hintergrund,
           filterHintergrund,
           setFiltrHintergrund,
-          ausrüstung
+          ausrüstung,
+          waffen
         }}
       >
         <Layout>
