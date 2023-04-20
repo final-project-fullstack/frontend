@@ -356,7 +356,7 @@ h3 {
 }
 
 .volk,
-.hintergrund , .sprache{
+.hintergrund , .sprache, .gesinnung{
   max-width: 800px;
   width: 100%;
   margin-top: 3rem;
@@ -374,7 +374,7 @@ h3 {
   padding: 2px 8px;
 }
 
-.volk table tr:nth-child(odd), .sprache table tr:nth-child(odd)  {
+.volk table tr:nth-child(odd), .sprache table thead tr:nth-child(odd), .sprache table tbody tr:nth-child(even) {
   background-color: rgb(172, 211, 172);
 }
 
