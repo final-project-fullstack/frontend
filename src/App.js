@@ -14,11 +14,15 @@ function App() {
   const [inhaltsverzeichnis, setInhaltsverzeichnis] = useState([]);
   const [volk, setVolk] = useState([]);
   const [klassen, setKlassen] = useState([]);
-  const [ausrüstung, setAusrüstung] = useState([]);
+  const [ausrüstung, setAusrüstung] = useState([]); const [gesinnung, setGesinnung] = useState([]);
+  const [sprachen, setSprachen] = useState([]);
   const [hintergrund, setHintergrund] = useState([]);
   const [filterHintergrund, setFiltrHintergrund] = useState([]);
+  const [user, setUser] = useState([]);
+
   const [waffen, setWaffen] = useState([]);
   const [rüstung, setRüstung] = useState([]);
+  const [werkzeuge, setWerkzeuge] = useState([]);
   useEffect(() => {
     // GET request using axios inside useEffect React hook
     axios
@@ -56,14 +60,31 @@ function App() {
       .catch((err) => console.log(err));
 
     axios
+      .get("http://localhost:3001/language/getAll")
+      .then((response) => setSprachen(response.data.allLanguage))
+      .catch((err) => console.log(err));
+
+    axios
+      .get("http://localhost:3001/attitude/getAll")
+      .then((response) => setGesinnung(response.data.attitudes))
+      .catch((err) => console.log(err));
+
+    axios
+      .get("http://localhost:3001/tool/getAll")
+      .then((response) => setWerkzeuge(response.data.tool))
+      .catch((err) => console.log(err));
+
+    axios
       .get("http://localhost:3001/user/checkCookie", {
         withCredentials: true,
       })
-      .then((response) => setIsLoggedIn(response.data))
+      .then((response) => ([setIsLoggedIn(response.data._id ? true : false, setUser(response.data))]))
+      // .then((response) => setUser(response.data))
       .catch((err) => console.log(err));
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }, []);
   console.log(isLoggedIn);
+
   return (
     <BrowserRouter>
       <UserContext.Provider
@@ -84,8 +105,13 @@ function App() {
           filterHintergrund,
           setFiltrHintergrund,
           ausrüstung,
+          setUser,
+          user,
           waffen,
           rüstung,
+          gesinnung,
+          sprachen,
+          werkzeuge,
         }}
       >
         <Layout>
