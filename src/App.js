@@ -14,6 +14,7 @@ function App() {
   const [inhaltsverzeichnis, setInhaltsverzeichnis] = useState([]);
   const [volk, setVolk] = useState([]);
   const [klassen, setKlassen] = useState([]);
+  const [ausrüstung, setAusrüstung] = useState([]);
 
   useEffect(() => {
     // GET request using axios inside useEffect React hook
@@ -34,7 +35,7 @@ function App() {
 
     axios
       .get("http://localhost:3001/equipment/")
-      .then((response) => setKlassen(response.data.allEquipment))
+      .then((response) => setAusrüstung(response.data.equipment))
       .catch((err) => console.log(err));
 
     axios
@@ -45,7 +46,7 @@ function App() {
       .catch((err) => console.log(err));
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }, []);
-  console.log(isLoggedIn, volk);
+  console.log(isLoggedIn);
   return (
     <BrowserRouter>
       <UserContext.Provider
@@ -62,6 +63,7 @@ function App() {
           setInhaltsverzeichnis,
           volk,
           klassen,
+          ausrüstung
         }}
       >
         <Layout>

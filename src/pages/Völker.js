@@ -12,7 +12,6 @@ export default function Völker() {
     });
     setFilterVolk(volkFilter);
   };
-  console.log(filterVolk);
 
   return (
     <div className="völker">

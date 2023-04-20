@@ -301,23 +301,35 @@ h3 {
   padding-top: 2rem;
 }
 
-.völker {
+.völker, .ausrüstung {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   padding: 0 2rem;
 }
 
-.völker select {
+.völker select, .völker .ausrüstung {
   width: 150px;
   text-align: center;
 }
 
-.völker .select-volk {
+.völker .select-volk, .ausrüstung .select-volk {
   margin-top: 3rem;
   background-color: #e8e8e8;
   border-radius: 3px;
+}
+
+.ausrüstung{
+  margin-bottom: 2rem;
+}
+
+.ausrüstung h3 {
+  margin-top: 2rem;
+}
+
+.ausrüstung p {
+  padding: .3rem 0;
+  margin: 0;
 }
 
 .volk {
