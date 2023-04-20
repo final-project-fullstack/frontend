@@ -68,7 +68,9 @@ const Header = () => {
                     <NavLink to="/hintergrund">Hintergrund</NavLink>
                   </li>
                   <li onClick={handleSth}>
-                    <NavLink to="/gesinnung-sprachen">Gesinnung</NavLink>
+                    <NavLink to="/gesinnung-sprachen">
+                      Gesinnung & Sprachen
+                    </NavLink>
                   </li>
                   <li onClick={handleSth}>
                     <NavLink to="/zauber">Zauber</NavLink>
@@ -78,6 +80,11 @@ const Header = () => {
                   </li>
                   <li onClick={handleSth}>
                     <NavLink to="/rüstung">Rüstung</NavLink>
+                  </li>
+                  <li onClick={handleSth}>
+                    <NavLink to="/abenteuerausrüstung">
+                      Abenteuerausrüstung
+                    </NavLink>
                   </li>
                   <li onClick={handleSth}>
                     <NavLink to="/werkzeuge">Werkzeuge</NavLink>
@@ -115,7 +122,7 @@ const Header = () => {
             </>
           ) : (
             <>
-            <li tabindex="0">
+              <li tabindex="0">
                 <NavLink className="subtitle">Wiki</NavLink>
                 <ul className="submenu">
                   <li>
@@ -128,7 +135,9 @@ const Header = () => {
                     <NavLink to="/hintergrund">Hintergrund</NavLink>
                   </li>
                   <li>
-                    <NavLink to="/gesinnung-sprachen">Gesinnung</NavLink>
+                    <NavLink to="/gesinnung-sprachen">
+                      Gesinnung & Sprachen
+                    </NavLink>
                   </li>
                   <li>
                     <NavLink to="/zauber">Zauber</NavLink>
@@ -140,7 +149,9 @@ const Header = () => {
                     <NavLink to="/rüstung">Rüstung</NavLink>
                   </li>
                   <li>
-                    <NavLink to="/abenteuerausrüstung">Abenteuerausrüstung</NavLink>
+                    <NavLink to="/abenteuerausrüstung">
+                      Abenteuerausrüstung
+                    </NavLink>
                   </li>
                   <li>
                     <NavLink to="/werkzeuge">Werkzeuge</NavLink>

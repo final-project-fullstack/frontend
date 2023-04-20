@@ -4,7 +4,10 @@ import userContext from "../context/userContext";
 export default function Völker() {
   const { volk} = useContext(userContext);
   const [filterVolk, setFilterVolk] = useState([]);
-
+  function sortArray(x, y) {
+    return x.name.localeCompare(y.name);
+  }
+volk.sort(sortArray)
   const onChangeVolk = (event) => {
     const value = event.target.value;
     const volkFilter = volk.filter((info) => {
@@ -48,8 +51,8 @@ export default function Völker() {
         </>
       ) : (<div>
      {  volk.length> 0 && <div className="volk">
-          <h3>{volk[2].name}</h3>
-          {volk[2].text.map((info, i) => (
+          <h3>{volk[7].name}</h3>
+          {volk[7].text.map((info, i) => (
             <p dangerouslySetInnerHTML={{ __html: info }} key={i}></p>
           ))}
         </div>}</div>

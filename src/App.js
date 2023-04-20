@@ -16,6 +16,8 @@ function App() {
   const [klassen, setKlassen] = useState([]);
   const [ausrüstung, setAusrüstung] = useState([]);
 
+  const [hintergrund, setHintergrund] = useState([]);
+  const [filterHintergrund, setFiltrHintergrund] = useState([]);
   useEffect(() => {
     // GET request using axios inside useEffect React hook
     axios
@@ -26,6 +28,10 @@ function App() {
     axios
       .get("http://localhost:3001/race/")
       .then((response) => setVolk(response.data.allRace))
+      .catch((err) => console.log(err));
+    axios
+      .get("http://localhost:3001/background/getAll")
+      .then((response) => setHintergrund(response.data))
       .catch((err) => console.log(err));
 
     axios
@@ -63,6 +69,9 @@ function App() {
           setInhaltsverzeichnis,
           volk,
           klassen,
+          hintergrund,
+          filterHintergrund,
+          setFiltrHintergrund,
           ausrüstung
         }}
       >
