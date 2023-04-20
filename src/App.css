@@ -310,7 +310,7 @@ h3 {
 
 .völker,
 .hintergründe,
-.ausrüstung {
+.ausrüstung, .gesinnungenSprachen {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -360,25 +360,25 @@ h3 {
 }
 
 .volk,
-.hintergrund {
+.hintergrund , .sprache{
   max-width: 800px;
   width: 100%;
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
 
-.volk table {
+.volk table, .sprache table {
   margin-top: 1rem;
   display: block;
   overflow-x: scroll;
 }
 
 .volk table th,
-.volk table td {
+.volk table td, .sprache table th, .sprache table td {
   padding: 2px 8px;
 }
 
-.volk table tr:nth-child(odd) {
+.volk table tr:nth-child(odd), .sprache table tr:nth-child(odd)  {
   background-color: rgb(172, 211, 172);
 }
 
