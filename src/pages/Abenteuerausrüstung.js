@@ -30,7 +30,7 @@ export default function Abenteuerausrüstung() {
       </div>
 
       {filterAusrüstung.length > 0 && (
-        <>
+        <div className="volk">
           {filterAusrüstung[0].array.map((item, i) => {
             return (
               <div key={item._id}>
@@ -57,7 +57,7 @@ export default function Abenteuerausrüstung() {
               </div>
             );
           })}
-        </>
+        </div>
       )}
     </div>
   );

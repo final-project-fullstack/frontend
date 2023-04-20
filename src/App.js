@@ -14,11 +14,14 @@ function App() {
   const [inhaltsverzeichnis, setInhaltsverzeichnis] = useState([]);
   const [volk, setVolk] = useState([]);
   const [klassen, setKlassen] = useState([]);
-  const [ausrüstung, setAusrüstung] = useState([]);
+  const [ausrüstung, setAusrüstung] = useState([]); const [gesinnung, setGesinnung] = useState([]);
+  const [sprachen, setSprachen] = useState([]);
   const [hintergrund, setHintergrund] = useState([]);
   const [filterHintergrund, setFiltrHintergrund] = useState([]);
   const [user, setUser] = useState([]);
 
+  const [waffen, setWaffen] = useState([]);
+  const [rüstung, setRüstung] = useState([]);
   useEffect(() => {
     // GET request using axios inside useEffect React hook
     axios
@@ -43,6 +46,26 @@ function App() {
     axios
       .get("http://localhost:3001/equipment/")
       .then((response) => setAusrüstung(response.data.equipment))
+      .catch((err) => console.log(err));
+
+    axios
+      .get("http://localhost:3001/weapon/")
+      .then((response) => setWaffen(response.data.allWeapon))
+      .catch((err) => console.log(err));
+
+    axios
+      .get("http://localhost:3001/armor/")
+      .then((response) => setRüstung(response.data.allArmor))
+      .catch((err) => console.log(err));
+
+    axios
+      .get("http://localhost:3001/language/getAll")
+      .then((response) => setSprachen(response.data.allLanguage))
+      .catch((err) => console.log(err));
+
+    axios
+      .get("http://localhost:3001/attitude/getAll")
+      .then((response) => setGesinnung(response.data.attitudes))
       .catch((err) => console.log(err));
 
     axios
@@ -77,7 +100,11 @@ function App() {
           setFiltrHintergrund,
           ausrüstung,
           setUser,
-          user
+          user,
+          waffen,
+          rüstung,
+          gesinnung,
+          sprachen,
         }}
       >
         <Layout>
