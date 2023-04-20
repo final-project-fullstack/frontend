@@ -15,34 +15,36 @@ export default function Waffen() {
   console.log(waffen);
 
   return (
-    <div className="völker">
-      <div className="select">
-        <div className="select-volk">
-          <label>Waffe auswählen:</label>
-          <select onChange={onChangeKlasse}>
-            <option>Waffe auswählen</option>
-            <option>Einfache Nahkampfwaffen</option>
-            <option>Einfache Fernkampfwaffen</option>
-            <option>Nahkampf-Kriegswaffen</option>
-            <option>Fernkampf-Kriegswaffen</option>
-          </select>
+    <div className="container">
+      <div className="völker">
+        <div className="select">
+          <div className="select-volk">
+            <label>Waffe auswählen:</label>
+            <select onChange={onChangeKlasse}>
+              <option>Waffe auswählen</option>
+              <option>Einfache Nahkampfwaffen</option>
+              <option>Einfache Fernkampfwaffen</option>
+              <option>Nahkampf-Kriegswaffen</option>
+              <option>Fernkampf-Kriegswaffen</option>
+            </select>
+          </div>
         </div>
+        {filterWaffen.length > 0 && (
+          <>
+            {filterWaffen.map((waffe, i) => {
+              return (
+                <div className="volk waffen" key={i}>
+                  <h3>{waffe.name}</h3>
+                  <p>Kosten: {waffe.kosten} Kupfer</p>
+                  <p>Gewicht: {waffe.gewicht} Pfund</p>
+                  <p>Schaden: {waffe.schaden}</p>
+                  <p>Eigenschaft: {waffe.eigenschaft}</p>
+                </div>
+              );
+            })}
+          </>
+        )}
       </div>
-      {filterWaffen.length > 0 && (
-        <>
-          {filterWaffen.map((waffe, i) => {
-            return (
-              <div className="volk waffen" key={i}>
-                <h3>{waffe.name}</h3>
-                <p>Kosten: {waffe.kosten} Kupfer</p>
-                <p>Gewicht: {waffe.gewicht} Pfund</p>
-                <p>Schaden: {waffe.schaden}</p>
-                <p>Eigenschaft: {waffe.eigenschaft}</p>
-              </div>
-            );
-          })}
-        </>
-      )}
     </div>
   );
 }
