@@ -1,30 +1,30 @@
 import { useEffect, useState } from "react";
 import style from "./DicerStyle.module.css";
 
-const DicerPoolDEight = () => {
+const DicerPoolDHundred = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    const storedItems = localStorage.getItem(`dicerItemsD8`);
+    const storedItems = localStorage.getItem(`dicerItemsD100`);
     if (storedItems) {
       setItems(JSON.parse(storedItems));
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem(`dicerItemsD8`, JSON.stringify(items));
+    localStorage.setItem(`dicerItemsD100`, JSON.stringify(items));
   }, [items]);
 
-  const addDEight = () => {
+  const addDHundred = () => {
     setItems((cur) => [
       ...cur,
-      { id: cur.length, number: Math.floor(Math.random() * 8 + 1) },
+      { id: cur.length, number: Math.floor(Math.random() * 100 + 1) },
     ]);
   };
 
   const clearItems = () => {
     setItems([]);
-    localStorage.removeItem(`dicerItemsD8`);
+    localStorage.removeItem(`dicerItemsD100`);
   };
 
   return (
@@ -32,24 +32,24 @@ const DicerPoolDEight = () => {
       <div className={style.dicer}>
         <button className={style.removeButton} onClick={clearItems}>
           Remove
-          <br /> W8
+          <br /> W100
         </button>
-        <button className={style.addButton} onClick={addDEight}>
+        <button className={style.addButton} onClick={addDHundred}>
           <div className={style.buttonTxt}>
-            + <br /> W8
+            + <br /> W100
           </div>
           {items.map((item) => {
             return (
               <div key={item.id}>
                 <div className={style.cube}>
                   <div className={style.front}>
-                    <a className={style.a}>{item.number}</a>
+                    <a className={style.image}></a>
                   </div>
                   <div className={style.top}>
                     <a className={style.a}>{item.number}</a>
                   </div>
                   <div className={style.left}>
-                    <a className={style.a}>{item.number}</a>
+                    <a className={style.image}></a>
                   </div>
                 </div>
               </div>
@@ -61,4 +61,4 @@ const DicerPoolDEight = () => {
   );
 };
 
-export default DicerPoolDEight;
+export default DicerPoolDHundred;

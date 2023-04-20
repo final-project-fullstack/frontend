@@ -2,11 +2,14 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import userContext from "../context/userContext";
+import style from "./dicer/DicerStyle.module.css";
+import DicerPoolDThree from "./dicer/dThree";
 
 const Header = () => {
   const navigate = useNavigate();
   const [checkStatus, setChange] = useState(false);
   const [show, setShow] = useState(false);
+
   const { isLoggedIn, setIsLoggedIn } = useContext(userContext);
 
   const handleSth = (e) => {
@@ -168,6 +171,10 @@ const Header = () => {
             </>
           )}
         </ul>
+      </div>
+      {/* Würfel-logo */}
+      <div className="logoContainer">
+        <DicerPoolDThree />
       </div>
     </nav>
   );
