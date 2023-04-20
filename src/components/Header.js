@@ -54,7 +54,6 @@ const Header = () => {
           <span></span>
           <ul id="menu">
             <li onClick={handleSth}>
-              {" "}
               <NavLink to="/">Home</NavLink>
             </li>
             {!isLoggedIn ? (
@@ -198,7 +197,7 @@ const Header = () => {
       </nav>
 
       {isChildVisible && (
-        <div className={style.logoContainer}>
+        <div>
           <PoolContainer />
         </div>
       )}
