@@ -68,7 +68,7 @@ const Zauber = () => {
   };
 
   return (
-    <div>
+    <div className="zauber-container">
       <form className="search">
         <input
           onChange={changeValue}
