@@ -15,7 +15,6 @@ function App() {
   const [volk, setVolk] = useState([]);
   const [klassen, setKlassen] = useState([]);
   const [ausrüstung, setAusrüstung] = useState([]);
-
   const [hintergrund, setHintergrund] = useState([]);
   const [filterHintergrund, setFiltrHintergrund] = useState([]);
   useEffect(() => {

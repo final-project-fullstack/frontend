@@ -22,8 +22,8 @@ export default function Abenteuerausrüstung() {
           <label>Ausrüstung auswählen:</label>
           <select onChange={onChangeKlasse}>
             <option>Ausrüstungen</option>
-            {ausrüstung.map((name) => (
-              <option>{name.name}</option>
+            {ausrüstung.map((name,i) => (
+              <option key={i}>{name.name}</option>
             ))}
           </select>
         </div>
@@ -33,8 +33,8 @@ export default function Abenteuerausrüstung() {
         <>
           {filterAusrüstung[0].array.map((item, i) => {
             return (
-              <>
-                <h3 key={i}>{item.name}</h3>
+              <div key={item._id}>
+                <h3>{item.name}</h3>
 
                 {item.hasOwnProperty("kosten") && (
                   <p>
@@ -54,7 +54,7 @@ export default function Abenteuerausrüstung() {
                 {item.hasOwnProperty("beschreibung") && (
                   <p>{item.beschreibung}</p>
                 )}
-              </>
+              </div>
             );
           })}
         </>
