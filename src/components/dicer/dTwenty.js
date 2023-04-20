@@ -1,8 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import style from "./DicerStyle.module.css";
 
 const DicerPoolDTwenty = () => {
   const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    const storedItems = localStorage.getItem(`dicerItemsD20`);
+    if (storedItems) {
+      setItems(JSON.parse(storedItems));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(`dicerItemsD20`, JSON.stringify(items));
+  }, [items]);
 
   const addDTwenty = () => {
     setItems((cur) => [
@@ -11,32 +22,42 @@ const DicerPoolDTwenty = () => {
     ]);
   };
 
+  const clearItems = () => {
+    setItems([]);
+    localStorage.removeItem(`dicerItemsD20`);
+  };
+
   return (
     <div>
-      <button className={style.button2} onClick={() => setItems([])}>
-        Remove
-      </button>
-      <button className={style.button} onClick={addDTwenty}>
-        + <br />
-        W20
-        {items.map((item) => {
-          return (
-            <div key={item.id}>
-              <div className={style.cube}>
-                <div className={style.front}>
-                  <a className={style.img}></a>
-                </div>
-                <div className={style.top}>
-                  <a className={style.a}>{item.number}</a>
-                </div>
-                <div className={style.left}>
-                  <a className={style.img}></a>
+      <div className={style.dicer}>
+        <button className={style.removeButton} onClick={clearItems}>
+          Remove
+          <br /> W20
+        </button>
+        <button className={style.addButton} onClick={addDTwenty}>
+          <div className={style.buttonTxt}>
+            + <br />
+            W20
+          </div>
+          {items.map((item) => {
+            return (
+              <div key={item.id}>
+                <div className={style.cube}>
+                  <div className={style.front}>
+                    <a className={style.image}></a>
+                  </div>
+                  <div className={style.top}>
+                    <a className={style.a}>{item.number}</a>
+                  </div>
+                  <div className={style.left}>
+                    <a className={style.image}></a>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
-      </button>
+            );
+          })}
+        </button>
+      </div>
     </div>
   );
 };

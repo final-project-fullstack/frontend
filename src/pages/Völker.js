@@ -15,7 +15,6 @@ volk.sort(sortArray)
     });
     setFilterVolk(volkFilter);
   };
-  console.log(volk);
 
   return (
     <div className="völker">
