@@ -301,23 +301,48 @@ h3 {
   padding-top: 2rem;
 }
 
-.völker, .hintergründe {
+.völker, .hintergründe, .ausrüstung {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   padding: 0 2rem;
 }
 
-.völker select, .hintergründe select {
+.völker select, .hintergründe select, .völker .ausrüstung {
   width: 150px;
   text-align: center;
 }
 
-.völker .select-volk, .hintergründe .select-hintergrund {
+.völker .select-volk, .ausrüstung .select-volk, .hintergründe .select-hintergrund {
   margin-top: 3rem;
   background-color: #e8e8e8;
   border-radius: 3px;
+}
+
+.ausrüstung{
+  margin-bottom: 2rem;
+}
+
+.ausrüstung h3 {
+  margin-top: 2rem;
+}
+
+.ausrüstung p {
+  padding: .3rem 0;
+  margin: 0;
+}
+
+.ausrüstung{
+  margin-bottom: 2rem;
+}
+
+.ausrüstung h3 {
+  margin-top: 2rem;
+}
+
+.ausrüstung p {
+  padding: .3rem 0;
+  margin: 0;
 }
 
 .volk, .hintergrund{

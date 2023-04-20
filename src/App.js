@@ -14,6 +14,7 @@ function App() {
   const [inhaltsverzeichnis, setInhaltsverzeichnis] = useState([]);
   const [volk, setVolk] = useState([]);
   const [klassen, setKlassen] = useState([]);
+  const [ausrüstung, setAusrüstung] = useState([]);
 
   const [hintergrund, setHintergrund] = useState([]);
   const [filterHintergrund, setFiltrHintergrund] = useState([]);
@@ -36,6 +37,11 @@ function App() {
     axios
       .get("http://localhost:3001/classes/")
       .then((response) => setKlassen(response.data.allClasses))
+      .catch((err) => console.log(err));
+
+    axios
+      .get("http://localhost:3001/equipment/")
+      .then((response) => setAusrüstung(response.data.equipment))
       .catch((err) => console.log(err));
 
     axios
@@ -66,6 +72,7 @@ function App() {
           hintergrund,
           filterHintergrund,
           setFiltrHintergrund,
+          ausrüstung
         }}
       >
         <Layout>
