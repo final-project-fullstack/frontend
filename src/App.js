@@ -19,6 +19,7 @@ function App() {
   const [filterHintergrund, setFiltrHintergrund] = useState([]);
   const [waffen, setWaffen] = useState([]);
   const [rüstung, setRüstung] = useState([]);
+  const [werkzeuge, setWerkzeuge] = useState([]);
   useEffect(() => {
     // GET request using axios inside useEffect React hook
     axios
@@ -56,6 +57,11 @@ function App() {
       .catch((err) => console.log(err));
 
     axios
+      .get("http://localhost:3001/tool/getAll")
+      .then((response) => setWerkzeuge(response.data.tool))
+      .catch((err) => console.log(err));
+
+    axios
       .get("http://localhost:3001/user/checkCookie", {
         withCredentials: true,
       })
@@ -86,6 +92,7 @@ function App() {
           ausrüstung,
           waffen,
           rüstung,
+          werkzeuge,
         }}
       >
         <Layout>
