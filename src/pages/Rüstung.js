@@ -15,35 +15,37 @@ export default function Rüstung() {
   console.log(rüstung);
 
   return (
-    <div className="völker">
-      <div className="select">
-        <div className="select-volk">
-          <label>Rüstung auswählen:</label>
-          <select onChange={onChangeKlasse}>
-            <option>Rüstung auswählen</option>
-            <option>leichte Rüstung</option>
-            <option>mittelschwere Rüstung</option>
-            <option>schwere Rüstung</option>
-            <option>Schilde</option>
-          </select>
+    <div className="container">
+      <div className="völker">
+        <div className="select">
+          <div className="select-volk">
+            <label>Rüstung auswählen:</label>
+            <select onChange={onChangeKlasse}>
+              <option>Rüstung auswählen</option>
+              <option>leichte Rüstung</option>
+              <option>mittelschwere Rüstung</option>
+              <option>schwere Rüstung</option>
+              <option>Schilde</option>
+            </select>
+          </div>
         </div>
+        {filterRüstung.length > 0 && (
+          <>
+            {filterRüstung.map((waffe, i) => {
+              return (
+                <div className="volk waffen" key={i}>
+                  <h3>{waffe.name}</h3>
+                  <p>Kosten: {waffe.kosten} Kupfer</p>
+                  <p>Gewicht: {waffe.gewicht} Pfund</p>
+                  <p>Stärke: {waffe.staerke}</p>
+                  <p>Rüstungsklasse: {waffe.ruestungsklasse}</p>
+                  <p>Heimlichkeit: {waffe.heimlichkeit}</p>
+                </div>
+              );
+            })}
+          </>
+        )}
       </div>
-      {filterRüstung.length > 0 && (
-        <>
-          {filterRüstung.map((waffe, i) => {
-            return (
-              <div className="volk waffen" key={i}>
-                <h3>{waffe.name}</h3>
-                <p>Kosten: {waffe.kosten} Kupfer</p>
-                <p>Gewicht: {waffe.gewicht} Pfund</p>
-                <p>Stärke: {waffe.staerke}</p>
-                <p>Rüstungsklasse: {waffe.ruestungsklasse}</p>
-                <p>Heimlichkeit: {waffe.heimlichkeit}</p>
-              </div>
-            );
-          })}
-        </>
-      )}
     </div>
   );
 }

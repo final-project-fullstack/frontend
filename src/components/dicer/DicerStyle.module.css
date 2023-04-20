@@ -13,11 +13,13 @@
   position: fixed;
   width: calc(100vw/7);
   min-height: 4vh;
+  max-height: 80vh;
   background-color: #30475e54;
   margin: 5.1vw 0rem 0rem 0rem;
   align-items: center;
   justify-content: center;
   border: 1px solid red;
+  overflow: auto;
 }
 
 .buttonTxt{
