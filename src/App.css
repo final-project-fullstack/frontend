@@ -112,30 +112,30 @@ span {
 }
 
 /*     submenu navigation links      */
-#menuToggle .submenu { 
-  visibility: hidden;  
+#menuToggle .submenu {
+  visibility: hidden;
   height: 0;
   z-index: 1000;
 }
-#menuToggle .submenu li { 
-  display: block; 
+#menuToggle .submenu li {
+  display: block;
   width: 15em;
 }
 #menuToggle .subtitle::after {
-	position: absolute;
-	content: " ▶";
-	color: currentColor;
-	display: inline-block;
-	right: 0;
+  position: absolute;
+  content: " ▶";
+  color: currentColor;
+  display: inline-block;
+  right: 0;
 }
 #menuToggle .subtitle:hover::after,
 #menuToggle .subtitle:focus::after {
-	content: " ▼";
+  content: " ▼";
 }
 /**     Show the submenu on hover, focus     **/
-#menuToggle li:hover  .submenu,
-#menuToggle li:active  .submenu, 
-#menuToggle li:focus  .submenu { 
+#menuToggle li:hover .submenu,
+#menuToggle li:active .submenu,
+#menuToggle li:focus .submenu {
   visibility: visible;
   height: auto;
 }
@@ -209,6 +209,7 @@ nav form {
 .select {
   display: flex;
   flex-direction: column;
+  width: 360px;
 }
 
 .select select {
@@ -301,25 +302,46 @@ h3 {
   padding-top: 2rem;
 }
 
-.völker, .hintergründe, .ausrüstung {
+.völker,
+.hintergründe,
+.ausrüstung {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding: 0 2rem;
 }
 
-.völker select, .hintergründe select, .völker .ausrüstung {
+.völker select,
+.hintergründe select,
+.völker .ausrüstung {
   width: 150px;
   text-align: center;
 }
 
-.völker .select-volk, .ausrüstung .select-volk, .hintergründe .select-hintergrund {
+.völker .select-volk,
+.ausrüstung .select-volk,
+.hintergründe .select-hintergrund {
   margin-top: 3rem;
   background-color: #e8e8e8;
   border-radius: 3px;
 }
 
-.ausrüstung{
+.ausrüstung .volk {
+  margin-bottom: 2rem;
+  max-width: 360px;
+}
+
+.ausrüstung h3 {
+  margin-top: 2rem;
+}
+
+.ausrüstung p {
+  padding: 0.3rem 0;
+  margin: 0;
+}
+
+.ausrüstung {
   margin-bottom: 2rem;
 }
 
@@ -328,24 +350,12 @@ h3 {
 }
 
 .ausrüstung p {
-  padding: .3rem 0;
+  padding: 0.3rem 0;
   margin: 0;
 }
 
-.ausrüstung{
-  margin-bottom: 2rem;
-}
-
-.ausrüstung h3 {
-  margin-top: 2rem;
-}
-
-.ausrüstung p {
-  padding: .3rem 0;
-  margin: 0;
-}
-
-.volk, .hintergrund{
+.volk,
+.hintergrund {
   max-width: 800px;
   width: 100%;
   margin-top: 3rem;
@@ -408,7 +418,7 @@ h3 {
     z-index: 1000;
     position: absolute;
     background-color: #f05454;
-    padding:0;
+    padding: 0;
   }
 
   .navbar-desktop .submenu li {
