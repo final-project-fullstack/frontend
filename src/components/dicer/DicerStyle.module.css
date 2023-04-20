@@ -22,8 +22,8 @@
 
 .buttonTxt{
   font-size: 1.2rem;
-   color:#ff0000;
--webkit-text-stroke: 1.2px #000;
+  color:#ff0000;
+  -webkit-text-stroke: 1.2px #000;
   font-weight:900;
 }
 
@@ -32,19 +32,10 @@
 }
 
 .addButton:hover{
-    background-color: #22283193;
-    box-shadow: 1px 1px 5px #d6c10682, -1px -1px 5px #d6c1067e;
-    border-color: blue;
+   background-color: #22283193;
+   box-shadow: 1px 1px 5px #d6c10682, -1px -1px 5px #d6c1067e;
+   border-color: blue;
 }
-
-
-
-/* .addButton:hover>.cube{
-  background-image: none;
-    background-color: rgba(126, 126, 126, 0.488);
-    -webkit-text-stroke: 2px #000;
-    color: rgb(18, 127, 222);
-} */
 
 .removeButton {
   position: fixed;
@@ -55,10 +46,11 @@
   font-size: 1.7vw;
   color: rgba(6, 0, 167, 0.434);
   -webkit-text-stroke: 0.3px #000;
-  /* margin: 0rem 0rem 0rem 0rem; */
+  
   align-items: center;
   justify-content: center; 
 }
+
 .removeButton:hover {
   position: fixed;
   display: flex;
@@ -84,22 +76,18 @@
 .cube:hover>.top,
 .cube:hover>.front,
 .cube:hover>.left,
-.cube:hover>.a
-{
-background-image: none;
-background-color: rgba(126, 126, 126, 0.488);
--webkit-text-stroke: 2px #000;
-color:rgb(18, 127, 222);
+.cube:hover>.a {
+  background-image: none;
+  background-color: rgba(126, 126, 126, 0.488);
+  -webkit-text-stroke: 2px #000;
+  color:rgb(18, 127, 222);
 }
 
-
-
 .addButton:focus {
-   color: #d6c106;
+  color: #d6c106;
   box-shadow: 1px 1px 10px #029009, -1px -1px 10px #d6c1068d; 
-    border-color: rgb(213, 255, 3);
-    background-color: rgba(7, 105, 17, 0.47);
-    
+  border-color: rgb(213, 255, 3);
+  background-color: rgba(7, 105, 17, 0.47);
 }
 
 .image {
@@ -165,7 +153,6 @@ color:rgb(18, 127, 222);
   display: flex;
   align-items: flex-end;
   position: absolute;
-  
   width:fit-content; 
   width:100vw;
   height:1rem;
