@@ -1,16 +1,15 @@
 import axios from "axios";
 import { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import userContext from "../context/userContext";
-import style from "./dicer/DicerStyle.module.css";
-import PoolContainer from "./dicer/dicerPool";
+import userContext from "../../context/userContext";
+import style from "../Header/header.module.css";
+import PoolContainer from "../dicer/dicerPool";
 const Header = () => {
   const navigate = useNavigate();
   const [checkStatus, setChange] = useState(false);
   const [show, setShow] = useState(false);
   const { isLoggedIn, setIsLoggedIn, user, setUser } = useContext(userContext);
   const [isChildVisible, setIsChildVisible] = useState(false);
-
 
   const handleSth = (e) => {
     setChange(!checkStatus);
@@ -31,7 +30,7 @@ const Header = () => {
 
   const logout = async (e) => {
     setIsLoggedIn(false);
-    setUser([])
+    setUser([]);
     setChange(!checkStatus);
     const response = await axios.get(
       "http://localhost:3001/user/delete-cookie",
@@ -54,7 +53,7 @@ const Header = () => {
           <span></span>
           <span></span>
           <ul id="menu">
-            <li >
+            <li>
               <NavLink to="/">{user.userName}</NavLink>
             </li>
             <li onClick={handleSth}>
@@ -122,7 +121,7 @@ const Header = () => {
         </div>
         <div className="navbar-desktop">
           <ul>
-            <li >
+            <li>
               <NavLink to="/">{user.userName}</NavLink>
             </li>
             <li>
@@ -194,7 +193,7 @@ const Header = () => {
         <div className={style.dicerPool}>
           <img
             className={style.logo}
-            src={require("../assets/logo.png")}
+            src={require("../../assets/logo.png")}
             alt="Logo"
             onClick={handleImageClick}
             onKeyDown={handleKeyDown}
