@@ -1,3 +1,16 @@
+
+/* ANCHOR Scrollbalken */
+
+::-webkit-scrollbar {
+  width: 0.5em;
+  background-color: rgba(255, 38, 0, 0.358);
+  box-shadow: 0.1em 0em 10px #000000, 0em 0em 0em #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 0, 0, 0.559);
+}
+
 span {
   font-size: 1.1rem;
   text-decoration: underline;
