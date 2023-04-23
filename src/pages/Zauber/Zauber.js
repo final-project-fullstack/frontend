@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useContext, useState } from "react";
-import userContext from "../context/userContext";
+import userContext from "../../context/userContext";
 import { useNavigate } from "react-router-dom";
 
 const Zauber = () => {

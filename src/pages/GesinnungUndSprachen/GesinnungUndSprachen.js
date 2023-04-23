@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import userContext from "../context/userContext";
+import userContext from "../../context/userContext";
 
 export default function GesinnungUndSprachen() {
   const { sprachen, gesinnung } = useContext(userContext);
@@ -29,7 +29,7 @@ export default function GesinnungUndSprachen() {
                 <>
                   <p>
                     <b>{info.name}</b>
-                  </p>{" "}
+                  </p>
                   <p>
                     {info.Beschreibung.map((info) => {
                       return `${info} `;

@@ -3,6 +3,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import style from "./registerLogin.module.css";
 
 function Register() {
   const navigate = useNavigate();
@@ -43,7 +44,7 @@ function Register() {
   };
 
   return (
-    <div className="register">
+    <div className={style.register}>
       <h2>Account erstellen</h2>
       <form onSubmit={handleSubmit}>
         <input
@@ -64,7 +65,11 @@ function Register() {
           placeholder="Passwort"
           onChange={(e) => setPassword(e.target.value)}
         />
-        <input className="register-button" type="submit" value="Registrieren" />
+        <input
+          className={style.registerButton}
+          type="submit"
+          value="Registrieren"
+        />
         <p>{message}</p>
       </form>
     </div>

@@ -1,12 +1,14 @@
-import userContext from "../context/userContext";
-import { useContext} from "react";
-import { NavLink} from "react-router-dom";
+import userContext from "../../context/userContext";
+import { useContext } from "react";
+import style from "./home.module.css";
 
+// REVIEW wird nur gebraucht wenn die Buttons eingefügt bleiben sollen
+// import { NavLink } from "react-router-dom";
 
 const Home = () => {
-  const { isLoggedIn} = useContext(userContext);
+  const { isLoggedIn } = useContext(userContext);
   return (
-    <div className="home">
+    <div className={style.home}>
       <h1>Wilkommen bei Dungons & Dragons - Wiki & Guide</h1>
       <p>
         Auf dieser Webseite findest du alles was du für deine erste
@@ -17,16 +19,18 @@ const Home = () => {
         deinem Account. Und solltest du mal keine passenden Würfel zur Hand
         haben, klick einfach auf das obige Logo.
       </p>
-      {!isLoggedIn && (
-              <>
-                <NavLink to="/login">
-                  <button>Login</button>
-                </NavLink>
-                <NavLink to="/register">
-                  <button>Register</button>
-                </NavLink>
-              </>
-            )}
+
+      {/* REVIEW Login & Register Button auskommentiert da im header schon vorhanden  */}
+      {/* {!isLoggedIn && (
+        <>
+          <NavLink to="/login">
+            <button>Login</button>
+          </NavLink>
+          <NavLink to="/register">
+            <button>Register</button>
+          </NavLink>
+        </>
+      )} */}
     </div>
   );
 };

@@ -14,7 +14,8 @@ function App() {
   const [inhaltsverzeichnis, setInhaltsverzeichnis] = useState([]);
   const [volk, setVolk] = useState([]);
   const [klassen, setKlassen] = useState([]);
-  const [ausrüstung, setAusrüstung] = useState([]); const [gesinnung, setGesinnung] = useState([]);
+  const [ausrüstung, setAusrüstung] = useState([]);
+  const [gesinnung, setGesinnung] = useState([]);
   const [sprachen, setSprachen] = useState([]);
   const [hintergrund, setHintergrund] = useState([]);
   const [filterHintergrund, setFiltrHintergrund] = useState([]);
@@ -78,7 +79,9 @@ function App() {
       .get("http://localhost:3001/user/checkCookie", {
         withCredentials: true,
       })
-      .then((response) => ([setIsLoggedIn(response.data._id ? true : false, setUser(response.data))]))
+      .then((response) => [
+        setIsLoggedIn(response.data._id ? true : false, setUser(response.data)),
+      ])
       // .then((response) => setUser(response.data))
       .catch((err) => console.log(err));
     // empty dependency array means this effect will only run once (like componentDidMount in classes)

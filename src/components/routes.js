@@ -1,16 +1,16 @@
-import Hintergrund from "../pages/Hintergrund";
-import Home from "../pages/Home";
-import Klassen from "../pages/Klassen";
-import Login from "../pages/Login";
-import MeineZauber from "../pages/MeineZauber";
-import Register from "../pages/Register";
-import Völker from "../pages/Völker";
-import Waffen from "../pages/Waffen";
-import Zauber from "../pages/Zauber";
-import Werkzeuge from "../pages/Werkzeuge"
-import Rüstung from "../pages/Rüstung";
-import GesinnungUndSprachen from "../pages/GesinnungUndSprachen";
-import Abenteuerausrüstung from "../pages/Abenteuerausrüstung";
+import Login from "../pages/RegisterUndLogin/Login";
+import Register from "../pages/RegisterUndLogin/Register";
+import Hintergrund from "../pages/Hintergrund/Hintergrund";
+import Home from "../pages/Home/Home";
+import Klassen from "../pages/Klassen/Klassen";
+import MeineZauber from "../pages/MeineZauber/MeineZauber";
+import Völker from "../pages/Völker/Völker";
+import Waffen from "../pages/Waffen/Waffen";
+import Zauber from "../pages/Zauber/Zauber";
+import Werkzeuge from "../pages/Werkzeuge/Werkzeuge";
+import Rüstung from "../pages/Rüstung/Rüstung";
+import GesinnungUndSprachen from "../pages/GesinnungUndSprachen/GesinnungUndSprachen";
+import Abenteuerausrüstung from "../pages/Abenteuerausrüstung/Abenteuerausrüstung";
 
 const routes = [
   { path: "/", element: <Home />, id: 1 },
@@ -24,8 +24,8 @@ const routes = [
   { path: "/gesinnung-sprachen", element: <GesinnungUndSprachen />, id: 9 },
   { path: "/waffen", element: <Waffen />, id: 10 },
   { path: "/rüstung", element: <Rüstung />, id: 11 },
-  { path: "/werkzeuge", element: < Werkzeuge/>, id: 12 },
-  { path: "/abenteuerausrüstung", element: < Abenteuerausrüstung/>, id: 12 },
+  { path: "/werkzeuge", element: <Werkzeuge />, id: 12 },
+  { path: "/abenteuerausrüstung", element: <Abenteuerausrüstung />, id: 12 },
 ];
 
 export default routes;
