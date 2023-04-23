@@ -2,7 +2,7 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import userContext from "../../context/userContext";
-import style from "../Header/header.module.css";
+import style from "./header.module.css";
 import PoolContainer from "../dicer/dicerPool";
 const Header = () => {
   const navigate = useNavigate();
@@ -47,12 +47,12 @@ const Header = () => {
   return (
     <>
       <nav role="navigation">
-        <div id="menuToggle">
+        <div id={style.menuToggle}>
           <input checked={show} onClick={handleSth} readOnly type="checkbox" />
           <span></span>
           <span></span>
           <span></span>
-          <ul id="menu">
+          <ul id={style.menu}>
             <li>
               <NavLink to="/">{user.userName}</NavLink>
             </li>
@@ -72,8 +72,8 @@ const Header = () => {
             ) : (
               <>
                 <li tabindex="0">
-                  <NavLink className="subtitle">Wiki</NavLink>
-                  <ul className="submenu">
+                  <NavLink className={style.subtitle}>Wiki</NavLink>
+                  <ul className={style.submenu}>
                     <li onClick={handleSth}>
                       <NavLink to="/völker">Völker</NavLink>
                     </li>
@@ -119,7 +119,7 @@ const Header = () => {
             )}
           </ul>
         </div>
-        <div className="navbar-desktop">
+        <div className={style.navbarDesktop}>
           <ul>
             <li>
               <NavLink to="/">{user.userName}</NavLink>
@@ -142,8 +142,8 @@ const Header = () => {
             ) : (
               <>
                 <li tabindex="0">
-                  <NavLink className="subtitle">Wiki</NavLink>
-                  <ul className="submenu">
+                  <NavLink className={style.subtitle}>Wiki</NavLink>
+                  <ul className={style.submenu}>
                     <li>
                       <NavLink to="/völker">Völker</NavLink>
                     </li>
