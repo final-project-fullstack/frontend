@@ -26,9 +26,11 @@ export default function Hintergrund() {
             <label>Hintergrund auswählen:</label>
             <select onChange={onChangeHintergrund}>
               <option>Hintergrund auswählen</option>
-              {hintergrund.sort(sortArray).map((info) => {
-                return <option key={info.name}>{info.name}</option>;
-              })}
+              {hintergrund.filter((info)=>{
+                  return info.name !== "Hintergrund"
+                }).sort(sortArray).map((info) => {
+                  return <option key={info.name}>{info.name}</option>;
+                })}
             </select>
           </div>
         </div>

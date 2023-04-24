@@ -20,6 +20,7 @@ function App() {
   const [hintergrund, setHintergrund] = useState([]);
   const [filterHintergrund, setFiltrHintergrund] = useState([]);
   const [user, setUser] = useState([]);
+  const [klassenZauber, setKlassenZauber] = useState([]);
 
   const [waffen, setWaffen] = useState([]);
   const [rüstung, setRüstung] = useState([]);
@@ -76,6 +77,11 @@ function App() {
       .catch((err) => console.log(err));
 
     axios
+      .get("http://localhost:3001/klassen-zauber")
+      .then((response) => setKlassenZauber(response.data))
+      .catch((err) => console.log(err));
+
+    axios
       .get("http://localhost:3001/user/checkCookie", {
         withCredentials: true,
       })
@@ -115,6 +121,7 @@ function App() {
           gesinnung,
           sprachen,
           werkzeuge,
+          klassenZauber,
         }}
       >
         <Layout>
