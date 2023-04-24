@@ -28,36 +28,36 @@ const DicerPoolDTen = () => {
   };
 
   return (
-    <div>
+    <>
       <div className={style.dicer}>
         <button className={style.removeButton} onClick={clearItems}>
-          Remove
-          <br /> W10
+          Remove <br />
+          W10
         </button>
         <button className={style.addButton} onClick={addDTen}>
           <div className={style.buttonTxt}>
-            + <br /> W10
+            +<br /> W10
           </div>
+        </button>
+        <div className={style.wuerfelBackground}>
           {items.map((item) => {
             return (
-              <div key={item.id}>
-                <div className={style.cube}>
-                  <div className={style.front}>
-                    <a className={style.image}></a>
-                  </div>
-                  <div className={style.top}>
-                    <a className={style.a}>{item.number}</a>
-                  </div>
-                  <div className={style.left}>
-                    <a className={style.image}></a>
-                  </div>
+              <div className={style.cube} key={item.id}>
+                <div className={style.front}>
+                  <a className={style.a}>{item.number}</a>
+                </div>
+                <div className={style.top}>
+                  <a className={style.a}>{item.number}</a>
+                </div>
+                <div className={style.left}>
+                  <a className={style.a}>{item.number}</a>
                 </div>
               </div>
             );
           })}
-        </button>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -14,11 +14,13 @@ function App() {
   const [inhaltsverzeichnis, setInhaltsverzeichnis] = useState([]);
   const [volk, setVolk] = useState([]);
   const [klassen, setKlassen] = useState([]);
-  const [ausrüstung, setAusrüstung] = useState([]); const [gesinnung, setGesinnung] = useState([]);
+  const [ausrüstung, setAusrüstung] = useState([]);
+  const [gesinnung, setGesinnung] = useState([]);
   const [sprachen, setSprachen] = useState([]);
   const [hintergrund, setHintergrund] = useState([]);
   const [filterHintergrund, setFiltrHintergrund] = useState([]);
   const [user, setUser] = useState([]);
+  const [klassenZauber, setKlassenZauber] = useState([]);
 
   const [waffen, setWaffen] = useState([]);
   const [rüstung, setRüstung] = useState([]);
@@ -75,10 +77,17 @@ function App() {
       .catch((err) => console.log(err));
 
     axios
+      .get("http://localhost:3001/klassen-zauber")
+      .then((response) => setKlassenZauber(response.data))
+      .catch((err) => console.log(err));
+
+    axios
       .get("http://localhost:3001/user/checkCookie", {
         withCredentials: true,
       })
-      .then((response) => ([setIsLoggedIn(response.data._id ? true : false, setUser(response.data))]))
+      .then((response) => [
+        setIsLoggedIn(response.data._id ? true : false, setUser(response.data)),
+      ])
       // .then((response) => setUser(response.data))
       .catch((err) => console.log(err));
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
@@ -112,6 +121,7 @@ function App() {
           gesinnung,
           sprachen,
           werkzeuge,
+          klassenZauber,
         }}
       >
         <Layout>
