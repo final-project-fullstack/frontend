@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import userContext from "../../context/userContext";
+import style from "./ausruestung.module.css";
 
 export default function Abenteuerausrüstung() {
   const { ausrüstung } = useContext(userContext);
@@ -17,7 +18,7 @@ export default function Abenteuerausrüstung() {
 
   return (
     <div className="container">
-      <div className="ausrüstung">
+      <div className={`${style.ausrüstung} ausrüstung`}>
         <div className="select">
           <div className="select-volk">
             <label>Ausrüstung auswählen:</label>
@@ -31,7 +32,7 @@ export default function Abenteuerausrüstung() {
         </div>
 
         {filterAusrüstung.length > 0 && (
-          <div className="volk">
+          <div className={`${style.volk} volk`}>
             {filterAusrüstung[0].array.map((item, i) => {
               return (
                 <div key={item._id}>

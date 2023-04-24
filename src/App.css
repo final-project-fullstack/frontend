@@ -100,6 +100,8 @@ label {
   line-height: 1rem;
 }
 
+
+/* ANCHOR  Inhaltsverzeichniss */
 .inhaltsverzeichnis {
   display: flex;
   flex-direction: column;
@@ -121,6 +123,8 @@ label {
   cursor: pointer;
 }
 
+
+/* ANCHOR Search */
 .search {
   display: flex;
   justify-content: center;
@@ -156,31 +160,19 @@ label {
 /* ANCHOR Ausrüstung (explizit) */
 
 /* breite der seite (auch im desktop modus) */
-.ausrüstung .volk {
+/* .ausrüstung .volk {
   margin-bottom: 2rem;
   max-width: 360px;
-}
+} */
 
 /* kleiner als normal */
- .ausrüstung p {
+ /* .ausrüstung p {
   padding: 0.3rem 0;
   margin: 0;
-} 
+}  */
 
  /* .ausrüstung {
   margin-bottom: 2rem;
-} */
-
-
-/* größer als normal */
-.ausrüstung h3 {
-  margin-top: 2rem;
-}
-
-/* überflüssig? */
-/* .ausrüstung p {
-  padding: 0.3rem 0;
-  margin: 0;
 } */
 
 .volk,
@@ -224,10 +216,10 @@ label {
 margin-top: 2rem;
 }
 
-    .navbarDesktop a:hover,
+.navbarDesktop a:hover,
     .navbarDesktop a.active {
       border-bottom: 3px solid #ffffff;
-    }
+}
 
 
 
@@ -510,4 +502,10 @@ margin-top: 2rem;
   flex-direction: column;
   cursor: pointer;
   height: 100px;
+} */
+
+/* NOTE in ausruestung.module.css ausgelagert */
+/* größer als normal */
+/* .ausrüstung h3 {
+  margin-top: 2rem;
 } */
