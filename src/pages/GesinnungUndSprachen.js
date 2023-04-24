@@ -4,7 +4,7 @@ import userContext from "../context/userContext";
 export default function GesinnungUndSprachen() {
   const { sprachen, gesinnung } = useContext(userContext);
   console.log(gesinnung);
-  return (
+  return (<div className="container">
     <div className="gesinnungenSprachen">
       {sprachen.length > 0 && (
         <>
@@ -107,6 +107,7 @@ export default function GesinnungUndSprachen() {
           </div>
         </>
       )}
+    </div>
     </div>
   );
 }
