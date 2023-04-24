@@ -11,6 +11,8 @@ h3 {
 }
 
 
+
+
 /* ANCHOR Scrollbalken */
 
 ::-webkit-scrollbar {
@@ -67,6 +69,29 @@ label {
 
 
 /* ANCHOR zauber */
+/* NOTE wird in loginRegister zauber genutzt */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* NOTE wird in loginRegister und zauber genutzt */
+input {
+  margin-bottom: 1rem;
+}
+ /* NOTE wird in home und zauber  genutzt */
+.home-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2.5rem 0;
+}
+/* NOTE wird in home und Zauber genutzt */
+.home-form button {
+  margin-top: 1.5rem;
+  padding: 5px 10px;
+}
+
 .zauber {
   background-image: url(./hd-wallpaper-1074131_1920.jpg);
   background-size: cover;
