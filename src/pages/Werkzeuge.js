@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { useStore } from "../context/storeContext";
 
 export default function Werkzeuge() {
