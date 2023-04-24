@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import userContext from "../../context/userContext";
+import style from "./hintergrund.module.css";
 
 export default function Hintergrund() {
   const { hintergrund, filterHintergrund, setFiltrHintergrund } =
@@ -18,7 +19,7 @@ export default function Hintergrund() {
   };
   console.log(filterHintergrund);
   return (
-    <div className="hintergründe">
+    <div className="container">
       {hintergrund.length > 0 && (
         <div className="select">
           <div className="select-hintergrund">

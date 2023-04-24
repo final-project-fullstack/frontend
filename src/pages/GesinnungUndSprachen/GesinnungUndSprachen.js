@@ -5,7 +5,7 @@ export default function GesinnungUndSprachen() {
   const { sprachen, gesinnung } = useContext(userContext);
   console.log(gesinnung);
   return (
-    <div className="gesinnungenSprachen">
+    <div className="container">
       {sprachen.length > 0 && (
         <>
           <div className="gesinnung">
