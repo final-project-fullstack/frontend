@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
-import userContext from "../context/userContext";
+import React, { useState } from "react";
+import { useStore } from "../context/storeContext";
 
 export default function Abenteuerausrüstung() {
-  const { ausrüstung } = useContext(userContext);
+  const { ausrüstung } = useStore()
   const [filterAusrüstung, setFilterAusrüstung] = useState([]);
 
   const onChangeKlasse = (event) => {

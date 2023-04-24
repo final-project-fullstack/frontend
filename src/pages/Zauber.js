@@ -1,6 +1,6 @@
 import axios from "axios";
-import { useContext, useState } from "react";
-import userContext from "../context/userContext";
+import { useState } from "react";
+import { useStore } from "../context/storeContext";
 import { useNavigate } from "react-router-dom";
 
 const Zauber = () => {
@@ -18,7 +18,7 @@ const Zauber = () => {
     setFilteredSpells,
     inhaltsverzeichnis,
     setInhaltsverzeichnis,
-  } = useContext(userContext);
+  } = useStore()
 
   function SortArray(x, y) {
     return x.name.localeCompare(y.name);

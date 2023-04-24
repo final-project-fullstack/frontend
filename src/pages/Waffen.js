@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
-import userContext from "../context/userContext";
+import React, { useState } from "react";
+import { useStore } from "../context/storeContext";
 
 export default function Waffen() {
-  const { waffen } = useContext(userContext);
+  const { waffen } = useStore()
   const [filterWaffen, setFilterWaffen] = useState([]);
 
   const onChangeKlasse = (event) => {

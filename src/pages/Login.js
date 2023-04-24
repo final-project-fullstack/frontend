@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import userContext from "../context/userContext";
+import { useStore } from "../context/storeContext";
 import { useNavigate } from "react-router-dom";
 
 const Login = () => {
@@ -10,7 +10,8 @@ const Login = () => {
     password: "",
   });
 
-  const { setIsLoggedIn, setUser } = useContext(userContext);
+  const { setIsLoggedIn, setUser, user } = useStore()
+  console.log(user)
 
   const [message, setMessage] = useState("");
 
@@ -32,7 +33,7 @@ const Login = () => {
       }
       // localStorage.setItem("token", data.data.token);
     } catch (error) {
-      setMessage(error.response.data);
+      console.log(error);
     }
   };
 

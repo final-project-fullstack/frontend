@@ -1,8 +1,8 @@
-import React, { useContext } from 'react'
-import userContext from '../context/userContext';
+
+import { useStore } from '../context/storeContext';
 
 export default function Hintergrund() {
-  const { hintergrund, filterHintergrund, setFiltrHintergrund } = useContext(userContext);
+  const { hintergrund, filterHintergrund, setFiltrHintergrund } = useStore()
   console.log(hintergrund)
 
   function sortArray(x, y) {
@@ -10,26 +10,26 @@ export default function Hintergrund() {
   }
   const onChangeHintergrund = (e) => {
     const value = e.target.value;
-    const hintergrundFilter = hintergrund.filter((info)=>{
+    const hintergrundFilter = hintergrund.filter((info) => {
       return info.name === value
     })
     setFiltrHintergrund(hintergrundFilter)
-    
+
   };
   console.log(filterHintergrund)
   return (
-    <div className='hintergründe'>{hintergrund.length> 0 && <div className="select">
-    <div className="select-hintergrund">
-      <label>Hintergrund auswählen:</label>
-      <select onChange={onChangeHintergrund}>
-      <option>Hintergrund auswählen</option>
-      {hintergrund.sort(sortArray).map((info)=>{
-        return( <option key={info.name}>{info.name}</option>)
-      })}
-      </select>
-    </div>
-  </div>}
-  {filterHintergrund.length > 0 ? (
+    <div className='hintergründe'>{hintergrund.length > 0 && <div className="select">
+      <div className="select-hintergrund">
+        <label>Hintergrund auswählen:</label>
+        <select onChange={onChangeHintergrund}>
+          <option>Hintergrund auswählen</option>
+          {hintergrund.sort(sortArray).map((info) => {
+            return (<option key={info.name}>{info.name}</option>)
+          })}
+        </select>
+      </div>
+    </div>}
+      {filterHintergrund.length > 0 ? (
         <>
           {filterHintergrund.map((hintergrund, i) => {
             return (
@@ -45,13 +45,13 @@ export default function Hintergrund() {
           })}
         </>
       ) : (<div>
-     {  hintergrund.length> 0 && <div className="hintergrund">
+        {hintergrund.length > 0 && <div className="hintergrund">
           <h3>{hintergrund[3].name}</h3>
           {hintergrund[3].text.map((info, i) => (
             <p dangerouslySetInnerHTML={{ __html: info }} key={i}></p>
           ))}
         </div>}</div>
       )}
-  </div>
+    </div>
   )
 }

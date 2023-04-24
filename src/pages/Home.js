@@ -1,10 +1,10 @@
-import userContext from "../context/userContext";
-import { useContext} from "react";
-import { NavLink} from "react-router-dom";
+
+import { useStore } from "../context/storeContext";
+import { NavLink } from "react-router-dom";
 
 
 const Home = () => {
-  const { isLoggedIn} = useContext(userContext);
+  const { isLoggedIn } = useStore()
   return (
     <div className="home">
       <h1>Wilkommen bei Dungons & Dragons - Wiki & Guide</h1>
@@ -18,15 +18,15 @@ const Home = () => {
         haben, klick einfach auf das obige Logo.
       </p>
       {!isLoggedIn && (
-              <>
-                <NavLink to="/login">
-                  <button>Login</button>
-                </NavLink>
-                <NavLink to="/register">
-                  <button>Register</button>
-                </NavLink>
-              </>
-            )}
+        <>
+          <NavLink to="/login">
+            <button>Login</button>
+          </NavLink>
+          <NavLink to="/register">
+            <button>Register</button>
+          </NavLink>
+        </>
+      )}
     </div>
   );
 };

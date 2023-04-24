@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
-import userContext from "../context/userContext";
+import { useStore } from "../context/storeContext";
 
 export default function Werkzeuge() {
-  const { werkzeuge } = useContext(userContext);
+  const { werkzeuge } = useStore()
   const [filterWerkzeuge, setFilterWerkzeuge] = useState([]);
 
   const onChangeKlasse = (event) => {

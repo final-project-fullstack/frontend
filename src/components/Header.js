@@ -1,14 +1,14 @@
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import userContext from "../context/userContext";
+import { useStore } from "../context/storeContext.js";
 import style from "./dicer/DicerStyle.module.css";
 import PoolContainer from "./dicer/dicerPool";
 const Header = () => {
   const navigate = useNavigate();
   const [checkStatus, setChange] = useState(false);
   const [show, setShow] = useState(false);
-  const { isLoggedIn, setIsLoggedIn, user, setUser } = useContext(userContext);
+  const { isLoggedIn, setIsLoggedIn, user, setUser } = useStore();
   const [isChildVisible, setIsChildVisible] = useState(false);
 
 
@@ -72,7 +72,7 @@ const Header = () => {
               </>
             ) : (
               <>
-                <li tabindex="0">
+                <li tabIndex="0">
                   <NavLink className="subtitle">Wiki</NavLink>
                   <ul className="submenu">
                     <li onClick={handleSth}>
@@ -142,7 +142,7 @@ const Header = () => {
               </>
             ) : (
               <>
-                <li tabindex="0">
+                <li tabIndex="0">
                   <NavLink className="subtitle">Wiki</NavLink>
                   <ul className="submenu">
                     <li>
@@ -198,10 +198,11 @@ const Header = () => {
             alt="Logo"
             onClick={handleImageClick}
             onKeyDown={handleKeyDown}
-            tabindex="0"
+            tabIndex="0"
           />
         </div>
       </nav>
+
 
       {isChildVisible && (
         <div>

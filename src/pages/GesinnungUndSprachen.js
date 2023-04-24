@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
-import userContext from "../context/userContext";
+
+import { useStore } from "../context/storeContext";
 
 export default function GesinnungUndSprachen() {
-  const { sprachen, gesinnung } = useContext(userContext);
+  const { sprachen, gesinnung } = useStore()
   console.log(gesinnung);
   return (
     <div className="gesinnungenSprachen">
