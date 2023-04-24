@@ -18,6 +18,7 @@ export default function Hintergrund() {
   };
   console.log(filterHintergrund);
   return (
+    <div className="container">
     <div className='hintergründe'>{hintergrund.length> 0 && <div className="select">
     <div className="select-hintergrund">
       <label>Hintergrund auswählen:</label>
@@ -54,6 +55,7 @@ export default function Hintergrund() {
           ))}
         </div>}</div>
       )}
+  </div>
   </div>
   )
 }
