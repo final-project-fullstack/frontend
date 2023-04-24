@@ -72,9 +72,9 @@ const Header = () => {
               </>
             ) : (
               <>
-                <li tabIndex="0">
-                  <NavLink className="subtitle">Wiki</NavLink>
-                  <ul className="submenu">
+                <li tabindex="0">
+                  <NavLink className={style.subtitle}>Wiki</NavLink>
+                  <ul className={style.submenu}>
                     <li onClick={handleSth}>
                       <NavLink to="/völker">Völker</NavLink>
                     </li>
@@ -142,9 +142,9 @@ const Header = () => {
               </>
             ) : (
               <>
-                <li tabIndex="0">
-                  <NavLink className="subtitle">Wiki</NavLink>
-                  <ul className="submenu">
+                <li tabindex="0">
+                  <NavLink className={style.subtitle}>Wiki</NavLink>
+                  <ul className={style.submenu}>
                     <li>
                       <NavLink to="/völker">Völker</NavLink>
                     </li>
@@ -198,7 +198,7 @@ const Header = () => {
             alt="Logo"
             onClick={handleImageClick}
             onKeyDown={handleKeyDown}
-            tabIndex="0"
+            tabindex="0"
           />
         </div>
       </nav>
