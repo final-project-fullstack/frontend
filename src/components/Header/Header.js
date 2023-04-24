@@ -72,7 +72,7 @@ const Header = () => {
               </>
             ) : (
               <>
-                <li tabindex="0">
+                <li tabIndex="0">
                   <NavLink className={style.subtitle}>Wiki</NavLink>
                   <ul className={style.submenu}>
                     <li onClick={handleSth}>
@@ -142,7 +142,7 @@ const Header = () => {
               </>
             ) : (
               <>
-                <li tabindex="0">
+                <li tabIndex="0">
                   <NavLink className={style.subtitle}>Wiki</NavLink>
                   <ul className={style.submenu}>
                     <li>
@@ -198,7 +198,7 @@ const Header = () => {
             alt="Logo"
             onClick={handleImageClick}
             onKeyDown={handleKeyDown}
-            tabindex="0"
+            tabIndex="0"
           />
         </div>
       </nav>
