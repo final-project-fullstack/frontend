@@ -224,7 +224,10 @@ label {
 margin-top: 2rem;
 }
 
-
+    .navbarDesktop a:hover,
+    .navbarDesktop a.active {
+      border-bottom: 3px solid #ffffff;
+    }
 
 
 

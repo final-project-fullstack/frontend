@@ -4,6 +4,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import userContext from "../../context/userContext";
 import style from "./header.module.css";
 import PoolContainer from "../dicer/dicerPool";
+// import "../../App.css"
 const Header = () => {
   const navigate = useNavigate();
   const [checkStatus, setChange] = useState(false);
