@@ -10,7 +10,7 @@ const Login = () => {
     password: "",
   });
 
-  const { setIsLoggedIn } = useContext(userContext);
+  const { setIsLoggedIn, setUser } = useContext(userContext);
 
   const [message, setMessage] = useState("");
 
@@ -24,6 +24,7 @@ const Login = () => {
         { withCredentials: true }
       );
       console.log(response);
+      setUser(response.data.userWithoutPassword)
       setMessage(response.data.message);
       setIsLoggedIn(true);
       if (response) {
@@ -36,7 +37,7 @@ const Login = () => {
   };
 
 
- 
+
 
   return (
     <div className="login">
@@ -58,7 +59,7 @@ const Login = () => {
             setUserLogin({ ...userLogin, password: e.target.value })
           }
         />
-          <input className="login-button" type="submit" value="Login" />
+        <input className="login-button" type="submit" value="Login" />
         <p>{message}</p>
       </form>
     </div>
