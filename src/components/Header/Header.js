@@ -131,7 +131,6 @@ const Header = () => {
             {!isLoggedIn ? (
               <>
                 <li>
-                  {" "}
                   <NavLink to="/login">Login</NavLink>
                 </li>
 

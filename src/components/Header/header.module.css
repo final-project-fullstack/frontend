@@ -189,7 +189,7 @@ nav form {
     cursor: pointer;
     height: 100px;
 }
-
+/* _________________________________________________________________ */
 
 /* ANCHOR media screen */
 /* Navbar */
@@ -207,17 +207,20 @@ nav form {
         padding-bottom: 3px;
         position: relative;
     }
-
+    
     .navbarDesktop a {
         text-decoration: none;
         color: #ffffff;
         margin: 0 1.5rem;
     }
+   
 
-    .navbarDesktop a:hover {
+    .navbarDesktop a:hover{
         border-bottom: 3px solid #ffffff;
+
     }
 
+   
     #menuToggle {
         display: none;
     }
@@ -247,8 +250,8 @@ nav form {
     .navbarDesktop .submenu li {
         display: block;
         padding: 5px 0px 5px 0px;
-
-        /* width: 15em; */
+        width: 15em;
+        /* text-align: center; */
     }
 
     /**     Show the submenu on hover, focus     **/
@@ -260,82 +263,9 @@ nav form {
         height: auto;
     }
 
-    /* .volk {
-      margin-top: 2rem;
-  } */
-}
-
-
-/* ANCHOR media screen */
-/* Navbar */
-@media screen and (min-width: 800px) {
-    .navbarDesktop {
-        display: flex;
-    }
-
-    .navbarDesktop>ul {
-        display: flex;
-    }
-
-    .navbarDesktop>ul>li {
-        list-style-type: none;
-        padding-bottom: 3px;
-        position: relative;
-    }
-
-    .navbarDesktop a {
-        text-decoration: none;
-        color: #ffffff;
-        margin: 0 1.5rem;
-    }
-
-    .navbarDesktop a:hover {
-        border-bottom: 3px solid #ffffff;
-    }
-
-    #menuToggle {
-        display: none;
-    }
-
-    .navbarDesktop .subtitle::after {
-        position: absolute;
-        content: " ▶";
-        color: currentColor;
-        display: inline-block;
-        right: 0;
-    }
-
-    .navbarDesktop .subtitle:hover::after {
-        content: " ▼";
-    }
-
-    .navbarDesktop .submenu {
-        color: #232323;
-        visibility: hidden;
-        height: 0;
-        z-index: 1000;
-        position: absolute;
-        background-color: #f05454;
-        padding: 0;
-    }
-
-    .navbarDesktop .submenu li {
-        display: block;
-        padding: 5px 0px 5px 0px;
-        /* width: 15em; */
-    }
-
-    /**     Show the submenu on hover, focus     **/
-
-    .navbarDesktop li:hover .submenu,
-    .navbarDesktop li:active .submenu,
-    .navbarDesktop li:focus .submenu {
-        visibility: visible;
-        height: auto;
-    }
-
-    /*     submenu navigation links      */
     .volk {
-        margin-top: 2rem;
-    }
+      margin-top: 2rem;
+  }
 }
+
+
