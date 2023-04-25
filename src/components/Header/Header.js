@@ -181,6 +181,9 @@ const Header = () => {
                 <li>
                   <NavLink to="/myspells">Meine Zauber</NavLink>
                 </li>
+                <li>
+                  <NavLink to="/mychar">Mein Charakterbogen</NavLink>
+                </li>
 
                 <li onClick={logout}>
                   <NavLink>Logout</NavLink>
@@ -194,7 +197,7 @@ const Header = () => {
         <div className={style.dicerPool}>
           <img
             className={style.logo}
-            src={require("../../assets/logo.png")}
+            src={require("../../assets/logo.webp")}
             alt="Logo"
             onClick={handleImageClick}
             onKeyDown={handleKeyDown}

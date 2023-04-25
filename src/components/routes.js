@@ -4,6 +4,7 @@ import Hintergrund from "../pages/Hintergrund/Hintergrund";
 import Home from "../pages/Home/Home";
 import Klassen from "../pages/Klassen/Klassen";
 import MeineZauber from "../pages/MeineZauber/MeineZauber";
+import MeinChar from "../pages/Characterbogen/Charactersbogen";
 import Völker from "../pages/Völker/Völker";
 import Waffen from "../pages/Waffen/Waffen";
 import Zauber from "../pages/Zauber/Zauber";
@@ -25,7 +26,8 @@ const routes = [
   { path: "/waffen", element: <Waffen />, id: 10 },
   { path: "/rüstung", element: <Rüstung />, id: 11 },
   { path: "/werkzeuge", element: <Werkzeuge />, id: 12 },
-  { path: "/abenteuerausrüstung", element: <Abenteuerausrüstung />, id: 12 },
+  { path: "/abenteuerausrüstung", element: <Abenteuerausrüstung />, id: 13 },
+  { path: "/mychar", element: <MeinChar />, id: 14 },
 ];
 
 export default routes;

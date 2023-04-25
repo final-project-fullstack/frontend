@@ -29,7 +29,7 @@ h3 {
 
 /* ------------------------------------------------------------------------------------- */
 
-/* ANCHOR kein plan */
+/* ANCHOR container */
 .container{
   display: flex;
   justify-content: center;
@@ -39,6 +39,8 @@ h3 {
 }
 
 /* ANCHOR select */
+
+/* wird von zauber benutzt */
 .select {
   display: flex;
   flex-direction: column;
@@ -46,6 +48,8 @@ h3 {
   margin: 1rem ;  
 }
 
+
+/* wird von zauber benutzt */
 .select select {
   margin: 1rem;
   width: 130px;
@@ -55,10 +59,13 @@ label {
   padding-left: 1rem;
 }
 
+
+/* wird von zauber benutzt */
 .select-klasse {
   border-bottom: 2px solid #ffffff;
 }
 
+/* wird von zauber benutzt */
 .select-klasse,
 .select-grad {
   display: flex;
@@ -76,32 +83,20 @@ form {
   align-items: center;
 }
 /* NOTE wird in loginRegister und zauber genutzt */
-input {
+/* input {
   margin-bottom: 1rem;
-}
+} */
  /* NOTE wird in home und zauber  genutzt */
-.home-form {
+/* .home-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 2.5rem 0;
-}
-/* NOTE wird in home und Zauber genutzt */
-.home-form button {
-  margin-top: 1.5rem;
-  padding: 5px 10px;
-}
+} */
 
-.zauber {
-  background-image: url(./hd-wallpaper-1074131_1920.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 2rem;
-  margin: 1rem;
-  border-radius: 5px;
-  max-width: 430px;
-  box-shadow: 15px 15px 30px #d3d3d3, -15px -15px 30px #fdfdfd;
-}
+
+
+
 
 .zauber p {
   font-size: 0.8rem;
@@ -126,35 +121,15 @@ input {
 }
 
 
-/* ANCHOR  Inhaltsverzeichniss */
-.inhaltsverzeichnis {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-.inhaltsverzeichnis ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-.inhaltsverzeichnis ul li {
-  margin-bottom: 0.4rem;
-}
-
-.inhaltsverzeichnis a {
-  cursor: pointer;
-}
 
 
 /* ANCHOR Search */
-.search {
+/* .search {
   display: flex;
   justify-content: center;
   padding-top: 2rem;
-}
+} */
 
 /* .völker, */
 /* .hintergründe, */
@@ -182,7 +157,7 @@ input {
   border-radius: 3px;
 }
 
-/* ANCHOR Ausrüstung (explizit) */
+/* ANCHOR Ausrüstung (explizit?) */
 
 /* breite der seite (auch im desktop modus) */
 /* .ausrüstung .volk {
@@ -533,4 +508,46 @@ margin-top: 2rem;
 /* größer als normal */
 /* .ausrüstung h3 {
   margin-top: 2rem;
+} */
+
+/* NOTE in zauber.module.css */
+/* .zauber {
+  background-image: url(./hd-wallpaper-1074131_1920.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 2rem;
+  margin: 1rem;
+  border-radius: 5px;
+  max-width: 430px;
+  box-shadow: 15px 15px 30px #d3d3d3, -15px -15px 30px #fdfdfd;
+} */
+
+
+/* NOTE wird in home und zauber genutzt wird zzt nicht gebraucht */
+/* .home-form button {
+  margin-top: 1.5rem;
+  padding: 5px 10px;
+} */
+
+
+/* ANCHOR  Inhaltsverzeichniss (in zauber.module.css */
+/* .inhaltsverzeichnis {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inhaltsverzeichnis ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.inhaltsverzeichnis ul li {
+  margin-bottom: 0.4rem;
+}
+
+.inhaltsverzeichnis a {
+  cursor: pointer;
 } */

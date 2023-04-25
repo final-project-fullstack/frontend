@@ -74,6 +74,7 @@ nav form {
  * Transform all the slices of hamburger
  * into a crossmark.
  */
+
 #menuToggle input:checked~span {
     opacity: 1;
     transform: rotate(45deg) translate(-2px, -1px);
@@ -173,13 +174,14 @@ nav form {
 .dicerPool {
     display: flex;
     flex-direction: column;
-    margin-top: 1vh;
+    /* margin-top: 1vh; */
 }
 
 .logo {
     flex-direction: column;
     cursor: pointer;
-    height: 100px;
+    height: 68px;
+    width:90px;
 }
 
 
@@ -249,6 +251,6 @@ nav form {
   .volk {
       margin-top: 2rem;
   }
-  }
+}
 
 

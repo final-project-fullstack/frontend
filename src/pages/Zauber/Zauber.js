@@ -2,6 +2,8 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import userContext from "../../context/userContext";
 import { useNavigate } from "react-router-dom";
+import style from "./zauber.module.css";
+import "../../App.css";
 
 const Zauber = () => {
   const navigate = useNavigate();
@@ -72,8 +74,8 @@ const Zauber = () => {
   };
 
   return (
-    <div className="zauber-container">
-      <form className="search">
+    <div className={style.zauberContainer}>
+      <form className={style.search}>
         <input
           onChange={changeValue}
           type="text"
@@ -89,7 +91,7 @@ const Zauber = () => {
           Senden
         </button>
       </form>
-      <div className="select-inhaltsverzeichnis">
+      <div className={style.selectInhaltsverzeichnis}>
         <form
           className="home-form"
           onSubmit={selectValue !== "" ? handleSubmit : null}
@@ -118,7 +120,7 @@ const Zauber = () => {
           <button type="submit">Suchen</button>
         </form>
 
-        <div className="inhaltsverzeichnis">
+        <div className={style.inhaltsverzeichnis}>
           {inhaltsverzeichnis.length > 0 && <h2>Inhaltsverzeichnis</h2>}
           <p>{inhaltsverzeichnis.length} Zauber</p>
           <ul>
@@ -132,11 +134,11 @@ const Zauber = () => {
           </ul>
         </div>
       </div>
-      <div className="alle-zauber">
+      <div className={style.alleZauber}>
         {filteredSpells.length > 0 ? (
           filteredSpells.map((spell) => {
             return (
-              <div className="zauber" key={spell._id}>
+              <div className={style.zauber} key={spell._id}>
                 <h3 id={spell.name}>{spell.name}</h3>
                 {spell.grad > 0 ? (
                   <p>
