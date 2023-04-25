@@ -11,6 +11,8 @@ import Werkzeuge from "../pages/Werkzeuge/Werkzeuge";
 import Rüstung from "../pages/Rüstung/Rüstung";
 import GesinnungUndSprachen from "../pages/GesinnungUndSprachen/GesinnungUndSprachen";
 import Abenteuerausrüstung from "../pages/Abenteuerausrüstung/Abenteuerausrüstung";
+import Dashboard from "../pages/Dashboard/Dashboard.js";
+
 
 const routes = [
   { path: "/", element: <Home />, id: 1 },
@@ -26,6 +28,8 @@ const routes = [
   { path: "/rüstung", element: <Rüstung />, id: 11 },
   { path: "/werkzeuge", element: <Werkzeuge />, id: 12 },
   { path: "/abenteuerausrüstung", element: <Abenteuerausrüstung />, id: 12 },
+  { path: "/dashoard", element: <Dashboard />, id: 13 },
+
 ];
 
 export default routes;
