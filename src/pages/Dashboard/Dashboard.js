@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
-import userContext from "../../context/userContext";
+import React from "react";
+import { useStore } from '../../context/storeContext.js'
 
 export default function Dashboard() {
-    const { user, isLoggedIn } = useContext(userContext);
+    const { isLoggedIn, user } = useStore()
+
 
     return (
         <div>
