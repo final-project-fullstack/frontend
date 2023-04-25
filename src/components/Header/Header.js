@@ -113,6 +113,10 @@ const Header = () => {
                   <NavLink to="/myspells">Meine Zauber</NavLink>
                 </li>
 
+                <li onClick={handleSth}>
+                  <NavLink to="/charakter-erstellen">Charakter erstellen</NavLink>
+                </li>
+
                 <li onClick={logout}>
                   <NavLink>Logout</NavLink>
                 </li>
@@ -202,7 +206,6 @@ const Header = () => {
           />
         </div>
       </nav>
-
 
       {isChildVisible && (
         <div>

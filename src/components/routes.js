@@ -11,6 +11,7 @@ import Werkzeuge from "../pages/Werkzeuge/Werkzeuge";
 import Rüstung from "../pages/Rüstung/Rüstung";
 import GesinnungUndSprachen from "../pages/GesinnungUndSprachen/GesinnungUndSprachen";
 import Abenteuerausrüstung from "../pages/Abenteuerausrüstung/Abenteuerausrüstung";
+import Character from "../pages/Character/Characters";
 
 const routes = [
   { path: "/", element: <Home />, id: 1 },
@@ -26,6 +27,7 @@ const routes = [
   { path: "/rüstung", element: <Rüstung />, id: 11 },
   { path: "/werkzeuge", element: <Werkzeuge />, id: 12 },
   { path: "/abenteuerausrüstung", element: <Abenteuerausrüstung />, id: 12 },
+  { path: "/charakter-erstellen", element: <Character />, id: 16 },
 ];
 
 export default routes;
