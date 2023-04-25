@@ -1,0 +1,44 @@
+.sheetContainer{
+    display: flex;
+    flex-direction: column;
+    width:210mm;
+    height:297mm;
+    background-color: chocolate;
+}
+.charHeader{
+display: grid;
+    grid-template-columns: 15% 1fr;
+    /* Definiert die Spaltenbreiten für charName und charInfo */
+    /* gap: 10px; */
+    /* Fügt einen Abstand zwischen den Spalten hinzu */
+}
+.charName{
+    
+background-color: blueviolet;
+}
+.charInfo{
+    display: grid;
+    background-color: bisque;
+}
+
+
+/* --------------- */
+.attributes{
+display: grid;
+width: 100%;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+background-color: rgb(210, 188, 188);
+
+}
+.attributwert{
+padding: 10px;
+    background-color: aqua;
+}
+.attributwerteboni{
+    background-color: blueviolet;
+}
+
+
