@@ -1,7 +1,8 @@
 import { useStore } from '../../context/storeContext.js'
 export default function GesinnungUndSprachen() {
   const { sprachen, gesinnung } = useStore()
-  console.log(gesinnung);
+
+console.log(sprachen)
   return (
     <div className="container">
       <div className="gesinnungenSprachen">
@@ -69,7 +70,7 @@ export default function GesinnungUndSprachen() {
                   </tr>
                 </thead>
                 <tbody>
-                  {sprachen[0].Standardsprachen.map((info, i) => {
+                  {sprachen[1].Standardsprachen.map((info, i) => {
                     return (
                       <tr key={i}>
                         <td>{info.Sprache}</td>
@@ -92,7 +93,7 @@ export default function GesinnungUndSprachen() {
                   </tr>
                 </thead>
                 <tbody>
-                  {sprachen[1]["Exotische Sprachen"].map((info, i) => {
+                  {sprachen[0]["Exotische Sprachen"].map((info, i) => {
                     return (
                       <tr key={i}>
                         <td>{info.Sprache}</td>
