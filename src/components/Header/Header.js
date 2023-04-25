@@ -55,7 +55,7 @@ const Header = () => {
           <span></span>
           <ul id={style.menu}>
             <li>
-              <NavLink to="/">{user.userName}</NavLink>
+              <NavLink to="/dashoard">{user.userName}</NavLink>
             </li>
             <li onClick={handleSth}>
               <NavLink to="/">Home</NavLink>
@@ -123,7 +123,7 @@ const Header = () => {
         <div className={style.navbarDesktop}>
           <ul>
             <li>
-              <NavLink to="/">{user.userName}</NavLink>
+              <NavLink to="/dashoard">{user.userName}</NavLink>
             </li>
             <li>
               <NavLink to="/">Home</NavLink>
