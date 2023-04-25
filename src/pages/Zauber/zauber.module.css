@@ -1,0 +1,41 @@
+/* NOTE in zauber.module.css */
+.zauber {
+  background-image: url(../../assets/hd-wallpaper-1074131_1920.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 2rem;
+  margin: 1rem;
+  border-radius: 5px;
+  max-width: 430px;
+  box-shadow: 15px 15px 30px #d3d3d3, -15px -15px 30px #fdfdfd;
+}
+
+
+/* NOTE wird in home und zauber genutzt wird zzt nicht gebraucht */
+.home-form button {
+  margin-top: 1.5rem;
+  padding: 5px 10px;
+}
+
+
+/* ANCHOR  Inhaltsverzeichniss (in zauber.module.css */
+.inhaltsverzeichnis {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inhaltsverzeichnis ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.inhaltsverzeichnis ul li {
+  margin-bottom: 0.4rem;
+}
+
+.inhaltsverzeichnis a {
+  cursor: pointer;
+}
