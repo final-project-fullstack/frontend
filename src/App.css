@@ -83,16 +83,16 @@ form {
   align-items: center;
 }
 /* NOTE wird in loginRegister und zauber genutzt */
-/* input {
+input {
   margin-bottom: 1rem;
-} */
+}
  /* NOTE wird in home und zauber  genutzt */
-/* .home-form {
+.home-form {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 2.5rem 0;
-} */
+}
 
 
 
@@ -125,11 +125,11 @@ form {
 
 
 /* ANCHOR Search */
-/* .search {
+.search {
   display: flex;
   justify-content: center;
   padding-top: 2rem;
-} */
+}
 
 /* .völker, */
 /* .hintergründe, */
