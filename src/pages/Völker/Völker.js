@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
-import userContext from "../../context/userContext";
+import React, { useState } from "react";
+import { useStore } from '../../context/storeContext.js';
 
 export default function Völker() {
-  const { volk } = useContext(userContext);
+  const { volk } = useStore()
   const [filterVolk, setFilterVolk] = useState([]);
   function sortArray(x, y) {
     return x.name.localeCompare(y.name);

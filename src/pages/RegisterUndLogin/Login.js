@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import userContext from "../../context/userContext";
+import { useStore } from '../../context/storeContext.js'
 import { useNavigate } from "react-router-dom";
 import style from "./registerLogin.module.css";
 
@@ -11,7 +11,8 @@ const Login = () => {
     password: "",
   });
 
-  const { setIsLoggedIn, setUser } = useContext(userContext);
+  const { setIsLoggedIn, setUser, user } = useStore()
+
 
   const [message, setMessage] = useState("");
 
@@ -32,7 +33,7 @@ const Login = () => {
       }
       // localStorage.setItem("token", data.data.token);
     } catch (error) {
-      setMessage(error.response.data);
+      console.log(error);
     }
   };
 

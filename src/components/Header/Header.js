@@ -1,15 +1,15 @@
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import userContext from "../../context/userContext";
-import style from "./header.module.css";
-import PoolContainer from "../dicer/dicerPool";
+import { useStore } from '../../context/storeContext.js'
+import PoolContainer from "../dicer/dicerPool.js";
+import style from "../Header/header.module.css";
 // import "../../App.css"
 const Header = () => {
   const navigate = useNavigate();
   const [checkStatus, setChange] = useState(false);
   const [show, setShow] = useState(false);
-  const { isLoggedIn, setIsLoggedIn, user, setUser } = useContext(userContext);
+  const { isLoggedIn, setIsLoggedIn, user, setUser } = useStore();
   const [isChildVisible, setIsChildVisible] = useState(false);
 
   const handleSth = (e) => {
@@ -202,6 +202,7 @@ const Header = () => {
           />
         </div>
       </nav>
+
 
       {isChildVisible && (
         <div>

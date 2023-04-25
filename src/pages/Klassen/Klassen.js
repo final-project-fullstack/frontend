@@ -1,8 +1,8 @@
-import React, { useContext, useState } from "react";
-import userContext from "../../context/userContext";
+import React, { useState } from "react";
+import { useStore } from '../../context/storeContext.js'
 
 export default function Klassen() {
-  const { klassen } = useContext(userContext);
+  const { klassen } = useStore()
   const [filterKlasse, setFilterKlasse] = useState([]);
 
   const onChangeKlasse = (event) => {
