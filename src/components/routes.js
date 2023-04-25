@@ -4,6 +4,7 @@ import Hintergrund from "../pages/Hintergrund/Hintergrund";
 import Home from "../pages/Home/Home";
 import Klassen from "../pages/Klassen/Klassen";
 import MeineZauber from "../pages/MeineZauber/MeineZauber";
+import MeinChar from "../pages/Characterbogen/Charactersbogen";
 import Völker from "../pages/Völker/Völker";
 import Waffen from "../pages/Waffen/Waffen";
 import Zauber from "../pages/Zauber/Zauber";
@@ -12,7 +13,6 @@ import Rüstung from "../pages/Rüstung/Rüstung";
 import GesinnungUndSprachen from "../pages/GesinnungUndSprachen/GesinnungUndSprachen";
 import Abenteuerausrüstung from "../pages/Abenteuerausrüstung/Abenteuerausrüstung";
 import Dashboard from "../pages/Dashboard/Dashboard.js";
-
 
 const routes = [
   { path: "/", element: <Home />, id: 1 },
@@ -27,9 +27,9 @@ const routes = [
   { path: "/waffen", element: <Waffen />, id: 10 },
   { path: "/rüstung", element: <Rüstung />, id: 11 },
   { path: "/werkzeuge", element: <Werkzeuge />, id: 12 },
-  { path: "/abenteuerausrüstung", element: <Abenteuerausrüstung />, id: 12 },
-  { path: "/dashoard", element: <Dashboard />, id: 13 },
-
+  { path: "/abenteuerausrüstung", element: <Abenteuerausrüstung />, id: 13 },
+  { path: "/dashoard", element: <Dashboard />, id: 14 },
+  { path: "/mychar", element: <MeinChar />, id: 15 },
 ];
 
 export default routes;

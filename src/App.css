@@ -11,6 +11,8 @@ h3 {
 }
 
 
+
+
 /* ANCHOR Scrollbalken */
 
 ::-webkit-scrollbar {
@@ -27,7 +29,7 @@ h3 {
 
 /* ------------------------------------------------------------------------------------- */
 
-/* ANCHOR kein plan */
+/* ANCHOR container */
 .container{
   display: flex;
   justify-content: center;
@@ -37,6 +39,8 @@ h3 {
 }
 
 /* ANCHOR select */
+
+/* wird von zauber benutzt */
 .select {
   display: flex;
   flex-direction: column;
@@ -44,6 +48,8 @@ h3 {
   margin: 1rem ;  
 }
 
+
+/* wird von zauber benutzt */
 .select select {
   margin: 1rem;
   width: 130px;
@@ -53,10 +59,13 @@ label {
   padding-left: 1rem;
 }
 
+
+/* wird von zauber benutzt */
 .select-klasse {
   border-bottom: 2px solid #ffffff;
 }
 
+/* wird von zauber benutzt */
 .select-klasse,
 .select-grad {
   display: flex;
@@ -67,16 +76,27 @@ label {
 
 
 /* ANCHOR zauber */
-.zauber {
-  background-image: url(./hd-wallpaper-1074131_1920.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 2rem;
-  margin: 1rem;
-  border-radius: 5px;
-  max-width: 430px;
-  box-shadow: 15px 15px 30px #d3d3d3, -15px -15px 30px #fdfdfd;
+/* NOTE wird in loginRegister zauber genutzt */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+/* NOTE wird in loginRegister und zauber genutzt */
+/* input {
+  margin-bottom: 1rem;
+} */
+ /* NOTE wird in home und zauber  genutzt */
+/* .home-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2.5rem 0;
+} */
+
+
+
+
 
 .zauber p {
   font-size: 0.8rem;
@@ -100,32 +120,16 @@ label {
   line-height: 1rem;
 }
 
-.inhaltsverzeichnis {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-.inhaltsverzeichnis ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
 
-.inhaltsverzeichnis ul li {
-  margin-bottom: 0.4rem;
-}
 
-.inhaltsverzeichnis a {
-  cursor: pointer;
-}
 
-.search {
+/* ANCHOR Search */
+/* .search {
   display: flex;
   justify-content: center;
   padding-top: 2rem;
-}
+} */
 
 /* .völker, */
 /* .hintergründe, */
@@ -153,34 +157,22 @@ label {
   border-radius: 3px;
 }
 
-/* ANCHOR Ausrüstung (explizit) */
+/* ANCHOR Ausrüstung (explizit?) */
 
 /* breite der seite (auch im desktop modus) */
-.ausrüstung .volk {
+/* .ausrüstung .volk {
   margin-bottom: 2rem;
   max-width: 360px;
-}
+} */
 
 /* kleiner als normal */
- .ausrüstung p {
+ /* .ausrüstung p {
   padding: 0.3rem 0;
   margin: 0;
-} 
+}  */
 
  /* .ausrüstung {
   margin-bottom: 2rem;
-} */
-
-
-/* größer als normal */
-.ausrüstung h3 {
-  margin-top: 2rem;
-}
-
-/* überflüssig? */
-/* .ausrüstung p {
-  padding: 0.3rem 0;
-  margin: 0;
 } */
 
 .volk,
@@ -224,10 +216,10 @@ label {
 margin-top: 2rem;
 }
 
-    .navbarDesktop a:hover,
+.navbarDesktop a:hover,
     .navbarDesktop a.active {
       border-bottom: 3px solid #ffffff;
-    }
+}
 
 
 
@@ -510,4 +502,52 @@ margin-top: 2rem;
   flex-direction: column;
   cursor: pointer;
   height: 100px;
+} */
+
+/* NOTE in ausruestung.module.css ausgelagert */
+/* größer als normal */
+/* .ausrüstung h3 {
+  margin-top: 2rem;
+} */
+
+/* NOTE in zauber.module.css */
+/* .zauber {
+  background-image: url(./hd-wallpaper-1074131_1920.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 2rem;
+  margin: 1rem;
+  border-radius: 5px;
+  max-width: 430px;
+  box-shadow: 15px 15px 30px #d3d3d3, -15px -15px 30px #fdfdfd;
+} */
+
+
+/* NOTE wird in home und zauber genutzt wird zzt nicht gebraucht */
+/* .home-form button {
+  margin-top: 1.5rem;
+  padding: 5px 10px;
+} */
+
+
+/* ANCHOR  Inhaltsverzeichniss (in zauber.module.css */
+/* .inhaltsverzeichnis {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inhaltsverzeichnis ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.inhaltsverzeichnis ul li {
+  margin-bottom: 0.4rem;
+}
+
+.inhaltsverzeichnis a {
+  cursor: pointer;
 } */
