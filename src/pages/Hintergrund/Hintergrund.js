@@ -1,10 +1,8 @@
-import React, { useContext } from "react";
-import userContext from "../../context/userContext";
+import { useStore } from '../../context/storeContext.js';
 import style from "./hintergrund.module.css";
 
 export default function Hintergrund() {
-  const { hintergrund, filterHintergrund, setFiltrHintergrund } =
-    useContext(userContext);
+  const { hintergrund, filterHintergrund, setFiltrHintergrund } = useStore()
   console.log(hintergrund);
 
   function sortArray(x, y) {

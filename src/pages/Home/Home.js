@@ -1,12 +1,12 @@
-import userContext from "../../context/userContext";
-import { useContext } from "react";
-import style from "./home.module.css";
+import style from "../Home/home.module.css"
+import { useStore } from '../../context/storeContext.js'
+import { NavLink } from "react-router-dom";
 
 // REVIEW wird nur gebraucht wenn die Buttons eingefügt bleiben sollen
 // import { NavLink } from "react-router-dom";
 
 const Home = () => {
-  const { isLoggedIn } = useContext(userContext);
+  const { isLoggedIn } = useStore()
   return (
     <div className={style.home}>
       <h1>Wilkommen bei Dungons & Dragons - Wiki & Guide</h1>
