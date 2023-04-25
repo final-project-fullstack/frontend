@@ -1,10 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
-import { useStore } from "../context/storeContext";
+import { useStore } from '../../context/storeContext.js';
 import { useNavigate } from "react-router-dom";
 
 const Zauber = () => {
   const navigate = useNavigate();
+  const [klasseFilter, setKlasseFilter] = useState([]);
   const [selectValue, setSelectValue] = useState({
     klasse: "",
     grad: Number,
@@ -18,6 +19,7 @@ const Zauber = () => {
     setFilteredSpells,
     inhaltsverzeichnis,
     setInhaltsverzeichnis,
+    klassenZauber
   } = useStore()
 
   function SortArray(x, y) {
@@ -27,6 +29,8 @@ const Zauber = () => {
   const onChangeKlasse = (event) => {
     const value = event.target.value;
     setSelectValue((selectValue) => ({ ...selectValue, klasse: value }));
+    const filterGrad = klassenZauber.filter((klasse) => klasse.name === value);
+    setKlasseFilter(filterGrad);
   };
   const onChangeGrad = (event) => {
     const value = event.target.value;
@@ -95,30 +99,19 @@ const Zauber = () => {
               <label>Klasse auswählen:</label>
               <select onChange={onChangeKlasse}>
                 <option>Klasse auswählen</option>
-                <option>Barde</option>
-                <option>Druide</option>
-                <option>Hexenmeister</option>
-                <option>Kleriker</option>
-                <option>Magier</option>
-                <option>Paladin</option>
-                <option>Waldläufer</option>
-                <option>Zauberer</option>
+                {klassenZauber.map((klasse, i) => (
+                  <option key={i}>{klasse.name}</option>
+                ))}
               </select>
             </div>
             <div className="select-grad">
               <label>Grad auswählen:</label>
               <select onChange={onChangeGrad}>
                 <option>Grad auswählen</option>
-                <option>0</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
+                {klasseFilter.length > 0 &&
+                  klasseFilter[0].grade.map((number, i) => (
+                    <option key={i}>{number}</option>
+                  ))}
               </select>
             </div>
           </div>

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useStore } from "../context/storeContext";
+import { useStore } from '../../context/storeContext.js'
 import { useNavigate } from "react-router-dom";
+import style from "./registerLogin.module.css";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -15,7 +16,6 @@ const Login = () => {
 
   const [message, setMessage] = useState("");
 
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -25,7 +25,7 @@ const Login = () => {
         { withCredentials: true }
       );
       console.log(response);
-      setUser(response.data.userWithoutPassword)
+      setUser(response.data.userWithoutPassword);
       setMessage(response.data.message);
       setIsLoggedIn(true);
       if (response) {
@@ -37,11 +37,8 @@ const Login = () => {
     }
   };
 
-
-
-
   return (
-    <div className="login">
+    <div className={style.login}>
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <input
@@ -60,7 +57,7 @@ const Login = () => {
             setUserLogin({ ...userLogin, password: e.target.value })
           }
         />
-        <input className="login-button" type="submit" value="Login" />
+        <input className={style.loginButton} type="submit" value="Login" />
         <p>{message}</p>
       </form>
     </div>

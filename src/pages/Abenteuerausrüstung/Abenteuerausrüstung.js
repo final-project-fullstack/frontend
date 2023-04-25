@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useStore } from "../context/storeContext";
+import { useStore } from '../../context/storeContext.js'
 
 export default function Abenteuerausrüstung() {
   const { ausrüstung } = useStore()

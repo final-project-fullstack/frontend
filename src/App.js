@@ -21,6 +21,7 @@ function App() {
     setGesinnung,
     setSprachen,
     setWerkzeuge,
+    setKlassenZauber
   } = useStore();
 
 
@@ -89,7 +90,12 @@ function App() {
 
     axios
 
-      .get(`${BACKEND_URL}/user/checkCookie`, {
+      .get(`${BACKEND_URL}/klassen-zauber`)
+      .then((response) => setKlassenZauber(response.data))
+      .catch((err) => console.log(err));
+
+    axios
+  .get(`${BACKEND_URL}/user/checkCookie`, {
         withCredentials: true,
       })
       .then((response) => [
