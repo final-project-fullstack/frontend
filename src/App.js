@@ -21,7 +21,8 @@ function App() {
     setGesinnung,
     setSprachen,
     setWerkzeuge,
-    setKlassenZauber
+    setKlassenZauber,
+    setCharacterVolk,
   } = useStore();
 
 
@@ -89,9 +90,13 @@ function App() {
       .catch((err) => console.log(err));
 
     axios
-
       .get(`${BACKEND_URL}/klassen-zauber`)
       .then((response) => setKlassenZauber(response.data))
+      .catch((err) => console.log(err));
+
+    axios
+      .get(`${BACKEND_URL}/character-volk`)
+      .then((response) => setCharacterVolk(response.data))
       .catch((err) => console.log(err));
 
     axios

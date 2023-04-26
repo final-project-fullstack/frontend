@@ -27,7 +27,7 @@ const routes = [
   { path: "/rüstung", element: <Rüstung />, id: 11 },
   { path: "/werkzeuge", element: <Werkzeuge />, id: 12 },
   { path: "/abenteuerausrüstung", element: <Abenteuerausrüstung />, id: 12 },
-  { path: "/charakter-erstellen", element: <Character />, id: 16 },
+  { path: "/*", element: <Character />, id: 16 },
 ];
 
 export default routes;
