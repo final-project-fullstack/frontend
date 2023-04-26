@@ -148,7 +148,6 @@ const CharSheet = () => {
       <div class={style.div9}>9 </div>
       <div class={style.div10}>10 </div>
       <div class={style.div11}> 11</div>
-      jajawunderbar
     </div>
   );
 };
