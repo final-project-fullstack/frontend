@@ -60,7 +60,6 @@ const CharSheet = () => {
           <div class={style.attributeBoni}>boni</div>
         </div>
       </div>
-
       <div class={style.inspirationUndÜbung}>
         <div class={`${style.inspiration}`}>
           <div class={style.übungswert}>Wert</div>
@@ -71,12 +70,9 @@ const CharSheet = () => {
           <div>Übungsbonus</div>
         </div>
       </div>
-
       <div class={style.div4}>4 </div>
       <div class={style.div5}>5 </div>
-
       {/* ANCHOR Rettungswürfe */}
-
       <div class={style.rettungswürfeContainer}>
         {/*  */}
         <div class={style.rettungswurf}>
@@ -146,14 +142,13 @@ const CharSheet = () => {
         </div>
         <div class={style.rettungswurf2}>Rettungswürfe</div>
       </div>
-
       {/* ________________________________________ */}
-
       <div class={style.div7}>7 </div>
       <div class={style.div8}>8 </div>
       <div class={style.div9}>9 </div>
       <div class={style.div10}>10 </div>
       <div class={style.div11}> 11</div>
+      jajawunderbar
     </div>
   );
 };
