@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useStore } from '../../context/storeContext.js'
 import axios from "axios";
-import style from "../RegisterUndLogin/registerLogin.module.css";
+import style from "./dashboard.module.css";
 
 
 export default function Dashboard() {
@@ -14,7 +14,7 @@ export default function Dashboard() {
 
 
     const handleSubmit = async (e) => {
-        console.log(passwordChange)
+
         e.preventDefault();
         try {
             const response = await axios.post(
@@ -22,13 +22,9 @@ export default function Dashboard() {
                 passwordChange,
                 { withCredentials: true }
             );
-            console.log(response);
-            // setUser(response.data.userWithoutPassword);
-            setMessage(response.data.message);
-            // setIsLoggedIn(true);
-
-            // localStorage.setItem("token", data.data.token);
+            setMessage(response.data.msg);
         } catch (error) {
+            setMessage(error.message)
             console.log(error);
         }
     };
@@ -41,7 +37,7 @@ export default function Dashboard() {
                     <h3>Personliche Daten</h3>
                     <p>Name:{user.userName}</p>
                     <p>Email:{user.email}</p>
-                    <div className={style.login}>
+                    <div className={style.passwordChange}>
                         <h2>Passwort änderung</h2>
                         <form onSubmit={handleSubmit}>
                             <input
@@ -60,8 +56,8 @@ export default function Dashboard() {
                                     setPasswordChange({ ...passwordChange, newPassword: e.target.value })
                                 }
                             />
-                            <input className={style.loginButton} type="submit" value="Login" />
-                            <p>{message}</p>
+                            <input type="submit" value="Ändern" />
+                            {message && <p className={style.msg}>{message}</p>}
                         </form>
                     </div>
                 </div>
