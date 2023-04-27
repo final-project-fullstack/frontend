@@ -1,0 +1,48 @@
+[{
+    "name": "Barbar",
+    "trefferpunkte": {"trefferwürfel": "1W12 pro Stufe als Barbar", "trefferpunkte auf Stufe 1": "12+ dein Konstitutionmodifikator", "trefferpunkte auf höheren Stufen": "1W12 (oder 7)+dein Konstitutionsmodifikator pro Stufe als Barbar über die 1. Stufe hinaus"},
+    "fertigkeiten":{"rüstung": ["leichte Rüstung, mittelscwere Rüstung, Schilde"], "waffen":["einfache Waffen, Kriegswaffen"], "werkzeuge":["keine"], "rettungswürfe": ["Stärke", "Konstitution"], "skills": ["Athletik", "Einschüchtern", "Mit Tieren umgehen", "Naturkunde", "Überlebenkunst", "Wahrnehmung"]  }
+
+},{
+    "name": "Barde",
+    "trefferpunkte": [],
+    "fertigkeiten": {"skills":["Akrobatik",
+    "Arkane Kunde",
+    "Athletik",
+    "Auftreten",
+    "Einschüchtern",
+    "Fingerfertigkeit",
+    "Geschichte",
+    "Heilkunde",
+    "Heimlichkeit",
+    "Mit Tieren umgehen",
+    "Motiv erkennen",
+    "Nachforschungen",
+    "Naturkunde",
+    "Religion",
+    "Täuschen",
+    "Überlebenskunst",
+    "Überzeugen",
+    "Wahrnehmung"]}
+},{
+    "name": "Druide"
+},{
+    "name": "Hexenmeister"
+    
+},{
+    "name": "Kämpfer"
+},{
+    "name": "Kleriker"
+},{
+    "name": "Magier"
+},{
+    "name": "Mönch"
+},{
+    "name": "Paladin"
+},{
+    "name": "Schurke"
+}, {
+    "name": "Waldläufer"
+}, {
+    "name": "Zauberer"
+}]

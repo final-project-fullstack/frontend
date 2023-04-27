@@ -25,6 +25,7 @@ export function ContextProvider({ children }) {
   const [rüstung, setRüstung] = useState([]);
   const [werkzeuge, setWerkzeuge] = useState([]);
   const [characterVolk, setCharacterVolk] = useState([]);
+  const [klasseWählen, setKlasseWählen] = useState([]);
 
   return (
     <StoreContext.Provider
@@ -65,6 +66,7 @@ export function ContextProvider({ children }) {
         setKlassenZauber,
         characterVolk,
         setCharacterVolk,
+        klasseWählen, setKlasseWählen,
       }}
     >
       {children}
