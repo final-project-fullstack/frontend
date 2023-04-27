@@ -31,7 +31,7 @@ const routes = [
   { path: "/abenteuerausrüstung", element: <Abenteuerausrüstung />, id: 13 },
   { path: "/dashoard", element: <Dashboard />, id: 14 },
   { path: "/mychar", element: <MeinChar />, id: 15 },
-  { path: "/charakter-erstellen", element: <Character />, id: 16 },
+  { path: "/*", element: <Character />, id: 16 },
 ];
 
 export default routes;

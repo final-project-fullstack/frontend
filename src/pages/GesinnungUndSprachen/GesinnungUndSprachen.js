@@ -2,7 +2,24 @@ import { useStore } from '../../context/storeContext.js'
 export default function GesinnungUndSprachen() {
   const { sprachen, gesinnung } = useStore()
 
-console.log(sprachen)
+
+  const sortedArr = sprachen.sort((a, b) => { 
+    const keyA = Object.keys(a)[1];
+    const keyB = Object.keys(b)[1];
+    console.log("a:", keyA)
+    console.log("b:", keyB)
+  
+    if (keyA < keyB) {
+      return -1;
+    }
+    if (keyA > keyB) {
+      return 1;
+    }
+    return 0;
+  });
+  
+
+
   return (
     <div className="container">
       <div className="gesinnungenSprachen">
@@ -70,7 +87,7 @@ console.log(sprachen)
                   </tr>
                 </thead>
                 <tbody>
-                  {sprachen[1].Standardsprachen.map((info, i) => {
+                  {sortedArr[1].Standardsprachen.map((info, i) => {
                     return (
                       <tr key={i}>
                         <td>{info.Sprache}</td>
@@ -93,7 +110,7 @@ console.log(sprachen)
                   </tr>
                 </thead>
                 <tbody>
-                  {sprachen[0]["Exotische Sprachen"].map((info, i) => {
+                  {sortedArr[0]["Exotische Sprachen"].map((info, i) => {
                     return (
                       <tr key={i}>
                         <td>{info.Sprache}</td>
