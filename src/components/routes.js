@@ -34,8 +34,8 @@ export const paths = {
   mycharPath: "/mychar",
   anyPath: "/*",
 };
-export default function RoutesPaths() {
-  const { isLoggedIn, user } = useStore()
+export default function AllRoutes() {
+  const { isLoggedIn } = useStore()
   // console.log(isLoggedIn)
 
   const routes = [
@@ -146,8 +146,7 @@ export default function RoutesPaths() {
     },
   ];
 
-  return (
-    routes
-  );
+  return routes;
+
 }
 

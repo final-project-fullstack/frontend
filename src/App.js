@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Layout from "./components/Layout";
-import RoutesPaths from "./components/routes";
+import AllRoutes from "./components/routes";
 import { useStore } from "./context/storeContext";
 import { Navigate } from "react-router-dom";
 
@@ -115,7 +115,7 @@ function App() {
 
 
 
-  const routes = RoutesPaths()
+  const routes = AllRoutes()
   return (
     <BrowserRouter>
       {authenticationCompleted &&

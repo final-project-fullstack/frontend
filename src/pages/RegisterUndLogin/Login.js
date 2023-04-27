@@ -11,7 +11,7 @@ const Login = () => {
     password: "",
   });
 
-  const { setIsLoggedIn, setUser, user } = useStore()
+  const { setIsLoggedIn, setUser } = useStore()
 
 
   const [message, setMessage] = useState("");
