@@ -4,7 +4,11 @@ const CharSheet = () => {
   return (
     <div class={style.sheetcontainerP1}>
       <div class={style.kopfzeile}>
-        <div class={style.charName}>Character Name</div>
+        {/* <div class={style.charName}>Character Name</div> */}
+        <div class={style.nameContainer}>
+          <textarea rows="2" name="charName"></textarea>
+          <div class={style.labelName}>Character Name</div>
+        </div>
         <div class={style.charInfo}>
           <p class={style.pInfo}>
             <div class={style.infoSubcontainer}>Klasse & Stufe</div>
@@ -27,7 +31,6 @@ const CharSheet = () => {
           <div class={style.attributeWert}>8</div>
           <div class={style.attributeBoni}>0</div>
         </div>
-
         <div class={`${style.geschick} ${style.attributeBorder}`}>
           <div class={style.attributeBezeichnung}>
             Geschick-
@@ -37,13 +40,11 @@ const CharSheet = () => {
           <div class={style.attributeWert}>12</div>
           <div class={style.attributeBoni}>+2</div>
         </div>
-
         <div class={`${style.konst} ${style.attributeBorder}`}>
           <div class={style.attributeBezeichnung}>Konstitution</div>
           <div class={style.attributeWert}>wert</div>
           <div class={style.attributeBoni}>boni</div>
         </div>
-
         <div class={`${style.intel} ${style.attributeBorder}`}>
           <div class={style.attributeBezeichnung}>Intelligenz</div>
           <div class={style.attributeWert}>wert</div>
@@ -60,7 +61,6 @@ const CharSheet = () => {
           <div class={style.attributeBoni}>boni</div>
         </div>
       </div>
-
       <div class={style.inspirationUndÜbung}>
         <div class={`${style.inspiration}`}>
           <div class={style.übungswert}>Wert</div>
@@ -71,13 +71,15 @@ const CharSheet = () => {
           <div>Übungsbonus</div>
         </div>
       </div>
-
       <div class={style.div4}>4 </div>
       <div class={style.div5}>5 </div>
 
-      {/* ANCHOR Rettungswürfe */}
+      {/*  */}
 
+      {/* ANCHOR Rettungswürfe */}
       <div class={style.rettungswürfeContainer}>
+        <div class={style.rettungswurf2}>Rettungswürfe</div>
+        <br />
         {/*  */}
         <div class={style.rettungswurf}>
           <input
@@ -144,16 +146,13 @@ const CharSheet = () => {
           <div>input</div>
           <label for="checkcharisma">Charisma</label>
         </div>
-        <div class={style.rettungswurf2}>Rettungswürfe</div>
       </div>
-
       {/* ________________________________________ */}
-
-      <div class={style.div7}>7 </div>
-      <div class={style.div8}>8 </div>
-      <div class={style.div9}>9 </div>
+      <div class={style.div7}>7</div>
+      <div class={style.div8}>8</div>
+      <div class={style.div9}>9</div>
       <div class={style.div10}>10 </div>
-      <div class={style.div11}> 11</div>
+      <div class={style.div11}>11</div>
     </div>
   );
 };
