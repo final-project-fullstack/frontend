@@ -5,16 +5,23 @@
 
 /* ANCHOR input */
 
-input[type="checkbox"] {
-    margin:4px 4px 2px 4px ;
+.input[type="checkbox"] {
+    margin:3px 4px 2px 4px ;
+    background-color: brown;
+    
 }
-input[type="text"] {
+
+/* .input[type="text"] {
     margin:4px 4px 2px 4px ;
     font-size: larger;
     color:black;
-}
+} */
 
 /* ANCHOR label */
+
+.label{
+    font-weight: 500;
+}
 
 .labelName{
     font-weight: 500;
@@ -27,16 +34,14 @@ textarea{
 }
 
 .sheetcontainerP1 {
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: repeat(12, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(12, 1fr);
+      grid-column-gap: 0px;
+      grid-row-gap: 0px;
     width:210mm;
     height:297mm;
-    /* line-height:30px; */
     background-image: url(../../hd-wallpaper-1074131_1920.jpg);
-    /* border:1px solid black; */
     overflow: hidden;
 }
 
@@ -46,12 +51,9 @@ textarea{
         grid-template-rows: repeat(2, 1fr);
         grid-column-gap: 0px;
         grid-row-gap: 0px;
-    grid-area: 1 / 1 / 2 / 10;
-    
+    grid-area: 1 / 1 / 2 / 13;
     border: 1px solid black;
-
 }
-
 
 .nameContainer
 .charName{
@@ -85,19 +87,17 @@ textarea{
 
 
 .attribute {
-    padding-top:0.5rem;
-    display:grid;
-    grid-template-columns: 1fr;
-        grid-template-rows: repeat(6, 1fr);
-        grid-column-gap: 0px;
-        grid-row-gap: 0px;
     grid-area: 2 / 1 / 9 / 2;
+     display:grid;
+       grid-template-columns: 1fr;
+       grid-template-rows: repeat(6, 1fr);
+       grid-column-gap: 0px;
+       grid-row-gap: 0px;
+    padding-top:0.5rem;
     font-weight: bold;
     font-size: 70%;
-        text-align: center;
-        /* padding:10px; */
-    
-   
+    text-align: center;
+      
 }
 
 .attributeBorder{
@@ -117,14 +117,13 @@ font-size: 220%;
 }
 
 .attributeBoni{
-    /* align-items: flex-end; */
-border:1px solid black;
-border-radius: 50%;
-height:30%;
-width:80%;
-font-size: 0.8rem;
-padding-left: 15%;
-padding-bottom: 5px;;
+    border:1px solid black;
+    border-radius: 50%;
+    height:30%;
+    width:80%;
+    font-size: 0.8rem;
+    padding-left: 15%;
+    padding-bottom: 5px;;
 
 }
 
@@ -153,9 +152,12 @@ padding-bottom: 5px;;
     grid-area: 6 / 1 / 7 / 2;
   }
 
+
+
+  /* ANCHOR Inspiration und übung */
 .inspirationUndÜbung {
     display: block;
-    grid-area: 2 / 2 / 3 / 4;
+    grid-area: 2 / 2 / 3 / 5;
     border: 1px solid black;
     width:100%;
 }
@@ -183,11 +185,11 @@ text-align: end;
 }
 
 .div4 {
-    grid-area: 2 / 4 / 6 / 7;
+    grid-area: 2 / 5 / 6 / 9;
     border: 1px solid black;
 }
 .div5 {
-    grid-area: 2 / 7 / 6 / 10;
+    grid-area: 2 / 9 / 6 / 13;
     border: 1px solid black;
 }
 
@@ -195,50 +197,68 @@ text-align: end;
 .rettungswürfeContainer {
     display: flex;
     flex-direction: column;
-    grid-area: 3 / 2 / 5 / 4;
+    grid-area: 3 / 2 / 4 / 5;
     border: 1px solid black;
     /* font-size: 70%; */
     /* font-weight: bold; */
     /* text-align: center; */
 }
 
-label{
-    font-weight: bold;
-}
 
-.rettungswurf{
+.rettungswurf, .fertigkeit{
     display: flex;
     /* padding-top:10px; */
     /* height: calc(100%); */
 }
-.rettungswurf2{
+
+/* .rettungswurf2{
     text-align: center;
-    /* line-height: 0.9rem; */
-    font-weight: lighter;
+     font-weight: lighter;
     padding:5px 0px 0px 0px;
+} */
+
+
+/* ANCHOR Fertigkeiten */
+
+.fertigkeitenContainer {
+
+display: flex;
+    flex-direction: column;
+    
+    grid-area: 4 / 2 / 9 / 5;
+    border: 1px solid black;
+    font-size: 0.7rem;
+    /* font-weight:200 ; */
 }
 
-.div7 {
-    grid-area: 5 / 2 / 9 / 4;
-    border: 1px solid black;
-}
+
+
+
+
+
+
+
+
+
+
+
 .div8 {
-    grid-area: 6 / 4 / 9 / 10;
+    grid-area: 6 / 5 / 9 / 13;
     border: 1px solid black;
 }
 
 .div9 {
-    grid-area: 9 / 1 / 10 / 4;
+    grid-area: 9 / 1 / 10 / 5;
     border: 1px solid black;
 }
 
 .div10 {
-    grid-area: 10 / 1 / 13 / 4;
+    grid-area: 10 / 1 / 13 / 5;
     border: 1px solid black;
 }
 
 .div11 {
-    grid-area: 9 / 4 / 13 / 10;
+    grid-area: 9 / 5 / 13 / 13;
     border: 1px solid black;
 }
 
