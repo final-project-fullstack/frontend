@@ -6,6 +6,7 @@ const DicerPoolDHundred = () => {
 
   useEffect(() => {
     const storedItems = localStorage.getItem(`dicerItemsD100`);
+    console.log(storedItems);
     if (storedItems) {
       setItems(JSON.parse(storedItems));
     }

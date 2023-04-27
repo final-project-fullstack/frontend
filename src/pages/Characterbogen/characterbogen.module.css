@@ -1,44 +1,254 @@
-.sheetContainer{
-    display: flex;
-    flex-direction: column;
+/* :root{
+    --font-size:88% ;
+} */
+
+
+/* ANCHOR input */
+
+.input[type="checkbox"] {
+    margin:3px 4px 2px 4px ;
+    background-color: brown;
+    
+}
+
+/* .input[type="text"] {
+    margin:4px 4px 2px 4px ;
+    font-size: larger;
+    color:black;
+} */
+
+/* ANCHOR label */
+
+.label{
+    font-weight: 500;
+}
+
+.labelName{
+    font-weight: 500;
+}
+
+/* ANCHOR TextArea */
+textarea{
+    height:140%;
+    width:197%;
+}
+
+.sheetcontainerP1 {
+      display: grid;
+      grid-template-columns: repeat(14, 1fr);
+      grid-template-rows: repeat(12, 1fr);
+      grid-column-gap: 0px;
+      grid-row-gap: 0px;
     width:210mm;
     height:297mm;
-    background-color: chocolate;
+    background-image: url(../../hd-wallpaper-1074131_1920.jpg);
+    overflow: hidden;
 }
-.charHeader{
-display: grid;
-    grid-template-columns: 15% 1fr;
-    /* Definiert die Spaltenbreiten für charName und charInfo */
-    /* gap: 10px; */
-    /* Fügt einen Abstand zwischen den Spalten hinzu */
-}
-.charName{
-    
-background-color: blueviolet;
-}
-.charInfo{
+
+.kopfzeile {
     display: grid;
-    background-color: bisque;
+    grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+    grid-area: 1 / 1 / 2 / 15;
+    border: 1px solid black;
+}
+
+.nameContainer
+.charName{
+    border:1px solid black;
+    grid-area: 1 / 1 / 3 / 3;
+    text-decoration: underline;
+}
+
+.charInfo{
+    display: flex;
+   
+    border:1px solid black;
+    grid-area: 1 / 3 / 3 / 6;
+}
+
+.pInfo{
+   margin:0px;
+   padding: 0px;
+   width:100%;
+   font-size: smaller;
+   text-decoration: underline;
+   justify-content: flex-start;
+}
+
+.infoSubcontainer{
+    border:1px solid black;
+    width:100%;
+    height:50%;
+    
 }
 
 
-/* --------------- */
-.attributes{
-display: grid;
-width: 100%;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-background-color: rgb(210, 188, 188);
-
-}
-.attributwert{
-padding: 10px;
-    background-color: aqua;
-}
-.attributwerteboni{
-    background-color: blueviolet;
+.attribute {
+    grid-area: 2 / 1 / 9 / 2;
+     display:grid;
+       grid-template-columns: 1fr;
+       grid-template-rows: repeat(6, 1fr);
+       grid-column-gap: 0px;
+       grid-row-gap: 0px;
+    padding-top:0.5rem;
+    font-weight: bold;
+    font-size: 70%;
+    text-align: center;
+      
 }
 
+.attributeBorder{
+    display: flex;
+    flex-direction: column;
+background-image: url(./img/attributeBorder.png);
+background-size: contain;
+background-repeat: no-repeat;
+padding:10px;
+}
+
+.attributeBezeichnung{
+    color:rgb(133, 24, 37);
+}
+.attributeWert{
+font-size: 220%;
+}
+
+.attributeBoni{
+    border:1px solid black;
+    border-radius: 50%;
+    height:30%;
+    width:80%;
+    font-size: 0.8rem;
+    padding-left: 15%;
+    padding-bottom: 5px;;
+
+}
+
+
+.stärke {
+    grid-area: 1 / 1 / 2 / 2;
+ }
+
+.geschick {
+    grid-area: 2 / 1 / 3 / 2;
+}
+
+.konst {
+    grid-area: 3 / 1 / 4 / 2;
+  }
+
+.intel {
+    grid-area: 4 / 1 / 5 / 2;
+  }
+
+.weisheit {
+    grid-area: 5 / 1 / 6 / 2;
+  }
+
+.charisma {
+    grid-area: 6 / 1 / 7 / 2;
+  }
+
+
+
+  /* ANCHOR Inspiration und übung */
+.inspirationUndÜbung {
+    display: block;
+    grid-area: 2 / 2 / 3 / 6;
+    border: 1px solid black;
+    width:100%;
+}
+
+.inspiration,.übungsbonus
+{
+    display: flex;
+    background-image: url(./img/attributeBorder.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        padding: 10px;       
+ }
+
+ .inspirationBezeichnung{
+  color:tomato;
+ }
+
+.übungswert{
+    color:blue;
+}
+
+.übungsbonus{
+text-align: end;
+    color:blueviolet;
+}
+
+.div4 {
+    grid-area: 2 / 6 / 6 / 11;
+    border: 1px solid black;
+}
+.div5 {
+    grid-area: 2 / 11 / 6 / 15;
+    border: 1px solid black;
+}
+
+/* ANCHOR Rettungswürfe */
+.rettungswürfeContainer {
+    display: flex;
+    flex-direction: column;
+    grid-area: 3 / 2 / 4 / 6;
+    border: 1px solid black;
+    /* font-size: 70%; */
+    /* font-weight: bold; */
+    /* text-align: center; */
+}
+
+
+.rettungswurf, .fertigkeit{
+    display: flex;
+   
+}
+
+/* .rettungswurf2{
+    text-align: center;
+     font-weight: lighter;
+    padding:5px 0px 0px 0px;
+} */
+
+
+/* ANCHOR Fertigkeiten */
+
+.fertigkeitenContainer {
+
+display: flex;
+    flex-direction: column;
+    
+    grid-area: 4 / 2 / 9 / 6;
+    border: 1px solid black;
+    font-size: 0.7rem;
+    /* font-weight:200 ; */
+}
+
+
+
+.div8 {
+    grid-area: 6 / 6 / 9 / 15;
+    border: 1px solid black;
+}
+
+.div9 {
+    grid-area: 9 / 1 / 10 / 6;
+    border: 1px solid black;
+}
+
+.div10 {
+    grid-area: 10 / 1 / 13 / 6;
+    border: 1px solid black;
+}
+
+.div11 {
+    grid-area: 9 / 6 / 13 / 15;
+    border: 1px solid black;
+}
 

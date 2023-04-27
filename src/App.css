@@ -1,4 +1,7 @@
 /* ANCHOR allgemine tags */
+body{box-sizing: border-box;}
+
+
 span {
   font-size: 1.1rem;
   text-decoration: underline;
@@ -97,7 +100,7 @@ input {
 
 
 
-
+/* ANCHOR zauber */
 .zauber p {
   font-size: 0.8rem;
 }
