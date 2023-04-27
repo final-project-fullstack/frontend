@@ -1,16 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useStore } from '../../context/storeContext.js'
 import axios from "axios";
 import style from "./dashboard.module.css";
 
 
 export default function Dashboard() {
-    const { isLoggedIn, user } = useStore()
+    const { isLoggedIn, user, setIsLoggedIn, setUser } = useStore()
     const [passwordChange, setPasswordChange] = useState({
         password: "",
         newPassword: ""
     });
     const [message, setMessage] = useState("");
+
 
 
     const handleSubmit = async (e) => {

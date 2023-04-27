@@ -1,10 +1,12 @@
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Layout from "./components/Layout";
-import routes from "./components/routes";
+import AllRoutes from "./components/routes";
 import { useStore } from "./context/storeContext";
+import { Navigate } from "react-router-dom";
+
 
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
     setWerkzeuge,
     setKlassenZauber
   } = useStore();
+
+  const [authenticationCompleted, setAuthenticationCompleted] = useState(false);
 
 
   const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:3001"
@@ -93,28 +97,45 @@ function App() {
       .get(`${BACKEND_URL}/klassen-zauber`)
       .then((response) => setKlassenZauber(response.data))
       .catch((err) => console.log(err));
-
+    // a()
     axios
-  .get(`${BACKEND_URL}/user/checkCookie`, {
+      .get(`${BACKEND_URL}/user/checkCookie`, {
         withCredentials: true,
       })
-      .then((response) => [
-        setIsLoggedIn(response.data._id ? true : false, setUser(response.data)),
-      ])
+      .then((response) => {
+        setIsLoggedIn(response.data._id ? true : false); setUser(response.data); setAuthenticationCompleted(true);
+      }
+
+      )
       // .then((response) => setUser(response.data))
-      .catch((err) => console.log(err));
+      .catch((err) => { console.log(err); setAuthenticationCompleted(true);; });
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }, []);
 
+
+
+
+  const routes = AllRoutes()
   return (
     <BrowserRouter>
-      <Layout>
-        <Routes>
-          {routes.map((route) => {
-            return <Route key={route.id} {...route} />;
-          })}
-        </Routes>
-      </Layout>
+      {authenticationCompleted &&
+        <Layout>
+
+          <Routes>
+            {routes.map((route) => {
+              return route.isProtected ? (
+                <Route
+                  key={route.id}
+                  path={route.path}
+                  element={<Navigate to={route.redirectPath} replace={true} />}
+                />
+              ) : (
+                <Route key={route.id} path={route.path} element={route.element} />
+              );
+            })}
+          </Routes>
+        </Layout>
+      }
     </BrowserRouter>
   );
 }
