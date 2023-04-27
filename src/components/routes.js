@@ -13,8 +13,7 @@ import GesinnungUndSprachen from "../pages/GesinnungUndSprachen/GesinnungUndSpra
 import Abenteuerausrüstung from "../pages/Abenteuerausrüstung/Abenteuerausrüstung";
 import Character from "../pages/Character/Characters";
 import Dashboard from "../pages/Dashboard/Dashboard.js";
-import { useStore } from '../context/storeContext.js'
-
+import { useStore } from "../context/storeContext.js";
 
 export const paths = {
   homePath: "/",
@@ -35,7 +34,7 @@ export const paths = {
   anyPath: "/*",
 };
 export default function AllRoutes() {
-  const { isLoggedIn } = useStore()
+  const { isLoggedIn } = useStore();
   // console.log(isLoggedIn)
 
   const routes = [
@@ -44,109 +43,107 @@ export default function AllRoutes() {
       element: <Home />,
       isProtected: false,
       redirectPath: null,
-      id: "HomePage"
+      id: "HomePage",
     },
     {
       path: paths.registerPath,
       element: <Register />,
       isProtected: isLoggedIn ? true : false,
       redirectPath: paths.homePath,
-      id: "RegisterPage"
+      id: "RegisterPage",
     },
     {
       path: paths.loginPath,
       element: <Login />,
       isProtected: isLoggedIn ? true : false,
       redirectPath: paths.homePath,
-      id: "LoginPage"
+      id: "LoginPage",
     },
     {
       path: paths.dashboardPath,
       element: <Dashboard />,
       isProtected: isLoggedIn ? false : true,
       redirectPath: paths.homePath,
-      id: "DashboardPage"
+      id: "DashboardPage",
     },
     {
       path: paths.zauberPath,
       element: <Zauber />,
       isProtected: false,
       redirectPath: null,
-      id: "ZauberPage"
+      id: "ZauberPage",
     },
     {
       path: paths.voelkerPath,
       element: <Völker />,
       isProtected: false,
       redirectPath: null,
-      id: "VoelkerPage"
+      id: "VoelkerPage",
     },
     {
       path: paths.klassenPath,
       element: <Klassen />,
       isProtected: false,
       redirectPath: null,
-      id: "KlassenPage"
+      id: "KlassenPage",
     },
     {
       path: paths.hintergrundPath,
       element: <Hintergrund />,
       isProtected: false,
       redirectPath: null,
-      id: "HintergrundPage"
+      id: "HintergrundPage",
     },
     {
       path: paths.gesinnungSprachenPath,
       element: <GesinnungUndSprachen />,
       isProtected: false,
       redirectPath: null,
-      id: "GesinnungSprachenPage"
+      id: "GesinnungSprachenPage",
     },
     {
       path: paths.waffenPath,
       element: <Waffen />,
       isProtected: false,
       redirectPath: null,
-      id: "WaffenPage"
+      id: "WaffenPage",
     },
     {
       path: paths.ruestungPath,
       element: <Rüstung />,
       isProtected: false,
       redirectPath: null,
-      id: "RuestungPage"
+      id: "RuestungPage",
     },
     {
       path: paths.werkzeugePath,
       element: <Werkzeuge />,
       isProtected: false,
       redirectPath: null,
-      id: "WerkzeugePage"
+      id: "WerkzeugePage",
     },
     {
       path: paths.abenteuerausruestungPath,
       element: <Abenteuerausrüstung />,
       isProtected: false,
       redirectPath: null,
-      id: "AbenteuerausruestungPage"
+      id: "AbenteuerausruestungPage",
     },
     {
       path: paths.mycharPath,
       element: <MeinChar />,
       isProtected: false,
       redirectPath: null,
-      id: "MycharPage"
+      id: "MycharPage",
     },
     {
       path: paths.anyPath,
       element: <Character />,
       isProtected: false,
       redirectPath: null,
-      id: "AnyPage"
+      id: "AnyPage",
     },
   ];
 
   return routes;
-
 }
-
