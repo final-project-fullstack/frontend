@@ -2,6 +2,11 @@
     --font-size:88% ;
 } */
 
+input[type="checkbox"] {
+    /* padding: 2px 4px 2px 4px ; */
+    margin:4px 4px 2px 4px ;
+}
+
 .sheetcontainerP1 {
     display: grid;
     grid-template-columns: repeat(9, 1fr);
@@ -155,9 +160,6 @@ text-align: end;
     color:blueviolet;
 }
 
-
-
-
 .div4 {
     grid-area: 2 / 4 / 6 / 7;
     border: 1px solid black;
@@ -169,22 +171,29 @@ text-align: end;
 
 /* ANCHOR Rettungswürfe */
 .rettungswürfeContainer {
-    display: grid;
+    display: flex;
     flex-direction: column;
     grid-area: 3 / 2 / 5 / 4;
     border: 1px solid black;
-    font-size: 80%;
+    /* font-size: 70%; */
+    /* font-weight: bold; */
     /* text-align: center; */
+}
+
+label{
+    font-weight: bold;
 }
 
 .rettungswurf{
     display: flex;
+    /* padding-top:10px; */
     /* height: calc(100%); */
 }
 .rettungswurf2{
-    display: flex;
     text-align: center;
-    /* line-height: 0.5px; */
+    /* line-height: 0.9rem; */
+    font-weight: lighter;
+    padding:5px 0px 0px 0px;
 }
 
 .div7 {
