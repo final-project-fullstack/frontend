@@ -39,6 +39,7 @@ const Volk = () => {
 
   return (
     <div className={style.container}>
+      {/* ------------------------- Volk auswählen ------------------------- */}
       <form className={style.form}>
         <select onChange={onChangeVolk}>
           <option>-- Volk auswählen --</option>
@@ -47,6 +48,7 @@ const Volk = () => {
           ))}
         </select>
       </form>
+      {/* ------------------------- Volk Infotext ------------------------- */}
       <div>
         {filterVolk.length > 0 && (
           <>
@@ -57,14 +59,31 @@ const Volk = () => {
                 );
               })}
             </div>
-            <form className={style.form}>
-              <select onChange={onChangeVolksart}>
-                <option>-- Volksarten --</option>
-                {filterVolk[0].volksarten.map((name, i) => {
-                  return <option key={i}>{name.name}</option>;
-                })}
-              </select>
-            </form>
+            {/* ------------------------- Volksart auswählen ------------------------- */}
+            {filterVolk[0].hasOwnProperty("volksarten") ? (
+              <form className={style.form}>
+                <select onChange={onChangeVolksart}>
+                  <option>-- Volksarten --</option>
+                  {filterVolk[0].volksarten.map((name, i) => {
+                    return <option key={i}>{name.name}</option>;
+                  })}
+                </select>
+              </form>
+            ) : (
+              <>
+                {filterVolk[0].hasOwnProperty("input") && (
+                  <>
+                    {filterVolk[0].input.hasOwnProperty("Sprache") && (
+                      <>
+                        {filterVolk[0].input.Sprache.map((sprache) => {
+                          return <option key={sprache}>{sprache}</option>;
+                        })}
+                      </>
+                    )}
+                  </>
+                )}
+              </>
+            )}
           </>
         )}
       </div>
