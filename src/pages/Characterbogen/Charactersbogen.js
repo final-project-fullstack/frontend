@@ -4,7 +4,11 @@ const CharSheet = () => {
   return (
     <div class={style.sheetcontainerP1}>
       <div class={style.kopfzeile}>
-        <div class={style.charName}>Character Name</div>
+        {/* <div class={style.charName}>Character Name</div> */}
+        <div class={style.nameContainer}>
+          <textarea rows="2" name="charName"></textarea>
+          <div class={style.labelName}>Character Name</div>
+        </div>
         <div class={style.charInfo}>
           <p class={style.pInfo}>
             <div class={style.infoSubcontainer}>Klasse & Stufe</div>
