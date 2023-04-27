@@ -23,9 +23,7 @@ const Barbar = () => {
       </div>
       <div className={style.fertigkeiten}>
         <h3>Fähigkeiten</h3>
-        {klasseWählen[0].fertigkeiten.map((fertigkeit)=>{
-            
-        })}
+      <p><b>Rüstung:</b> {klasseWählen[0].fertigkeiten.rüstung}</p>
       </div>
     </>
   );
