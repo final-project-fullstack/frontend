@@ -5,14 +5,15 @@
 
 /* ANCHOR input */
 
-input[type="checkbox"] {
+.input[type="checkbox"] {
     margin:4px 4px 2px 4px ;
 }
-input[type="text"] {
+
+/* .input[type="text"] {
     margin:4px 4px 2px 4px ;
     font-size: larger;
     color:black;
-}
+} */
 
 /* ANCHOR label */
 
@@ -94,10 +95,8 @@ textarea{
     grid-area: 2 / 1 / 9 / 2;
     font-weight: bold;
     font-size: 70%;
-        text-align: center;
-        /* padding:10px; */
-    
-   
+    text-align: center;
+      
 }
 
 .attributeBorder{

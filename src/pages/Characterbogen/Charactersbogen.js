@@ -83,6 +83,7 @@ const CharSheet = () => {
         {/*  */}
         <div class={style.rettungswurf}>
           <input
+            class={style.input}
             type="checkbox"
             name="checkstaerke"
             value="true"
@@ -94,6 +95,7 @@ const CharSheet = () => {
         {/*  */}
         <div class={style.rettungswurf}>
           <input
+            class={style.input}
             type="checkbox"
             name="checkcharisma"
             value="true"
@@ -105,6 +107,7 @@ const CharSheet = () => {
         {/*  */}
         <div class={style.rettungswurf}>
           <input
+            class={style.input}
             type="checkbox"
             name="checkkonstitution"
             value="true"
@@ -116,6 +119,7 @@ const CharSheet = () => {
         {/*  */}
         <div class={style.rettungswurf}>
           <input
+            class={style.input}
             type="checkbox"
             name="checkintelligenz"
             value="true"
@@ -127,6 +131,7 @@ const CharSheet = () => {
         {/*  */}
         <div class={style.rettungswurf}>
           <input
+            class={style.input}
             type="checkbox"
             name="checkweisheit"
             value="true"
