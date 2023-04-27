@@ -29,23 +29,7 @@ export default function Dashboard() {
             console.log(error);
         }
     };
-    // const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:3001"
-    // useEffect(() => {
-    //     a()
-    // }, [])
-    // const a = async () => {
-    //     await axios
-    //         .get(`${BACKEND_URL}/user/checkCookie`, {
-    //             withCredentials: true,
-    //         })
-    //         .then((response) => [
-    //             setIsLoggedIn(response.data._id ? true : false, setUser(response.data)),
-    //         ])
-    //         // .then((response) => setUser(response.data))
-    //         .catch((err) => console.log(err));
-    //     // empty dependency array means this effect will only run once (like componentDidMount in classes)
 
-    // }
 
     return (
         <div>

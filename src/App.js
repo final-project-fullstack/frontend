@@ -12,7 +12,6 @@ import { Navigate } from "react-router-dom";
 function App() {
   const {
     setIsLoggedIn,
-    isLoggedIn,
     setSpell,
     setVolk,
     setKlassen,
@@ -27,7 +26,7 @@ function App() {
     setKlassenZauber
   } = useStore();
 
-  const [setStart, start] = useState(false)
+  const [authenticationCompleted, setAuthenticationCompleted] = useState(false);
 
 
   const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:3001"
@@ -103,44 +102,27 @@ function App() {
       .get(`${BACKEND_URL}/user/checkCookie`, {
         withCredentials: true,
       })
-      .then((response) => [
-        setIsLoggedIn(response.data._id ? true : false,), setUser(response.data)
-      ])
+      .then((response) => {
+        setIsLoggedIn(response.data._id ? true : false); setUser(response.data); setAuthenticationCompleted(true);
+      }
+
+      )
       // .then((response) => setUser(response.data))
-      .catch((err) => console.log(err));
+      .catch((err) => { console.log(err); setAuthenticationCompleted(true);; });
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }, []);
 
 
-  // const a = async () => {
-  //   await axios
-  //     .get(`${BACKEND_URL}/user/checkCookie`, {
-  //       withCredentials: true,
-  //     })
-  //     .then((response) => [
-  //       setIsLoggedIn(response.data._id ? true : false), setUser(response.data), console.log("res")
-  //     ])
-  //     // .then((response) => setUser(response.data))
-  //     .catch((err) => console.log(err));
-  //   // empty dependency array means this effect will only run once (like componentDidMount in classes)
-
-  // }
-  // console.log("ssssssssssssssssss")
-
-  // a()
-
-  // setTimeout(() => {
-  //   setIsLoggedIn(false)
-  // }, 5000)
 
 
+  const routes = RoutesPaths()
   return (
     <BrowserRouter>
-      {
+      {authenticationCompleted &&
         <Layout>
 
           <Routes>
-            {RoutesPaths().map((route) => {
+            {routes.map((route) => {
               return route.isProtected ? (
                 <Route
                   key={route.id}
