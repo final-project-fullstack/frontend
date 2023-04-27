@@ -4,6 +4,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useStore } from '../../context/storeContext.js'
 import PoolContainer from "../dicer/dicerPool.js";
 import style from "../Header/header.module.css";
+import { paths } from "../routes"
 // import "../../App.css"
 const Header = () => {
   const navigate = useNavigate();
@@ -11,6 +12,7 @@ const Header = () => {
   const [show, setShow] = useState(false);
   const { isLoggedIn, setIsLoggedIn, user, setUser } = useStore();
   const [isChildVisible, setIsChildVisible] = useState(false);
+
 
   const handleSth = (e) => {
     setChange(!checkStatus);
@@ -55,7 +57,7 @@ const Header = () => {
           <span></span>
           <ul id={style.menu}>
             <li>
-              <NavLink to="/dashoard">{user.userName}</NavLink>
+              <NavLink to={paths.dashboardPath}>{user.userName}</NavLink>
             </li>
             <li onClick={handleSth}>
               <NavLink to="/">Home</NavLink>
@@ -127,7 +129,7 @@ const Header = () => {
         <div className={style.navbarDesktop}>
           <ul>
             <li>
-              <NavLink to="/dashoard">{user.userName}</NavLink>
+              <NavLink to={paths.dashboardPath}>{user.userName}</NavLink>
             </li>
             <li>
               <NavLink to="/">Home</NavLink>

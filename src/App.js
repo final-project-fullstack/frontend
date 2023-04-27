@@ -1,15 +1,18 @@
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Layout from "./components/Layout";
-import routes from "./components/routes";
+import RoutesPaths from "./components/routes";
 import { useStore } from "./context/storeContext";
+import { Navigate } from "react-router-dom";
+
 
 
 function App() {
   const {
     setIsLoggedIn,
+    isLoggedIn,
     setSpell,
     setVolk,
     setKlassen,
@@ -23,6 +26,8 @@ function App() {
     setWerkzeuge,
     setKlassenZauber
   } = useStore();
+
+  const [setStart, start] = useState(false)
 
 
   const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:3001"
@@ -93,28 +98,62 @@ function App() {
       .get(`${BACKEND_URL}/klassen-zauber`)
       .then((response) => setKlassenZauber(response.data))
       .catch((err) => console.log(err));
-
+    // a()
     axios
-  .get(`${BACKEND_URL}/user/checkCookie`, {
+      .get(`${BACKEND_URL}/user/checkCookie`, {
         withCredentials: true,
       })
       .then((response) => [
-        setIsLoggedIn(response.data._id ? true : false, setUser(response.data)),
+        setIsLoggedIn(response.data._id ? true : false,), setUser(response.data)
       ])
       // .then((response) => setUser(response.data))
       .catch((err) => console.log(err));
     // empty dependency array means this effect will only run once (like componentDidMount in classes)
   }, []);
 
+
+  // const a = async () => {
+  //   await axios
+  //     .get(`${BACKEND_URL}/user/checkCookie`, {
+  //       withCredentials: true,
+  //     })
+  //     .then((response) => [
+  //       setIsLoggedIn(response.data._id ? true : false), setUser(response.data), console.log("res")
+  //     ])
+  //     // .then((response) => setUser(response.data))
+  //     .catch((err) => console.log(err));
+  //   // empty dependency array means this effect will only run once (like componentDidMount in classes)
+
+  // }
+  // console.log("ssssssssssssssssss")
+
+  // a()
+
+  // setTimeout(() => {
+  //   setIsLoggedIn(false)
+  // }, 5000)
+
+
   return (
     <BrowserRouter>
-      <Layout>
-        <Routes>
-          {routes.map((route) => {
-            return <Route key={route.id} {...route} />;
-          })}
-        </Routes>
-      </Layout>
+      {
+        <Layout>
+
+          <Routes>
+            {RoutesPaths().map((route) => {
+              return route.isProtected ? (
+                <Route
+                  key={route.id}
+                  path={route.path}
+                  element={<Navigate to={route.redirectPath} replace={true} />}
+                />
+              ) : (
+                <Route key={route.id} path={route.path} element={route.element} />
+              );
+            })}
+          </Routes>
+        </Layout>
+      }
     </BrowserRouter>
   );
 }
