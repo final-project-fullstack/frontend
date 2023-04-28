@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useStore } from '../../context/storeContext.js'
+import { useStore } from "../../context/storeContext.js";
 import PoolContainer from "../dicer/dicerPool.js";
 import style from "../Header/header.module.css";
-import { paths } from "../routes"
+import { paths } from "../routes";
 // import "../../App.css"
 const Header = () => {
   const navigate = useNavigate();
@@ -12,7 +12,6 @@ const Header = () => {
   const [show, setShow] = useState(false);
   const { isLoggedIn, setIsLoggedIn, user, setUser } = useStore();
   const [isChildVisible, setIsChildVisible] = useState(false);
-
 
   const handleSth = (e) => {
     setChange(!checkStatus);
@@ -116,7 +115,9 @@ const Header = () => {
                 </li>
 
                 <li onClick={handleSth}>
-                  <NavLink to="/charakter-erstellen">Charakter erstellen</NavLink>
+                  <NavLink to="/charakter-erstellen">
+                    Charakter erstellen
+                  </NavLink>
                 </li>
 
                 <li onClick={logout}>

@@ -18,7 +18,7 @@ const DicerPoolDThree = () => {
   const addDThree = () => {
     setItems((cur) => [
       ...cur,
-      { id: cur.length, number: Math.floor(Math.random() * 3 + 1) },
+      { id: cur.length, number: Math.floor(Math.random() * 4 + 1) },
     ]);
   };
 
@@ -32,11 +32,11 @@ const DicerPoolDThree = () => {
       <div className={style.dicer}>
         <button className={style.removeButton} onClick={clearItems}>
           Remove <br />
-          W3
+          W4
         </button>
         <button className={style.addButton} onClick={addDThree}>
           <div className={style.buttonTxt}>
-            +<br /> W3
+            +<br /> W4
           </div>
         </button>
         <div className={style.wuerfelBackground}>

@@ -35,8 +35,8 @@ textarea{
 
 .sheetcontainerP1 {
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: repeat(12, 1fr);
+      grid-template-columns: repeat(18, 1fr);
+      grid-template-rows: repeat(13, 1fr);
       grid-column-gap: 0px;
       grid-row-gap: 0px;
     width:210mm;
@@ -45,13 +45,15 @@ textarea{
     overflow: hidden;
 }
 
+
+/* ANCHOR Info */
 .kopfzeile {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
         grid-template-rows: repeat(2, 1fr);
         grid-column-gap: 0px;
         grid-row-gap: 0px;
-    grid-area: 1 / 1 / 2 / 13;
+    grid-area: 1 / 1 / 2 / 19;
     border: 1px solid black;
 }
 
@@ -85,7 +87,7 @@ textarea{
     
 }
 
-
+/* ANCHOR Atrribute */
 .attribute {
     grid-area: 2 / 1 / 9 / 2;
      display:grid;
@@ -157,7 +159,7 @@ font-size: 220%;
   /* ANCHOR Inspiration und übung */
 .inspirationUndÜbung {
     display: block;
-    grid-area: 2 / 2 / 3 / 5;
+    grid-area: 2 / 2 / 3 / 7;
     border: 1px solid black;
     width:100%;
 }
@@ -185,11 +187,11 @@ text-align: end;
 }
 
 .div4 {
-    grid-area: 2 / 5 / 6 / 9;
+    grid-area: 2 / 7 / 6 / 13;
     border: 1px solid black;
 }
 .div5 {
-    grid-area: 2 / 9 / 6 / 13;
+    grid-area: 2 / 13 / 6 / 19;
     border: 1px solid black;
 }
 
@@ -197,7 +199,7 @@ text-align: end;
 .rettungswürfeContainer {
     display: flex;
     flex-direction: column;
-    grid-area: 3 / 2 / 4 / 5;
+    grid-area: 3 / 2 / 4 / 7;
     border: 1px solid black;
     /* font-size: 70%; */
     /* font-weight: bold; */
@@ -225,40 +227,30 @@ text-align: end;
 display: flex;
     flex-direction: column;
     
-    grid-area: 4 / 2 / 9 / 5;
+    grid-area: 4 / 2 / 9 / 7;
     border: 1px solid black;
     font-size: 0.7rem;
     /* font-weight:200 ; */
 }
 
 
-
-
-
-
-
-
-
-
-
-
 .div8 {
-    grid-area: 6 / 5 / 9 / 13;
+    grid-area: 6 / 7 / 9 / 19;
     border: 1px solid black;
 }
 
 .div9 {
-    grid-area: 9 / 1 / 10 / 5;
+    grid-area: 9 / 1 / 10 / 7;
     border: 1px solid black;
 }
 
 .div10 {
-    grid-area: 10 / 1 / 13 / 5;
+    grid-area: 10 / 1 / 13 / 7;
     border: 1px solid black;
 }
 
 .div11 {
-    grid-area: 9 / 5 / 13 / 13;
+    grid-area: 9 / 7 / 13 / 19;
     border: 1px solid black;
 }
 
