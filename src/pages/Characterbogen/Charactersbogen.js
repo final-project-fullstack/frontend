@@ -78,7 +78,9 @@ const CharSheet = () => {
 
       {/*  */}
       <div class={style.div4}>4 </div>
-      <div class={style.div5}>5 </div>
+      <div class={style.div5}>
+        Persönlichkeitsmerkmale, Ideale, Bindungen & Makel
+      </div>
 
       {/*  */}
 
@@ -446,6 +448,9 @@ const CharSheet = () => {
 
       {/* ----------------------------------- */}
       <div class={style.div8}>8</div>
+
+      {/*  */}
+      {/* ANCHOR passive Weisheit */}
       <div class={style.passivWei}>
         <div>inputfeld</div>
 
@@ -455,12 +460,126 @@ const CharSheet = () => {
           [10+ Wahrnehmung]9
         </div>
       </div>
+      {/* ANCHOR Übung und Sprachen */}
       <div class={style.uebungUndSprachen}>
-        <div class={style.ruestungUndWaffenContainer}></div>
-        <div class={style.sprachenContainer}></div>
-        <div class={style.werkzeugeContainer}></div>
+        {/*  */}
+        {/* <div class={style.ruestungUndWaffenContainer}> */}
+        {/* <br /> */}
+        <div class={style.ruestungContainer}>
+          Rüstung
+          <div class={style.ruestung}>
+            <input
+              class={style.input}
+              type="checkbox"
+              name="leichteRuestung"
+              value="true"
+              id="leichteRuestung"
+            ></input>
+            <label class={style.label} for="leichteRuestung">
+              Leichte
+            </label>
+          </div>
+          <div class={style.ruestung}>
+            <input
+              class={style.input}
+              type="checkbox"
+              name="mittlereRuestung"
+              value="true"
+              id="mittlereRuestung"
+            ></input>
+            <label class={style.label} for="mittlereRuestung">
+              Mittlere
+            </label>
+          </div>
+          <div class={style.ruestung}>
+            <input
+              class={style.input}
+              type="checkbox"
+              name="schwereRuestung"
+              value="true"
+              id="schwereRuestung"
+            ></input>
+
+            <label class={style.label} for="schwereRuestung">
+              Schwere
+            </label>
+          </div>
+          <div class={style.ruestung}>
+            <input
+              class={style.input}
+              type="checkbox"
+              name="schilde"
+              value="true"
+              id="schilde"
+            ></input>
+            <label class={style.label} for="schilde">
+              Schilde
+            </label>
+          </div>
+        </div>
+        <div class={style.waffen}>
+          Waffen
+          <br />
+          <input
+            class={style.input}
+            type="checkbox"
+            name="einfacheWaffen"
+            value="true"
+            id="einfacheWaffen"
+          ></input>
+          <label class={style.label} for="einfacheWaffen">
+            Einfache
+          </label>
+          <input
+            class={style.input}
+            type="checkbox"
+            name="kriegswaffen"
+            value="true"
+            id="kriegswaffen"
+          ></input>
+          <label class={style.label} for="kriegswaffen">
+            Kriegswaffen
+          </label>
+          <input
+            class={style.input}
+            type="checkbox"
+            name="sonstigeWaffen"
+            value="true"
+            id="sonstigeWaffen"
+          ></input>
+          <label class={style.label} for="sonstigeWaffen">
+            Sonstige Waffen
+          </label>
+          <br />
+          inputfeld auf ganze reihe{" "}
+        </div>
+        {/* </div> */}
+        {/*  */}
+        {/*  */}
+        <div class={style.sprachenContainer}>
+          <div class={style.sprachen}>
+            SPRACHEN <br />
+            <input class={style.input} type="text"></input>
+            <input class={style.input} type="text"></input>
+            <input class={style.input} type="text"></input>
+            <input class={style.input} type="text"></input>
+            <input class={style.input} type="text"></input>
+            <input class={style.input} type="text"></input>
+          </div>
+        </div>
+        <div class={style.werkzeugeundandere}>
+          WERKZEUGE & ANDERE <br />
+          <input class={style.input} type="text"></input>
+          <input class={style.input} type="text"></input>
+          <input class={style.input} type="text"></input>
+          <input class={style.input} type="text"></input>
+          <input class={style.input} type="text"></input>
+          <input class={style.input} type="text"></input>
+        </div>
       </div>
-      <div class={style.div11}>11</div>
+
+      {/* ANCHOR Container 11  */}
+      <div class={style.klassenmerkmale}>KLASSENMERKMALE</div>
     </div>
   );
 };
