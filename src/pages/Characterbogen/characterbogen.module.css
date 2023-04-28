@@ -239,12 +239,12 @@ display: flex;
     border: 1px solid black;
 }
 
-.div9 {
+.passivWei {
     grid-area: 9 / 1 / 10 / 7;
     border: 1px solid black;
 }
 
-.div10 {
+.uebungUndSprachen {
     grid-area: 10 / 1 / 13 / 7;
     border: 1px solid black;
 }

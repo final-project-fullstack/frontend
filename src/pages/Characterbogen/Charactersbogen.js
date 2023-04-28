@@ -446,8 +446,20 @@ const CharSheet = () => {
 
       {/* ----------------------------------- */}
       <div class={style.div8}>8</div>
-      <div class={style.div9}>9</div>
-      <div class={style.div10}>10 </div>
+      <div class={style.passivWei}>
+        <div>inputfeld</div>
+
+        <div>
+          PASSIVE WEISHEIT (Wahrnehmung)
+          <br />
+          [10+ Wahrnehmung]9
+        </div>
+      </div>
+      <div class={style.uebungUndSprachen}>
+        <div class={style.ruestungUndWaffenContainer}></div>
+        <div class={style.sprachenContainer}></div>
+        <div class={style.werkzeugeContainer}></div>
+      </div>
       <div class={style.div11}>11</div>
     </div>
   );
