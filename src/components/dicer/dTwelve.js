@@ -5,21 +5,26 @@ const DicerPoolDTwelve = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    const storedItems = localStorage.getItem(`dicerItemsD12`);
-    if (storedItems) {
-      setItems(JSON.parse(storedItems));
-    }
+    const storedItems = async () => {
+      const data = localStorage.getItem("dicerItemsD12");
+      if (data === null || !data) {
+        setItems((prev) => []);
+      } else {
+        const parsed = await JSON.parse(data);
+        setItems((prev) => parsed);
+      }
+    };
+    storedItems();
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem(`dicerItemsD12`, JSON.stringify(items));
-  }, [items]);
-
   const addDTwelve = () => {
-    setItems((cur) => [
-      ...cur,
-      { id: cur.length, number: Math.floor(Math.random() * 12 + 1) },
-    ]);
+    const newItem = {
+      id: items.length,
+      number: Math.floor(Math.random() * 12 + 1),
+    };
+    const newItems = [...items, newItem];
+    localStorage.setItem("dicerItemsD12", JSON.stringify(newItems));
+    setItems(newItems);
   };
 
   const clearItems = () => {

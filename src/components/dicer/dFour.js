@@ -1,32 +1,38 @@
 import { useEffect, useState } from "react";
 import style from "./DicerStyle.module.css";
 
-const DicerPoolDThree = () => {
+const DicerPoolDFour = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    const storedItems = localStorage.getItem(`dicerItemsD3`);
-    if (storedItems) {
-      setItems(JSON.parse(storedItems));
-    }
+    const storedItems = async () => {
+      const data = localStorage.getItem("dicerItemsD4");
+      if (data === null || !data) {
+        setItems((prev) => []);
+      } else {
+        const parsed = await JSON.parse(data);
+        setItems((prev) => parsed);
+      }
+    };
+    storedItems();
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem(`dicerItemsD3`, JSON.stringify(items));
-  }, [items]);
-
   const addDThree = () => {
-    setItems((cur) => [
-      ...cur,
-      { id: cur.length, number: Math.floor(Math.random() * 4 + 1) },
-    ]);
+    const newItem = {
+      id: items.length,
+      number: Math.floor(Math.random() * 4 + 1),
+    };
+    const newItems = [...items, newItem];
+    localStorage.setItem("dicerItemsD4", JSON.stringify(newItems));
+    setItems(newItems);
   };
 
   const clearItems = () => {
     setItems([]);
-    localStorage.removeItem(`dicerItemsD3`);
+    localStorage.removeItem("dicerItemsD4");
   };
 
+  // dicerItemsD3
   return (
     <>
       <div className={style.dicer}>
@@ -61,4 +67,4 @@ const DicerPoolDThree = () => {
   );
 };
 
-export default DicerPoolDThree;
+export default DicerPoolDFour;

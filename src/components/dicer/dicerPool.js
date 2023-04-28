@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import style from "./DicerStyle.module.css";
-import DicerPoolDThree from "./dThree";
+import DicerPoolDFour from "./dFour";
 import DicerPoolDSix from "./dSix";
 import DicerPoolDEight from "./dEight";
 import DicerPoolDTen from "./dTen";
@@ -12,7 +12,7 @@ const PoolContainer = () => {
   return (
     <div>
       <div className={style.poolCardVisible}>
-        <DicerPoolDThree />
+        <DicerPoolDFour />
         <DicerPoolDSix />
         <DicerPoolDEight />
         <DicerPoolDTen />

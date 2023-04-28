@@ -5,26 +5,31 @@ const DicerPoolDTen = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    const storedItems = localStorage.getItem(`dicerItemsD10`);
-    if (storedItems) {
-      setItems(JSON.parse(storedItems));
-    }
+    const storedItems = async () => {
+      const data = localStorage.getItem("dicerItemsD10");
+      if (data === null || !data) {
+        setItems((prev) => []);
+      } else {
+        const parsed = await JSON.parse(data);
+        setItems((prev) => parsed);
+      }
+    };
+    storedItems();
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem(`dicerItemsD10`, JSON.stringify(items));
-  }, [items]);
-
   const addDTen = () => {
-    setItems((cur) => [
-      ...cur,
-      { id: cur.length, number: Math.floor(Math.random() * 10 + 1) },
-    ]);
+    const newItem = {
+      id: items.length,
+      number: Math.floor(Math.random() * 10 + 1),
+    };
+    const newItems = [...items, newItem];
+    localStorage.setItem("dicerItemsD10", JSON.stringify(newItems));
+    setItems(newItems);
   };
 
   const clearItems = () => {
     setItems([]);
-    localStorage.removeItem(`dicerItemsD10`);
+    localStorage.removeItem("dicerItemsD10");
   };
 
   return (

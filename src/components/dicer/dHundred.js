@@ -5,27 +5,31 @@ const DicerPoolDHundred = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    const storedItems = localStorage.getItem(`dicerItemsD100`);
-    console.log(storedItems);
-    if (storedItems) {
-      setItems(JSON.parse(storedItems));
-    }
+    const storedItems = async () => {
+      const data = localStorage.getItem("dicerItemsD100");
+      if (data === null || !data) {
+        setItems((prev) => []);
+      } else {
+        const parsed = await JSON.parse(data);
+        setItems((prev) => parsed);
+      }
+    };
+    storedItems();
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem(`dicerItemsD100`, JSON.stringify(items));
-  }, [items]);
-
   const addDHundred = () => {
-    setItems((cur) => [
-      ...cur,
-      { id: cur.length, number: Math.floor(Math.random() * 100 + 1) },
-    ]);
+    const newItem = {
+      id: items.length,
+      number: Math.floor(Math.random() * 100 + 1),
+    };
+    const newItems = [...items, newItem];
+    localStorage.setItem("dicerItemsD100", JSON.stringify(newItems));
+    setItems(newItems);
   };
 
   const clearItems = () => {
     setItems([]);
-    localStorage.removeItem(`dicerItemsD100`);
+    localStorage.removeItem("dicerItemsD100");
   };
 
   return (
