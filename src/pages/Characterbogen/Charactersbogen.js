@@ -517,7 +517,7 @@ const CharSheet = () => {
             </label>
           </div>
         </div>
-        <div class={style.waffen}>
+        <div class={style.waffenContainer}>
           Waffen
           <br />
           <input
@@ -551,9 +551,9 @@ const CharSheet = () => {
             Sonstige Waffen
           </label>
           <br />
-          inputfeld auf ganze reihe{" "}
+          inputfeld auf ganze reihe
         </div>
-        {/* </div> */}
+
         {/*  */}
         {/*  */}
         <div class={style.sprachenContainer}>
