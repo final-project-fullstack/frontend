@@ -17,7 +17,7 @@ export default function Abenteuerausrüstung() {
   console.log(filterAusrüstung);
 
   return (
-    <div className="container">
+    <>
       <div className="cards">
         <div className="selectContainer">
           <div className="select">
@@ -64,6 +64,6 @@ export default function Abenteuerausrüstung() {
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 }
