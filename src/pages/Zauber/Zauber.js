@@ -74,7 +74,7 @@ const Zauber = () => {
   };
 
   return (
-    <div className="container">
+    <>
       <form className={style.search}>
         <input
           class={style.input}
@@ -171,7 +171,7 @@ const Zauber = () => {
           <p>Bitte erst Klasse und Grad auswählen</p>
         )}
       </div>
-    </div>
+    </>
   );
 };
 

@@ -30,17 +30,17 @@ export default function Dashboard() {
     <div>
       {isLoggedIn && (
         <div className="container">
-          <h3>Personliche Daten</h3>
-          <p>Name:{user.userName}</p>
-          <p>Email:{user.email}</p>
+          <h3>Persönliche Daten</h3>
+          <p>Name: {user.userName}</p>
+          <p>Email: {user.email}</p>
           <div className={style.passwordChange}>
-            <h2>Passwort änderung</h2>
+            <h2>Passwort ändern</h2>
             <form class={style.form} onSubmit={handleSubmit}>
               <input
                 className={style.input}
                 type="password"
                 name="password"
-                placeholder="Dein Passwort"
+                placeholder="Aktuelles Passwort"
                 onChange={(e) =>
                   setPasswordChange({
                     ...passwordChange,
@@ -52,7 +52,7 @@ export default function Dashboard() {
                 className={style.input}
                 type="password"
                 name="newPasswort"
-                placeholder="Neue Passwort"
+                placeholder="Neues Passwort"
                 onChange={(e) =>
                   setPasswordChange({
                     ...passwordChange,
@@ -60,7 +60,7 @@ export default function Dashboard() {
                   })
                 }
               />
-              <input type="submit" value="Ändern" />
+              <input type="submit" value="Speichern" />
               {message && <p className={style.msg}>{message}</p>}
             </form>
           </div>
