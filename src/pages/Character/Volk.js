@@ -9,13 +9,35 @@ const Volk = () => {
   const [filterVolksart, setFilterVolksart] = useState([]);
   const [sprache, setSprache] = useState("");
   const [zaubertrick, setZaubertrick] = useState("");
+  const [attributswert, setAttributswert] = useState("");
+  const [attributswert2, setAttributswert2] = useState("");
+  const [fertigkeit, setFertigkeit] = useState("");
+  const [fertigkeit2, setFertigkeit2] = useState("");
+  const [tüftlerwerkzeug, setTüftlerwerkzeug] = useState("");
 
   const onChangeVolk = (event) => {
     const value = event.target.value;
     const volkFilter = characterVolk.filter((info) => {
       return info.name === value;
     });
+    setFilterVolksart([]);
+    localStorage.removeItem("volksart");
+    setSprache("");
+    localStorage.removeItem("sprache");
+    setZaubertrick("");
+    localStorage.removeItem("zaubertrick");
+    setAttributswert("");
+    localStorage.removeItem("attributswert");
+    setAttributswert2("");
+    localStorage.removeItem("attributswert2");
+    setFertigkeit("");
+    localStorage.removeItem("fertigkeit");
+    setFertigkeit2("");
+    localStorage.removeItem("fertigkeit2");
+    setTüftlerwerkzeug("");
+    localStorage.removeItem("tüftlerwerkzeug");
     setFilterVolk(volkFilter);
+    localStorage.setItem("volk", value);
   };
 
   const onChangeVolksart = (event) => {
@@ -24,18 +46,52 @@ const Volk = () => {
       return info.name === value;
     });
     setFilterVolksart(volksartFilter);
-    console.log(volksartFilter[0].input);
+    localStorage.setItem("volksart", value);
   };
 
   const onChangeVolksartSprache = (event) => {
     const value = event.target.value;
     setSprache(value);
+    localStorage.setItem("sprache", value);
   };
 
   const onChangeVolksartZaubertrick = (event) => {
     const value = event.target.value;
     setZaubertrick(value);
+    localStorage.setItem("zaubertrick", value);
   };
+
+  const onChangeVolksartAttributswert = (event) => {
+    const value = event.target.value;
+    setAttributswert(value);
+    localStorage.setItem("attributswert", value);
+  };
+
+  const onChangeVolksartAttributswert2 = (event) => {
+    const value = event.target.value;
+    setAttributswert2(value);
+    localStorage.setItem("attributswert2", value);
+  };
+
+  const onChangeVolksartFertigkeit = (event) => {
+    const value = event.target.value;
+    setFertigkeit(value);
+    localStorage.setItem("fertigkeit", value);
+  };
+
+  const onChangeVolksartFertigkeit2 = (event) => {
+    const value = event.target.value;
+    setFertigkeit2(value);
+    localStorage.setItem("fertigkeit2", value);
+  };
+
+  const onChangeVolksartTüftlerwerkzeug = (event) => {
+    const value = event.target.value;
+    setTüftlerwerkzeug(value);
+    localStorage.setItem("tüftlerwerkzeug", value);
+  };
+
+  console.log(filterVolk);
 
   return (
     <div className={style.container}>
@@ -74,11 +130,74 @@ const Volk = () => {
                 {filterVolk[0].hasOwnProperty("input") && (
                   <>
                     {filterVolk[0].input.hasOwnProperty("Sprache") && (
-                      <>
-                        {filterVolk[0].input.Sprache.map((sprache) => {
-                          return <option key={sprache}>{sprache}</option>;
-                        })}
-                      </>
+                      <form className={style.form}>
+                        <select onChange={onChangeVolksartSprache}>
+                          <option>-- Sprache auswählen --</option>
+                          {filterVolk[0].input.Sprache.map((sprache) => {
+                            return <option key={sprache}>{sprache}</option>;
+                          })}
+                        </select>
+                      </form>
+                    )}
+
+                    {filterVolk[0].input.hasOwnProperty("Attributswert") && (
+                      <form className={style.form}>
+                        <select onChange={onChangeVolksartAttributswert}>
+                          <option>-- Attributswert auswählen --</option>
+                          {filterVolk[0].input.Attributswert.map(
+                            (attributswert) => {
+                              return (
+                                <option key={attributswert}>
+                                  {attributswert}
+                                </option>
+                              );
+                            }
+                          )}
+                        </select>
+                      </form>
+                    )}
+
+                    {filterVolk[0].input.hasOwnProperty("Attributswert2") && (
+                      <form className={style.form}>
+                        <select onChange={onChangeVolksartAttributswert2}>
+                          <option>-- Attributswert auswählen --</option>
+                          {filterVolk[0].input.Attributswert2.map(
+                            (attributswert) => {
+                              return (
+                                <option key={attributswert}>
+                                  {attributswert}
+                                </option>
+                              );
+                            }
+                          )}
+                        </select>
+                      </form>
+                    )}
+
+                    {filterVolk[0].input.hasOwnProperty("Fertigkeit") && (
+                      <form className={style.form}>
+                        <select onChange={onChangeVolksartFertigkeit}>
+                          <option>-- Fertigkeit auswählen --</option>
+                          {filterVolk[0].input.Fertigkeit.map((fertigkeit) => {
+                            return (
+                              <option key={fertigkeit}>{fertigkeit}</option>
+                            );
+                          })}
+                        </select>
+                      </form>
+                    )}
+
+                    {filterVolk[0].input.hasOwnProperty("Fertigkeit2") && (
+                      <form className={style.form}>
+                        <select onChange={onChangeVolksartFertigkeit2}>
+                          <option>-- Fertigkeit auswählen --</option>
+                          {filterVolk[0].input.Fertigkeit2.map((fertigkeit) => {
+                            return (
+                              <option key={fertigkeit}>{fertigkeit}</option>
+                            );
+                          })}
+                        </select>
+                      </form>
                     )}
                   </>
                 )}
@@ -121,13 +240,30 @@ const Volk = () => {
                   </select>
                 </form>
               )}
+
+              {filterVolksart[0].input.hasOwnProperty("tüftlerwerkzeug") && (
+                <form className={style.form}>
+                  <select onChange={onChangeVolksartTüftlerwerkzeug}>
+                    <option>-- Tüftlerwerkzeug wählen --</option>
+                    {filterVolksart[0].input.tüftlerwerkzeug.map(
+                      (tüftlerwerkzeug) => {
+                        return (
+                          <option key={tüftlerwerkzeug}>
+                            {tüftlerwerkzeug}
+                          </option>
+                        );
+                      }
+                    )}
+                  </select>
+                </form>
+              )}
             </>
           )}
         </>
       )}
 
       <NavLink to="charakter-erstellen/klasse-auswählen">
-        <button>Weiter</button>
+        <button className={style.button}>Weiter</button>
       </NavLink>
     </div>
   );
