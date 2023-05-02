@@ -24,6 +24,7 @@ const Barbar = () => {
       <div className={style.fertigkeiten}>
         <h3>Fähigkeiten</h3>
       <p><b>Rüstung:</b> {klasseWählen[0].fertigkeiten.rüstung}</p>
+      <p><b>Waffen:</b></p>
       </div>
     </>
   );
