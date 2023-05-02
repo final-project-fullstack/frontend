@@ -35,7 +35,7 @@ export default function Dashboard() {
           <p>Email: {user.email}</p>
           <div className={style.passwordChange}>
             <h2>Passwort ändern</h2>
-            <form class={style.form} onSubmit={handleSubmit}>
+            <form className={style.form} onSubmit={handleSubmit}>
               <input
                 className={style.input}
                 type="password"

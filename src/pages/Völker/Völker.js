@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useStore } from '../../context/storeContext.js';
+import { useStore } from "../../context/storeContext.js";
 
 export default function Völker() {
-  const { volk } = useStore()
+  const { volk } = useStore();
   const [filterVolk, setFilterVolk] = useState([]);
   function sortArray(x, y) {
     return x.name.localeCompare(y.name);
@@ -17,11 +17,11 @@ export default function Völker() {
   };
 
   return (
-    <div className="container">
-      <div className="völker">
+    <>
+      <div className="cards">
         {volk.length > 0 && (
-          <div className="select">
-            <div className="select-volk">
+          <div className="selectContainer">
+            <div className="select">
               <label>Volk auswählen:</label>
               <select onChange={onChangeVolk}>
                 <option>Volk auswählen</option>
@@ -41,7 +41,7 @@ export default function Völker() {
           <>
             {filterVolk.map((volk, i) => {
               return (
-                <div className="volk" key={i}>
+                <div className="cardInfo" key={i}>
                   <h3 key={i}>{volk.name}</h3>
                   {volk.text.map((info, i) => {
                     return (
@@ -55,7 +55,7 @@ export default function Völker() {
         ) : (
           <div>
             {volk.length > 0 && (
-              <div className="volk">
+              <div className="cardInfo">
                 <h3>{volk[7].name}</h3>
                 {volk[7].text.map((info, i) => (
                   <p dangerouslySetInnerHTML={{ __html: info }} key={i}></p>
@@ -65,6 +65,6 @@ export default function Völker() {
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 }

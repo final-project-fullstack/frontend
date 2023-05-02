@@ -16,7 +16,7 @@ export default function Werkzeuge() {
   console.log(filterWerkzeuge);
 
   return (
-    <div className="container">
+    <>
       <div className="cards">
         <div className="selectContainer">
           <div className="select">
@@ -30,7 +30,7 @@ export default function Werkzeuge() {
           </div>
         </div>
         {filterWerkzeuge.length > 0 && (
-          <div className={`${style.werkzeug}`}>
+          <div className={`${style.werkzeug} "cardInfo"`}>
             <h2>{filterWerkzeuge[0].name}</h2>
             <p>{filterWerkzeuge[0].beschreibung}</p>
 
@@ -54,6 +54,6 @@ export default function Werkzeuge() {
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 }

@@ -39,9 +39,9 @@ const Login = () => {
   return (
     <div className={style.login}>
       <h2>Login</h2>
-      <form class={style.form} onSubmit={handleSubmit}>
+      <form className={style.form} onSubmit={handleSubmit}>
         <input
-          class={style.input}
+          className={style.input}
           type="text"
           name="email"
           placeholder="Email"
@@ -50,7 +50,7 @@ const Login = () => {
           }
         />
         <input
-          class={style.input}
+          className={style.input}
           type="password"
           name="password"
           placeholder="Passwort"

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { useStore } from '../../context/storeContext.js';
+import { useStore } from "../../context/storeContext.js";
+import style from "./waffen.module.css";
 
 export default function Waffen() {
-  const { waffen } = useStore()
+  const { waffen } = useStore();
   const [filterWaffen, setFilterWaffen] = useState([]);
 
   const onChangeKlasse = (event) => {
@@ -15,10 +16,10 @@ export default function Waffen() {
   console.log(waffen);
 
   return (
-    <div className="container">
-      <div className="völker">
-        <div className="select">
-          <div className="select-volk">
+    <>
+      <div className="cards">
+        <div className="selectContainer">
+          <div className="select">
             <label>Waffe auswählen:</label>
             <select onChange={onChangeKlasse}>
               <option>Waffe auswählen</option>
@@ -33,7 +34,7 @@ export default function Waffen() {
           <>
             {filterWaffen.map((waffe, i) => {
               return (
-                <div className="volk waffen" key={i}>
+                <div className={`${style.waffen} cardInfo`} key={i}>
                   <h3>{waffe.name}</h3>
                   <p>Kosten: {waffe.kosten} Kupfer</p>
                   <p>Gewicht: {waffe.gewicht} Pfund</p>
@@ -45,6 +46,6 @@ export default function Waffen() {
           </>
         )}
       </div>
-    </div>
+    </>
   );
 }

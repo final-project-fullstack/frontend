@@ -43,20 +43,13 @@ h3 {
 
 /* ANCHOR select */
 
-/* wird von zauber benutzt */
-.select {
+.selectContainer {
   display: flex;
   flex-direction: column;
-  width: 360px;
+  width: 380px;
   margin: 1rem ;  
 }
 
-
-/* wird von zauber benutzt */
-/* .select select {
-  margin: 1rem;
-  width: 130px;
-} */
 label {
   width: 150px;
   padding-left: 1rem;
@@ -151,12 +144,13 @@ form {
 .cards select,
 .hintergründe select,
 .cards .ausrüstung {
+  margin: 1rem;
   width: 150px;
   text-align: center;
 }
 
 .cards .selectContainer
-/* .hintergründe .select-hintergrund */
+
  {
   margin-top: 3rem;
   background-color: #e8e8e8;
@@ -166,7 +160,7 @@ form {
 /* ANCHOR Ausrüstung (explizit?) */
 
 /* breite der seite (auch im desktop modus) */
-/* .ausrüstung .volk {
+/* .ausrüstung .cardInfo {
   margin-bottom: 2rem;
   max-width: 360px;
 } */
@@ -181,7 +175,8 @@ form {
   margin-bottom: 2rem;
 } */
 
-.volk,
+.cardInfo
+,
 .hintergrund , .sprache, .gesinnung{
   max-width: 800px;
   width: 100%;
@@ -192,26 +187,27 @@ form {
 
 /* ANCHOR tables */
 
-.volk table, .sprache table {
+.cardInfo table, .sprache table {
   margin-top: 1rem;
   display: block;
   overflow-x: scroll;
 }
 
-.volk table th,
-.volk table td, .sprache table th, .sprache table td {
+.cardInfo table th,
+.cardInfo table td, .sprache table th,
+.sprache table td{
   padding: 2px 8px;
 }
 
-.volk table tr:nth-child(odd), .sprache table thead tr:nth-child(odd), .sprache table tbody tr:nth-child(even) {
+.cardInfo table tr:nth-child(odd), .sprache table thead tr:nth-child(odd), .sprache table tbody tr:nth-child(even) {
   background-color: rgb(172, 211, 172);
 }
 
 
 /* ANCHOR waffen */
-.waffen{
+/* .waffen{
   max-width: 425px;
-}
+} */
 
 /* ANCHOR werkzeug */
 /* .werkzeug{
@@ -482,7 +478,7 @@ margin-top: 2rem;
   } */
 
 /*     submenu navigation links      */
-/* .volk {
+/* .cardInfo {
     margin-top: 2rem;
   }
 } */
