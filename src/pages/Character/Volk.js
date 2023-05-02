@@ -15,12 +15,12 @@ const Volk = () => {
   const [fertigkeit2, setFertigkeit2] = useState("");
   const [tüftlerwerkzeug, setTüftlerwerkzeug] = useState("");
 
-  const onChangeVolk = (event) => {
+  const onChangeVolk = async (event) => {
     const value = event.target.value;
     const volkFilter = characterVolk.filter((info) => {
       return info.name === value;
     });
-    setFilterVolksart([]);
+    setFilterVolksart("");
     localStorage.removeItem("volksart");
     setSprache("");
     localStorage.removeItem("sprache");
