@@ -13,6 +13,7 @@ import GesinnungUndSprachen from "../pages/GesinnungUndSprachen/GesinnungUndSpra
 import Abenteuerausrüstung from "../pages/Abenteuerausrüstung/Abenteuerausrüstung";
 import Character from "../pages/Character/Characters";
 import Dashboard from "../pages/Dashboard/Dashboard.js";
+import CharacterAttitude from "../pages/CharacterAttitade/CharacterAttitade"
 import { useStore } from '../context/storeContext.js'
 
 
@@ -32,6 +33,7 @@ export const paths = {
   werkzeugePath: "/werkzeuge",
   abenteuerausruestungPath: "/abenteuerausrüstung",
   mycharPath: "/mychar",
+  characterAttitudePath: "/characterAttitude",
   anyPath: "/*",
 };
 export default function AllRoutes() {
@@ -143,6 +145,13 @@ export default function AllRoutes() {
       isProtected: false,
       redirectPath: null,
       id: "AnyPage"
+    },
+    {
+      path: paths.characterAttitudePath,
+      element: <CharacterAttitude />,
+      isProtected: false,
+      redirectPath: null,
+      id: "CharacterAttitudePage"
     },
   ];
 
