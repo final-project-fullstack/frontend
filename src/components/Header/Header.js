@@ -110,15 +110,15 @@ const Header = () => {
                   </ul>
                 </li>
 
-                <li onClick={handleSth}>
+                {/* <li onClick={handleSth}>
                   <NavLink to="/myspells">Meine Zauber</NavLink>
-                </li>
+                </li> */}
 
-                <li onClick={handleSth}>
+                {/* <li onClick={handleSth}>
                   <NavLink to="/charakter-erstellen">
                     Charakter erstellen
                   </NavLink>
-                </li>
+                </li> */}
 
                 <li onClick={logout}>
                   <NavLink>Logout</NavLink>
@@ -185,12 +185,12 @@ const Header = () => {
                     </li>
                   </ul>
                 </li>
-                <li>
+                {/* <li>
                   <NavLink to="/myspells">Meine Zauber</NavLink>
                 </li>
                 <li>
                   <NavLink to="/mychar">Mein Charakterbogen</NavLink>
-                </li>
+                </li> */}
 
                 <li onClick={logout}>
                   <NavLink>Logout</NavLink>
