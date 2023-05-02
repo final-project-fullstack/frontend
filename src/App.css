@@ -64,18 +64,18 @@ label {
 
 
 /* wird von zauber benutzt */
-.select-klasse {
+/* .select-klasse {
   border-bottom: 2px solid #ffffff;
-}
+} */
 
 /* wird von zauber benutzt */
-.select-klasse,
+/* .select-klasse,
 .select-grad {
   display: flex;
   align-items: center;
   background-color: #e8e8e8;
   border-radius: 3px;
-}
+} */
 
 
 /* ANCHOR zauber */
@@ -100,8 +100,8 @@ input {
 
 
 
-/* ANCHOR zauber */
-.zauber p {
+/* ANCHOR meine zauber */
+/* .zauber p {
   font-size: 0.8rem;
 }
 
@@ -121,7 +121,7 @@ input {
   margin-top: 0;
   margin-bottom: 0.8rem;
   line-height: 1rem;
-}
+} */
 
 
 

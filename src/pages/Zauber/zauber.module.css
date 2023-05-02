@@ -11,8 +11,17 @@
 }
 
 
-/* NOTE wird in home und zauber genutzt wird zzt nicht gebraucht */
-.home-form button {
+/* NOTE wird in zauber genutzt wird zzt nicht gebraucht */
+
+.zauberForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2.5rem 0;
+}
+
+
+.homeForm button {
   margin-top: 1.5rem;
   padding: 5px 10px;
 }
@@ -38,4 +47,26 @@
 
 .inhaltsverzeichnis a {
   cursor: pointer;
+}
+
+/* */
+
+/* wird von zauber benutzt */
+.select-klasse {
+  border-bottom: 2px solid #ffffff;
+}
+
+/* wird von zauber benutzt */
+.select-klasse,
+.select-grad {
+  display: flex;
+  align-items: center;
+  background-color: #e8e8e8;
+  border-radius: 3px;
+}
+
+
+.select select {
+  margin: 1rem;
+  width: 130px;
 }

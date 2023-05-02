@@ -550,13 +550,13 @@ const CharSheet = () => {
           <label class={style.label} for="sonstigeWaffen">
             Sonstige Waffen
           </label>
-          <br />
-          inputfeld auf ganze reihe
         </div>
-
+        <div class={style.inputfeldWaffenuebung}>
+          <input class={style.input} type="text"></input>
+        </div>
         {/*  */}
         {/*  */}
-        <div class={style.sprachenContainer}>
+        <div class={style.werkzeugeUndSprachenContainer}>
           <div class={style.sprachen}>
             SPRACHEN <br />
             <input class={style.input} type="text"></input>
@@ -567,7 +567,7 @@ const CharSheet = () => {
             <input class={style.input} type="text"></input>
           </div>
         </div>
-        <div class={style.werkzeugeundandere}>
+        <div class={style.werkzeugeContainer}>
           WERKZEUGE & ANDERE <br />
           <input class={style.input} type="text"></input>
           <input class={style.input} type="text"></input>

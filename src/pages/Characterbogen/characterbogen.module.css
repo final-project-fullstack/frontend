@@ -11,9 +11,11 @@
  }
 
 
- .input[type="text"]{
-    margin: 0px 0px 0px 0px;
- }
+ /* .input[type="text"]{
+    margin: 1px 1px 1px 1px;
+    background-color: rgb(191, 191, 191);
+    border:1px solid gray;
+ } */
 
 /* .input[type="text"] {
     margin:4px 4px 2px 4px ;
@@ -278,7 +280,14 @@ border: 1px solid black;
 }
 
 
+ .uebungUndSprachen .input[type="text"] {
+    /* breite kann wahrscheinlich nach änderung von container waffen geändert werden */
+    width:90%;
+    margin: 0.1px 0px 1px 5px;
 
+    background-color: rgb(191, 191, 191);
+        border: 0.1px solid gray;
+ }
 
 
 .ruestungUndWaffenContainer{
@@ -290,11 +299,7 @@ width:100%;
 
 .ruestungContainer{
 display: flex;
-
-        grid-area: 1 / 1 / 2 / 3;
-            /* width: 100%; */
-            /* text-align: center; */
-   
+    grid-area: 1 / 1 / 2 / 3;
     background-color: aquamarine;
 }
 
@@ -310,7 +315,12 @@ display: flex;
 }
 
 
-.sprachenContainer{
+.inputfeldWaffenuebung{
+    width:100%;
+}
+
+
+.werkzeugeUndsprachenContainer{
     grid-area: 3 / 1 / 5 / 2;
 }
 

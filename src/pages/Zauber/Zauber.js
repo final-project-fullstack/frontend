@@ -93,7 +93,7 @@ const Zauber = () => {
       </form>
       <div className={style.selectInhaltsverzeichnis}>
         <form
-          className="home-form"
+          className={style.zauberForm}
           onSubmit={selectValue !== "" ? handleSubmit : null}
         >
           <div className="select">
