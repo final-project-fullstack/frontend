@@ -1,8 +1,8 @@
-import { useStore } from '../../context/storeContext.js';
+import { useStore } from "../../context/storeContext.js";
 import style from "./hintergrund.module.css";
 
 export default function Hintergrund() {
-  const { hintergrund, filterHintergrund, setFiltrHintergrund } = useStore()
+  const { hintergrund, filterHintergrund, setFiltrHintergrund } = useStore();
   console.log(hintergrund);
 
   function sortArray(x, y) {
@@ -19,14 +19,17 @@ export default function Hintergrund() {
   return (
     <div className="container">
       {hintergrund.length > 0 && (
-        <div className="select">
-          <div className="select-hintergrund">
+        <div className="selectContainer">
+          <div className="select">
             <label>Hintergrund auswählen:</label>
             <select onChange={onChangeHintergrund}>
               <option>Hintergrund auswählen</option>
-              {hintergrund.filter((info)=>{
-                  return info.name !== "Hintergrund"
-                }).sort(sortArray).map((info) => {
+              {hintergrund
+                .filter((info) => {
+                  return info.name !== "Hintergrund";
+                })
+                .sort(sortArray)
+                .map((info) => {
                   return <option key={info.name}>{info.name}</option>;
                 })}
             </select>

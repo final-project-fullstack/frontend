@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { useStore } from '../../context/storeContext.js';
+import { useStore } from "../../context/storeContext.js";
+import style from "./werkzeuge.module.css";
 
 export default function Werkzeuge() {
-  const { werkzeuge } = useStore()
+  const { werkzeuge } = useStore();
   const [filterWerkzeuge, setFilterWerkzeuge] = useState([]);
 
   const onChangeKlasse = (event) => {
@@ -16,9 +17,9 @@ export default function Werkzeuge() {
 
   return (
     <div className="container">
-      <div className="völker">
-        <div className="select">
-          <div className="select-volk">
+      <div className="cards">
+        <div className="selectContainer">
+          <div className="select">
             <label>Werkzeug auswählen:</label>
             <select onChange={onChangeKlasse}>
               <option>Werkzeug auswählen</option>
@@ -29,7 +30,7 @@ export default function Werkzeuge() {
           </div>
         </div>
         {filterWerkzeuge.length > 0 && (
-          <div className="volk werkzeug">
+          <div className={`${style.werkzeug}`}>
             <h2>{filterWerkzeuge[0].name}</h2>
             <p>{filterWerkzeuge[0].beschreibung}</p>
 

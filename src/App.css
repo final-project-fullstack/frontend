@@ -133,7 +133,7 @@ form {
   padding-top: 2rem;
 }
 
-/* .völker, */
+/* .cards, */
 /* .hintergründe, */
 /* .ausrüstung, */
 /* .gesinnungenSprachen */
@@ -144,16 +144,20 @@ form {
   padding: 0 2rem;
 }  */
 
-.völker select,
+
+ /* .card{background-color: ;} */
+
+
+.cards select,
 .hintergründe select,
-.völker .ausrüstung {
+.cards .ausrüstung {
   width: 150px;
   text-align: center;
 }
 
-.völker .select-volk,
-.ausrüstung .select-volk,
-.hintergründe .select-hintergrund {
+.cards .selectContainer
+/* .hintergründe .select-hintergrund */
+ {
   margin-top: 3rem;
   background-color: #e8e8e8;
   border-radius: 3px;
@@ -210,9 +214,9 @@ form {
 }
 
 /* ANCHOR werkzeug */
-.werkzeug{
-  max-width: 425px;
-}
+/* .werkzeug{
+  max-width: 425px; */
+/* } */
 
 .werkzeug h3{
 margin-top: 2rem;
