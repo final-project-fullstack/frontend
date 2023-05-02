@@ -214,7 +214,7 @@ const Header = () => {
       </nav>
 
       {isChildVisible && (
-        <div>
+        <div className={style.poolcontainer}>
           <PoolContainer />
         </div>
       )}

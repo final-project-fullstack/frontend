@@ -36,7 +36,6 @@ h3 {
 .container{
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-direction: column;
   padding: 7rem 2rem 1rem 2rem;
 }
@@ -46,8 +45,9 @@ h3 {
 .selectContainer {
   display: flex;
   flex-direction: column;
-  width: 380px;
-  margin: 1rem ;  
+  width: 100%;  
+  align-items: center;
+  
 }
 
 label {
@@ -126,11 +126,11 @@ form {
   padding-top: 2rem;
 }
 
-/* .cards, */
 /* .hintergründe, */
 /* .ausrüstung, */
 /* .gesinnungenSprachen */
-/* { 
+/* .cards
+{ 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -145,7 +145,7 @@ form {
 .hintergründe select,
 .cards .ausrüstung {
   margin: 1rem;
-  width: 150px;
+  /* width: 150px; */
   text-align: center;
 }
 
@@ -175,9 +175,7 @@ form {
   margin-bottom: 2rem;
 } */
 
-.cardInfo
-,
-.hintergrund , .sprache, .gesinnung{
+.cardInfo, .sprache{
   max-width: 800px;
   width: 100%;
   margin-top: 3rem;
@@ -190,7 +188,7 @@ form {
 .cardInfo table, .sprache table {
   margin-top: 1rem;
   display: block;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
 .cardInfo table th,
@@ -553,3 +551,17 @@ margin-top: 2rem;
 .inhaltsverzeichnis a {
   cursor: pointer;
 } */
+
+@media screen and (min-width: 800px){
+  .container{
+    align-items: center;
+  }
+  .cardInfo{
+    margin: 1rem;
+  }
+  .selectContainer {
+    width: 800px;   
+    
+  }
+
+}

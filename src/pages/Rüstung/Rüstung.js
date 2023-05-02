@@ -15,10 +15,10 @@ export default function Rüstung() {
   console.log(rüstung);
 
   return (
-    <div className="container">
+    <>
       <div className="cards">
-        <div className="select">
-          <div className="select-volk">
+        <div className="selectContainer">
+          <div className="select">
             <label>Rüstung auswählen:</label>
             <select onChange={onChangeKlasse}>
               <option>Rüstung auswählen</option>
@@ -33,7 +33,7 @@ export default function Rüstung() {
           <>
             {filterRüstung.map((waffe, i) => {
               return (
-                <div className="volk waffen" key={i}>
+                <div className="cardInfo waffen" key={i}>
                   <h3>{waffe.name}</h3>
                   <p>Kosten: {waffe.kosten} Kupfer</p>
                   <p>Gewicht: {waffe.gewicht} Pfund</p>
@@ -46,6 +46,6 @@ export default function Rüstung() {
           </>
         )}
       </div>
-    </div>
+    </>
   );
 }

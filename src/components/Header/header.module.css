@@ -6,6 +6,7 @@ nav {
     height: 75px;
     position: fixed;
     width: 100%;
+    z-index: 2;
 }
 
 nav form {
@@ -16,7 +17,7 @@ nav form {
 #menuToggle {
     display: block;
     padding: 1.5rem;
-    z-index: 1;
+    z-index: 2;
     user-select: none;
 }
 
@@ -31,6 +32,11 @@ nav form {
     color: #f05454;
 }
 
+
+/* .poolcontainer{
+    z-index: 1;
+} */
+
 #menuToggle input {
     display: block;
     width: 40px;
@@ -40,7 +46,7 @@ nav form {
 
     opacity: 0;
     /* hide this */
-    z-index: 2;
+    z-index: 3;
     /* and place it over the hamburger */
 
     -webkit-touch-callout: none;
@@ -57,7 +63,7 @@ nav form {
     position: relative;
     background: #edf2f6;
     border-radius: 3px;
-    z-index: 1;
+    z-index: 2;
     transform-origin: 4px 0px;
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
         background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
@@ -176,6 +182,7 @@ nav form {
     display: flex;
     flex-direction: column;
     /* margin-top: 1vh; */
+    /* z-index: 1; */
 }
 
 .logo {

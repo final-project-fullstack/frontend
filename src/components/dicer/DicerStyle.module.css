@@ -16,6 +16,8 @@
   display: flex;
   position: fixed;
   width: fit-content;
+  top:75px;
+  z-index: 1;
 }
 
 
