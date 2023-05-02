@@ -11,7 +11,7 @@ import Werkzeuge from "../pages/Werkzeuge/Werkzeuge";
 import Rüstung from "../pages/Rüstung/Rüstung";
 import GesinnungUndSprachen from "../pages/GesinnungUndSprachen/GesinnungUndSprachen";
 import Abenteuerausrüstung from "../pages/Abenteuerausrüstung/Abenteuerausrüstung";
-import Character from "../pages/Character/Characters";
+// import Character from "../pages/Character/Characters";
 import Dashboard from "../pages/Dashboard/Dashboard.js";
 import { useStore } from "../context/storeContext.js";
 
@@ -136,13 +136,13 @@ export default function AllRoutes() {
       redirectPath: null,
       id: "MycharPage",
     },
-    {
-      path: paths.anyPath,
-      element: <Character />,
-      isProtected: false,
-      redirectPath: null,
-      id: "AnyPage",
-    },
+    // {
+    //   path: paths.anyPath,
+    //   element: <Character />,
+    //   isProtected: false,
+    //   redirectPath: null,
+    //   id: "AnyPage",
+    // },
   ];
 
   return routes;
