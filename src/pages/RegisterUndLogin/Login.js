@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useStore } from '../../context/storeContext.js'
+import { useStore } from "../../context/storeContext.js";
 import { useNavigate } from "react-router-dom";
 import style from "./registerLogin.module.css";
 
@@ -11,8 +11,7 @@ const Login = () => {
     password: "",
   });
 
-  const { setIsLoggedIn, setUser } = useStore()
-
+  const { setIsLoggedIn, setUser } = useStore();
 
   const [message, setMessage] = useState("");
 
@@ -40,8 +39,9 @@ const Login = () => {
   return (
     <div className={style.login}>
       <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
+      <form class={style.form} onSubmit={handleSubmit}>
         <input
+          class={style.input}
           type="text"
           name="email"
           placeholder="Email"
@@ -50,6 +50,7 @@ const Login = () => {
           }
         />
         <input
+          class={style.input}
           type="password"
           name="password"
           placeholder="Passwort"
