@@ -4,12 +4,13 @@ nav {
     justify-content: space-between;
     align-items: center;
     height: 75px;
+    position: fixed;
+    width: 100%;
 }
 
 nav form {
     padding-right: 2rem;
 }
-
 
 /* ANCHOR Menü */
 #menuToggle {
