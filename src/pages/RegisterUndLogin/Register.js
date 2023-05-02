@@ -69,8 +69,7 @@ function Register() {
           onChange={(e) => setPassword(e.target.value)}
         />
         <input
-          class={style.input}
-          className={style.registerButton}
+          className={`${style.input} ${style.registerButton}`}
           type="submit"
           value="Registrieren"
         />

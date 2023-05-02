@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useStore } from '../../context/storeContext.js';
+import { useStore } from "../../context/storeContext.js";
 
 export default function Rüstung() {
-  const { rüstung } = useStore()
+  const { rüstung } = useStore();
   const [filterRüstung, setFilterRüstung] = useState([]);
 
   const onChangeKlasse = (event) => {
@@ -16,7 +16,7 @@ export default function Rüstung() {
 
   return (
     <div className="container">
-      <div className="völker">
+      <div className="cards">
         <div className="select">
           <div className="select-volk">
             <label>Rüstung auswählen:</label>

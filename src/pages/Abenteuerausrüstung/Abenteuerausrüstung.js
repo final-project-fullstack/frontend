@@ -18,9 +18,9 @@ export default function Abenteuerausrüstung() {
 
   return (
     <div className="container">
-      <div className={`${style.ausrüstung} ausrüstung`}>
-        <div className="select">
-          <div className="select-volk">
+      <div className="cards">
+        <div className="selectContainer">
+          <div className="select">
             <label>Ausrüstung auswählen:</label>
             <select onChange={onChangeKlasse}>
               <option>Ausrüstungen</option>
@@ -32,7 +32,7 @@ export default function Abenteuerausrüstung() {
         </div>
 
         {filterAusrüstung.length > 0 && (
-          <div className={`${style.volk} volk`}>
+          <div className={`${style.card} card`}>
             {filterAusrüstung[0].array.map((item, i) => {
               return (
                 <div key={item._id}>
