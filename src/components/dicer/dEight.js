@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import style from "./DicerStyle.module.css";
-
+// import w8 from "./svg/w8.svg";
 const DicerPoolDEight = () => {
   const [items, setItems] = useState([]);
 
@@ -40,9 +40,7 @@ const DicerPoolDEight = () => {
           W8
         </button>
         <button className={style.addButton} onClick={addDEight}>
-          <div className={style.buttonTxt}>
-            +<br /> W8
-          </div>
+          <div className={style.buttonTxt}>sdsdsd</div>
         </button>
         <div className={style.wuerfelBackground}>
           {items.map((item) => {
