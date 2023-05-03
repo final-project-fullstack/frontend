@@ -1,5 +1,15 @@
+:root {
+    --grau: #E8E8E8;
+    --rot: #F05454;
+    --blau: #30475E;
+    --schwarz: #222831;
+
+}
+
+
+
 nav {
-    background-color: #f05454;
+    background-color: var(--rot);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -23,13 +33,13 @@ nav form {
 
 #menuToggle a {
     text-decoration: none;
-    color: #232323;
+    color: var(--grau);
 
     transition: color 0.3s ease;
 }
 
 #menuToggle a:hover {
-    color: #f05454;
+    color: var(--rot);
 }
 
 
@@ -61,7 +71,7 @@ nav form {
     height: 4px;
     margin-bottom: 5px;
     position: relative;
-    background: #edf2f6;
+    background: var(--grau);
     border-radius: 3px;
     z-index: 2;
     transform-origin: 4px 0px;
@@ -85,7 +95,7 @@ nav form {
 #menuToggle input:checked~span {
     opacity: 1;
     transform: rotate(45deg) translate(-2px, -1px);
-    background: #232323;
+    background: var(--grau);
 }
 
 /*
@@ -113,7 +123,7 @@ nav form {
     margin: -100px 0 0 -50px;
     padding: 50px;
     padding-top: 125px;
-    background: #edf2f6;
+    background: var(--blau);
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
     /* to stop flickering of text in safari */
@@ -121,6 +131,8 @@ nav form {
     transform-origin: 0% 0%;
     transform: translate(-100%, 0);
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+
+    border-radius: 15px;
 }
 
 /*     submenu navigation links      */
@@ -175,7 +187,7 @@ nav form {
 
 
 
-/* ANCHOR Logo */
+    /* ANCHOR Logo */
 
 /* NOTE übergeordneter container für DicerStyle.module.css */
 .dicerPool {
@@ -201,16 +213,20 @@ nav form {
   }
   .navbarDesktop > ul {
     display: flex;
+    height: 100%;
   }
   .navbarDesktop > ul > li {
     list-style-type: none;
-    padding-bottom: 3px;
     position: relative;
+    height: 75px;
+    display: flex;
+    align-items: center;
   }
   .navbarDesktop a {
     text-decoration: none;
-    color: #ffffff;
+    color: var(--grau);
     margin: 0 1.5rem;
+   
   }
   .navbarDesktop a:hover,
   .navbarDesktop a.active {
@@ -232,18 +248,21 @@ nav form {
     content: " ▼";
   }
   .navbarDesktop .submenu {
+    margin-top: 462px;
     color: #232323;
     visibility: hidden;
     height: 0;
     z-index: 1000;
     position: absolute;
-    background-color: #f05454;
-    padding: 0;
+    background-color: var(--blau);
+    padding:10px 0px;
+    border-radius: 0px 0px 15px 15px;
+
   }
 
   .navbarDesktop .submenu li {
     display: block;
-    padding: 5px 0px 5px 0px;
+    padding: 10px 0px 10px 0px;
 
     width: 15em;
   }

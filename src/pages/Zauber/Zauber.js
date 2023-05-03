@@ -88,7 +88,11 @@ const Zauber = () => {
             return <option key={spell.name} value={spell.name} />;
           })}
         </datalist>
-        <button type="submit" onClick={handleSearch}>
+        <button
+          className={style.searchButton}
+          type="submit"
+          onClick={handleSearch}
+        >
           Senden
         </button>
       </form>

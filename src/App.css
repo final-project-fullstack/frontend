@@ -23,19 +23,27 @@ h3 {
   margin: 0;
 }
 
-
+input[type="submit"], button{
+  background-color: var(--blau);
+  
+  color:white;
+  border-radius: 30px;
+  box-shadow: #949494 2px 2px 5px;
+  padding: 5px 10px;
+  
+}
 
 
 /* ANCHOR Scrollbalken */
 
 ::-webkit-scrollbar {
   width: 0.5em;
-  background-color: rgba(255, 38, 0, 0.358);
+  background-color: #7c848d;
   box-shadow: 0.1em 0em 10px #000000, 0em 0em 0em #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 0, 0, 0.559);
+  background-color: var(--schwarz);
 }
 
 
@@ -136,35 +144,37 @@ form {
   padding-top: 2rem;
 }
 
-/* .hintergründe, */
-/* .ausrüstung, */
-/* .gesinnungenSprachen */
-/* .cards
+
+.cards
 { 
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 2rem;
-}  */
+  align-items: center;
+  max-width: 800px;
+} 
 
 
  /* .card{background-color: ;} */
 
 
-.cards select,
-.hintergründe select,
-.cards .ausrüstung {
-  margin: 1rem;
+.cards select{
+  margin: 0.5rem;
   /* width: 150px; */
   text-align: center;
+  border-radius: 30px;
+  padding: 2px 0px 2px 2px;
 }
+
 
 .cards .selectContainer
 
  {
-  margin-top: 3rem;
-  background-color: #e8e8e8;
-  border-radius: 3px;
+  background-color: var(--blau);
+  border-radius: 30px;
+  color: #ffffff;
+  width: fit-content;
+  text-align: center;
 }
 
 /* ANCHOR Ausrüstung (explizit?) */
@@ -208,7 +218,7 @@ form {
 }
 
 .cardInfo table tr:nth-child(odd), .sprache table thead tr:nth-child(odd), .sprache table tbody tr:nth-child(even) {
-  background-color: rgb(172, 211, 172);
+  background-color: var(--grau);
 }
 
 
@@ -566,9 +576,7 @@ margin-top: 2rem;
   .container{
     align-items: center;
   }
-  .cardInfo{
-    margin: 1rem;
-  }
+  
   .selectContainer {
     width: 800px;   
     
