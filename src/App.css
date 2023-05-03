@@ -1,4 +1,14 @@
+:root {
+  --grau:#E8E8E8;
+  --rot:#F05454;
+  --blau:#30475E;
+  --schwarz:#222831;
+  
+}
+
+
 /* ANCHOR allgemine tags */
+
 body{box-sizing: border-box;}
 
 
