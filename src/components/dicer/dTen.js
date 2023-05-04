@@ -48,10 +48,8 @@ const DicerPoolDTen = () => {
         </button>
         <button className={style.addButton} onClick={addDTen}>
           <img className={style.icon} src={w10} alt="icon" />
-        </button>
-        <div className={style.sumContainer}>
           <div className={style.sum}>Total: {total}</div>
-        </div>
+        </button>
         <div className={style.wuerfelBackground}>
           {items.map((item) => {
             return (

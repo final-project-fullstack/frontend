@@ -48,10 +48,8 @@ const DicerPoolDHundred = () => {
         </button>
         <button className={style.addButton} onClick={addDHundred}>
           <img className={style.icon} src={w100} alt="icon" />
-        </button>
-        <div className={style.sumContainer}>
           <div className={style.sum}>Total: {total}</div>
-        </div>
+        </button>
         <div className={style.wuerfelBackground}>
           {items.map((item) => {
             return (
