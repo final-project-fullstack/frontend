@@ -58,6 +58,14 @@ export default function Abenteuerausrüstung() {
                   {item.hasOwnProperty("beschreibung") && (
                     <p>{item.beschreibung}</p>
                   )}
+
+                  {item.name !== "Arkaner Fokus" && (
+                    <div className="checkbox">
+                      <input type="checkbox" />
+                      <label>Speichern</label>
+                    </div>
+                  )}
+
                 </div>
               );
             })}

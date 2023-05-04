@@ -1,90 +1,86 @@
 :root {
-    --grau: #E8E8E8;
-    --rot: #F05454;
-    --blau: #30475E;
-    --schwarz: #222831;
-
+  --grau: #e8e8e8;
+  --rot: #f05454;
+  --blau: #30475e;
+  --schwarz: #222831;
 }
 
-
-
 nav {
-    background-color: var(--rot);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 75px;
-    position: fixed;
-    width: 100%;
-    z-index: 2;
+  background-color: var(--rot);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 75px;
+  position: fixed;
+  width: 100%;
+  z-index: 2;
 }
 
 nav form {
-    padding-right: 2rem;
+  padding-right: 2rem;
 }
 
 /* ANCHOR Menü */
 #menuToggle {
-    display: block;
-    padding: 1.5rem;
-    z-index: 2;
-    user-select: none;
+  display: block;
+  padding: 1.5rem;
+  z-index: 2;
+  user-select: none;
 }
 
 #menuToggle a {
-    text-decoration: none;
-    color: var(--grau);
+  text-decoration: none;
+  color: var(--grau);
 
-    transition: color 0.3s ease;
+  transition: color 0.3s ease;
 }
 
 #menuToggle a:hover {
-    color: var(--rot);
+  color: var(--rot);
 }
-
 
 /* .poolcontainer{
     z-index: 1;
 } */
 
 #menuToggle input {
-    display: block;
-    width: 40px;
-    height: 32px;
-    position: absolute;
-    cursor: pointer;
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  cursor: pointer;
 
-    opacity: 0;
-    /* hide this */
-    z-index: 3;
-    /* and place it over the hamburger */
+  opacity: 0;
+  /* hide this */
+  z-index: 3;
+  /* and place it over the hamburger */
 
-    -webkit-touch-callout: none;
+  -webkit-touch-callout: none;
 }
 
 /*
  * Just a quick hamburger
  */
 #menuToggle span {
-    display: block;
-    width: 33px;
-    height: 4px;
-    margin-bottom: 5px;
-    position: relative;
-    background: var(--grau);
-    border-radius: 3px;
-    z-index: 2;
-    transform-origin: 4px 0px;
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
-        background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+  display: block;
+  width: 33px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+  background: var(--grau);
+  border-radius: 3px;
+  z-index: 2;
+  transform-origin: 4px 0px;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+    background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
 }
 
 #menuToggle span:first-child {
-    transform-origin: 0% 0%;
+  transform-origin: 0% 0%;
 }
 
 #menuToggle span:nth-last-child(2) {
-    transform-origin: 0% 100%;
+  transform-origin: 0% 100%;
 }
 
 /* 
@@ -92,25 +88,25 @@ nav form {
  * into a crossmark.
  */
 
-#menuToggle input:checked~span {
-    opacity: 1;
-    transform: rotate(45deg) translate(-2px, -1px);
-    background: var(--grau);
+#menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -1px);
+  background: var(--grau);
 }
 
 /*
  * But let's hide the middle one.
  */
-#menuToggle input:checked~span:nth-last-child(3) {
-    opacity: 0;
-    transform: rotate(0deg) scale(0.2, 0.2);
+#menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
 }
 
 /*
  * Ohyeah and the last one should go the other direction
  */
-#menuToggle input:checked~span:nth-last-child(2) {
-    transform: rotate(-45deg) translate(0, -1px);
+#menuToggle input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, -1px);
 }
 
 /*
@@ -118,92 +114,89 @@ nav form {
  * at the top left of the screen
  */
 #menu {
-    position: absolute;
-    width: 300px;
-    margin: -100px 0 0 -50px;
-    padding: 50px;
-    padding-top: 125px;
-    background: var(--blau);
-    list-style-type: none;
-    -webkit-font-smoothing: antialiased;
-    /* to stop flickering of text in safari */
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 -50px;
+  padding: 50px;
+  padding-top: 125px;
+  background: var(--blau);
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  /* to stop flickering of text in safari */
 
-    transform-origin: 0% 0%;
-    transform: translate(-100%, 0);
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transform-origin: 0% 0%;
+  transform: translate(-100%, 0);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
 
-    border-radius: 15px;
+  border-radius: 15px;
 }
 
 /*     submenu navigation links      */
 #menuToggle .submenu {
-    visibility: hidden;
-    height: 0;
-    z-index: 1000;
+  visibility: hidden;
+  height: 0;
+  z-index: 1000;
 }
 
 #menuToggle .submenu li {
-    display: block;
-    width: 15em;
+  display: block;
+  width: 15em;
 }
 
 #menuToggle .subtitle::after {
-    position: absolute;
-    content: " ▶";
-    color: currentColor;
-    display: inline-block;
-    right: 0;
+  position: absolute;
+  content: " ▶";
+  color: currentColor;
+  display: inline-block;
+  right: 0;
 }
 
 #menuToggle .subtitle:hover::after,
 #menuToggle .subtitle:focus::after {
-    content: " ▼";
+  content: " ▼";
 }
 
 /**     Show the submenu on hover, focus     **/
 #menuToggle li:hover .submenu,
 #menuToggle li:active .submenu,
 #menuToggle li:focus .submenu {
-    visibility: visible;
-    height: auto;
+  visibility: visible;
+  height: auto;
 }
 
 #menu li {
-    padding: 10px 0;
-    font-size: 22px;
-    position: relative;
+  padding: 10px 0;
+  font-size: 22px;
+  position: relative;
 }
 
 .navbarDesktop {
-    display: none;
+  display: none;
 }
 
 /*
  * And let's slide it in from the left
  */
-#menuToggle input:checked~ul {
-    transform: none;
+#menuToggle input:checked ~ ul {
+  transform: none;
 }
 
-
-
-    /* ANCHOR Logo */
+/* ANCHOR Logo */
 
 /* NOTE übergeordneter container für DicerStyle.module.css */
 .dicerPool {
-    display: flex;
-    flex-direction: column;
-    /* margin-top: 1vh; */
-    /* z-index: 1; */
+  display: flex;
+  flex-direction: column;
+  /* margin-top: 1vh; */
+  /* z-index: 1; */
 }
 
 .logo {
-    flex-direction: column;
-    cursor: pointer;
-    height: 68px;
-    width:90px;
+  flex-direction: column;
+  cursor: pointer;
+  height: 68px;
+  width: 90px;
 }
-
 
 /* ANCHOR media screen */
 /* Navbar */
@@ -226,15 +219,13 @@ nav form {
     text-decoration: none;
     color: var(--grau);
     margin: 0 1.5rem;
-   
   }
   .navbarDesktop a:hover,
   .navbarDesktop a.active {
     border-bottom: 3px solid #ffffff;
-   }
+  }
 
-
-   #menuToggle {
+  #menuToggle {
     display: none;
   }
   .navbarDesktop .subtitle::after {
@@ -248,16 +239,15 @@ nav form {
     content: " ▼";
   }
   .navbarDesktop .submenu {
-    margin-top: 462px;
+    top: 75px;
     color: #232323;
     visibility: hidden;
     height: 0;
     z-index: 1000;
     position: absolute;
     background-color: var(--blau);
-    padding:10px 0px;
+    padding: 10px 0px;
     border-radius: 0px 0px 15px 15px;
-
   }
 
   .navbarDesktop .submenu li {
@@ -276,8 +266,6 @@ nav form {
   }
 
   .volk {
-      margin-top: 2rem;
+    margin-top: 2rem;
   }
 }
-
-
