@@ -74,9 +74,10 @@ const Zauber = () => {
   };
 
   return (
-    <div className={style.zauberContainer}>
+    <>
       <form className={style.search}>
         <input
+          class={style.input}
           onChange={changeValue}
           type="text"
           placeholder="Suchen"
@@ -87,7 +88,11 @@ const Zauber = () => {
             return <option key={spell.name} value={spell.name} />;
           })}
         </datalist>
-        <button type="submit" onClick={handleSearch}>
+        <button
+          className={style.searchButton}
+          type="submit"
+          onClick={handleSearch}
+        >
           Senden
         </button>
       </form>
@@ -96,8 +101,8 @@ const Zauber = () => {
           className={style.zauberForm}
           onSubmit={selectValue !== "" ? handleSubmit : null}
         >
-          <div className="select">
-            <div className="select-klasse">
+          <div className={style.select}>
+            <div className={style.selectKlasse}>
               <label>Klasse auswählen:</label>
               <select onChange={onChangeKlasse}>
                 <option>Klasse auswählen</option>
@@ -106,7 +111,7 @@ const Zauber = () => {
                 ))}
               </select>
             </div>
-            <div className="select-grad">
+            <div className={style.selectGrad}>
               <label>Grad auswählen:</label>
               <select onChange={onChangeGrad}>
                 <option>Grad auswählen</option>
@@ -122,8 +127,8 @@ const Zauber = () => {
 
         <div className={style.inhaltsverzeichnis}>
           {inhaltsverzeichnis.length > 0 && <h2>Inhaltsverzeichnis</h2>}
-          <p>{inhaltsverzeichnis.length} Zauber</p>
           <ul>
+            <p>{inhaltsverzeichnis.length} Zauber</p>
             {inhaltsverzeichnis.map((header) => {
               return (
                 <a key={header._id} href={"#" + header.name}>
@@ -170,7 +175,7 @@ const Zauber = () => {
           <p>Bitte erst Klasse und Grad auswählen</p>
         )}
       </div>
-    </div>
+    </>
   );
 };
 

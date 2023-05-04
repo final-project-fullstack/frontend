@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useStore } from '../../context/storeContext.js'
+import { useStore } from "../../context/storeContext.js";
 
 export default function Klassen() {
-  const { klassen } = useStore()
+  const { klassen } = useStore();
   const [filterKlasse, setFilterKlasse] = useState([]);
 
   const onChangeKlasse = (event) => {
@@ -15,10 +15,10 @@ export default function Klassen() {
   console.log(klassen);
 
   return (
-    <div className="container">
-      <div className="völker">
-        <div className="select">
-          <div className="select-volk">
+    <>
+      <div className="cards">
+        <div className="selectContainer">
+          <div className="select">
             <label>Klasse auswählen:</label>
             <select onChange={onChangeKlasse}>
               <option>Klasse auswählen</option>
@@ -41,7 +41,7 @@ export default function Klassen() {
           <>
             {filterKlasse.map((klasse, i) => {
               return (
-                <div className="volk" key={i}>
+                <div className="cardInfo" key={i}>
                   <h3 key={i}>{klasse.name}</h3>
                   {klasse.text.map((info, i) => {
                     return (
@@ -54,6 +54,6 @@ export default function Klassen() {
           </>
         )}
       </div>
-    </div>
+    </>
   );
 }

@@ -1,14 +1,13 @@
-import { useStore } from '../../context/storeContext.js'
+import { useStore } from "../../context/storeContext.js";
 export default function GesinnungUndSprachen() {
-  const { sprachen, gesinnung } = useStore()
+  const { sprachen, gesinnung } = useStore();
 
-
-  const sortedArr = sprachen.sort((a, b) => { 
+  const sortedArr = sprachen.sort((a, b) => {
     const keyA = Object.keys(a)[1];
     const keyB = Object.keys(b)[1];
-    console.log("a:", keyA)
-    console.log("b:", keyB)
-  
+    console.log("a:", keyA);
+    console.log("b:", keyB);
+
     if (keyA < keyB) {
       return -1;
     }
@@ -17,16 +16,14 @@ export default function GesinnungUndSprachen() {
     }
     return 0;
   });
-  
-
 
   return (
-    <div className="container">
-      <div className="gesinnungenSprachen">
+    <>
+      <div className="cards">
         {sprachen.length > 0 && (
           <>
-            <div className="gesinnung">
-              <h3>Gesinnung</h3>
+            <div className="cardInfo">
+              <h2>Gesinnung</h2>
               <p>
                 Eine typische Kreatur in den Welten von DUNGEONS & DRAGONS
                 besitzt eine Gesinnung, die grob ihre moralische und persönliche
@@ -58,7 +55,7 @@ export default function GesinnungUndSprachen() {
             </div>
 
             <div className="sprache">
-              <h3>Sprachen</h3>
+              <h2>Sprachen</h2>
               <p>
                 Die Volkszugehörigkeit legt fest, welche Sprachen dein Charakter
                 zu Beginn beherscht und der Hintergrund könnte ihm Zugang zu
@@ -125,6 +122,6 @@ export default function GesinnungUndSprachen() {
           </>
         )}
       </div>
-    </div>
+    </>
   );
 }

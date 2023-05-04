@@ -1,20 +1,9 @@
-.home {
-    padding: 2.5rem;
+.p {
+  font-size: 1.3rem;
+  line-height: 1.8rem;
 }
 
-.home p {
-    font-size: 1.3rem;
-
+.home{
+  max-width: 800px;
 }
 
-.home-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 2.5rem 0;
-}
-
-.home-form button {
-    margin-top: 1.5rem;
-    padding: 5px 10px;
-}

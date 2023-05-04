@@ -55,7 +55,7 @@ const Header = () => {
           <span></span>
           <span></span>
           <ul id={style.menu}>
-            <li>
+            <li onClick={handleSth}>
               <NavLink to={paths.dashboardPath}>{user.userName}</NavLink>
             </li>
             <li onClick={handleSth}>
@@ -214,7 +214,7 @@ const Header = () => {
       </nav>
 
       {isChildVisible && (
-        <div>
+        <div className={style.poolcontainer}>
           <PoolContainer />
         </div>
       )}

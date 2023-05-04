@@ -1,4 +1,14 @@
+:root {
+  --grau:#E8E8E8;
+  --rot:#F05454;
+  --blau:#30475E;
+  --schwarz:#222831;
+  
+}
+
+
 /* ANCHOR allgemine tags */
+
 body{box-sizing: border-box;}
 
 
@@ -13,19 +23,27 @@ h3 {
   margin: 0;
 }
 
-
+input[type="submit"], button{
+  background-color: var(--blau);
+  
+  color:white;
+  border-radius: 30px;
+  box-shadow: #949494 2px 2px 5px;
+  padding: 5px 10px;
+  
+}
 
 
 /* ANCHOR Scrollbalken */
 
 ::-webkit-scrollbar {
   width: 0.5em;
-  background-color: rgba(255, 38, 0, 0.358);
+  background-color: #7c848d;
   box-shadow: 0.1em 0em 10px #000000, 0em 0em 0em #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 0, 0, 0.559);
+  background-color: var(--schwarz);
 }
 
 
@@ -36,27 +54,20 @@ h3 {
 .container{
   display: flex;
   justify-content: center;
-  align-items: center;
   flex-direction: column;
-  padding: 0 2rem;
+  padding: 7rem 2rem 1rem 2rem;
 }
 
 /* ANCHOR select */
 
-/* wird von zauber benutzt */
-.select {
+.selectContainer {
   display: flex;
   flex-direction: column;
-  width: 360px;
-  margin: 1rem ;  
+  width: 100%;  
+  align-items: center;
+  
 }
 
-
-/* wird von zauber benutzt */
-/* .select select {
-  margin: 1rem;
-  width: 130px;
-} */
 label {
   width: 150px;
   padding-left: 1rem;
@@ -86,9 +97,9 @@ form {
   align-items: center;
 }
 /* NOTE wird in loginRegister und zauber genutzt */
-input {
+/* input {
   margin-bottom: 1rem;
-}
+} */
  /* NOTE wird in  zauber  genutzt */
 /* .home-form {
   display: flex;
@@ -100,12 +111,10 @@ input {
 
 
 
-/* ANCHOR meine zauber */
-/* .zauber p {
-  font-size: 0.8rem;
-}
+/* ANCHOR meine zauber & zauber */
 
-.alle-zauber {
+
+/* .alle-zauber {
   margin: 1rem;
   display: flex;
   justify-content: center;
@@ -121,7 +130,8 @@ input {
   margin-top: 0;
   margin-bottom: 0.8rem;
   line-height: 1rem;
-} */
+  font-size: 0.8rem;
+}  */
 
 
 
@@ -134,36 +144,43 @@ input {
   padding-top: 2rem;
 }
 
-/* .völker, */
-/* .hintergründe, */
-/* .ausrüstung, */
-/* .gesinnungenSprachen */
-/* { 
+
+.cards
+{ 
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 2rem;
-}  */
+  align-items: center;
+  max-width: 800px;
+} 
 
-.völker select,
-.hintergründe select,
-.völker .ausrüstung {
-  width: 150px;
+
+ /* .card{background-color: ;} */
+
+
+.cards select{
+  margin: 0.5rem;
+  /* width: 150px; */
   text-align: center;
+  border-radius: 30px;
+  padding: 2px 0px 2px 2px;
 }
 
-.völker .select-volk,
-.ausrüstung .select-volk,
-.hintergründe .select-hintergrund {
-  margin-top: 3rem;
-  background-color: #e8e8e8;
-  border-radius: 3px;
+
+.cards .selectContainer
+
+ {
+  background-color: var(--blau);
+  border-radius: 30px;
+  color: #ffffff;
+  width: fit-content;
+  text-align: center;
 }
 
 /* ANCHOR Ausrüstung (explizit?) */
 
 /* breite der seite (auch im desktop modus) */
-/* .ausrüstung .volk {
+/* .ausrüstung .cardInfo {
   margin-bottom: 2rem;
   max-width: 360px;
 } */
@@ -178,8 +195,7 @@ input {
   margin-bottom: 2rem;
 } */
 
-.volk,
-.hintergrund , .sprache, .gesinnung{
+.cardInfo, .sprache{
   max-width: 800px;
   width: 100%;
   margin-top: 3rem;
@@ -189,31 +205,32 @@ input {
 
 /* ANCHOR tables */
 
-.volk table, .sprache table {
+.cardInfo table, .sprache table {
   margin-top: 1rem;
   display: block;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 
-.volk table th,
-.volk table td, .sprache table th, .sprache table td {
+.cardInfo table th,
+.cardInfo table td, .sprache table th,
+.sprache table td{
   padding: 2px 8px;
 }
 
-.volk table tr:nth-child(odd), .sprache table thead tr:nth-child(odd), .sprache table tbody tr:nth-child(even) {
-  background-color: rgb(172, 211, 172);
+.cardInfo table tr:nth-child(odd), .sprache table thead tr:nth-child(odd), .sprache table tbody tr:nth-child(even) {
+  background-color: var(--grau);
 }
 
 
 /* ANCHOR waffen */
-.waffen{
+/* .waffen{
   max-width: 425px;
-}
+} */
 
 /* ANCHOR werkzeug */
-.werkzeug{
-  max-width: 425px;
-}
+/* .werkzeug{
+  max-width: 425px; */
+/* } */
 
 .werkzeug h3{
 margin-top: 2rem;
@@ -479,7 +496,7 @@ margin-top: 2rem;
   } */
 
 /*     submenu navigation links      */
-/* .volk {
+/* .cardInfo {
     margin-top: 2rem;
   }
 } */
@@ -554,3 +571,15 @@ margin-top: 2rem;
 .inhaltsverzeichnis a {
   cursor: pointer;
 } */
+
+@media screen and (min-width: 800px){
+  .container{
+    align-items: center;
+  }
+  
+  .selectContainer {
+    width: 800px;   
+    
+  }
+
+}
