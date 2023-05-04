@@ -77,8 +77,8 @@
   font-weight: 900;
   border-radius: 0px;
   height: 58px;
-   background-image: url(../../assets/_69eec251-4794-4560-b8b4-f12f9b471e34.jpg);
-  background-size: cover; 
+   /* background-image: url(../../assets/_69eec251-4794-4560-b8b4-f12f9b471e34.jpg);
+  background-size: cover;  */
 } 
 
 
@@ -188,4 +188,9 @@
   border-radius: 0vw 0vw 0vw 1vw;
   background-image: none;
   /* filter: invert(100%); */
+}
+
+.svg{
+  width: 30px;
+
 }
