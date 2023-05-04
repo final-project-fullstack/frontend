@@ -37,7 +37,7 @@ const DicerPoolDEight = () => {
       <div className={style.dicer}>
         <button className={style.removeButton} onClick={clearItems}>
           Remove <br />
-          W4
+          W8
         </button>
         <button className={style.addButton} onClick={addDEight}>
           <img className={style.icon} src={w8} alt="icon" />
@@ -47,13 +47,13 @@ const DicerPoolDEight = () => {
             return (
               <div className={style.cube} key={item.id}>
                 <div className={style.front}>
-                  <a className={style.a}>{item.number}</a>
+                  <div className={style.a}>{item.number}</div>
                 </div>
                 <div className={style.top}>
-                  <a className={style.a}>{item.number}</a>
+                  <div className={style.a}>{item.number}</div>
                 </div>
                 <div className={style.left}>
-                  <a className={style.a}>{item.number}</a>
+                  <div className={style.a}>{item.number}</div>
                 </div>
               </div>
             );

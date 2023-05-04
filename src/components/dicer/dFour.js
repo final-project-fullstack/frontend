@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import style from "./DicerStyle.module.css";
-import w4 from "./svg/w4.webp"
+import w4 from "./svg/w4.webp";
 
 const DicerPoolDFour = () => {
   const [items, setItems] = useState([]);
@@ -42,21 +42,20 @@ const DicerPoolDFour = () => {
           W4
         </button>
         <button className={style.addButton} onClick={addDThree}>
-    
-        <img className={style.icon} src={w4} alt="icon"/>
+          <img className={style.icon} src={w4} alt="icon" />
         </button>
         <div className={style.wuerfelBackground}>
           {items.map((item) => {
             return (
               <div className={style.cube} key={item.id}>
                 <div className={style.front}>
-                  <a className={style.a}>{item.number}</a>
+                  <div className={style.a}>{item.number}</div>
                 </div>
                 <div className={style.top}>
-                  <a className={style.a}>{item.number}</a>
+                  <div className={style.a}>{item.number}</div>
                 </div>
                 <div className={style.left}>
-                  <a className={style.a}>{item.number}</a>
+                  <div className={style.a}>{item.number}</div>
                 </div>
               </div>
             );
