@@ -49,13 +49,19 @@ const DicerPoolDHundred = () => {
             return (
               <div className={style.cube} key={item.id}>
                 <div className={style.front}>
-                  <a className={style.a}>{item.number}</a>
+                  <a href="#" className={style.a}>
+                    {item.number}
+                  </a>
                 </div>
                 <div className={style.top}>
-                  <a className={style.a}>{item.number}</a>
+                  <a href="#" className={style.a}>
+                    {item.number}
+                  </a>
                 </div>
                 <div className={style.left}>
-                  <a className={style.a}>{item.number}</a>
+                  <a href="#" className={style.a}>
+                    {item.number}
+                  </a>
                 </div>
               </div>
             );
