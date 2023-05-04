@@ -1,23 +1,22 @@
+/* ANCHOR  style  variablen*/
 :root {
   --grau: #E8E8E8;
   --rot: #F05454;
   --blau: #30475E;
   --schwarz: #222831;
 
+  --size: 7vw;
+    --size-negative: calc(-1 * var(--size));
+    --distance: 7vh;
+    --size-half: calc(0.5 * var(--size));
+    --size-half-negative: calc(-0.5 * var(--size));
+    --font-size: calc(0.7 * var(--size));
+
 }
 
 
 /* NOTE  NOTE Übergeordneter Style-Container befindet sich in header.module.css (.dicerPool)*/
- /* ANCHOR  style  variablen*/
 
-:root {
-  --size: 7vw;
-  --size-negative: calc(-1 * var(--size));
-  --distance: 7vh;
-  --size-half: calc(0.5 * var(--size));
-  --size-half-negative: calc(-0.5 * var(--size));
-  --font-size: calc(0.7 * var(--size));
-}
 
 /* dicerPool.js */
 .poolCardVisible {
@@ -45,10 +44,7 @@
   overflow: auto;
   max-height: 80vh;
   width: 100%;
-  /* background-color: #222831bb; */
   background-color: #30475ece;
-  border-radius: 0vw 0vw 0vw 1vw;
-  /* background-image: url(../../assets/dicerPattern.png); */
   background-size: cover;
  /* filter: invert(100%); */
 }
@@ -56,27 +52,27 @@
 /* ANCHOR add- & remove Button */
 
 .removeButton {
+box-shadow: inset -7px -7px 6px #213141,
+    inset 7px 7px 6px #486077;
+  border:0px;
   width: calc(100vw/7);
-  /* border: 1px 1px black solid; */
   background-color: var(--blau);
   font-size: 1vw;
   font-weight: 700;
   color: var(--grau);
-  border-radius: 0px;;
-  /* -webkit-text-stroke: 0.8px #000; */
+  border-radius: 0px;
+ 
 }
 
 .addButton {
   width: calc(100vw/7);
-  /* border: 0px black solid; */
-  border: 1px 1px black solid;
-  /* background-color: var(--blau); */
-  font-size: 1.2vw;
-  color: white;
-  -webkit-text-stroke: 1.2px #000;
-  font-weight: 900;
+  border: 0px;
+   box-shadow: inset -7px -7px 6px #111418,
+      inset 7px 7px 6px #343b47;
+  background-color: var(--schwarz);
+   font-weight: 900;
   border-radius: 0px;
-  height: 58px;
+   
 } 
 
 
@@ -140,24 +136,24 @@
 
 .removeButton:hover {
   width: calc(100vw/7);
-  /* background-color: var(); */
-  /* font-size: 1.vw; */
+
   color: var(--rot);
 }
 
 .addButton:hover {
-  background-color: #22283193;
-  box-shadow: 1px 1px 5px #d6c10682, -1px -1px 5px #d6c1067e;
-  border-color: blue;
+  background-color: #222831;
+box-shadow: inset 7px 7px 6px #111418,
+    inset -7px -7px 6px #343b47;
 }
 
 
-
 .addButton:focus {
-  color: #d6c106;
-  box-shadow: 1px 1px 10px #029009, -1px -1px 10px #d6c1068d;
-  border-color: rgb(213, 255, 3);
-  background-color: rgba(7, 105, 17, 0.47);
+
+
+box-shadow: inset 7px 7px 6px #111418,
+    inset -7px -7px 6px #343b47;
+
+  
 }
 
 
@@ -186,5 +182,11 @@
   /* filter: invert(100%); */
 }
 .icon{
-  width: 40px;
+  height: 30px;
+}
+
+@media screen and (min-width: 800px){
+  .icon{
+    height: 50px;
+  }
 }
