@@ -17,7 +17,6 @@
 
 /* NOTE  NOTE Übergeordneter Style-Container befindet sich in header.module.css (.dicerPool)*/
 
-
 /* dicerPool.js */
 .poolCardVisible {
   display: flex;
@@ -61,7 +60,6 @@ box-shadow: inset -7px -7px 6px #213141,
   font-weight: 700;
   color: var(--grau);
   border-radius: 0px;
- 
 }
 
 .addButton {
@@ -72,8 +70,19 @@ box-shadow: inset -7px -7px 6px #213141,
   background-color: var(--schwarz);
    font-weight: 900;
   border-radius: 0px;
-   
 } 
+
+
+
+/* ANCHOR Summen Container */
+.sumContainer{
+  background-color: #5f5f5f;
+  width:99%;
+  height:100%;
+  text-align: center;
+  color: var(--grau);
+  border:1px solid white;
+}
 
 
 /* ANCHOR würfel aussehen */

@@ -4,6 +4,7 @@ import w4 from "./svg/w4.webp";
 
 const DicerPoolDFour = () => {
   const [items, setItems] = useState([]);
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     const storedItems = async () => {
@@ -13,6 +14,8 @@ const DicerPoolDFour = () => {
       } else {
         const parsed = await JSON.parse(data);
         setItems((prev) => parsed);
+        const sum = parsed.reduce((acc, curr) => acc + curr.number, 0);
+        setTotal(sum);
       }
     };
     storedItems();
@@ -25,11 +28,14 @@ const DicerPoolDFour = () => {
     };
     const newItems = [...items, newItem];
     localStorage.setItem("dicerItemsD4", JSON.stringify(newItems));
+    const sum = newItems.reduce((acc, curr) => acc + curr.number, 0);
     setItems(newItems);
+    setTotal(sum);
   };
 
   const clearItems = () => {
     setItems([]);
+    setTotal(0);
     localStorage.removeItem("dicerItemsD4");
   };
 
@@ -44,6 +50,9 @@ const DicerPoolDFour = () => {
         <button className={style.addButton} onClick={addDThree}>
           <img className={style.icon} src={w4} alt="icon" />
         </button>
+        <div className={style.sumContainer}>
+          <div className={style.sum}>Total: {total}</div>
+        </div>
         <div className={style.wuerfelBackground}>
           {items.map((item) => {
             return (
