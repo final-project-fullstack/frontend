@@ -70,6 +70,7 @@ const Footer = () => {
         <NavLink to="4">Impressum</NavLink>
         <div className="copyright">{`Copyright © Final Projekt ${year}`}</div>
     </footer>;
+    // ich bin eine änderung zum test
 };
 
 export default Footer;
