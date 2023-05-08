@@ -62,6 +62,7 @@ export default function Dashboard() {
       {isLoggedIn && (
         <div className="container">
           <h3>Persönliche Daten</h3>
+          {user.image.length>0 &&(<img className={style.profileImage} src={user.image}alt="profilbild"/>)}
           <p>Name: {user.userName}</p>
           <p>Email: {user.email}</p>
           <div className={style.passwordChange}>
