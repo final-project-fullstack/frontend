@@ -14,7 +14,11 @@ export default function Hintergrund() {
     });
     setFiltrHintergrund(hintergrundFilter);
   };
-  console.log(filterHintergrund);
+
+  const hintergrundInfo = hintergrund.filter(
+    (hintergrund) => hintergrund.name === "Hintergrund"
+  );
+
   return (
     <>
       <div className="cards">
@@ -59,8 +63,8 @@ export default function Hintergrund() {
           <div>
             {hintergrund.length > 0 && (
               <div className="cardInfo">
-                <h3>{hintergrund[3].name}</h3>
-                {hintergrund[3].text.map((info, i) => (
+                <h3>{hintergrundInfo[0].name}</h3>
+                {hintergrundInfo[0].text.map((info, i) => (
                   <p dangerouslySetInnerHTML={{ __html: info }} key={i}></p>
                 ))}
               </div>
