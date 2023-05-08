@@ -47,7 +47,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <NavLink className={style.impressum} to="4">
+      <NavLink className={style.impressum} to="/impressum">
         Impressum
       </NavLink>
       <div

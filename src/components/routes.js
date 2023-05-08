@@ -14,6 +14,7 @@ import Abenteuerausrüstung from "../pages/Abenteuerausrüstung/Abenteuerausrüs
 // import Character from "../pages/Character/Characters";
 import Dashboard from "../pages/Dashboard/Dashboard.js";
 import { useStore } from "../context/storeContext.js";
+import Impressum from "../pages/Impressum/Impressum";
 
 export const paths = {
   homePath: "/",
@@ -32,6 +33,7 @@ export const paths = {
   abenteuerausruestungPath: "/abenteuerausrüstung",
   mycharPath: "/mychar",
   anyPath: "/*",
+  impressumPath: "/impressum",
 };
 export default function AllRoutes() {
   const { isLoggedIn } = useStore();
@@ -143,6 +145,13 @@ export default function AllRoutes() {
     //   redirectPath: null,
     //   id: "AnyPage",
     // },
+    {
+      path: paths.impressumPath,
+      element: <Impressum />,
+      isProtected: false,
+      redirectPath: null,
+      id: "ImpressumPage",
+    },
   ];
 
   return routes;

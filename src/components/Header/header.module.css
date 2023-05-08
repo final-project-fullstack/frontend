@@ -192,9 +192,8 @@ nav form {
 .logo {
   flex-direction: column;
   cursor: pointer;
-  height: 68px;
-  width: 90px;
-
+  width: 67px;
+  margin-right: 0.5rem;
 }
 
 /* ANCHOR media screen */
