@@ -2,7 +2,6 @@ import { useStore } from "../../context/storeContext.js";
 
 export default function Hintergrund() {
   const { hintergrund, filterHintergrund, setFiltrHintergrund } = useStore();
-  console.log(hintergrund);
 
   function sortArray(x, y) {
     return x.name.localeCompare(y.name);

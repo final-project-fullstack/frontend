@@ -12,7 +12,6 @@ export default function Klassen() {
     });
     setFilterKlasse(klasseFilter);
   };
-  console.log(klassen);
 
   return (
     <>
