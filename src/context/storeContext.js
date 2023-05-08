@@ -24,6 +24,7 @@ export function ContextProvider({ children }) {
   const [waffen, setWaffen] = useState([]);
   const [rüstung, setRüstung] = useState([]);
   const [werkzeuge, setWerkzeuge] = useState([]);
+  const [profileImage, setProfileImage] = useState({img: ""});
 
   return (
     <StoreContext.Provider
@@ -62,6 +63,8 @@ export function ContextProvider({ children }) {
         setWerkzeuge,
         klassenZauber,
         setKlassenZauber,
+        profileImage,
+        setProfileImage,
       }}
     >
       {children}
