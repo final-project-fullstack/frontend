@@ -7,7 +7,7 @@ const Footer = () => {
     const year = new Date().getFullYear();
 
     return <footer>
-        <b>Team</b>
+        <b className={style.b}>Team</b>
         <div className={style.cards}>
 
             <div className={style.card}>
@@ -60,15 +60,11 @@ const Footer = () => {
                 </NavLink>
             </div>
 
-
-
-
-
         </div>
 
 
-        <NavLink to="4">Impressum</NavLink>
-        <div className="copyright">{`Copyright © Final Projekt ${year}`}</div>
+        <NavLink className={style.impressum} to="4">Impressum</NavLink>
+        <div className={style.copyright}>{`Copyright © Final Projekt ${year}`}</div>
     </footer>;
     // ich bin eine änderung zum test
 };

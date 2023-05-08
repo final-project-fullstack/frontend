@@ -1,27 +1,39 @@
+:root {
+  --grau: #e8e8e8;
+  --rot: #f05454;
+  --blau: #30475e;
+  --schwarz: #222831;
+}
+
 footer {
+  background-color: var(--blau);
+  padding: 8px;
+  text-align: center;
+}
 
-    background-color: gray;
-    padding: 8px;
-
-    text-align: center;
+.b {
+  color: var(--grau);
 }
 
 .cards {
-    display: flex;
-    flex-direction: row;
-
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .card {
-
-    border: solid 1px red;
-    padding: 2rem;
-    margin: 1rem;
-    background-color: whitesmoke
+  padding: 2rem;
+  margin: 1rem;
+  background-color: var(--grau);
+  border-radius: 5px;
 }
 
-i {
-    margin: .5rem;
-    color: black;
+.card i {
+  margin: 0.5rem;
+  color: black;
+}
+
+.impressum, .copyright {
+  color: var(--grau);
+  margin: .5rem;
 }
