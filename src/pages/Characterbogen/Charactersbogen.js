@@ -2,144 +2,144 @@ import style from "./characterbogen.module.css";
 
 const CharSheet = () => {
   return (
-    <div class={style.sheetcontainerP1}>
-      <div class={style.kopfzeile}>
-        {/* <div class={style.charName}>Character Name</div> */}
-        <div class={style.nameContainer}>
+    <div className={style.sheetcontainerP1}>
+      <div className={style.kopfzeile}>
+        {/* <div className={style.charName}>Character Name</div> */}
+        <div className={style.nameContainer}>
           <textarea rows="2" name="charName" id="charName"></textarea>
-          <label for="charName" class={style.labelName}>
+          <label for="charName" className={style.labelName}>
             Character Name
           </label>
         </div>
-        <div class={style.charInfo}>
-          <p class={style.pInfo}>
-            <div class={style.infoSubcontainer}>Klasse & Stufe</div>
-            <div class={style.infoSubcontainer}>Volk</div>
+        <div className={style.charInfo}>
+          <p className={style.pInfo}>
+            <div className={style.infoSubcontainer}>Klasse & Stufe</div>
+            <div className={style.infoSubcontainer}>Volk</div>
           </p>
-          <p class={style.pInfo}>
-            <div class={style.infoSubcontainer}>Hintergrund</div>
-            <div class={style.infoSubcontainer}>Gesinnung</div>
+          <p className={style.pInfo}>
+            <div className={style.infoSubcontainer}>Hintergrund</div>
+            <div className={style.infoSubcontainer}>Gesinnung</div>
           </p>
-          <p class={style.pInfo}>
-            <div class={style.infoSubcontainer}>Name des Spielers</div>
-            <div class={style.infoSubcontainer}>Erfahrungspunkte</div>
+          <p className={style.pInfo}>
+            <div className={style.infoSubcontainer}>Name des Spielers</div>
+            <div className={style.infoSubcontainer}>Erfahrungspunkte</div>
           </p>
         </div>
       </div>
       {/* ANCHOR Attribute */}
-      <div class={style.attribute}>
-        <div class={`${style.stärke} ${style.attributeBorder}`}>
-          <div class={style.attributeBezeichnung}>Stärke</div>
-          <div class={style.attributeWert}>8</div>
-          <div class={style.attributeBoni}>0</div>
+      <div className={style.attribute}>
+        <div className={`${style.stärke} ${style.attributeBorder}`}>
+          <div className={style.attributeBezeichnung}>Stärke</div>
+          <div className={style.attributeWert}>8</div>
+          <div className={style.attributeBoni}>0</div>
         </div>
-        <div class={`${style.geschick} ${style.attributeBorder}`}>
-          <div class={style.attributeBezeichnung}>
+        <div className={`${style.geschick} ${style.attributeBorder}`}>
+          <div className={style.attributeBezeichnung}>
             Geschick-
             <br />
             lichkeit
           </div>
-          <div class={style.attributeWert}>12</div>
-          <div class={style.attributeBoni}>+2</div>
+          <div className={style.attributeWert}>12</div>
+          <div className={style.attributeBoni}>+2</div>
         </div>
-        <div class={`${style.konst} ${style.attributeBorder}`}>
-          <div class={style.attributeBezeichnung}>Konstitution</div>
-          <div class={style.attributeWert}>wert</div>
-          <div class={style.attributeBoni}>boni</div>
+        <div className={`${style.konst} ${style.attributeBorder}`}>
+          <div className={style.attributeBezeichnung}>Konstitution</div>
+          <div className={style.attributeWert}>wert</div>
+          <div className={style.attributeBoni}>boni</div>
         </div>
-        <div class={`${style.intel} ${style.attributeBorder}`}>
-          <div class={style.attributeBezeichnung}>Intelligenz</div>
-          <div class={style.attributeWert}>wert</div>
-          <div class={style.attributeBoni}>boni</div>
+        <div className={`${style.intel} ${style.attributeBorder}`}>
+          <div className={style.attributeBezeichnung}>Intelligenz</div>
+          <div className={style.attributeWert}>wert</div>
+          <div className={style.attributeBoni}>boni</div>
         </div>
-        <div class={`${style.weisheit} ${style.attributeBorder}`}>
-          <div class={style.attributeBezeichnung}>Weisheit</div>
-          <div class={style.attributeWert}>wert</div>
-          <div class={style.attributeBoni}>boni</div>
+        <div className={`${style.weisheit} ${style.attributeBorder}`}>
+          <div className={style.attributeBezeichnung}>Weisheit</div>
+          <div className={style.attributeWert}>wert</div>
+          <div className={style.attributeBoni}>boni</div>
         </div>
-        <div class={`${style.charisma} ${style.attributeBorder}`}>
-          <div class={style.attributeBezeichnung}>Charisma</div>
-          <div class={style.attributeWert}>wert</div>
-          <div class={style.attributeBoni}>boni</div>
+        <div className={`${style.charisma} ${style.attributeBorder}`}>
+          <div className={style.attributeBezeichnung}>Charisma</div>
+          <div className={style.attributeWert}>wert</div>
+          <div className={style.attributeBoni}>boni</div>
         </div>
       </div>
 
       {/* ANCHOR Inspiration & Übung */}
-      <div class={style.inspirationUndÜbung}>
-        <div class={`${style.inspiration}`}>
-          <div class={style.übungswert}>Wert</div>
-          <div class={style.inspirationBezeichnung}>Inspiration</div>
+      <div className={style.inspirationUndÜbung}>
+        <div className={`${style.inspiration}`}>
+          <div className={style.übungswert}>Wert</div>
+          <div className={style.inspirationBezeichnung}>Inspiration</div>
         </div>
-        <div class={`${style.übungsbonus}`}>
-          <div class={style.übungswert}>Wert</div>
+        <div className={`${style.übungsbonus}`}>
+          <div className={style.übungswert}>Wert</div>
           <div>Übungsbonus</div>
         </div>
       </div>
 
       {/*  */}
-      <div class={style.div4}>4 </div>
-      <div class={style.div5}>
+      <div className={style.div4}>4 </div>
+      <div className={style.div5}>
         Persönlichkeitsmerkmale, Ideale, Bindungen & Makel
       </div>
 
       {/*  */}
 
       {/* ANCHOR Rettungswürfe */}
-      <div class={style.rettungswürfeContainer}>
-        <div class={style.rettungswurf2}>Rettungswürfe</div>
+      <div className={style.rettungswürfeContainer}>
+        <div className={style.rettungswurf2}>Rettungswürfe</div>
         {/*  */}
-        <div class={style.rettungswurf}>
+        <div className={style.rettungswurf}>
           <input
-            class={style.input}
+            className={style.input}
             type="checkbox"
             name="checkstaerke"
             value="true"
             id="checkstaerke"
           ></input>
           <div>input</div>
-          <label class={style.label} for="checkstaerke">
+          <label className={style.label} for="checkstaerke">
             stärke
           </label>
         </div>
         {/*  */}
-        <div class={style.rettungswurf}>
+        <div className={style.rettungswurf}>
           <input
-            class={style.input}
+            className={style.input}
             type="checkbox"
             name="checkcharisma"
             value="true"
             id="checkcharisma"
           ></input>
           <div>input</div>
-          <label class={style.label} for="checkcharisma">
+          <label className={style.label} for="checkcharisma">
             Charisma
           </label>
         </div>
         {/*  */}
-        <div class={style.rettungswurf}>
+        <div className={style.rettungswurf}>
           <input
-            class={style.input}
+            className={style.input}
             type="checkbox"
             name="checkkonstitution"
             value="true"
             id="checkkonstitution"
           ></input>
           <div>input</div>
-          <label class={style.label} for="checkkonstitution">
+          <label className={style.label} for="checkkonstitution">
             Konstitution
           </label>
         </div>
         {/*  */}
-        <div class={style.rettungswurf}>
+        <div className={style.rettungswurf}>
           <input
-            class={style.input}
+            className={style.input}
             type="checkbox"
             name="checkintelligenz"
             value="true"
             id="checkintelligenz"
           ></input>
           <div>input</div>
-          <label class={style.label} for="checkintelligenz">
+          <label className={style.label} for="checkintelligenz">
             Intelligenz
           </label>
         </div>
