@@ -1,6 +1,8 @@
+import style from "./impressum.module.css"
+
 const Impressum = () => {
   return (
-    <>
+    <div className={style.impressum}>
       <h2>Impressum</h2>
       <p>Angaben gemäß § 5 TMG</p>
       <p>
@@ -157,7 +159,7 @@ const Impressum = () => {
         Daten durch Google in der zuvor beschriebenen Art und Weise und zu dem
         zuvor benannten Zweck einverstanden.
       </p>
-    </>
+    </div>
   );
 };
 
