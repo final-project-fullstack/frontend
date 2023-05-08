@@ -42,6 +42,10 @@ export default function Klassen() {
             {filterKlasse.map((klasse, i) => {
               return (
                 <div className="cardInfo" key={i}>
+                  <div className="checkbox">
+                    <input type="checkbox" />
+                    <label>Speichern</label>
+                  </div>
                   <h3 key={i}>{klasse.name}</h3>
                   {klasse.text.map((info, i) => {
                     return (

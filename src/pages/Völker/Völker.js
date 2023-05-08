@@ -42,6 +42,10 @@ export default function Völker() {
             {filterVolk.map((volk, i) => {
               return (
                 <div className="cardInfo" key={i}>
+                  <div className="checkbox">
+                    <input type="checkbox" />
+                    <label>Speichern</label>
+                  </div>
                   <h3 key={i}>{volk.name}</h3>
                   {volk.text.map((info, i) => {
                     return (

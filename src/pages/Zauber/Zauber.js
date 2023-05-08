@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useState } from "react";
 import { useStore } from "../../context/storeContext.js";
 import { useNavigate } from "react-router-dom";
@@ -49,15 +48,6 @@ const Zauber = () => {
     });
     setFilteredSpells(spellFilter);
     setInhaltsverzeichnis(spellFilter);
-  };
-
-  const handleSaveSpell = async (egal) => {
-    const response = await axios.post(
-      "http://localhost:3001/user/addspell",
-      egal,
-      { withCredentials: true }
-    );
-    console.log(response);
   };
 
   const handleSearch = async (e) => {
@@ -164,9 +154,10 @@ const Zauber = () => {
                   ))}
                 </div>
                 {isLoggedIn === true && (
-                  <button onClick={() => handleSaveSpell(spell)}>
-                    Speichern
-                  </button>
+                  <div className="checkbox">
+                    <input type="checkbox" />
+                    <label>Speichern</label>
+                  </div>
                 )}
               </div>
             );

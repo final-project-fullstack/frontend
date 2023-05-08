@@ -36,7 +36,7 @@ export default function Abenteuerausrüstung() {
             {filterAusrüstung[0].array.map((item, i) => {
               return (
                 <div key={item._id}>
-                  <h3>{item.name}</h3>
+                  <h3 className={style.h3}>{item.name}</h3>
 
                   {item.hasOwnProperty("kosten") && (
                     <p>
@@ -57,6 +57,20 @@ export default function Abenteuerausrüstung() {
 
                   {item.hasOwnProperty("beschreibung") && (
                     <p>{item.beschreibung}</p>
+                  )}
+
+                  {![
+                    "Arkaner Fokus",
+                    "Druidischer Fokus",
+                    "Geschosse",
+                    "Behälterkapazitäten",
+                    "Heiliges Symbol",
+                    "Ausrüstungspakete",
+                  ].includes(item.name) && (
+                    <div className="checkbox">
+                      <input type="checkbox" />
+                      <label>Speichern</label>
+                    </div>
                   )}
                 </div>
               );

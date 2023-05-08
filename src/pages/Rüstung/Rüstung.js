@@ -40,6 +40,10 @@ export default function Rüstung() {
                   <p>Stärke: {waffe.staerke}</p>
                   <p>Rüstungsklasse: {waffe.ruestungsklasse}</p>
                   <p>Heimlichkeit: {waffe.heimlichkeit}</p>
+                  <div className="checkbox">
+                    <input type="checkbox" />
+                    <label>Speichern</label>
+                  </div>
                 </div>
               );
             })}
