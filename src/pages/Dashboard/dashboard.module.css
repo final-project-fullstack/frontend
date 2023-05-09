@@ -17,3 +17,8 @@
 .msg{
     color:red
 }
+.profileImage{
+    margin-top: 10px;
+    border: 1px solid black;
+    width: 130px;
+}
