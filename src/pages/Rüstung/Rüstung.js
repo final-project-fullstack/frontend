@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useStore } from "../../context/storeContext.js";
+import { faviriteStatus } from "../../helper/FaviriteStatus";
+
 import axios from "axios";
 
 
@@ -7,7 +9,7 @@ export default function Rüstung() {
   const { rüstung, user, setUser } = useStore();
   const [filterRüstung, setFilterRüstung] = useState([]);
 
-  const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:3001"
+  // const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:3001"
 
 
   const onChangeKlasse = (event) => {
@@ -19,22 +21,27 @@ export default function Rüstung() {
   };
   console.log(rüstung);
 
-  const faviriteStatus = (id, status) => {
-    console.log(status)
-    if (!status) {
-      axios
-        .post(`${BACKEND_URL}/user/new-favorite`, { id: id }, { withCredentials: true })
+  // const faviriteStatus = (id, status) => {
+  //   console.log(status)
+  //   if (!status) {
+  //     axios
+  //       .post(`${BACKEND_URL}/user/new-favorite`, { id: id }, { withCredentials: true })
 
-        .then((response) => setUser(response.data.userWithoutPassword))
-        .catch((err) => console.log(err));
-    } else {
-      console.log(id)
-      axios
-        .post(`${BACKEND_URL}/user/delete-favorite`, { id: id }, { withCredentials: true })
+  //       .then((response) => setUser(response.data.userWithoutPassword))
+  //       .catch((err) => console.log(err));
+  //   } else {
+  //     console.log(id)
+  //     axios
+  //       .post(`${BACKEND_URL}/user/delete-favorite`, { id: id }, { withCredentials: true })
 
-        .then((response) => setUser(response.data.userWithoutPassword))
-        .catch((err) => console.log(err));
-    }
+  //       .then((response) => setUser(response.data.userWithoutPassword))
+  //       .catch((err) => console.log(err));
+  //   }
+
+  // }
+
+  const faviriteStatus2 = (id, status) => {
+    const sdataUpdate = faviriteStatus(id, status).then((response) => setUser(response.data.userWithoutPassword)).catch((err) => console.log(err));
 
   }
 
@@ -69,10 +76,10 @@ export default function Rüstung() {
                     <input type="checkbox" />
                     <label>Speichern</label>
                   </div> */}
-                  {user.data.includes(waffe._id) ? <div onClick={() => faviriteStatus(waffe._id, true)} className="favorite">
+                  {user.data.includes(waffe._id) ? <div onClick={() => faviriteStatus2(waffe._id, true)} className="favorite">
 
                     <label>Löschen</label>
-                  </div> : <div onClick={() => faviriteStatus(waffe._id, false)} className="noFavorite">
+                  </div> : <div onClick={() => faviriteStatus2(waffe._id, false)} className="noFavorite">
 
                     <label>Speichern</label>
                   </div>}
