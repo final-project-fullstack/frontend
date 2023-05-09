@@ -21,24 +21,7 @@ export default function Rüstung() {
   };
   console.log(rüstung);
 
-  // const faviriteStatus = (id, status) => {
-  //   console.log(status)
-  //   if (!status) {
-  //     axios
-  //       .post(`${BACKEND_URL}/user/new-favorite`, { id: id }, { withCredentials: true })
 
-  //       .then((response) => setUser(response.data.userWithoutPassword))
-  //       .catch((err) => console.log(err));
-  //   } else {
-  //     console.log(id)
-  //     axios
-  //       .post(`${BACKEND_URL}/user/delete-favorite`, { id: id }, { withCredentials: true })
-
-  //       .then((response) => setUser(response.data.userWithoutPassword))
-  //       .catch((err) => console.log(err));
-  //   }
-
-  // }
 
   const faviriteStatus2 = (id, status) => {
     const sdataUpdate = faviriteStatus(id, status).then((response) => setUser(response.data.userWithoutPassword)).catch((err) => console.log(err));
@@ -72,10 +55,7 @@ export default function Rüstung() {
                   <p>Stärke: {waffe.staerke}</p>
                   <p>Rüstungsklasse: {waffe.ruestungsklasse}</p>
                   <p>Heimlichkeit: {waffe.heimlichkeit}</p>
-                  {/* <div onClick={() => faviriteStatus(waffe._id)} className={isFavorite(waffe._id)}>
-                    <input type="checkbox" />
-                    <label>Speichern</label>
-                  </div> */}
+
                   {user.data.includes(waffe._id) ? <div onClick={() => faviriteStatus2(waffe._id, true)} className="favorite">
 
                     <label>Löschen</label>
