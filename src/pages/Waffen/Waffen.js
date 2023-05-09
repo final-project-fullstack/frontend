@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { useStore } from "../../context/storeContext.js";
 import style from "./waffen.module.css";
+import { faviriteStatus } from "../../helper/FaviriteStatus";
+
 
 export default function Waffen() {
   const { waffen } = useStore();
   const [filterWaffen, setFilterWaffen] = useState([]);
+  const { user, setUser } = useStore();
+
 
   const onChangeKlasse = (event) => {
     const value = event.target.value;
@@ -14,6 +18,10 @@ export default function Waffen() {
     setFilterWaffen(klasseFilter);
   };
   console.log(waffen);
+  const faviriteStatus2 = (id, status) => {
+    const sdataUpdate = faviriteStatus(id, status).then((response) => setUser(response.data.userWithoutPassword)).catch((err) => console.log(err));
+
+  }
 
   return (
     <>
@@ -40,6 +48,13 @@ export default function Waffen() {
                   <p>Gewicht: {waffe.gewicht} Pfund</p>
                   <p>Schaden: {waffe.schaden}</p>
                   <p>Eigenschaft: {waffe.eigenschaft}</p>
+                  {user.data.includes(waffe._id) ? <div onClick={() => faviriteStatus2(waffe._id, true)} className="favorite">
+
+                    <label>Löschen</label>
+                  </div> : <div onClick={() => faviriteStatus2(waffe._id, false)} className="noFavorite">
+
+                    <label>Speichern</label>
+                  </div>}
                 </div>
               );
             })}

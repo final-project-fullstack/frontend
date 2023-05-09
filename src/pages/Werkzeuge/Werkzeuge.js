@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import { useStore } from "../../context/storeContext.js";
 import style from "./werkzeuge.module.css";
+import { faviriteStatus } from "../../helper/FaviriteStatus";
+
 
 export default function Werkzeuge() {
   const { werkzeuge } = useStore();
   const [filterWerkzeuge, setFilterWerkzeuge] = useState([]);
+  const { user, setUser } = useStore();
+  console.log(filterWerkzeuge)
+
 
   const onChangeKlasse = (event) => {
     const value = event.target.value;
@@ -13,7 +18,11 @@ export default function Werkzeuge() {
     });
     setFilterWerkzeuge(klasseWerkzeuge);
   };
-  console.log(filterWerkzeuge);
+  const faviriteStatus2 = (id, status) => {
+    const sdataUpdate = faviriteStatus(id, status).then((response) => setUser(response.data.userWithoutPassword)).catch((err) => console.log(err));
+
+  }
+
 
   return (
     <>
@@ -44,6 +53,13 @@ export default function Werkzeuge() {
                     <br />
                     Gewicht: {werkzeug.gewicht} Pfund
                   </p>
+                  {user.data.includes(werkzeug._id) ? <div onClick={() => faviriteStatus2(werkzeug._id, true)} className="favorite">
+
+                    <label>Löschen</label>
+                  </div> : <div onClick={() => faviriteStatus2(werkzeug._id, false)} className="noFavorite">
+
+                    <label>Speichern</label>
+                  </div>}
 
                   {werkzeug.hasOwnProperty("beschreibung") && (
                     <p>{werkzeug.beschreibung}</p>

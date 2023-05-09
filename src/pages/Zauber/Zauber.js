@@ -3,10 +3,14 @@ import { useStore } from "../../context/storeContext.js";
 import { useNavigate } from "react-router-dom";
 import style from "./zauber.module.css";
 import "../../App.css";
+import { faviriteStatus } from "../../helper/FaviriteStatus";
+
 
 const Zauber = () => {
   const navigate = useNavigate();
   const [klasseFilter, setKlasseFilter] = useState([]);
+  const { user, setUser } = useStore();
+
   const [selectValue, setSelectValue] = useState({
     klasse: "",
     grad: Number,
@@ -62,6 +66,12 @@ const Zauber = () => {
   const changeValue = (e) => {
     setSearchSpell(e.target.value);
   };
+
+  const faviriteStatus2 = (id, status) => {
+    const sdataUpdate = faviriteStatus(id, status).then((response) => setUser(response.data.userWithoutPassword)).catch((err) => console.log(err));
+
+  }
+
 
   return (
     <>
@@ -153,12 +163,14 @@ const Zauber = () => {
                     <p dangerouslySetInnerHTML={{ __html: info }} key={i}></p>
                   ))}
                 </div>
-                {isLoggedIn === true && (
-                  <div className="checkbox">
-                    <input type="checkbox" />
-                    <label>Speichern</label>
-                  </div>
-                )}
+
+                {user.data.includes(spell._id) ? <div onClick={() => faviriteStatus2(spell._id, true)} className="favorite">
+
+                  <label>Löschen</label>
+                </div> : <div onClick={() => faviriteStatus2(spell._id, false)} className="noFavorite">
+
+                  <label>Speichern</label>
+                </div>}
               </div>
             );
           })

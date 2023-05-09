@@ -1,9 +1,16 @@
 import React, { useState } from "react";
 import { useStore } from "../../context/storeContext.js";
+import { faviriteStatus } from "../../helper/FaviriteStatus";
+
+import axios from "axios";
+
 
 export default function Rüstung() {
-  const { rüstung } = useStore();
+  const { rüstung, user, setUser } = useStore();
   const [filterRüstung, setFilterRüstung] = useState([]);
+
+  // const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:3001"
+
 
   const onChangeKlasse = (event) => {
     const value = event.target.value;
@@ -13,6 +20,14 @@ export default function Rüstung() {
     setFilterRüstung(rüstungFilter);
   };
   console.log(rüstung);
+
+
+
+  const faviriteStatus2 = (id, status) => {
+    const sdataUpdate = faviriteStatus(id, status).then((response) => setUser(response.data.userWithoutPassword)).catch((err) => console.log(err));
+
+  }
+
 
   return (
     <>
@@ -40,10 +55,14 @@ export default function Rüstung() {
                   <p>Stärke: {waffe.staerke}</p>
                   <p>Rüstungsklasse: {waffe.ruestungsklasse}</p>
                   <p>Heimlichkeit: {waffe.heimlichkeit}</p>
-                  <div className="checkbox">
-                    <input type="checkbox" />
+
+                  {user.data.includes(waffe._id) ? <div onClick={() => faviriteStatus2(waffe._id, true)} className="favorite">
+
+                    <label>Löschen</label>
+                  </div> : <div onClick={() => faviriteStatus2(waffe._id, false)} className="noFavorite">
+
                     <label>Speichern</label>
-                  </div>
+                  </div>}
                 </div>
               );
             })}
