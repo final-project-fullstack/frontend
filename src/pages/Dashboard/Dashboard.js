@@ -39,24 +39,21 @@ export default function Dashboard() {
       console.log(error);
     }
   };
-  
 
   function setImage(evt) {
-
     const file = evt.target.files[0];
 
     const fileReader = new FileReader();
 
-    fileReader.readAsDataURL(file)
+    fileReader.readAsDataURL(file);
 
     fileReader.onloadend = (evt) => {
+      const fileData = fileReader.result;
 
-        const fileData = fileReader.result;
-
-        //Je nach Input (evt.target) wird Front- oder Backimage gesetet
-        setProfileImage({img: fileData});
-    }
-};
+      //Je nach Input (evt.target) wird Front- oder Backimage gesetet
+      setProfileImage({ img: fileData });
+    };
+  }
   return (
     <div>
       {isLoggedIn && (
@@ -67,7 +64,7 @@ export default function Dashboard() {
           <div className={style.passwordChange}>
             <h2>Passwort ändern</h2>
             <form className={style.form} onSubmit={handleSubmit}>
-              <input type="file" onChange={setImage}/>
+              <input type="file" onChange={setImage} />
               <button onClick={handleSubmit2}>Upload</button>
               <input
                 className={style.input}
