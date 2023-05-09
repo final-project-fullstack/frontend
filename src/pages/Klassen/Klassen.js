@@ -13,6 +13,8 @@ export default function Klassen() {
     setFilterKlasse(klasseFilter);
   };
 
+  const klasseInfo = klassen.filter((klasse) => klasse.name === "KLASSEN");
+
   return (
     <>
       <div className="cards">
@@ -36,7 +38,7 @@ export default function Klassen() {
             </select>
           </div>
         </div>
-        {filterKlasse.length > 0 && (
+        {filterKlasse.length > 0 ? (
           <>
             {filterKlasse.map((klasse, i) => {
               return (
@@ -55,6 +57,17 @@ export default function Klassen() {
               );
             })}
           </>
+        ) : (
+          <div className="cardInfo">
+            {klassen.length > 0 && (
+              <div>
+                <h3>{klasseInfo[0].name}</h3>
+                {klasseInfo[0].text.map((info, i) => (
+                  <p dangerouslySetInnerHTML={{ __html: info }} key={i}></p>
+                ))}
+              </div>
+            )}
+          </div>
         )}
       </div>
     </>
