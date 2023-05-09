@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { useStore } from "../../context/storeContext.js";
 import style from "./ausruestung.module.css";
+import { faviriteStatus } from "../../helper/FaviriteStatus";
+
 
 export default function Abenteuerausrüstung() {
   const { ausrüstung } = useStore();
   const [filterAusrüstung, setFilterAusrüstung] = useState([]);
+  const { user, setUser } = useStore();
+
 
   const onChangeKlasse = (event) => {
     const value = event.target.value;
@@ -14,8 +18,12 @@ export default function Abenteuerausrüstung() {
     });
     setFilterAusrüstung(klasseFilter);
   };
-  console.log(filterAusrüstung);
+  const faviriteStatus2 = (id, status) => {
+    console.log(id, status)
+    const sdataUpdate = faviriteStatus(id, status).then((response) => setUser(response.data.userWithoutPassword)).catch((err) => console.log(err));
 
+  }
+  console.log(ausrüstung)
   return (
     <>
       <div className="cards">
@@ -36,7 +44,7 @@ export default function Abenteuerausrüstung() {
             {filterAusrüstung[0].array.map((item, i) => {
               return (
                 <div key={item._id}>
-                  <h3>{item.name}</h3>
+                  <h3 className={style.h3}>{item.name}</h3>
 
                   {item.hasOwnProperty("kosten") && (
                     <p>
@@ -58,6 +66,27 @@ export default function Abenteuerausrüstung() {
                   {item.hasOwnProperty("beschreibung") && (
                     <p>{item.beschreibung}</p>
                   )}
+
+                  {![
+                    "Arkaner Fokus",
+                    "Druidischer Fokus",
+                    "Geschosse",
+                    "Behälterkapazitäten",
+                    "Heiliges Symbol",
+                    "Ausrüstungspakete",
+                  ].includes(item.name) && (
+                      <div>
+                        {
+                          user.data.includes(item._id) ? <div onClick={() => faviriteStatus2(item._id, true)} className="favorite">
+
+                            <label>Löschen</label>
+                          </div> : <div onClick={() => faviriteStatus2(item._id, false)} className="noFavorite">
+
+                            <label>Speichern</label>
+                          </div>
+                        }
+                      </div>
+                    )}
                 </div>
               );
             })}

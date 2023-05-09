@@ -185,7 +185,7 @@ box-shadow: inset 7px 7px 6px #111418,
 
 /* ANCHOR Hover Würfel background */
 .wuerfelBackground:hover {
-  background-color:#30475ece; ;
+  background-color:#30475ece; 
   border-radius: 0vw 0vw 0vw 1vw;
   background-image: none;
   /* filter: invert(100%); */
@@ -194,8 +194,46 @@ box-shadow: inset 7px 7px 6px #111418,
   height: 30px;
 }
 
+
+
+/* ANCHOR media screen */
 @media screen and (min-width: 800px){
   .icon{
     height: 50px;
   }
+}
+
+
+/* ANCHOR cube */
+@media screen and (max-width:799px){
+
+.front{
+  width:100%;
+  background-image: none;
+  background-color: #30475ece;
+
+  justify-content: center;
+    width: var(--size);
+    height: var(--size);
+    transform-style: preserve-3d;
+    /* transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); */
+    /* margin: 5vw auto 0% auto; */
+    /* box-shadow: -2px 10px 30px #000000, -2px 2px 15px #000000; */
+/* transform: rotateX(90deg) rotateY(180deg); */
+transform: none;
+  transform-origin: bottom;
+
+}
+.cube{
+  justify-content: center;
+    width: var(--size);
+    height: var(--size);
+    transform-style: none;
+    /* transform: rotateX(240deg) rotateY(0deg) rotateZ(-155deg); */
+    transform: none;
+    margin: 5vw auto 0% auto;
+    box-shadow: -2px 10px 30px #000000, -2px 2px 15px #000000;
+}
+
+
 }

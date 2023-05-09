@@ -1,9 +1,7 @@
 import { useStore } from "../../context/storeContext.js";
-import style from "./hintergrund.module.css";
 
 export default function Hintergrund() {
   const { hintergrund, filterHintergrund, setFiltrHintergrund } = useStore();
-  console.log(hintergrund);
 
   function sortArray(x, y) {
     return x.name.localeCompare(y.name);
@@ -15,7 +13,11 @@ export default function Hintergrund() {
     });
     setFiltrHintergrund(hintergrundFilter);
   };
-  console.log(filterHintergrund);
+
+  const hintergrundInfo = hintergrund.filter(
+    (hintergrund) => hintergrund.name === "Hintergrund"
+  );
+
   return (
     <>
       <div className="cards">
@@ -42,6 +44,10 @@ export default function Hintergrund() {
             {filterHintergrund.map((hintergrund, i) => {
               return (
                 <div className="cardInfo" key={i}>
+                  <div className="checkbox">
+                    <input type="checkbox" />
+                    <label>Speichern</label>
+                  </div>
                   <h3 key={i}>{hintergrund.name}</h3>
                   {hintergrund.text.map((info, i) => {
                     return (
@@ -56,8 +62,8 @@ export default function Hintergrund() {
           <div>
             {hintergrund.length > 0 && (
               <div className="cardInfo">
-                <h3>{hintergrund[3].name}</h3>
-                {hintergrund[3].text.map((info, i) => (
+                <h3>{hintergrundInfo[0].name}</h3>
+                {hintergrundInfo[0].text.map((info, i) => (
                   <p dangerouslySetInnerHTML={{ __html: info }} key={i}></p>
                 ))}
               </div>

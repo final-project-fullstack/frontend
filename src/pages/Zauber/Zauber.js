@@ -1,13 +1,16 @@
-import axios from "axios";
 import { useState } from "react";
 import { useStore } from "../../context/storeContext.js";
 import { useNavigate } from "react-router-dom";
 import style from "./zauber.module.css";
 import "../../App.css";
+import { faviriteStatus } from "../../helper/FaviriteStatus";
+
 
 const Zauber = () => {
   const navigate = useNavigate();
   const [klasseFilter, setKlasseFilter] = useState([]);
+  const { user, setUser } = useStore();
+
   const [selectValue, setSelectValue] = useState({
     klasse: "",
     grad: Number,
@@ -51,15 +54,6 @@ const Zauber = () => {
     setInhaltsverzeichnis(spellFilter);
   };
 
-  const handleSaveSpell = async (egal) => {
-    const response = await axios.post(
-      "http://localhost:3001/user/addspell",
-      egal,
-      { withCredentials: true }
-    );
-    console.log(response);
-  };
-
   const handleSearch = async (e) => {
     e.preventDefault();
     const spellFilter = spell.sort(SortArray).filter((spell) => {
@@ -72,6 +66,12 @@ const Zauber = () => {
   const changeValue = (e) => {
     setSearchSpell(e.target.value);
   };
+
+  const faviriteStatus2 = (id, status) => {
+    const sdataUpdate = faviriteStatus(id, status).then((response) => setUser(response.data.userWithoutPassword)).catch((err) => console.log(err));
+
+  }
+
 
   return (
     <>
@@ -163,11 +163,14 @@ const Zauber = () => {
                     <p dangerouslySetInnerHTML={{ __html: info }} key={i}></p>
                   ))}
                 </div>
-                {isLoggedIn === true && (
-                  <button onClick={() => handleSaveSpell(spell)}>
-                    Speichern
-                  </button>
-                )}
+
+                {user.data.includes(spell._id) ? <div onClick={() => faviriteStatus2(spell._id, true)} className="favorite">
+
+                  <label>Löschen</label>
+                </div> : <div onClick={() => faviriteStatus2(spell._id, false)} className="noFavorite">
+
+                  <label>Speichern</label>
+                </div>}
               </div>
             );
           })

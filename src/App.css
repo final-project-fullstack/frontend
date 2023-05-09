@@ -1,15 +1,24 @@
 :root {
-  --grau:#E8E8E8;
-  --rot:#F05454;
-  --blau:#30475E;
-  --schwarz:#222831;
-  
+  --grau: #E8E8E8;
+  --rot: #F05454;
+  --blau: #30475E;
+  --schwarz: #222831;
 }
 
 
 /* ANCHOR allgemine tags */
 
-body{box-sizing: border-box;}
+body {
+  box-sizing: border-box;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+}
+
 
 
 span {
@@ -23,14 +32,15 @@ h3 {
   margin: 0;
 }
 
-input[type="submit"], button{
+input[type="submit"],
+button {
   background-color: var(--blau);
-  
-  color:white;
+
+  color: white;
   border-radius: 30px;
   box-shadow: #949494 2px 2px 5px;
   padding: 5px 10px;
-  
+
 }
 
 
@@ -51,7 +61,7 @@ input[type="submit"], button{
 /* ------------------------------------------------------------------------------------- */
 
 /* ANCHOR container */
-.container{
+.container {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -63,9 +73,9 @@ input[type="submit"], button{
 .selectContainer {
   display: flex;
   flex-direction: column;
-  width: 100%;  
+  width: 100%;
   align-items: center;
-  
+
 }
 
 label {
@@ -96,11 +106,12 @@ form {
   flex-direction: column;
   align-items: center;
 }
+
 /* NOTE wird in loginRegister und zauber genutzt */
 /* input {
   margin-bottom: 1rem;
 } */
- /* NOTE wird in  zauber  genutzt */
+/* NOTE wird in  zauber  genutzt */
 /* .home-form {
   display: flex;
   flex-direction: column;
@@ -145,20 +156,19 @@ form {
 }
 
 
-.cards
-{ 
+.cards {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   max-width: 800px;
-} 
+}
 
 
- /* .card{background-color: ;} */
+/* .card{background-color: ;} */
 
 
-.cards select{
+.cards select {
   margin: 0.5rem;
   /* width: 150px; */
   text-align: center;
@@ -167,9 +177,7 @@ form {
 }
 
 
-.cards .selectContainer
-
- {
+.cards .selectContainer {
   background-color: var(--blau);
   border-radius: 30px;
   color: #ffffff;
@@ -186,16 +194,17 @@ form {
 } */
 
 /* kleiner als normal */
- /* .ausrüstung p {
+/* .ausrüstung p {
   padding: 0.3rem 0;
   margin: 0;
 }  */
 
- /* .ausrüstung {
+/* .ausrüstung {
   margin-bottom: 2rem;
 } */
 
-.cardInfo, .sprache{
+.cardInfo,
+.sprache {
   max-width: 800px;
   width: 100%;
   margin-top: 3rem;
@@ -205,19 +214,23 @@ form {
 
 /* ANCHOR tables */
 
-.cardInfo table, .sprache table {
+.cardInfo table,
+.sprache table {
   margin-top: 1rem;
   display: block;
   overflow-x: auto;
 }
 
 .cardInfo table th,
-.cardInfo table td, .sprache table th,
-.sprache table td{
+.cardInfo table td,
+.sprache table th,
+.sprache table td {
   padding: 2px 8px;
 }
 
-.cardInfo table tr:nth-child(odd), .sprache table thead tr:nth-child(odd), .sprache table tbody tr:nth-child(even) {
+.cardInfo table tr:nth-child(odd),
+.sprache table thead tr:nth-child(odd),
+.sprache table tbody tr:nth-child(even) {
   background-color: var(--grau);
 }
 
@@ -232,13 +245,13 @@ form {
   max-width: 425px; */
 /* } */
 
-.werkzeug h3{
-margin-top: 2rem;
+.werkzeug h3 {
+  margin-top: 2rem;
 }
 
 .navbarDesktop a:hover,
-    .navbarDesktop a.active {
-      border-bottom: 3px solid #ffffff;
+.navbarDesktop a.active {
+  border-bottom: 3px solid #ffffff;
 }
 
 
@@ -572,14 +585,43 @@ margin-top: 2rem;
   cursor: pointer;
 } */
 
-@media screen and (min-width: 800px){
-  .container{
+.noFavorite {
+  background-color: var(--blau);
+  width: fit-content;
+  padding: .5rem 1rem .5rem .5rem;
+  border-radius: 30px;
+}
+
+.favorite {
+  background-color: var(--rot);
+  width: fit-content;
+  padding: .5rem 1rem .5rem .5rem;
+  border-radius: 30px;
+}
+
+.checkbox label {
+  color: var(--grau);
+}
+
+.cardInfo .checkbox {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3rem;
+}
+
+.waffen .checkbox {
+  margin-left: 0;
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 800px) {
+  .container {
     align-items: center;
   }
-  
+
   .selectContainer {
-    width: 800px;   
-    
+    width: 800px;
+
   }
 
 }

@@ -16,6 +16,8 @@ export default function Völker() {
     setFilterVolk(volkFilter);
   };
 
+  const volkInfo = volk.filter((volk) => volk.name === "VÖLKER");
+
   return (
     <>
       <div className="cards">
@@ -42,6 +44,10 @@ export default function Völker() {
             {filterVolk.map((volk, i) => {
               return (
                 <div className="cardInfo" key={i}>
+                  <div className="checkbox">
+                    <input type="checkbox" />
+                    <label>Speichern</label>
+                  </div>
                   <h3 key={i}>{volk.name}</h3>
                   {volk.text.map((info, i) => {
                     return (
@@ -53,11 +59,11 @@ export default function Völker() {
             })}
           </>
         ) : (
-          <div>
+          <div className="cardInfo">
             {volk.length > 0 && (
-              <div className="cardInfo">
-                <h3>{volk[7].name}</h3>
-                {volk[7].text.map((info, i) => (
+              <div>
+                <h3>{volkInfo[0].name}</h3>
+                {volkInfo[0].text.map((info, i) => (
                   <p dangerouslySetInnerHTML={{ __html: info }} key={i}></p>
                 ))}
               </div>
