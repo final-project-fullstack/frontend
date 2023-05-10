@@ -1,10 +1,16 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useStore } from "../../context/storeContext.js";
-import axios from "axios";
+import { faviriteStatus } from "../../helper/FaviriteStatus";
 import style from "./dashboard.module.css";
 
+
+
+
+
+
 export default function Dashboard() {
-  const { isLoggedIn, user, profileImage, setProfileImage, spell, waffen, rüstung } = useStore();
+  const { isLoggedIn, user, setUser, profileImage, setProfileImage, spell, waffen, rüstung } = useStore();
   const [passwordChange, setPasswordChange] = useState({
     password: "",
     newPassword: "",
@@ -12,6 +18,7 @@ export default function Dashboard() {
   const [message, setMessage] = useState("");
   const [favoriten, setFavoriten] = useState([]);
   const [select, setSelect] = useState("");
+
 
 
   const handleSubmit = async (e) => {
@@ -39,6 +46,7 @@ export default function Dashboard() {
       setMessage(response.data.msg);
     } catch (error) {
       setMessage(error.message);
+      window.location.reload();
       console.log(error);
     }
   };
@@ -64,25 +72,24 @@ export default function Dashboard() {
 
   useEffect(() => {
     setFavoriten([])
-    // console.log(Object.keys(allData))
-    // console.log(allData[select])
-    console.log(select)
+
     if (select !== "Favorite auswählen" && select) {
-      console.log(allData[select])
+
       allData[select].forEach((item) => {
         if (user.data.includes(item._id)) {
           setFavoriten(favoriten => [...favoriten, item])
 
         }
       })
-
-
-
     }
-    console.log(favoriten)
+
   }, [user, select])
 
 
+
+  const deleteFavorite = (id, status) => {
+    const sdataUpdate = faviriteStatus(id, status).then((response) => setUser(response.data.userWithoutPassword)).catch((err) => console.log(err));
+  }
   return (
     <div>
       {isLoggedIn && (
@@ -124,8 +131,9 @@ export default function Dashboard() {
               {message && <p className={style.msg}>{message}</p>}
             </form>
           </div>
-          Favoriten
+
           <div className="cards">
+            Favoriten
             <div className="selectContainer">
               <div className="select">
                 <label>Favorire auswählen:</label>
@@ -142,7 +150,7 @@ export default function Dashboard() {
               </div>
             </div>
             {favoriten.length > 0 ? favoriten.map((item) => {
-              return <p key={item._id}>{item.name}</p>
+              return <div key={item._id} className="favoriteItem "> <p className="favorite">{item.name}</p><i class="fa-sharp fa-solid fa-trash " onClick={() => deleteFavorite(item._id, true)} style={{ color: "#ff0000", padding: "1rem", cursor: "pointer" }}></i></div>
             }) : "Bitte erst auswählen"}
           </div>
         </div>
