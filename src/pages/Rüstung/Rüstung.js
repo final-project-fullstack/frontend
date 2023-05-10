@@ -56,12 +56,12 @@ export default function Rüstung() {
                   <p>Rüstungsklasse: {waffe.ruestungsklasse}</p>
                   <p>Heimlichkeit: {waffe.heimlichkeit}</p>
 
-                  {user.data.includes(waffe._id) ? <div onClick={() => faviriteStatus2(waffe._id, true)} className="favorite">
+                  {user.data.includes(waffe._id) ? <div onClick={() => faviriteStatus2(waffe._id, true)} >
 
-                    <label>Löschen</label>
-                  </div> : <div onClick={() => faviriteStatus2(waffe._id, false)} className="noFavorite">
+                    <i class="fa-regular fa-bookmark " style={{ color: "#ff0000" }}></i>
+                  </div> : <div onClick={() => faviriteStatus2(waffe._id, false)} >
 
-                    <label>Speichern</label>
+                    <i class="fa-regular fa-bookmark "></i>
                   </div>}
                 </div>
               );

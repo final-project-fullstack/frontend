@@ -53,12 +53,12 @@ export default function Werkzeuge() {
                     <br />
                     Gewicht: {werkzeug.gewicht} Pfund
                   </p>
-                  {user.data.includes(werkzeug._id) ? <div onClick={() => faviriteStatus2(werkzeug._id, true)} className="favorite">
+                  {user.data.includes(werkzeug._id) ? <div onClick={() => faviriteStatus2(werkzeug._id, true)} >
 
-                    <label>Löschen</label>
-                  </div> : <div onClick={() => faviriteStatus2(werkzeug._id, false)} className="noFavorite">
+                    <i class="fa-regular fa-bookmark " style={{ color: "#ff0000" }}></i>
+                  </div> : <div onClick={() => faviriteStatus2(werkzeug._id, false)} >
 
-                    <label>Speichern</label>
+                    <i class="fa-regular fa-bookmark " ></i>
                   </div>}
 
                   {werkzeug.hasOwnProperty("beschreibung") && (
