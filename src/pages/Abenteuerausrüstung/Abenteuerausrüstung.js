@@ -2,16 +2,22 @@ import React, { useState } from "react";
 import { useStore } from "../../context/storeContext.js";
 import style from "./ausruestung.module.css";
 import { faviriteStatus } from "../../helper/FaviriteStatus";
+import { useNavigate, useParams } from "react-router-dom";
 
 
 export default function Abenteuerausrüstung() {
   const { ausrüstung } = useStore();
   const [filterAusrüstung, setFilterAusrüstung] = useState([]);
   const { user, setUser } = useStore();
+  const {id} = useParams()
+  const navigate = useNavigate()
+  
 
 
-  const onChangeKlasse = (event) => {
+  const onChangeAusrüstung = (event) => {
     const value = event.target.value;
+    navigate(`/abenteuerausrüstung/${value}`)
+
     const klasseFilter = ausrüstung.filter((info) => {
       console.log(info);
       return info.name === value;
@@ -30,10 +36,10 @@ export default function Abenteuerausrüstung() {
         <div className="selectContainer">
           <div className="select">
             <label>Ausrüstung auswählen:</label>
-            <select onChange={onChangeKlasse}>
+            <select onChange={onChangeAusrüstung}>
               <option>Ausrüstungen</option>
               {ausrüstung.map((name, i) => (
-                <option key={i}>{name.name}</option>
+                <option value={name.name} selected={id=== name.name} key={i}>{name.name}</option>
               ))}
             </select>
           </div>

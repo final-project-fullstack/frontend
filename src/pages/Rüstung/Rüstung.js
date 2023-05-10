@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import { useStore } from "../../context/storeContext.js";
 import { faviriteStatus } from "../../helper/FaviriteStatus";
-
-import axios from "axios";
-
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function Rüstung() {
   const { rüstung, user, setUser } = useStore();
   const [filterRüstung, setFilterRüstung] = useState([]);
-
+  const {id} = useParams()
+const navigate = useNavigate()
   // const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:3001"
 
 
-  const onChangeKlasse = (event) => {
+  const onChangeRüstung = (event) => {
     const value = event.target.value;
+    navigate(`/rüstung/${value}`)
+
     const rüstungFilter = rüstung.filter((info) => {
       return info.kategorie === value;
     });
@@ -35,12 +36,12 @@ export default function Rüstung() {
         <div className="selectContainer">
           <div className="select">
             <label>Rüstung auswählen:</label>
-            <select onChange={onChangeKlasse}>
-              <option>Rüstung auswählen</option>
-              <option>leichte Rüstung</option>
-              <option>mittelschwere Rüstung</option>
-              <option>schwere Rüstung</option>
-              <option>Schilde</option>
+            <select onChange={onChangeRüstung}>
+              <option value="">Rüstung auswählen</option>
+              <option value="leichte Rüstung" selected={id === "leichte Rüstung"}>leichte Rüstung</option>
+              <option value="mittelschwere Rüstung" selected={id === "mittelschwere Rüstung"}>mittelschwere Rüstung</option>
+              <option value="schwere Rüstung" selected={id === "schwere Rüstung"}>schwere Rüstung</option>
+              <option value="Schilde" selected={id === "Schilde"}>Schilde</option>
             </select>
           </div>
         </div>
