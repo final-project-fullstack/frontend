@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useStore } from "../../context/storeContext.js";
+import { faviriteStatus } from "../../helper/FaviriteStatus";
+
 import { useParams, useNavigate } from "react-router-dom";
 
 
@@ -9,6 +11,8 @@ const navigate = useNavigate()
 
   const { volk } = useStore();
   const [filterVolk, setFilterVolk] = useState([]);
+  const { user, setUser } = useStore();
+
   function sortArray(x, y) {
     return x.name.localeCompare(y.name);
   }
@@ -23,6 +27,12 @@ const navigate = useNavigate()
   };
 
   const volkInfo = volk.filter((volk) => volk.name === "VÖLKER");
+
+  const faviriteStatus2 = (id, status) => {
+    const sdataUpdate = faviriteStatus(id, status)
+      .then((response) => setUser(response.data.userWithoutPassword))
+      .catch((err) => console.log(err));
+  };
 
   return (
     <>
@@ -50,16 +60,34 @@ const navigate = useNavigate()
             {filterVolk.map((volk, i) => {
               return (
                 <div className="cardInfo" key={i}>
-                  <div className="checkbox">
-                    <input type="checkbox" />
-                    <label>Speichern</label>
-                  </div>
                   <h3 key={i}>{volk.name}</h3>
                   {volk.text.map((info, i) => {
                     return (
                       <p dangerouslySetInnerHTML={{ __html: info }} key={i}></p>
                     );
                   })}
+
+                  {user.data.includes(volk._id) ? (
+                    <div
+                      className={"bookmark"}
+                      onClick={() => faviriteStatus2(volk._id, true)}
+                    >
+                      <i
+                        class="fa-solid fa-bookmark "
+                        style={{ color: "#30475E" }}
+                      ></i>
+                    </div>
+                  ) : (
+                    <div
+                      className={"bookmark"}
+                      onClick={() => faviriteStatus2(volk._id, false)}
+                    >
+                      <i
+                        class="fa-regular fa-bookmark "
+                        style={{ color: "#30475E" }}
+                      ></i>
+                    </div>
+                  )}
                 </div>
               );
             })}

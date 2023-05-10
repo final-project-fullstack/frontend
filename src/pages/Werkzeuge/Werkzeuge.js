@@ -58,7 +58,7 @@ export default function Werkzeuge() {
                   </p>
                   {user.data.includes(werkzeug._id) ? (
                     <div
-                      className={style.bookmark}
+                      className={"bookmark"}
                       onClick={() => faviriteStatus2(werkzeug._id, true)}
                     >
                       <i
@@ -68,7 +68,7 @@ export default function Werkzeuge() {
                     </div>
                   ) : (
                     <div
-                      className={style.bookmark}
+                      className={"bookmark"}
                       onClick={() => faviriteStatus2(werkzeug._id, false)}
                     >
                       <i

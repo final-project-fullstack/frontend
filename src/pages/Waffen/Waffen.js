@@ -20,6 +20,7 @@ export default function Waffen() {
     setFilterWaffen(klasseFilter);
   };
   console.log(waffen);
+  
   const faviriteStatus2 = (id, status) => {
     const sdataUpdate = faviriteStatus(id, status)
       .then((response) => setUser(response.data.userWithoutPassword))
@@ -53,7 +54,7 @@ export default function Waffen() {
                   <p>Eigenschaft: {waffe.eigenschaft}</p>
                   {user.data.includes(waffe._id) ? (
                     <div
-                      className={style.bookmark}
+                      className={"bookmark"}
                       onClick={() => faviriteStatus2(waffe._id, true)}
                     >
                       <i
@@ -63,7 +64,7 @@ export default function Waffen() {
                     </div>
                   ) : (
                     <div
-                      className={style.bookmark}
+                      className={"bookmark"}
                       onClick={() => faviriteStatus2(waffe._id, false)}
                     >
                       <i
