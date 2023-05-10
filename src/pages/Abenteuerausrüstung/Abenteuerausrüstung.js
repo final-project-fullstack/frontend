@@ -8,7 +8,6 @@ import { useNavigate, useParams } from "react-router-dom";
 export default function Abenteuerausrüstung() {
   const { ausrüstung, user, setUser } = useStore();
   const [filterAusrüstung, setFilterAusrüstung] = useState([]);
-  const { user, setUser } = useStore();
   const {id} = useParams()
   const navigate = useNavigate()
   

@@ -6,7 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 export default function Klassen() {
   const {id} = useParams()
 const navigate = useNavigate()
-  const { klassen } = useStore();
+  const { klassen, user, setUser } = useStore();
   const [filterKlasse, setFilterKlasse] = useState([]);
   const onChangeKlasse = (event) => {
     const value = event.target.value;
