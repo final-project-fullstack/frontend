@@ -1,13 +1,17 @@
+import { useNavigate, useParams } from "react-router-dom";
 import { useStore } from "../../context/storeContext.js";
 
 export default function Hintergrund() {
   const { hintergrund, filterHintergrund, setFiltrHintergrund } = useStore();
-
+  const {id} = useParams()
+const navigate = useNavigate()
   function sortArray(x, y) {
     return x.name.localeCompare(y.name);
   }
+  
   const onChangeHintergrund = (e) => {
     const value = e.target.value;
+    navigate(`/hintergrund/${value}`)
     const hintergrundFilter = hintergrund.filter((info) => {
       return info.name === value;
     });
@@ -26,14 +30,14 @@ export default function Hintergrund() {
             <div className="select">
               <label>Hintergrund auswählen:</label>
               <select onChange={onChangeHintergrund}>
-                <option>Hintergrund auswählen</option>
+                <option value="">Hintergrund auswählen</option>
                 {hintergrund
                   .filter((info) => {
                     return info.name !== "Hintergrund";
                   })
                   .sort(sortArray)
                   .map((info) => {
-                    return <option key={info.name}>{info.name}</option>;
+                    return <option value={info.name} selected={id=== info.name} key={info.name}>{info.name}</option>;
                   })}
               </select>
             </div>

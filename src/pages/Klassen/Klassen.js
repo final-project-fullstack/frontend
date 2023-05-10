@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { useStore } from "../../context/storeContext.js";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function Klassen() {
+  const {id} = useParams()
+const navigate = useNavigate()
   const { klassen } = useStore();
   const [filterKlasse, setFilterKlasse] = useState([]);
-
   const onChangeKlasse = (event) => {
     const value = event.target.value;
+    navigate(`/klassen/${value}`)
     const klasseFilter = klassen.filter((info) => {
       return info.name === value.toUpperCase();
     });
@@ -22,19 +25,19 @@ export default function Klassen() {
           <div className="select">
             <label>Klasse auswählen:</label>
             <select onChange={onChangeKlasse}>
-              <option>Klasse auswählen</option>
-              <option>Barbar</option>
-              <option>Barde</option>
-              <option>Druide</option>
-              <option>Hexenmeister</option>
-              <option>Kämpfer</option>
-              <option>Kleriker</option>
-              <option>Magier</option>
-              <option>Mönch</option>
-              <option>Paladin</option>
-              <option>Schurke</option>
-              <option>Waldläufer</option>
-              <option>Zauberer</option>
+              <option value="">Klasse auswählen</option>
+              <option value="Barbar" selected={id==="Barbar"}>Barbar</option>
+              <option value="Barde" selected={id==="Barde"}>Barde</option>
+              <option value="Druide" selected={id==="Druide"}>Druide</option>
+              <option value="Hexenmeister" selected={id==="Hexenmeister"}>Hexenmeister</option>
+              <option value="Kämpfer" selected={id==="Kämpfer"}>Kämpfer</option>
+              <option value="Kleriker" selected={id==="Kleriker"}>Kleriker</option>
+              <option value="Magier" selected={id==="Magier"}>Magier</option>
+              <option value="Mönch" selected={id==="Mönch"}>Mönch</option>
+              <option value="Paladin" selected={id==="Paladin"}>Paladin</option>
+              <option value="Schurke" selected={id==="Schurke"}>Schurke</option>
+              <option value="Waldläufer " selected={id==="Waldläufer"}>Waldläufer</option>
+              <option value="Zauberer" selected={id==="Zauberer"}>Zauberer</option>
             </select>
           </div>
         </div>

@@ -6,7 +6,7 @@ import { useParams, useNavigate } from "react-router-dom";
 export default function Völker() {
 const {id} = useParams()
 const navigate = useNavigate()
-console.log(id)
+
   const { volk } = useStore();
   const [filterVolk, setFilterVolk] = useState([]);
   function sortArray(x, y) {
@@ -32,15 +32,15 @@ console.log(id)
             <div className="select">
               <label>Volk auswählen:</label>
               <select onChange={onChangeVolk}>
-                <option>Volk auswählen</option>
-                <option value="Elfen">Elfen</option>
-                <option value="Drachenblütige">Drachenblütige</option>
-                <option value="Gnome">Gnome</option>
-                <option value="Halbelfen">Halbelfen</option>
-                <option value="Halblinge">Halblinge</option>
-                <option value="Menschen">Menschen</option>
-                <option value="Tieflinge">Tieflinge</option>
-                <option value="Zwerge" >Zwerge</option>
+                <option value="">Volk auswählen</option>
+                <option value="Elfen" selected={id=== "Elfen"}>Elfen</option>
+                <option value="Drachenblütige" selected={id=== "Drachenblütige"}>Drachenblütige</option>
+                <option value="Gnome" selected={id==="Gnome"}>Gnome</option>
+                <option value="Halbelfen"selected={id==="Halbelfen"}>Halbelfen</option>
+                <option value="Halblinge"selected={id==="Halblinge"}>Halblinge</option>
+                <option value="Menschen"selected={id=== "Menschen"}>Menschen</option>
+                <option value="Tieflinge"selected={id=== "Tieflinge"}>Tieflinge</option>
+                <option value="Zwerge" selected={id=== "Zwerge"}>Zwerge</option>
               </select>
             </div>
           </div>
