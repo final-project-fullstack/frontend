@@ -17,7 +17,6 @@
 
 /* NOTE  NOTE Übergeordneter Style-Container befindet sich in header.module.css (.dicerPool)*/
 
-
 /* dicerPool.js */
 .poolCardVisible {
   display: flex;
@@ -61,7 +60,6 @@ box-shadow: inset -7px -7px 6px #213141,
   font-weight: 700;
   color: var(--grau);
   border-radius: 0px;
- 
 }
 
 .addButton {
@@ -72,8 +70,19 @@ box-shadow: inset -7px -7px 6px #213141,
   background-color: var(--schwarz);
    font-weight: 900;
   border-radius: 0px;
-   
 } 
+
+
+
+/* ANCHOR Summen Container */
+.sumContainer{
+  background-color: #5f5f5f;
+  width:99%;
+  height:100%;
+  text-align: center;
+  color: var(--grau);
+  border:1px solid white;
+}
 
 
 /* ANCHOR würfel aussehen */
@@ -176,7 +185,7 @@ box-shadow: inset 7px 7px 6px #111418,
 
 /* ANCHOR Hover Würfel background */
 .wuerfelBackground:hover {
-  background-color:#30475ece; ;
+  background-color:#30475ece; 
   border-radius: 0vw 0vw 0vw 1vw;
   background-image: none;
   /* filter: invert(100%); */
@@ -185,8 +194,46 @@ box-shadow: inset 7px 7px 6px #111418,
   height: 30px;
 }
 
+
+
+/* ANCHOR media screen */
 @media screen and (min-width: 800px){
   .icon{
     height: 50px;
   }
+}
+
+
+/* ANCHOR cube */
+@media screen and (max-width:799px){
+
+.front{
+  width:100%;
+  background-image: none;
+  background-color: #30475ece;
+
+  justify-content: center;
+    width: var(--size);
+    height: var(--size);
+    transform-style: preserve-3d;
+    /* transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); */
+    /* margin: 5vw auto 0% auto; */
+    /* box-shadow: -2px 10px 30px #000000, -2px 2px 15px #000000; */
+/* transform: rotateX(90deg) rotateY(180deg); */
+transform: none;
+  transform-origin: bottom;
+
+}
+.cube{
+  justify-content: center;
+    width: var(--size);
+    height: var(--size);
+    transform-style: none;
+    /* transform: rotateX(240deg) rotateY(0deg) rotateZ(-155deg); */
+    transform: none;
+    margin: 5vw auto 0% auto;
+    box-shadow: -2px 10px 30px #000000, -2px 2px 15px #000000;
+}
+
+
 }

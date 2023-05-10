@@ -45,16 +45,16 @@ export default function Dashboard() {
 
 
   function setImage(evt) {
-
     const file = evt.target.files[0];
 
     const fileReader = new FileReader();
 
-    fileReader.readAsDataURL(file)
+    fileReader.readAsDataURL(file);
 
     fileReader.onloadend = (evt) => {
-
       const fileData = fileReader.result;
+
+
 
       //Je nach Input (evt.target) wird Front- oder Backimage gesetet
       setProfileImage({ img: fileData });
@@ -82,13 +82,7 @@ export default function Dashboard() {
     console.log(favoriten)
   }, [user, select])
 
-  // const onChangeSelect = (event) => {
-  //   const value = event.target.value;
-  //   // const klasseWerkzeuge = werkzeuge.filter((info) => {
-  //   //   return info.name === value;
-  //   // });
-  //   // setFilterWerkzeuge(klasseWerkzeuge);
-  // };
+
   return (
     <div>
       {isLoggedIn && (

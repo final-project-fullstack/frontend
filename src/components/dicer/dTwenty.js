@@ -4,6 +4,7 @@ import w20 from "./svg/w20.webp";
 
 const DicerPoolDTwenty = () => {
   const [items, setItems] = useState([]);
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     const storedItems = async () => {
@@ -13,6 +14,8 @@ const DicerPoolDTwenty = () => {
       } else {
         const parsed = await JSON.parse(data);
         setItems((prev) => parsed);
+        const sum = parsed.reduce((acc, curr) => acc + curr.number, 0);
+        setTotal(sum);
       }
     };
     storedItems();
@@ -25,7 +28,9 @@ const DicerPoolDTwenty = () => {
     };
     const newItems = [...items, newItem];
     localStorage.setItem("dicerItemsD20", JSON.stringify(newItems));
+    const sum = newItems.reduce((acc, curr) => acc + curr.number, 0);
     setItems(newItems);
+    setTotal(sum);
   };
 
   const clearItems = () => {
@@ -42,6 +47,7 @@ const DicerPoolDTwenty = () => {
         </button>
         <button className={style.addButton} onClick={addDTwenty}>
           <img className={style.icon} src={w20} alt="icon" />
+          <div className={style.sum}>Total: {total}</div>
         </button>
         <div className={style.wuerfelBackground}>
           {items.map((item) => {

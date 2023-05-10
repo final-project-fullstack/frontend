@@ -4,6 +4,7 @@ import w6 from "./svg/w6.webp";
 
 const DicerPoolDSix = () => {
   const [items, setItems] = useState([]);
+  const [total, setTotal] = useState(0);
 
   useEffect(() => {
     const storedItems = async () => {
@@ -13,6 +14,8 @@ const DicerPoolDSix = () => {
       } else {
         const parsed = await JSON.parse(data);
         setItems((prev) => parsed);
+        const sum = parsed.reduce((acc, curr) => acc + curr.number, 0);
+        setTotal(sum);
       }
     };
     storedItems();
@@ -25,11 +28,14 @@ const DicerPoolDSix = () => {
     };
     const newItems = [...items, newItem];
     localStorage.setItem("dicerItemsD6", JSON.stringify(newItems));
+    const sum = newItems.reduce((acc, curr) => acc + curr.number, 0);
     setItems(newItems);
+    setTotal(sum);
   };
 
   const clearItems = () => {
     setItems([]);
+    setTotal(0);
     localStorage.removeItem("dicerItemsD6");
   };
 
@@ -42,6 +48,7 @@ const DicerPoolDSix = () => {
         </button>
         <button className={style.addButton} onClick={addDSix}>
           <img className={style.icon} src={w6} alt="icon" />
+          <div className={style.sum}>Total: {total}</div>
         </button>
         <div className={style.wuerfelBackground}>
           {items.map((item) => {
