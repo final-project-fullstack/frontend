@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useStore } from "../../context/storeContext.js";
 import axios from "axios";
 import style from "./dashboard.module.css";
 
 export default function Dashboard() {
-  const { isLoggedIn, user, profileImage, setProfileImage } = useStore();
+  const { isLoggedIn, user, profileImage, setProfileImage, spell, waffen, rüstung } = useStore();
   const [passwordChange, setPasswordChange] = useState({
     password: "",
     newPassword: "",
   });
   const [message, setMessage] = useState("");
+  const [favoriten, setFavoriten] = useState([]);
+  const [select, setSelect] = useState("");
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,6 +43,7 @@ export default function Dashboard() {
     }
   };
 
+
   function setImage(evt) {
     const file = evt.target.files[0];
 
@@ -50,22 +54,41 @@ export default function Dashboard() {
     fileReader.onloadend = (evt) => {
       const fileData = fileReader.result;
 
+
+
       //Je nach Input (evt.target) wird Front- oder Backimage gesetet
       setProfileImage({ img: fileData });
-    };
-  }
+    }
+  };
+  const allData = { Zauber: spell, Waffe: waffen, Rüstung: rüstung }
+
+  useEffect(() => {
+    setFavoriten([])
+    // console.log(Object.keys(allData))
+    // console.log(allData[select])
+    console.log(select)
+    if (select !== "Favorite auswählen" && select) {
+      console.log(allData[select])
+      allData[select].forEach((item) => {
+        if (user.data.includes(item._id)) {
+          setFavoriten(favoriten => [...favoriten, item])
+
+        }
+      })
+
+
+
+    }
+    console.log(favoriten)
+  }, [user, select])
+
+
   return (
     <div>
       {isLoggedIn && (
         <div className="container">
           <h3>Persönliche Daten</h3>
-          {user.image.length > 0 && (
-            <img
-              className={style.profileImage}
-              src={user.image}
-              alt="profilbild"
-            />
-          )}
+          {user.image.length > 0 && (<img className={style.profileImage} src={user.image} alt="profilbild" />)}
           <p>Name: {user.userName}</p>
           <p>Email: {user.email}</p>
           <div className={style.passwordChange}>
@@ -100,6 +123,27 @@ export default function Dashboard() {
               <input type="submit" value="Speichern" />
               {message && <p className={style.msg}>{message}</p>}
             </form>
+          </div>
+          Favoriten
+          <div className="cards">
+            <div className="selectContainer">
+              <div className="select">
+                <label>Favorire auswählen:</label>
+                <select onChange={(event) => setSelect(event.target.value)}>
+                  <option>Favorite auswählen</option>
+                  {/* <option>Zauber</option>
+                  <option>Waffe</option>
+                  <option>Rüstung</option> */}
+                  {Object.keys(allData).map((select) => {
+                    return <option key={select}>{select}</option>
+                  })}
+
+                </select>
+              </div>
+            </div>
+            {favoriten.length > 0 ? favoriten.map((item) => {
+              return <p key={item._id}>{item.name}</p>
+            }) : "Bitte erst auswählen"}
           </div>
         </div>
       )}
