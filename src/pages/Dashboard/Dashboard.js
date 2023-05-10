@@ -150,7 +150,7 @@ export default function Dashboard() {
               </div>
             </div>
             {favoriten.length > 0 ? favoriten.map((item) => {
-              return <div className="favoriteItem "> <p key={item._id} className="favorite">{item.name}</p><i class="fa-sharp fa-solid fa-trash " onClick={() => deleteFavorite(item._id, true)} style={{ color: "#ff0000", padding: "1rem", cursor: "pointer" }}></i></div>
+              return <div key={item._id} className="favoriteItem "> <p className="favorite">{item.name}</p><i class="fa-sharp fa-solid fa-trash " onClick={() => deleteFavorite(item._id, true)} style={{ color: "#ff0000", padding: "1rem", cursor: "pointer" }}></i></div>
             }) : "Bitte erst auswählen"}
           </div>
         </div>
