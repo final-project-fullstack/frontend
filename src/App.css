@@ -154,6 +154,24 @@ form {
   text-align: center;
 }
 
+/* ANCHOR Ausrüstung (explizit?) */
+
+/* breite der seite (auch im desktop modus) */
+/* .ausrüstung .cardInfo {
+  margin-bottom: 2rem;
+  max-width: 360px;
+} */
+
+/* kleiner als normal */
+/* .ausrüstung p {
+  padding: 0.3rem 0;
+  margin: 0;
+}  */
+
+/* .ausrüstung {
+  margin-bottom: 2rem;
+} */
+
 .cardInfo,
 .sprache {
   max-width: 800px;

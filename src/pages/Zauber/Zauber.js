@@ -164,12 +164,14 @@ const Zauber = () => {
                   ))}
                 </div>
 
-                {user.data.includes(spell._id) ? <div onClick={() => faviriteStatus2(spell._id, true)} className="favorite">
+                {user.data.includes(spell._id) ? <div onClick={() => faviriteStatus2(spell._id, true)} >
 
-                  <label>Löschen</label>
-                </div> : <div onClick={() => faviriteStatus2(spell._id, false)} className="noFavorite">
+                  {/* <label>Löschen</label> */}
+                  <i class="fa-regular fa-bookmark " style={{ color: "#ff0000" }}></i>
+                </div> : <div onClick={() => faviriteStatus2(spell._id, false)} >
 
-                  <label>Speichern</label>
+                  {/* <label>Speichern</label> */}
+                  <i class="fa-regular fa-bookmark "></i>
                 </div>}
               </div>
             );

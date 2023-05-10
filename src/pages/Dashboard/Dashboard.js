@@ -1,15 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useStore } from "../../context/storeContext.js";
 import axios from "axios";
 import style from "./dashboard.module.css";
 
 export default function Dashboard() {
-  const { isLoggedIn, user, profileImage, setProfileImage } = useStore();
+  const {
+    isLoggedIn,
+    user,
+    profileImage,
+    setProfileImage,
+    spell,
+    waffen,
+    rüstung,
+  } = useStore();
   const [passwordChange, setPasswordChange] = useState({
     password: "",
     newPassword: "",
   });
   const [message, setMessage] = useState("");
+  const [favoriten, setFavoriten] = useState([]);
+  const [select, setSelect] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,6 +35,21 @@ export default function Dashboard() {
       console.log(error);
     }
   };
+  // const handleSubmit2 = async (e) => {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await axios.post(
+  //       "http://localhost:3001/uploadImage",
+  //       profileImage,
+  //       { withCredentials: true }
+  //     );
+  //     setMessage(response.data.msg);
+  //   } catch (error) {
+  //     setMessage(error.message);
+  //     console.log(error);
+  //   }
+  // };
+
   const handleSubmit2 = async (e) => {
     e.preventDefault();
     try {
@@ -34,6 +59,8 @@ export default function Dashboard() {
         { withCredentials: true }
       );
       setMessage(response.data.msg);
+      // Neu laden der Webseite
+      window.location.reload();
     } catch (error) {
       setMessage(error.message);
       console.log(error);
@@ -54,6 +81,24 @@ export default function Dashboard() {
       setProfileImage({ img: fileData });
     };
   }
+  const allData = { Zauber: spell, Waffe: waffen, Rüstung: rüstung };
+
+  useEffect(() => {
+    setFavoriten([]);
+    // console.log(Object.keys(allData))
+    // console.log(allData[select])
+    console.log(select);
+    if (select !== "Favorite auswählen" && select) {
+      console.log(allData[select]);
+      allData[select].forEach((item) => {
+        if (user.data.includes(item._id)) {
+          setFavoriten((favoriten) => [...favoriten, item]);
+        }
+      });
+    }
+    console.log(favoriten);
+  }, [user, select]);
+
   return (
     <div>
       {isLoggedIn && (
@@ -100,6 +145,28 @@ export default function Dashboard() {
               <input type="submit" value="Speichern" />
               {message && <p className={style.msg}>{message}</p>}
             </form>
+          </div>
+          Favoriten
+          <div className="cards">
+            <div className="selectContainer">
+              <div className="select">
+                <label>Favorire auswählen:</label>
+                <select onChange={(event) => setSelect(event.target.value)}>
+                  <option>Favorite auswählen</option>
+                  {/* <option>Zauber</option>
+                  <option>Waffe</option>
+                  <option>Rüstung</option> */}
+                  {Object.keys(allData).map((select) => {
+                    return <option key={select}>{select}</option>;
+                  })}
+                </select>
+              </div>
+            </div>
+            {favoriten.length > 0
+              ? favoriten.map((item) => {
+                  return <p key={item._id}>{item.name}</p>;
+                })
+              : "Bitte erst auswählen"}
           </div>
         </div>
       )}
