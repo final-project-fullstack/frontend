@@ -83,41 +83,13 @@ label {
   padding-left: 1rem;
 }
 
-
-/* wird von zauber benutzt */
-/* .select-klasse {
-  border-bottom: 2px solid #ffffff;
-} */
-
-/* wird von zauber benutzt */
-/* .select-klasse,
-.select-grad {
-  display: flex;
-  align-items: center;
-  background-color: #e8e8e8;
-  border-radius: 3px;
-} */
-
-
-/* ANCHOR zauber */
-/* NOTE wird in loginRegister zauber genutzt */
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* NOTE wird in loginRegister und zauber genutzt */
-/* input {
-  margin-bottom: 1rem;
-} */
-/* NOTE wird in  zauber  genutzt */
-/* .home-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 2.5rem 0;
-} */
+
 
 
 
@@ -165,9 +137,6 @@ form {
 }
 
 
-/* .card{background-color: ;} */
-
-
 .cards select {
   margin: 0.5rem;
   /* width: 150px; */
@@ -184,24 +153,6 @@ form {
   width: fit-content;
   text-align: center;
 }
-
-/* ANCHOR Ausrüstung (explizit?) */
-
-/* breite der seite (auch im desktop modus) */
-/* .ausrüstung .cardInfo {
-  margin-bottom: 2rem;
-  max-width: 360px;
-} */
-
-/* kleiner als normal */
-/* .ausrüstung p {
-  padding: 0.3rem 0;
-  margin: 0;
-}  */
-
-/* .ausrüstung {
-  margin-bottom: 2rem;
-} */
 
 .cardInfo,
 .sprache {
