@@ -164,7 +164,10 @@ const Zauber = () => {
                 </div>
 
                 {user.data.includes(spell._id) ? (
-                  <div className={style.bookmark} onClick={() => faviriteStatus2(spell._id, true)}>
+                  <div
+                    className={style.bookmark}
+                    onClick={() => faviriteStatus2(spell._id, true)}
+                  >
                     {/* <label>Löschen</label> */}
                     <i
                       className="fa-solid fa-bookmark"
@@ -172,7 +175,10 @@ const Zauber = () => {
                     ></i>
                   </div>
                 ) : (
-                  <div className={style.bookmark} onClick={() => faviriteStatus2(spell._id, false)}>
+                  <div
+                    className={style.bookmark}
+                    onClick={() => faviriteStatus2(spell._id, false)}
+                  >
                     {/* <label>Speichern</label> */}
                     <i
                       className="fa-regular fa-bookmark"

@@ -34,12 +34,4 @@
   position: relative;
 }
 
-.bookmark {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
 
-.bookmark i {
-  font-size: 1.5rem;
-}
