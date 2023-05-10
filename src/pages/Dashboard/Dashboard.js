@@ -59,7 +59,6 @@ export default function Dashboard() {
         { withCredentials: true }
       );
       setMessage(response.data.msg);
-      // Neu laden der Webseite
       window.location.reload();
     } catch (error) {
       setMessage(error.message);
