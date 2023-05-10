@@ -1,34 +1,45 @@
 .cards select,
 .hintergründe select,
 .cards .ausrüstung {
-    width: 150px;
-    text-align: center;
+  width: 150px;
+  text-align: center;
 }
 
-.cards .select-volk
- {
-    margin-top: 3rem;
-    background-color: #e8e8e8;
-    border-radius: 3px;
+.cards .select-volk {
+  margin-top: 3rem;
+  background-color: #e8e8e8;
+  border-radius: 3px;
 }
-
-
 
 .volk,
 .hintergrund,
 .sprache,
 .gesinnung {
-    max-width: 800px;
-    width: 100%;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+  max-width: 800px;
+  width: 100%;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 /* ANCHOR werkzeug */
 .werkzeug {
-    max-width: 425px;
+  max-width: 425px;
 }
 
 .werkzeug h3 {
-    margin-top: 2rem;
+  margin-top: 2rem;
+}
+
+.werkzeug {
+  position: relative;
+}
+
+.bookmark {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.bookmark i {
+  font-size: 1.5rem;
 }

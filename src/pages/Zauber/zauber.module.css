@@ -17,6 +17,17 @@
   border-radius: 5px;
   max-width: 430px;
   box-shadow: 15px 15px 30px #d3d3d3, -15px -15px 30px #fdfdfd;
+  position: relative;
+}
+
+.bookmark{
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}
+
+.bookmark i{
+  font-size: 1.8rem;
 }
 
 

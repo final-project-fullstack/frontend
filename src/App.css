@@ -63,9 +63,16 @@ button {
 /* ANCHOR container */
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   padding: 7rem 2rem 1rem 2rem;
+  background-image: url(./assets/WebseiteBackground\ 2.webp);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 100vh;
+
 }
 
 /* ANCHOR select */
@@ -554,18 +561,27 @@ form {
   cursor: pointer;
 } */
 
-.noFavorite {
+/* .noFavorite {
   background-color: var(--blau);
   width: fit-content;
   padding: .5rem 1rem .5rem .5rem;
   border-radius: 30px;
-}
+} */
 
 .favorite {
-  background-color: var(--rot);
+  /* background-color: var(--rot);
   width: fit-content;
   padding: .5rem 1rem .5rem .5rem;
-  border-radius: 30px;
+  border-radius: 30px; */
+  /* width: 100%; */
+}
+
+.favoriteItem {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+
 }
 
 .checkbox label {
