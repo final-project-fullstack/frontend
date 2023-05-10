@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import { useStore } from "../../context/storeContext.js";
 import { faviriteStatus } from "../../helper/FaviriteStatus";
-import style from "./voelker.module.css";
+
+import { useParams, useNavigate } from "react-router-dom";
+
 
 export default function Völker() {
+const {id} = useParams()
+const navigate = useNavigate()
+
   const { volk } = useStore();
   const [filterVolk, setFilterVolk] = useState([]);
   const { user, setUser } = useStore();
@@ -14,6 +19,7 @@ export default function Völker() {
   volk.sort(sortArray);
   const onChangeVolk = (event) => {
     const value = event.target.value;
+    navigate(`/völker/${value}`)
     const volkFilter = volk.filter((info) => {
       return info.name === value.toUpperCase();
     });
@@ -36,15 +42,15 @@ export default function Völker() {
             <div className="select">
               <label>Volk auswählen:</label>
               <select onChange={onChangeVolk}>
-                <option>Volk auswählen</option>
-                <option>Elfen</option>
-                <option>Drachenblütige</option>
-                <option>Gnome</option>
-                <option>Halbelfen</option>
-                <option>Halblinge</option>
-                <option>Menschen</option>
-                <option>Tieflinge</option>
-                <option>Zwerge</option>
+                <option value="">Volk auswählen</option>
+                <option value="Elfen" selected={id=== "Elfen"}>Elfen</option>
+                <option value="Drachenblütige" selected={id=== "Drachenblütige"}>Drachenblütige</option>
+                <option value="Gnome" selected={id==="Gnome"}>Gnome</option>
+                <option value="Halbelfen"selected={id==="Halbelfen"}>Halbelfen</option>
+                <option value="Halblinge"selected={id==="Halblinge"}>Halblinge</option>
+                <option value="Menschen"selected={id=== "Menschen"}>Menschen</option>
+                <option value="Tieflinge"selected={id=== "Tieflinge"}>Tieflinge</option>
+                <option value="Zwerge" selected={id=== "Zwerge"}>Zwerge</option>
               </select>
             </div>
           </div>
