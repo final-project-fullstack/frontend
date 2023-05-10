@@ -1,7 +1,9 @@
 import { useStore } from "../../context/storeContext.js";
+import { faviriteStatus } from "../../helper/FaviriteStatus";
 
 export default function Hintergrund() {
-  const { hintergrund, filterHintergrund, setFiltrHintergrund } = useStore();
+  const { hintergrund, filterHintergrund, setFiltrHintergrund, user, setUser } =
+    useStore();
 
   function sortArray(x, y) {
     return x.name.localeCompare(y.name);
@@ -17,6 +19,12 @@ export default function Hintergrund() {
   const hintergrundInfo = hintergrund.filter(
     (hintergrund) => hintergrund.name === "Hintergrund"
   );
+
+  const faviriteStatus2 = (id, status) => {
+    const sdataUpdate = faviriteStatus(id, status)
+      .then((response) => setUser(response.data.userWithoutPassword))
+      .catch((err) => console.log(err));
+  };
 
   return (
     <>
@@ -44,16 +52,34 @@ export default function Hintergrund() {
             {filterHintergrund.map((hintergrund, i) => {
               return (
                 <div className="cardInfo" key={i}>
-                  <div className="checkbox">
-                    <input type="checkbox" />
-                    <label>Speichern</label>
-                  </div>
+
                   <h3 key={i}>{hintergrund.name}</h3>
                   {hintergrund.text.map((info, i) => {
                     return (
                       <p dangerouslySetInnerHTML={{ __html: info }} key={i}></p>
                     );
                   })}
+                  {user.data.includes(hintergrund._id) ? (
+                    <div
+                      className={"bookmark"}
+                      onClick={() => faviriteStatus2(hintergrund._id, true)}
+                    >
+                      <i
+                        class="fa-solid fa-bookmark "
+                        style={{ color: "#30475E" }}
+                      ></i>
+                    </div>
+                  ) : (
+                    <div
+                      className={"bookmark"}
+                      onClick={() => faviriteStatus2(hintergrund._id, false)}
+                    >
+                      <i
+                        class="fa-regular fa-bookmark "
+                        style={{ color: "#30475E" }}
+                      ></i>
+                    </div>
+                  )}
                 </div>
               );
             })}

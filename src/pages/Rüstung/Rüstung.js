@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import { useStore } from "../../context/storeContext.js";
 import { faviriteStatus } from "../../helper/FaviriteStatus";
-
 import axios from "axios";
-
 
 export default function Rüstung() {
   const { rüstung, user, setUser } = useStore();
   const [filterRüstung, setFilterRüstung] = useState([]);
 
   // const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:3001"
-
 
   const onChangeKlasse = (event) => {
     const value = event.target.value;
@@ -21,13 +18,11 @@ export default function Rüstung() {
   };
   console.log(rüstung);
 
-
-
   const faviriteStatus2 = (id, status) => {
-    const sdataUpdate = faviriteStatus(id, status).then((response) => setUser(response.data.userWithoutPassword)).catch((err) => console.log(err));
-
-  }
-
+    const sdataUpdate = faviriteStatus(id, status)
+      .then((response) => setUser(response.data.userWithoutPassword))
+      .catch((err) => console.log(err));
+  };
 
   return (
     <>
@@ -56,13 +51,27 @@ export default function Rüstung() {
                   <p>Rüstungsklasse: {waffe.ruestungsklasse}</p>
                   <p>Heimlichkeit: {waffe.heimlichkeit}</p>
 
-                  {user.data.includes(waffe._id) ? <div onClick={() => faviriteStatus2(waffe._id, true)} >
-
-                    <i class="fa-regular fa-bookmark " style={{ color: "#ff0000" }}></i>
-                  </div> : <div onClick={() => faviriteStatus2(waffe._id, false)} >
-
-                    <i class="fa-regular fa-bookmark "></i>
-                  </div>}
+                  {user.data.includes(waffe._id) ? (
+                    <div
+                      className={"bookmark"}
+                      onClick={() => faviriteStatus2(waffe._id, true)}
+                    >
+                      <i
+                        class="fa-solid fa-bookmark "
+                        style={{ color: "#30475E" }}
+                      ></i>
+                    </div>
+                  ) : (
+                    <div
+                      className={"bookmark"}
+                      onClick={() => faviriteStatus2(waffe._id, false)}
+                    >
+                      <i
+                        class="fa-regular fa-bookmark "
+                        style={{ color: "#30475E" }}
+                      ></i>
+                    </div>
+                  )}
                 </div>
               );
             })}

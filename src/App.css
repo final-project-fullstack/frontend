@@ -1,10 +1,9 @@
 :root {
-  --grau: #E8E8E8;
-  --rot: #F05454;
-  --blau: #30475E;
+  --grau: #e8e8e8;
+  --rot: #f05454;
+  --blau: #30475e;
   --schwarz: #222831;
 }
-
 
 /* ANCHOR allgemine tags */
 
@@ -18,8 +17,6 @@ body {
   min-height: 100vh;
   justify-content: space-between;
 }
-
-
 
 span {
   font-size: 1.1rem;
@@ -40,9 +37,7 @@ button {
   border-radius: 30px;
   box-shadow: #949494 2px 2px 5px;
   padding: 5px 10px;
-
 }
-
 
 /* ANCHOR Scrollbalken */
 
@@ -55,8 +50,6 @@ button {
 ::-webkit-scrollbar-thumb {
   background-color: var(--schwarz);
 }
-
-
 
 /* ------------------------------------------------------------------------------------- */
 
@@ -72,7 +65,6 @@ button {
   background-position: center;
   background-size: cover;
   min-height: 100vh;
-
 }
 
 /* ANCHOR select */
@@ -82,7 +74,6 @@ button {
   flex-direction: column;
   width: 100%;
   align-items: center;
-
 }
 
 label {
@@ -90,41 +81,29 @@ label {
   padding-left: 1rem;
 }
 
+.cardInfo {
+  position: relative;
+}
+
+.bookmark{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.bookmark i{
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+
+/* ANCHOR zauber */
+/* NOTE wird in loginRegister zauber genutzt */
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
-
-
-
-
-
-/* ANCHOR meine zauber & zauber */
-
-
-/* .alle-zauber {
-  margin: 1rem;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.meine-zauber-header,
-.anzahl-zauber {
-  text-align: center;
-}
-
-.zauber p {
-  margin-top: 0;
-  margin-bottom: 0.8rem;
-  line-height: 1rem;
-  font-size: 0.8rem;
-}  */
-
-
-
 
 
 /* ANCHOR Search */
@@ -134,7 +113,6 @@ form {
   padding-top: 2rem;
 }
 
-
 .cards {
   display: flex;
   flex-direction: column;
@@ -143,15 +121,12 @@ form {
   max-width: 800px;
 }
 
-
 .cards select {
   margin: 0.5rem;
-  /* width: 150px; */
   text-align: center;
   border-radius: 30px;
   padding: 2px 0px 2px 2px;
 }
-
 
 .cards .selectContainer {
   background-color: var(--blau);
@@ -161,24 +136,6 @@ form {
   text-align: center;
 }
 
-/* ANCHOR Ausrüstung (explizit?) */
-
-/* breite der seite (auch im desktop modus) */
-/* .ausrüstung .cardInfo {
-  margin-bottom: 2rem;
-  max-width: 360px;
-} */
-
-/* kleiner als normal */
-/* .ausrüstung p {
-  padding: 0.3rem 0;
-  margin: 0;
-}  */
-
-/* .ausrüstung {
-  margin-bottom: 2rem;
-} */
-
 .cardInfo,
 .sprache {
   max-width: 800px;
@@ -186,7 +143,6 @@ form {
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
-
 
 /* ANCHOR tables */
 
@@ -211,16 +167,6 @@ form {
 }
 
 
-/* ANCHOR waffen */
-/* .waffen{
-  max-width: 425px;
-} */
-
-/* ANCHOR werkzeug */
-/* .werkzeug{
-  max-width: 425px; */
-/* } */
-
 .werkzeug h3 {
   margin-top: 2rem;
 }
@@ -232,371 +178,12 @@ form {
 
 
 
-
-/* ANCHOR ausgelagerter style */
-
-
-/* NOTE nav (in header.module.css ausgelagert)*/
-/* nav {
-  background-color: #f05454;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 75px;
-}
-/* nav (in header ausgelagert)*/
-/* nav form {
-  padding-right: 2rem;
-}  */
-
-
-
-/* NOTE Menu (in header.module.css ausgelagert) */
-/* #menuToggle {
-  display: block;
-  padding: 1.5rem;
-  z-index: 1;
-  user-select: none;
-}
-
-#menuToggle a {
-  text-decoration: none;
-  color: #232323;
-
-  transition: color 0.3s ease;
-}
-
-#menuToggle a:hover {
-  color: #f05454;
-}
-
-#menuToggle input {
-  display: block;
-  width: 40px;
-  height: 32px;
-  position: absolute;
-  cursor: pointer; */
-
-/* opacity: 0; */
-/* hide this */
-/* z-index: 2; */
-/* and place it over the hamburger */
-
-/* -webkit-touch-callout: none;
-} */
-
-/*
- * Just a quick hamburger
- */
-/* #menuToggle span {
-  display: block;
-  width: 33px;
-  height: 4px;
-  margin-bottom: 5px;
-  position: relative;
-  background: #edf2f6;
-  border-radius: 3px;
-  z-index: 1;
-  transform-origin: 4px 0px;
-  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
-  background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
-}
-
-#menuToggle span:first-child {
-  transform-origin: 0% 0%;
-}
-
-#menuToggle span:nth-last-child(2) {
-  transform-origin: 0% 100%;
-} */
-
-/* 
- * Transform all the slices of hamburger
- * into a crossmark.
- */
-/* #menuToggle input:checked ~ span {
-  opacity: 1;
-  transform: rotate(45deg) translate(-2px, -1px);
-  background: #232323;
-} */
-
-/*
- * But let's hide the middle one.
- */
-/* #menuToggle input:checked ~ span:nth-last-child(3) {
-  opacity: 0;
-  transform: rotate(0deg) scale(0.2, 0.2); */
-/* } */
-
-/*
- * Ohyeah and the last one should go the other direction
- */
-/* #menuToggle input:checked ~ span:nth-last-child(2) {
-  transform: rotate(-45deg) translate(0, -1px);
-} */
-
-/*
- * Make this absolute positioned
- * at the top left of the screen
- */
-/* #menu {
-  position: absolute;
-  width: 300px;
-  margin: -100px 0 0 -50px;
-  padding: 50px;
-  padding-top: 125px;
-  background: #edf2f6;
-  list-style-type: none;
-  -webkit-font-smoothing: antialiased; */
-/* to stop flickering of text in safari */
-
-/* transform-origin: 0% 0%;
-  transform: translate(-100%, 0);
-  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
-} */
-
-/*     submenu navigation links      */
-/* #menuToggle .submenu {
-  visibility: hidden;
-  height: 0;
-  z-index: 1000;
-}
-#menuToggle .submenu li {
-  display: block;
-  width: 15em;
-}
-#menuToggle .subtitle::after {
-  position: absolute;
-  content: " ▶";
-  color: currentColor;
-  display: inline-block;
-  right: 0;
-}
-#menuToggle .subtitle:hover::after,
-#menuToggle .subtitle:focus::after {
-  content: " ▼";
-} */
-/**     Show the submenu on hover, focus     **/
-/* #menuToggle li:hover .submenu,
-#menuToggle li:active .submenu,
-#menuToggle li:focus .submenu {
-  visibility: visible;
-  height: auto;
-}
-
-#menu li {
-  padding: 10px 0;
-  font-size: 22px;
-  position: relative;
-}
-
-.navbar-desktop {
-  display: none;
-} */
-
-/*
- * And let's slide it in from the left
- */
-/* #menuToggle input:checked ~ ul {
-  transform: none;
-} */
-
-
-
-/* NOTE register und login (in registerLogin.module.css ausgelagert)*/
-/* .register,
-.login {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.register form,
-.login form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.register form input,
-.login form input {
-  margin-bottom: 1rem;
-} */
-
-
-/* NOTE media screen (in header.module.css ausgelagert) */
-/* Navbar */
-/* @media screen and (min-width: 800px) {
-  .navbar-desktop {
-    display: flex;
-  }
-  .navbar-desktop > ul {
-    display: flex;
-  }
-  .navbar-desktop > ul > li {
-    list-style-type: none;
-    padding-bottom: 3px;
-    position: relative;
-  }
-  .navbar-desktop a {
-    text-decoration: none;
-    color: #ffffff;
-    margin: 0 1.5rem;
-  }
-  .navbar-desktop a:hover {
-    border-bottom: 3px solid #ffffff;
-  }
-  #menuToggle {
-    display: none;
-  }
-  .navbar-desktop .subtitle::after {
-    position: absolute;
-    content: " ▶";
-    color: currentColor;
-    display: inline-block;
-    right: 0;
-  }
-  .navbar-desktop .subtitle:hover::after {
-    content: " ▼";
-  }
-  .navbar-desktop .submenu {
-    color: #232323;
-    visibility: hidden;
-    height: 0;
-    z-index: 1000;
-    position: absolute;
-    background-color: #f05454;
-    padding: 0;
-  }
-
-  .navbar-desktop .submenu li {
-    display: block;
-    padding: 5px 0px 5px 0px; */
-
-/* width: 15em; */
-/* } */
-/**     Show the submenu on hover, focus     **/
-
-/* .navbar-desktop li:hover .submenu,
-  .navbar-desktop li:active .submenu,
-  .navbar-desktop li:focus .submenu {
-    visibility: visible;
-    height: auto;
-  } */
-
-/*     submenu navigation links      */
-/* .cardInfo {
-    margin-top: 2rem;
-  }
-} */
-
-/* NOTE Dicer Container (in DicerStyle.module.css */
-/* dicerPool.js */
-
-/* .poolCardVisible {
-  display: flex;
-  position: fixed;
-  width: fit-content;
-} */
-
-/* NOTE Logo (in header.module.css ausgelagert) */
-
-/* .dicerPool {
-  display: flex;
-  flex-direction: column;
-  margin-top: 1vh;
-}
-
-.logo {
-  flex-direction: column;
-  cursor: pointer;
-  height: 100px;
-} */
-
-/* NOTE in ausruestung.module.css ausgelagert */
-/* größer als normal */
-/* .ausrüstung h3 {
-  margin-top: 2rem;
-} */
-
-/* NOTE in zauber.module.css */
-/* .zauber {
-  background-image: url(./hd-wallpaper-1074131_1920.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 2rem;
-  margin: 1rem;
-  border-radius: 5px;
-  max-width: 430px;
-  box-shadow: 15px 15px 30px #d3d3d3, -15px -15px 30px #fdfdfd;
-} */
-
-
-/* NOTE wird in home und zauber genutzt wird zzt nicht gebraucht */
-/* .home-form button {
-  margin-top: 1.5rem;
-  padding: 5px 10px;
-} */
-
-
-/* ANCHOR  Inhaltsverzeichniss (in zauber.module.css */
-/* .inhaltsverzeichnis {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.inhaltsverzeichnis ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-.inhaltsverzeichnis ul li {
-  margin-bottom: 0.4rem;
-}
-
-.inhaltsverzeichnis a {
-  cursor: pointer;
-} */
-
-/* .noFavorite {
-  background-color: var(--blau);
-  width: fit-content;
-  padding: .5rem 1rem .5rem .5rem;
-  border-radius: 30px;
-} */
-
-.favorite {
-  /* background-color: var(--rot);
-  width: fit-content;
-  padding: .5rem 1rem .5rem .5rem;
-  border-radius: 30px; */
-  /* width: 100%; */
-}
-
 .favoriteItem {
   display: flex;
   justify-content: space-between;
   width: 100%;
   align-items: center;
 
-}
-
-.checkbox label {
-  color: var(--grau);
-}
-
-.cardInfo .checkbox {
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 3rem;
-}
-
-.waffen .checkbox {
-  margin-left: 0;
-  margin-bottom: 0;
 }
 
 @media screen and (min-width: 800px) {
@@ -606,7 +193,5 @@ form {
 
   .selectContainer {
     width: 800px;
-
   }
-
 }

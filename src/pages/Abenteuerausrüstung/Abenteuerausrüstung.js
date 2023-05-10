@@ -3,12 +3,9 @@ import { useStore } from "../../context/storeContext.js";
 import style from "./ausruestung.module.css";
 import { faviriteStatus } from "../../helper/FaviriteStatus";
 
-
 export default function Abenteuerausrüstung() {
-  const { ausrüstung } = useStore();
+  const { ausrüstung, user, setUser } = useStore();
   const [filterAusrüstung, setFilterAusrüstung] = useState([]);
-  const { user, setUser } = useStore();
-
 
   const onChangeKlasse = (event) => {
     const value = event.target.value;
@@ -19,11 +16,12 @@ export default function Abenteuerausrüstung() {
     setFilterAusrüstung(klasseFilter);
   };
   const faviriteStatus2 = (id, status) => {
-    console.log(id, status)
-    const sdataUpdate = faviriteStatus(id, status).then((response) => setUser(response.data.userWithoutPassword)).catch((err) => console.log(err));
-
-  }
-  console.log(ausrüstung)
+    console.log(id, status);
+    const sdataUpdate = faviriteStatus(id, status)
+      .then((response) => setUser(response.data.userWithoutPassword))
+      .catch((err) => console.log(err));
+  };
+  console.log(ausrüstung);
   return (
     <>
       <div className="cards">
@@ -43,7 +41,7 @@ export default function Abenteuerausrüstung() {
           <div className={`${style.card} card`}>
             {filterAusrüstung[0].array.map((item, i) => {
               return (
-                <div key={item._id}>
+                <div className={style.ausrüstungCard} key={item._id}>
                   <h3 className={style.h3}>{item.name}</h3>
 
                   {item.hasOwnProperty("kosten") && (
@@ -75,18 +73,24 @@ export default function Abenteuerausrüstung() {
                     "Heiliges Symbol",
                     "Ausrüstungspakete",
                   ].includes(item.name) && (
-                      <div>
-                        {
-                          user.data.includes(item._id) ? <div onClick={() => faviriteStatus2(item._id, true)} >
-
-                            <i class="fa-regular fa-bookmark " style={{ color: "#ff0000" }}></i>
-                          </div> : <div onClick={() => faviriteStatus2(item._id, false)} >
-
-                            <i class="fa-regular fa-bookmark "></i>
-                          </div>
-                        }
-                      </div>
-                    )}
+                    <div>
+                      {user.data.includes(item._id) ? (
+                        <div className="bookmark" onClick={() => faviriteStatus2(item._id, true)}>
+                          <i
+                            class="fa-solid fa-bookmark "
+                            style={{ color: "#30475E" }}
+                          ></i>
+                        </div>
+                      ) : (
+                        <div className="bookmark" onClick={() => faviriteStatus2(item._id, false)}>
+                          <i
+                            class="fa-regular fa-bookmark "
+                            style={{ color: "#30475E" }}
+                          ></i>
+                        </div>
+                      )}
+                    </div>
+                  )}
                 </div>
               );
             })}
