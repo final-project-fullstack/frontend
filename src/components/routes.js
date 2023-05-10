@@ -23,7 +23,7 @@ export const paths = {
   dashboardPath: "/dashboard",
   myspellsPath: "/myspells",
   zauberPath: "/zauber",
-  voelkerPath: "/völker",
+  voelkerPath: "/völker/:id?",
   klassenPath: "/klassen",
   hintergrundPath: "/hintergrund",
   gesinnungSprachenPath: "/gesinnung-sprachen",
@@ -38,7 +38,6 @@ export const paths = {
 export default function AllRoutes() {
   const { isLoggedIn } = useStore();
   // console.log(isLoggedIn)
-
   const routes = [
     {
       path: paths.homePath,

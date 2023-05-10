@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { useStore } from "../../context/storeContext.js";
+import { useParams, useNavigate } from "react-router-dom";
+
 
 export default function Völker() {
+const {id} = useParams()
+const navigate = useNavigate()
+console.log(id)
   const { volk } = useStore();
   const [filterVolk, setFilterVolk] = useState([]);
   function sortArray(x, y) {
@@ -10,6 +15,7 @@ export default function Völker() {
   volk.sort(sortArray);
   const onChangeVolk = (event) => {
     const value = event.target.value;
+    navigate(`/völker/${value}`)
     const volkFilter = volk.filter((info) => {
       return info.name === value.toUpperCase();
     });
@@ -27,14 +33,14 @@ export default function Völker() {
               <label>Volk auswählen:</label>
               <select onChange={onChangeVolk}>
                 <option>Volk auswählen</option>
-                <option>Elfen</option>
-                <option>Drachenblütige</option>
-                <option>Gnome</option>
-                <option>Halbelfen</option>
-                <option>Halblinge</option>
-                <option>Menschen</option>
-                <option>Tieflinge</option>
-                <option>Zwerge</option>
+                <option value="Elfen">Elfen</option>
+                <option value="Drachenblütige">Drachenblütige</option>
+                <option value="Gnome">Gnome</option>
+                <option value="Halbelfen">Halbelfen</option>
+                <option value="Halblinge">Halblinge</option>
+                <option value="Menschen">Menschen</option>
+                <option value="Tieflinge">Tieflinge</option>
+                <option value="Zwerge" >Zwerge</option>
               </select>
             </div>
           </div>
