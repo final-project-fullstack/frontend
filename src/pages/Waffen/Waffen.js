@@ -3,12 +3,10 @@ import { useStore } from "../../context/storeContext.js";
 import style from "./waffen.module.css";
 import { faviriteStatus } from "../../helper/FaviriteStatus";
 
-
 export default function Waffen() {
   const { waffen } = useStore();
   const [filterWaffen, setFilterWaffen] = useState([]);
   const { user, setUser } = useStore();
-
 
   const onChangeKlasse = (event) => {
     const value = event.target.value;
@@ -19,9 +17,10 @@ export default function Waffen() {
   };
   console.log(waffen);
   const faviriteStatus2 = (id, status) => {
-    const sdataUpdate = faviriteStatus(id, status).then((response) => setUser(response.data.userWithoutPassword)).catch((err) => console.log(err));
-
-  }
+    const sdataUpdate = faviriteStatus(id, status)
+      .then((response) => setUser(response.data.userWithoutPassword))
+      .catch((err) => console.log(err));
+  };
 
   return (
     <>
@@ -48,13 +47,27 @@ export default function Waffen() {
                   <p>Gewicht: {waffe.gewicht} Pfund</p>
                   <p>Schaden: {waffe.schaden}</p>
                   <p>Eigenschaft: {waffe.eigenschaft}</p>
-                  {user.data.includes(waffe._id) ? <div onClick={() => faviriteStatus2(waffe._id, true)} >
-
-                    <i class="fa-regular fa-bookmark " style={{ color: "#ff0000" }}></i>
-                  </div> : <div onClick={() => faviriteStatus2(waffe._id, false)} >
-
-                    <i class="fa-regular fa-bookmark "></i>
-                  </div>}
+                  {user.data.includes(waffe._id) ? (
+                    <div
+                      className={style.bookmark}
+                      onClick={() => faviriteStatus2(waffe._id, true)}
+                    >
+                      <i
+                        class="fa-solid fa-bookmark "
+                        style={{ color: "#30475E" }}
+                      ></i>
+                    </div>
+                  ) : (
+                    <div
+                      className={style.bookmark}
+                      onClick={() => faviriteStatus2(waffe._id, false)}
+                    >
+                      <i
+                        class="fa-regular fa-bookmark "
+                        style={{ color: "#30475E" }}
+                      ></i>
+                    </div>
+                  )}
                 </div>
               );
             })}

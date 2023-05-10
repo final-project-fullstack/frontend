@@ -5,7 +5,6 @@ import style from "./zauber.module.css";
 import "../../App.css";
 import { faviriteStatus } from "../../helper/FaviriteStatus";
 
-
 const Zauber = () => {
   const navigate = useNavigate();
   const [klasseFilter, setKlasseFilter] = useState([]);
@@ -68,10 +67,10 @@ const Zauber = () => {
   };
 
   const faviriteStatus2 = (id, status) => {
-    const sdataUpdate = faviriteStatus(id, status).then((response) => setUser(response.data.userWithoutPassword)).catch((err) => console.log(err));
-
-  }
-
+    const sdataUpdate = faviriteStatus(id, status)
+      .then((response) => setUser(response.data.userWithoutPassword))
+      .catch((err) => console.log(err));
+  };
 
   return (
     <>
@@ -164,15 +163,23 @@ const Zauber = () => {
                   ))}
                 </div>
 
-                {user.data.includes(spell._id) ? <div onClick={() => faviriteStatus2(spell._id, true)} >
-
-                  {/* <label>Löschen</label> */}
-                  <i class="fa-regular fa-bookmark " style={{ color: "#ff0000" }}></i>
-                </div> : <div onClick={() => faviriteStatus2(spell._id, false)} >
-
-                  {/* <label>Speichern</label> */}
-                  <i class="fa-regular fa-bookmark "></i>
-                </div>}
+                {user.data.includes(spell._id) ? (
+                  <div className={style.bookmark} onClick={() => faviriteStatus2(spell._id, true)}>
+                    {/* <label>Löschen</label> */}
+                    <i
+                      className="fa-solid fa-bookmark"
+                      style={{ color: "#30475E" }}
+                    ></i>
+                  </div>
+                ) : (
+                  <div className={style.bookmark} onClick={() => faviriteStatus2(spell._id, false)}>
+                    {/* <label>Speichern</label> */}
+                    <i
+                      className="fa-regular fa-bookmark"
+                      style={{ color: "#30475E" }}
+                    ></i>
+                  </div>
+                )}
               </div>
             );
           })
