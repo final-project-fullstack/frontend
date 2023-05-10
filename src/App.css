@@ -63,9 +63,15 @@ button {
 /* ANCHOR container */
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
   padding: 7rem 2rem 1rem 2rem;
+  background-image: url(./assets/WebseiteBackground.webp);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  
+  height: 100vh;
+
 }
 
 /* ANCHOR select */
