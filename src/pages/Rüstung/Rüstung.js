@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useStore } from "../../context/storeContext.js";
 import { faviriteStatus } from "../../helper/FaviriteStatus";
-import style from "./rüstung.module.css";
 import axios from "axios";
 
 export default function Rüstung() {
