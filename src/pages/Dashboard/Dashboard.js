@@ -37,20 +37,6 @@ export default function Dashboard() {
       console.log(error);
     }
   };
-  // const handleSubmit2 = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     const response = await axios.post(
-  //       "http://localhost:3001/uploadImage",
-  //       profileImage,
-  //       { withCredentials: true }
-  //     );
-  //     setMessage(response.data.msg);
-  //   } catch (error) {
-  //     setMessage(error.message);
-  //     console.log(error);
-  //   }
-  // };
 
   const handleSubmit2 = async (e) => {
     e.preventDefault();
@@ -88,7 +74,19 @@ export default function Dashboard() {
   useEffect(() => {
     setFavoriten([]);
 
-    if (select !== "Favorite auswählen" && select) {
+    if (select !== "Favorit auswählen" && select) {
+      allData[select].forEach((item) => {
+        if (user.data.includes(item._id)) {
+          setFavoriten((favoriten) => [...favoriten, item]);
+        }
+      });
+    }
+  }, [user, select]);
+
+  useEffect(() => {
+    setFavoriten([]);
+
+    if (select !== "Favorit auswählen" && select) {
       allData[select].forEach((item) => {
         if (user.data.includes(item._id)) {
           setFavoriten((favoriten) => [...favoriten, item]);
@@ -106,7 +104,11 @@ export default function Dashboard() {
     <div>
       {isLoggedIn && (
         <div className="container">
-          <h3>Persönliche Daten</h3>
+          <h3 className={style.h3}>Persönliche Daten</h3>
+          <div className={`${style.datenContainer} `}>
+            <p className={style.p}>Name: {user.userName}</p>
+            <p className={style.p}>Email: {user.email}</p>
+          </div>
           {user.image.length > 0 && (
             <img
               className={style.profileImage}
@@ -114,13 +116,14 @@ export default function Dashboard() {
               alt="profilbild"
             />
           )}
-          <p>Name: {user.userName}</p>
-          <p>Email: {user.email}</p>
+
+          <input className={style.margin} type="file" onChange={setImage} />
+          <button className={style.marginTop} onClick={handleSubmit2}>
+            Upload
+          </button>
           <div className={style.passwordChange}>
             <h2>Passwort ändern</h2>
             <form className={style.form} onSubmit={handleSubmit}>
-              <input type="file" onChange={setImage} />
-              <button onClick={handleSubmit2}>Upload</button>
               <input
                 className={style.input}
                 type="password"
@@ -145,48 +148,47 @@ export default function Dashboard() {
                   })
                 }
               />
-              <input type="submit" value="Speichern" />
+              <input className={style.margin} type="submit" value="Speichern" />
               {message && <p className={style.msg}>{message}</p>}
             </form>
           </div>
+          <div className={style.marginTop}>
+            <div className="cards">
+              <h3>Favoriten</h3>
+              <br />
 
-          <div className="cards">
-            Favoriten
-            <div className="selectContainer">
-              <div className="select">
-                <label>Favorire auswählen:</label>
-                <select onChange={(event) => setSelect(event.target.value)}>
-                  <option>Favorite auswählen</option>
-                  {/* <option>Zauber</option>
-                  <option>Waffe</option>
-                  <option>Rüstung</option> */}
-                  {Object.keys(allData).map((select) => {
-                    return <option key={select}>{select}</option>;
-                  })}
-                </select>
+              <div className="selectContainer">
+                <div className="select">
+                  <label>Favorit auswählen:</label>
+                  <select onChange={(event) => setSelect(event.target.value)}>
+                    <option>Favorit auswählen</option>
+
+                    {Object.keys(allData).map((select) => {
+                      return <option key={select}>{select}</option>;
+                    })}
+                  </select>
+                </div>
               </div>
+              {favoriten.length > 0
+                ? favoriten.map((item) => {
+                    return (
+                      <div key={item._id} className="favoriteItem ">
+                        {" "}
+                        <p className="favorite">{item.name}</p>
+                        <i
+                          class="fa-sharp fa-solid fa-trash "
+                          onClick={() => deleteFavorite(item._id, true)}
+                          style={{
+                            color: "#ff0000",
+                            padding: "1rem",
+                            cursor: "pointer",
+                          }}
+                        ></i>
+                      </div>
+                    );
+                  })
+                : "Bitte erst auswählen"}
             </div>
-            {favoriten.length > 0
-              ? favoriten.map((item) => {
-                  return (
-                    <div className="favoriteItem ">
-                      {" "}
-                      <p key={item._id} className="favorite">
-                        {item.name}
-                      </p>
-                      <i
-                        class="fa-sharp fa-solid fa-trash "
-                        onClick={() => deleteFavorite(item._id, true)}
-                        style={{
-                          color: "#ff0000",
-                          padding: "1rem",
-                          cursor: "pointer",
-                        }}
-                      ></i>
-                    </div>
-                  );
-                })
-              : "Bitte erst auswählen"}
           </div>
         </div>
       )}
