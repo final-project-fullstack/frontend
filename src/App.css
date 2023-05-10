@@ -66,11 +66,12 @@ button {
   justify-content: flex-start;
   flex-direction: column;
   padding: 7rem 2rem 1rem 2rem;
-  background-image: url(./assets/WebseiteBackground.webp);
+  background-image: url(./assets/WebseiteBackground\ 2.webp);
   background-attachment: fixed;
   background-repeat: no-repeat;
-  
-  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  min-height: 100vh;
 
 }
 
