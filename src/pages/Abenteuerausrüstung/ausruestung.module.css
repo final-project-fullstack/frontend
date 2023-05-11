@@ -19,3 +19,7 @@
  .ausrüstungCard{
     position: relative;
  }
+
+ .card{
+    width: 300px;
+ }
