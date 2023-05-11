@@ -14,6 +14,11 @@ export default function Dashboard() {
     spell,
     waffen,
     rüstung,
+    volk,
+    klassen,
+    hintergrund,
+    ausrüstung,
+    werkzeuge
   } = useStore();
   const [passwordChange, setPasswordChange] = useState({
     password: "",
@@ -22,6 +27,8 @@ export default function Dashboard() {
   const [message, setMessage] = useState("");
   const [favoriten, setFavoriten] = useState([]);
   const [select, setSelect] = useState("");
+
+  console.log(klassen)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -69,7 +76,7 @@ export default function Dashboard() {
       setProfileImage({ img: fileData });
     };
   }
-  const allData = { Zauber: spell, Waffe: waffen, Rüstung: rüstung };
+  const allData = { Volk: volk, Klass: klassen, Hintergrund: hintergrund, Zauber: spell, Waffe: waffen, Rüstung: rüstung, Ausrüstung: ausrüstung, Werkzeuge: werkzeuge };
 
   useEffect(() => {
     setFavoriten([]);
@@ -171,22 +178,22 @@ export default function Dashboard() {
               </div>
               {favoriten.length > 0
                 ? favoriten.map((item) => {
-                    return (
-                      <div key={item._id} className="favoriteItem ">
-                        {" "}
-                        <p className="favorite">{item.name}</p>
-                        <i
-                          class="fa-sharp fa-solid fa-trash "
-                          onClick={() => deleteFavorite(item._id, true)}
-                          style={{
-                            color: "#ff0000",
-                            padding: "1rem",
-                            cursor: "pointer",
-                          }}
-                        ></i>
-                      </div>
-                    );
-                  })
+                  return (
+                    <div key={item._id} className="favoriteItem ">
+                      {" "}
+                      <p className="favorite">{item.name}</p>
+                      <i
+                        class="fa-sharp fa-solid fa-trash "
+                        onClick={() => deleteFavorite(item._id, true)}
+                        style={{
+                          color: "#ff0000",
+                          padding: "1rem",
+                          cursor: "pointer",
+                        }}
+                      ></i>
+                    </div>
+                  );
+                })
                 : "Bitte erst auswählen"}
             </div>
           </div>
