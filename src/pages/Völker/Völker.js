@@ -8,17 +8,17 @@ export default function Völker() {
 const {id} = useParams()
 const navigate = useNavigate()
 const { volk } = useStore();
-console.log(volk)
+volk.sort(sortArray);
 const [filterVolk, setFilterVolk] = useState([]);
 const { user, setUser } = useStore();
  useEffect(()=>{
-  filterDurchParams(volk, setFilterVolk, id)
+  if (id){filterDurchParams(volk, setFilterVolk, id)}
  },[volk])
 
   function sortArray(x, y) {
     return x.name.localeCompare(y.name);
   }
-  volk.sort(sortArray);
+
   const onChangeVolk = (event) => {
     const value = event.target.value;
     console.log("etwas")
@@ -45,7 +45,7 @@ const { user, setUser } = useStore();
             <div className="select">
               <label>Volk auswählen:</label>
               <select onChange={onChangeVolk}>
-                <option value="">Volk auswählen</option>
+                <option value="Völker" selected={id=== "Völker"}>Volk auswählen</option>
                 <option value="Elfen" selected={id=== "Elfen"}>Elfen</option>
                 <option value="Drachenblütige" selected={id=== "Drachenblütige"}>Drachenblütige</option>
                 <option value="Gnome" selected={id==="Gnome"}>Gnome</option>
@@ -76,7 +76,7 @@ const { user, setUser } = useStore();
                       onClick={() => faviriteStatus2(volk._id, true)}
                     >
                       <i
-                        class="fa-solid fa-bookmark "
+                        className="fa-solid fa-bookmark "
                         style={{ color: "#30475E" }}
                       ></i>
                     </div>
@@ -86,7 +86,7 @@ const { user, setUser } = useStore();
                       onClick={() => faviriteStatus2(volk._id, false)}
                     >
                       <i
-                        class="fa-regular fa-bookmark "
+                        className="fa-regular fa-bookmark "
                         style={{ color: "#30475E" }}
                       ></i>
                     </div>
