@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useStore } from "../../context/storeContext.js";
-import { faviriteStatus } from "../../helper/FaviriteStatus";
+import { faviriteStatus, filterDurchParamsKategorie } from "../../helper/FaviriteStatus";
 import { useNavigate, useParams } from "react-router-dom";
 
 export default function Rüstung() {
@@ -10,7 +10,9 @@ export default function Rüstung() {
 const navigate = useNavigate()
   // const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:3001"
 
-
+  useEffect(()=>{
+    if (id){filterDurchParamsKategorie(rüstung, setFilterRüstung, id)}
+   },[rüstung])
   const onChangeRüstung = (event) => {
     const value = event.target.value;
     navigate(`/rüstung/${value}`)

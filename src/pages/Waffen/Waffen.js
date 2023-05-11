@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useStore } from "../../context/storeContext.js";
 import style from "./waffen.module.css";
-import { faviriteStatus } from "../../helper/FaviriteStatus";
+import { faviriteStatus, filterDurchParams, filterDurchParamsKategorie } from "../../helper/FaviriteStatus";
 import { useNavigate, useParams } from "react-router-dom";
 
 export default function Waffen() {
@@ -10,14 +10,17 @@ export default function Waffen() {
   const { user, setUser } = useStore();
   const {id} = useParams()
   const navigate = useNavigate()
+  useEffect(()=>{
+    if (id){filterDurchParamsKategorie(waffen, setFilterWaffen, id)}
+   },[waffen])
   const onChangeWaffe = (event) => {
     const value = event.target.value;
     navigate(`/waffen/${value}`)
 
-    const klasseFilter = waffen.filter((info) => {
+    const waffenFilter = waffen.filter((info) => {
       return info.kategorie === value;
     });
-    setFilterWaffen(klasseFilter);
+    setFilterWaffen(waffenFilter);
   };
   console.log(waffen);
   
@@ -58,7 +61,7 @@ export default function Waffen() {
                       onClick={() => faviriteStatus2(waffe._id, true)}
                     >
                       <i
-                        class="fa-solid fa-bookmark "
+                        className="fa-solid fa-bookmark "
                         style={{ color: "#30475E" }}
                       ></i>
                     </div>
@@ -68,7 +71,7 @@ export default function Waffen() {
                       onClick={() => faviriteStatus2(waffe._id, false)}
                     >
                       <i
-                        class="fa-regular fa-bookmark "
+                        className="fa-regular fa-bookmark "
                         style={{ color: "#30475E" }}
                       ></i>
                     </div>

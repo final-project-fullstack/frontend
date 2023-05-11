@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useStore } from "../../context/storeContext.js";
-import { faviriteStatus } from "../../helper/FaviriteStatus";
+import { faviriteStatus, filterDurchParamsName } from "../../helper/FaviriteStatus";
+import { useEffect } from "react";
 
 export default function Hintergrund() {
   const { hintergrund, filterHintergrund, setFiltrHintergrund, user, setUser } =
@@ -10,6 +11,9 @@ const navigate = useNavigate()
   function sortArray(x, y) {
     return x.name.localeCompare(y.name);
   }
+  useEffect(()=>{
+    if (id){filterDurchParamsName(hintergrund, setFiltrHintergrund, id)}
+   },[hintergrund])
   
   const onChangeHintergrund = (e) => {
     const value = e.target.value;

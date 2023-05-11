@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useStore } from "../../context/storeContext.js";
-import { faviriteStatus } from "../../helper/FaviriteStatus";
+import { faviriteStatus, filterDurchParamsName } from "../../helper/FaviriteStatus";
 import { useNavigate, useParams } from "react-router-dom";
 
 export default function Klassen() {
@@ -8,6 +8,11 @@ export default function Klassen() {
 const navigate = useNavigate()
   const { klassen, user, setUser } = useStore();
   const [filterKlasse, setFilterKlasse] = useState([]);
+
+  useEffect(()=>{
+    if (id){filterDurchParamsName(klassen, setFilterKlasse, id)}
+   },[klassen])
+
   const onChangeKlasse = (event) => {
     const value = event.target.value;
     navigate(`/klassen/${value}`)
