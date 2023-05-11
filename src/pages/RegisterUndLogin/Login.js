@@ -28,7 +28,7 @@ const Login = () => {
       setMessage(response.data.message);
       setIsLoggedIn(true);
       if (response) {
-        return navigate("/dashboard");
+        return navigate("/");
       }
       // localStorage.setItem("token", data.data.token);
     } catch (error) {
