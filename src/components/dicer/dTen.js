@@ -44,7 +44,15 @@ const DicerPoolDTen = () => {
     <>
       <div className={style.dicer}>
         <button className={style.removeButton} onClick={clearItems}>
-          <img className={style.icon} src={trash} alt="icon" />
+          <div className={style.removeTxt}>
+            Remove <br />
+            W10
+          </div>
+          <img
+            className={`${style.icon} ${style.trashIcon}`}
+            src={trash}
+            alt="icon"
+          />
         </button>
         <button className={style.addButton} onClick={addDTen}>
           <img className={style.icon} src={w10} alt="icon" />
