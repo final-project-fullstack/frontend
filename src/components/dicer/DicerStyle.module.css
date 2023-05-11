@@ -145,8 +145,8 @@ box-shadow: inset -7px -7px 6px #213141,
 
 .removeButton:hover {
   width: calc(100vw/7);
-
-  color: var(--rot);
+  box-shadow: inset 7px 7px 6px #111418,
+  inset -7px -7px 6px #343b47;
 }
 
 .addButton:hover {

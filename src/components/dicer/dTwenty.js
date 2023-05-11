@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import style from "./DicerStyle.module.css";
 import w20 from "./svg/w20.webp";
+import trash from "./svg/trashCanIcon.png";
 
 const DicerPoolDTwenty = () => {
   const [items, setItems] = useState([]);
@@ -42,8 +43,7 @@ const DicerPoolDTwenty = () => {
     <>
       <div className={style.dicer}>
         <button className={style.removeButton} onClick={clearItems}>
-          Remove <br />
-          W20
+          <img className={style.icon} src={trash} alt="icon" />
         </button>
         <button className={style.addButton} onClick={addDTwenty}>
           <img className={style.icon} src={w20} alt="icon" />
