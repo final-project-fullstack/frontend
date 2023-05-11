@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { useStore } from "../../context/storeContext.js";
-import { useNavigate } from "react-router-dom";
 import style from "./zauber.module.css";
 import "../../App.css";
 import { faviriteStatus } from "../../helper/FaviriteStatus";
 
 const Zauber = () => {
-  const navigate = useNavigate();
   const [klasseFilter, setKlasseFilter] = useState([]);
   const { user, setUser } = useStore();
 
@@ -59,9 +57,7 @@ const Zauber = () => {
       return spell.name.includes(searchSpell);
     });
     setFilteredSpells(spellFilter);
-    setInhaltsverzeichnis([]);
-    navigate("/zauber");
-  };
+    setInhaltsverzeichnis([]);  };
   const changeValue = (e) => {
     setSearchSpell(e.target.value);
   };

@@ -22,15 +22,15 @@ export const paths = {
   loginPath: "/login",
   dashboardPath: "/dashboard",
   myspellsPath: "/myspells",
-  zauberPath: "/zauber",
-  voelkerPath: "/völker",
-  klassenPath: "/klassen",
-  hintergrundPath: "/hintergrund",
+  zauberPath: "/zauber/:id?",
+  voelkerPath: "/völker/:id?",
+  klassenPath: "/klassen/:id?",
+  hintergrundPath: "/hintergrund/:id?",
   gesinnungSprachenPath: "/gesinnung-sprachen",
-  waffenPath: "/waffen",
-  ruestungPath: "/rüstung",
-  werkzeugePath: "/werkzeuge",
-  abenteuerausruestungPath: "/abenteuerausrüstung",
+  waffenPath: "/waffen/:id?",
+  ruestungPath: "/rüstung/:id?",
+  werkzeugePath: "/werkzeuge/:id?",
+  abenteuerausruestungPath: "/abenteuerausrüstung/:id?",
   mycharPath: "/mychar",
   anyPath: "/*",
   impressumPath: "/impressum",
@@ -38,7 +38,6 @@ export const paths = {
 export default function AllRoutes() {
   const { isLoggedIn } = useStore();
   // console.log(isLoggedIn)
-
   const routes = [
     {
       path: paths.homePath,

@@ -26,3 +26,9 @@ export function faviriteStatus(id, status) {
     }
 
 }
+export function filterDurchParams(state, setInfos, id){
+    const Filter = state.filter((info) => {
+        return info.name === id.toUpperCase();
+      });
+      setInfos(Filter);
+} 

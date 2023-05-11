@@ -2,15 +2,20 @@ import React, { useState } from "react";
 import { useStore } from "../../context/storeContext.js";
 import style from "./werkzeuge.module.css";
 import { faviriteStatus } from "../../helper/FaviriteStatus";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function Werkzeuge() {
   const { werkzeuge } = useStore();
   const [filterWerkzeuge, setFilterWerkzeuge] = useState([]);
   const { user, setUser } = useStore();
+  const {id} = useParams()
+  const navigate = useNavigate()
   console.log(filterWerkzeuge);
 
-  const onChangeKlasse = (event) => {
+  const onChangeWerkzeug = (event) => {
     const value = event.target.value;
+    navigate(`/werkzeuge/${value}`)
+
     const klasseWerkzeuge = werkzeuge.filter((info) => {
       return info.name === value;
     });
@@ -28,10 +33,10 @@ export default function Werkzeuge() {
         <div className="selectContainer">
           <div className="select">
             <label>Werkzeug auswählen:</label>
-            <select onChange={onChangeKlasse}>
+            <select onChange={onChangeWerkzeug}>
               <option>Werkzeug auswählen</option>
               {werkzeuge.map((werkzeug, i) => {
-                return <option key={i}>{werkzeug.name}</option>;
+                return <option value={werkzeug.name} selected={id=== werkzeug.name}  key={i}>{werkzeug.name}</option>;
               })}
             </select>
           </div>
