@@ -42,7 +42,7 @@
   width: 100%;
   background-color: #30475ece;
   background-size: cover;
-  /* filter: invert(100%); */
+ 
 }
 
 /* ANCHOR add- & remove Button */
@@ -87,7 +87,7 @@
   transform: rotateX(240deg) rotateY(-5deg) rotateZ(-155deg);
   margin: 5vw auto 0% auto;
   box-shadow: -2px 10px 30px #000000, -2px 2px 15px #000000;
-  /* filter: invert(100%); */
+
 }
 
 .top,
@@ -100,7 +100,7 @@
   background-size: cover;
   position: absolute;
   justify-content: center;
-  /* filter: invert(100%); */
+
 }
 
 .front {
@@ -142,11 +142,14 @@
 
 .addButton:hover {
   background-color: #222831;
-  box-shadow: inset 7px 7px 6px #111418, inset -7px -7px 6px #343b47;
+  box-shadow: inset 7px 7px 6px #111418,
+    inset -7px -7px 6px #343b47;
 }
 
 .addButton:focus {
-  box-shadow: inset 7px 7px 6px #111418, inset -7px -7px 6px #343b47;
+  box-shadow: inset 7px 7px 6px #111418,
+    inset -7px -7px 6px #343b47;
+
 }
 
 /* ANCHOR Hover Würfel */
@@ -171,9 +174,10 @@
   background-color: #30475ece;
   border-radius: 0vw 0vw 0vw 1vw;
   background-image: none;
-  /* filter: invert(100%); */
+ 
 }
-.icon {
+
+.icon{
   height: 30px;
 }
 
@@ -185,31 +189,35 @@
 }
 
 /* ANCHOR cube */
-@media screen and (max-width: 799px) {
-  .front {
-    width: 100%;
-    background-image: none;
-    background-color: #30475ece;
+@media screen and (max-width:799px){
 
-    justify-content: center;
+.front,.top,.left{
+  width:100%;
+  background-image: none;
+  background-color: #30475e;
+  justify-content: center;
     width: var(--size);
     height: var(--size);
-    transform-style: preserve-3d;
-    /* transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); */
-    /* margin: 5vw auto 0% auto; */
-    /* box-shadow: -2px 10px 30px #000000, -2px 2px 15px #000000; */
-    /* transform: rotateX(90deg) rotateY(180deg); */
     transform: none;
-    transform-origin: bottom;
-  }
-  .cube {
-    justify-content: center;
-    width: var(--size);
-    height: var(--size);
-    transform-style: none;
-    /* transform: rotateX(240deg) rotateY(0deg) rotateZ(-155deg); */
+
+}
+.cube{
     transform: none;
-    margin: 5vw auto 0% auto;
-    box-shadow: -2px 10px 30px #000000, -2px 2px 15px #000000;
-  }
+    margin: 3vh auto 3vh auto;
+    box-shadow: -1px 5px 15px #000000, -1px 1px 7.5px #000000;
+}
+
+.a {
+  font-size: var(--font-size);
+  font-weight:100;
+  color: white;
+}
+
+.cube:hover .a
+ {
+  font-weight: 100;
+    color: white;
+    -webkit-text-stroke: 1px #ffffff;
+
+}
 }
