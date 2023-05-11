@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useStore } from "../../context/storeContext.js";
 import style from "./werkzeuge.module.css";
-import { faviriteStatus } from "../../helper/FaviriteStatus";
+import { faviriteStatus, filterDurchParams, filterDurchParamsName } from "../../helper/FaviriteStatus";
 import { useNavigate, useParams } from "react-router-dom";
 
 export default function Werkzeuge() {
@@ -10,7 +10,9 @@ export default function Werkzeuge() {
   const { user, setUser } = useStore();
   const {id} = useParams()
   const navigate = useNavigate()
-  console.log(filterWerkzeuge);
+  useEffect(()=>{
+    if (id){filterDurchParamsName(werkzeuge, setFilterWerkzeuge, id)}
+   },[werkzeuge])
 
   const onChangeWerkzeug = (event) => {
     const value = event.target.value;

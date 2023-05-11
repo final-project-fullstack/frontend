@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useStore } from "../../context/storeContext.js";
-import { faviriteStatus, filterDurchParams } from "../../helper/FaviriteStatus";
+import { faviriteStatus, filterDurchParams, filterDurchParamsName } from "../../helper/FaviriteStatus";
 import { useParams, useNavigate } from "react-router-dom";
 
 
@@ -12,7 +12,7 @@ volk.sort(sortArray);
 const [filterVolk, setFilterVolk] = useState([]);
 const { user, setUser } = useStore();
  useEffect(()=>{
-  if (id){filterDurchParams(volk, setFilterVolk, id)}
+  if (id){filterDurchParamsName(volk, setFilterVolk, id)}
  },[volk])
 
   function sortArray(x, y) {
