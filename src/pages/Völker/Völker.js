@@ -1,17 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useStore } from "../../context/storeContext.js";
-import { faviriteStatus } from "../../helper/FaviriteStatus";
-
+import { faviriteStatus, filterDurchParams } from "../../helper/FaviriteStatus";
 import { useParams, useNavigate } from "react-router-dom";
 
 
 export default function Völker() {
 const {id} = useParams()
 const navigate = useNavigate()
-
-  const { volk } = useStore();
-  const [filterVolk, setFilterVolk] = useState([]);
-  const { user, setUser } = useStore();
+const { volk } = useStore();
+console.log(volk)
+const [filterVolk, setFilterVolk] = useState([]);
+const { user, setUser } = useStore();
+ useEffect(()=>{
+  filterDurchParams(volk, setFilterVolk, id)
+ },[volk])
 
   function sortArray(x, y) {
     return x.name.localeCompare(y.name);
@@ -19,6 +21,7 @@ const navigate = useNavigate()
   volk.sort(sortArray);
   const onChangeVolk = (event) => {
     const value = event.target.value;
+    console.log("etwas")
     navigate(`/völker/${value}`)
     const volkFilter = volk.filter((info) => {
       return info.name === value.toUpperCase();
