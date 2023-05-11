@@ -110,7 +110,7 @@ export default function Dashboard() {
   return (
     <div>
       {isLoggedIn && (
-        <div className="container">
+        <div className="cards">
           <h3 className={style.h3}>Persönliche Daten</h3>
           <div className={`${style.datenContainer} `}>
             <p className={style.p}>Name: {user.userName}</p>
