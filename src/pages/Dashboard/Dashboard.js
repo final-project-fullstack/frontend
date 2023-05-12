@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useStore } from "../../context/storeContext.js";
 import { faviriteStatus } from "../../helper/FaviriteStatus";
+import { Link } from "react-router-dom";
 import style from "./dashboard.module.css";
 
 export default function Dashboard() {
@@ -76,7 +77,25 @@ export default function Dashboard() {
       setProfileImage({ img: fileData });
     };
   }
-  const allData = { Volk: volk, Klass: klassen, Hintergrund: hintergrund, Zauber: spell, Waffe: waffen, Rüstung: rüstung, Ausrüstung: ausrüstung, Werkzeuge: werkzeuge };
+  const allData = { Volk: [volk, "v%C3%B6lker"], Klass: [klassen, "klassen"], Hintergrund: [hintergrund, "hintergrund"], Zauber: [spell, "zauber"], Waffe: [waffen, "waffen"], Rüstung: [rüstung, "rüstung"], Ausrüstung: [ausrüstung, "abenteuerausrüstung"], Werkzeuge: [werkzeuge, "werkzeuge"] };
+
+  const link = (name) => {
+
+    var oneLink = ""
+    console.log(allData[select])
+    allData[select][0].forEach((item) => {
+      if (item.name === name) {
+        if (select === "Rüstung") {
+          oneLink = `rüstung/${item.kategorie}`
+        } else if (select === "Waffe") {
+          oneLink = `waffen/${item.kategorie}`
+        }
+      }
+
+    })
+    return oneLink
+
+  }
 
   useEffect(() => {
     setFavoriten([]);
@@ -94,7 +113,7 @@ export default function Dashboard() {
     setFavoriten([]);
 
     if (select !== "Favorit auswählen" && select) {
-      allData[select].forEach((item) => {
+      allData[select][0].forEach((item) => {
         if (user.data.includes(item._id)) {
           setFavoriten((favoriten) => [...favoriten, item]);
         }
@@ -181,7 +200,11 @@ export default function Dashboard() {
                   return (
                     <div key={item._id} className="favoriteItem ">
                       {" "}
-                      <p className="favorite">{item.name}</p>
+                      {select === "Volk" | select === "Klass" | select === "Hintergrund" ? <p className="favorite"><Link to={`/${allData[select][1]}/${item.name}`}>{item.name}</Link></p> : null}
+                      {select === "Zauber" ? <p className="favorite"><Link to={`/${allData[select][1]}`}>{item.name}</Link></p> : null}
+                      {select === "Waffe" | select === "Rüstung" ? <p className="favorite"><Link to={`/${link(item.name)}`}>{item.name}</Link></p> : null}
+
+
                       <i
                         class="fa-sharp fa-solid fa-trash "
                         onClick={() => deleteFavorite(item._id, true)}
