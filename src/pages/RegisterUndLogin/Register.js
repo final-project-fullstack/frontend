@@ -46,23 +46,23 @@ function Register() {
   return (
     <div className={style.register}>
       <h2>Account erstellen</h2>
-      <form class={style.form} onSubmit={handleSubmit}>
+      <form className={style.form} onSubmit={handleSubmit}>
         <input
-          class={style.input}
+          className={style.input}
           type="text"
           name="username"
           placeholder="Benutzername"
           onChange={(e) => setUsername(e.target.value)}
         />
         <input
-          class={style.input}
+          className={style.input}
           type="email"
           name="email"
           placeholder="Email"
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
-          class={style.input}
+          className={style.input}
           type="password"
           name="password"
           placeholder="Passwort"

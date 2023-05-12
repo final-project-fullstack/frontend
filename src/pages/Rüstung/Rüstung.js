@@ -63,7 +63,7 @@ const navigate = useNavigate()
                       onClick={() => faviriteStatus2(waffe._id, true)}
                     >
                       <i
-                        class="fa-solid fa-bookmark "
+                        className="fa-solid fa-bookmark "
                         style={{ color: "#30475E" }}
                       ></i>
                     </div>
@@ -73,7 +73,7 @@ const navigate = useNavigate()
                       onClick={() => faviriteStatus2(waffe._id, false)}
                     >
                       <i
-                        class="fa-regular fa-bookmark "
+                        className="fa-regular fa-bookmark "
                         style={{ color: "#30475E" }}
                       ></i>
                     </div>

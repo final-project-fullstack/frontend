@@ -77,7 +77,7 @@ export default function Dashboard() {
       setProfileImage({ img: fileData });
     };
   }
-  const allData = { Volk: [volk, "v%C3%B6lker"], Klass: [klassen, "klassen"], Hintergrund: [hintergrund, "hintergrund"], Zauber: [spell, "zauber"], Waffe: [waffen, "waffen"], Rüstung: [rüstung, "rüstung"], Ausrüstung: [ausrüstung, "abenteuerausrüstung"], Werkzeuge: [werkzeuge, "werkzeuge"] };
+  const allData = { Volk: [volk, "v%C3%B6lker"], Klasse: [klassen, "klassen"], Hintergrund: [hintergrund, "hintergrund"], Zauber: [spell, "zauber"], Waffe: [waffen, "waffen"], Rüstung: [rüstung, "rüstung"], Ausrüstung: [ausrüstung, "abenteuerausrüstung"], Werkzeuge: [werkzeuge, "werkzeuge"] };
 
   const link = (name) => {
 
@@ -200,13 +200,13 @@ export default function Dashboard() {
                   return (
                     <div key={item._id} className="favoriteItem ">
                       {" "}
-                      {select === "Volk" | select === "Klass" | select === "Hintergrund" ? <p className="favorite"><Link to={`/${allData[select][1]}/${item.name}`}>{item.name}</Link></p> : null}
+                      {select === "Volk" | select === "Klasse" | select === "Hintergrund" ? <p className="favorite"><Link to={`/${allData[select][1]}/${item.name}`}>{item.name}</Link></p> : null}
                       {select === "Zauber" ? <p className="favorite"><Link to={`/${allData[select][1]}`}>{item.name}</Link></p> : null}
                       {select === "Waffe" | select === "Rüstung" ? <p className="favorite"><Link to={`/${link(item.name)}`}>{item.name}</Link></p> : null}
 
 
                       <i
-                        class="fa-sharp fa-solid fa-trash "
+                        className="fa-sharp fa-solid fa-trash "
                         onClick={() => deleteFavorite(item._id, true)}
                         style={{
                           color: "#ff0000",

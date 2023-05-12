@@ -72,7 +72,7 @@ const Zauber = () => {
     <>
       <form className={style.search}>
         <input
-          class={style.input}
+          className={style.input}
           onChange={changeValue}
           type="text"
           placeholder="Suchen"

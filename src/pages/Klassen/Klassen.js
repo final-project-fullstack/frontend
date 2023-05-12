@@ -71,7 +71,7 @@ export default function Klassen() {
                       onClick={() => faviriteStatus2(klasse._id, true)}
                     >
                       <i
-                        class="fa-solid fa-bookmark "
+                        className="fa-solid fa-bookmark "
                         style={{ color: "#30475E" }}
                       ></i>
                     </div>
@@ -81,7 +81,7 @@ export default function Klassen() {
                       onClick={() => faviriteStatus2(klasse._id, false)}
                     >
                       <i
-                        class="fa-regular fa-bookmark "
+                        className="fa-regular fa-bookmark "
                         style={{ color: "#30475E" }}
                       ></i>
                     </div>
