@@ -87,8 +87,8 @@ export default function Dashboard() {
       if (item.name === name) {
         if (select === "Rüstung") {
           oneLink = `rüstung/${item.kategorie}`
-        } else if (select === "Waffe") {
           oneLink = `waffen/${item.kategorie}`
+        } else if (select === "Waffe") {
         }
       }
 

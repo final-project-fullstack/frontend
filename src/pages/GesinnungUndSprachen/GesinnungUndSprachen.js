@@ -41,7 +41,7 @@ export default function GesinnungUndSprachen() {
               {gesinnung.map((info, i) => {
                 return (
                   <>
-                    <p>
+                    <p key={i}>
                       <b>{info.name}</b>
                     </p>
                     <p>
