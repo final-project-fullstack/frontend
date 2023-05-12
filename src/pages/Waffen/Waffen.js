@@ -40,7 +40,7 @@ export default function Waffen() {
               <option value="" >Waffe auswählen</option>
               <option value="Einfache Nahkampfwaffen" selected={id==="Einfache Nahkampfwaffen"}>Einfache Nahkampfwaffen</option>
               <option value="Einfache Fernkampfwaffen" selected={id==="Einfache Fernkampfwaffen"}>Einfache Fernkampfwaffen</option>
-              <option value="Nahkampfs-Kriegswaffen" selected={id==="Nahkampfs-Kriegswaffen"}>Nahkampf-Kriegswaffen</option>
+              <option value="Nahkampf-Kriegswaffen" selected={id==="Nahkampf-Kriegswaffen"}>Nahkampf-Kriegswaffen</option>
               <option value="Fernkampf-Kriegswaffen" selected={id==="Fernkampf-Kriegswaffen"}>Fernkampf-Kriegswaffen</option>
             </select>
           </div>
