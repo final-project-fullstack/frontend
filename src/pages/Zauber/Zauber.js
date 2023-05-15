@@ -57,7 +57,8 @@ const Zauber = () => {
       return spell.name.includes(searchSpell);
     });
     setFilteredSpells(spellFilter);
-    setInhaltsverzeichnis([]);  };
+    setInhaltsverzeichnis([]);
+  };
   const changeValue = (e) => {
     setSearchSpell(e.target.value);
   };
@@ -72,7 +73,7 @@ const Zauber = () => {
     <>
       <form className={style.search}>
         <input
-          class={style.input}
+          className={style.input}
           onChange={changeValue}
           type="text"
           placeholder="Suchen"

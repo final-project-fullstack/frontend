@@ -40,8 +40,8 @@ export default function GesinnungUndSprachen() {
               </p>
               {gesinnung.map((info, i) => {
                 return (
-                  <>
-                    <p>
+                  < div key={i}>
+                    <p >
                       <b>{info.name}</b>
                     </p>
                     <p>
@@ -49,7 +49,7 @@ export default function GesinnungUndSprachen() {
                         return `${info} `;
                       })}
                     </p>
-                  </>
+                  </div>
                 );
               })}
             </div>

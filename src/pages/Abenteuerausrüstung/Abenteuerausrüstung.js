@@ -85,14 +85,14 @@ export default function Abenteuerausrüstung() {
                       {user.data.includes(item._id) ? (
                         <div className="bookmark" onClick={() => faviriteStatus2(item._id, true)}>
                           <i
-                            class="fa-solid fa-bookmark "
+                            className="fa-solid fa-bookmark "
                             style={{ color: "#30475E" }}
                           ></i>
                         </div>
                       ) : (
                         <div className="bookmark" onClick={() => faviriteStatus2(item._id, false)}>
                           <i
-                            class="fa-regular fa-bookmark "
+                            className="fa-regular fa-bookmark "
                             style={{ color: "#30475E" }}
                           ></i>
                         </div>

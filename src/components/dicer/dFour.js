@@ -22,7 +22,7 @@ const DicerPoolDFour = () => {
     storedItems();
   }, []);
 
-  const addDThree = () => {
+  const addDFour = () => {
     const newItem = {
       id: items.length,
       number: Math.floor(Math.random() * 4 + 1),
@@ -45,9 +45,17 @@ const DicerPoolDFour = () => {
     <>
       <div className={style.dicer}>
         <button className={style.removeButton} onClick={clearItems}>
-          <img className={style.icon} src={trash} alt="icon" />
+          <div className={style.removeTxt}>
+            Remove <br />
+            W4
+          </div>
+          <img
+            className={`${style.icon} ${style.trashIcon}`}
+            src={trash}
+            alt="icon"
+          />
         </button>
-        <button className={style.addButton} onClick={addDThree}>
+        <button className={style.addButton} onClick={addDFour}>
           <img className={style.icon} src={w4} alt="icon" />
           <div className={style.sum}>Total: {total}</div>
         </button>

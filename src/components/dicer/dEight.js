@@ -46,7 +46,15 @@ const DicerPoolDEight = () => {
     <>
       <div className={style.dicer}>
         <button className={style.removeButton} onClick={clearItems}>
-          <img className={style.icon} src={trash} alt="icon" />
+          <div className={style.removeTxt}>
+            Remove <br />
+            W8
+          </div>
+          <img
+            className={`${style.icon} ${style.trashIcon}`}
+            src={trash}
+            alt="icon"
+          />
         </button>
         <button className={style.addButton} onClick={addDEight}>
           <img className={style.icon} src={w8} alt="icon" />

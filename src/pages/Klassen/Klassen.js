@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useStore } from "../../context/storeContext.js";
-import { faviriteStatus } from "../../helper/FaviriteStatus";
+import { faviriteStatus, filterDurchParamsName } from "../../helper/FaviriteStatus";
 import { useNavigate, useParams } from "react-router-dom";
 
 export default function Klassen() {
-  const {id} = useParams()
-const navigate = useNavigate()
+  const { id } = useParams()
+  const navigate = useNavigate()
   const { klassen, user, setUser } = useStore();
   const [filterKlasse, setFilterKlasse] = useState([]);
+
+  useEffect(()=>{
+    if (id){filterDurchParamsName(klassen, setFilterKlasse, id)}
+   },[klassen])
+
   const onChangeKlasse = (event) => {
     const value = event.target.value;
     navigate(`/klassen/${value}`)
@@ -33,18 +38,18 @@ const navigate = useNavigate()
             <label>Klasse auswählen:</label>
             <select onChange={onChangeKlasse}>
               <option value="">Klasse auswählen</option>
-              <option value="Barbar" selected={id==="Barbar"}>Barbar</option>
-              <option value="Barde" selected={id==="Barde"}>Barde</option>
-              <option value="Druide" selected={id==="Druide"}>Druide</option>
-              <option value="Hexenmeister" selected={id==="Hexenmeister"}>Hexenmeister</option>
-              <option value="Kämpfer" selected={id==="Kämpfer"}>Kämpfer</option>
-              <option value="Kleriker" selected={id==="Kleriker"}>Kleriker</option>
-              <option value="Magier" selected={id==="Magier"}>Magier</option>
-              <option value="Mönch" selected={id==="Mönch"}>Mönch</option>
-              <option value="Paladin" selected={id==="Paladin"}>Paladin</option>
-              <option value="Schurke" selected={id==="Schurke"}>Schurke</option>
-              <option value="Waldläufer " selected={id==="Waldläufer"}>Waldläufer</option>
-              <option value="Zauberer" selected={id==="Zauberer"}>Zauberer</option>
+              <option value="Barbar" selected={id === "Barbar"}>Barbar</option>
+              <option value="Barde" selected={id === "Barde"}>Barde</option>
+              <option value="Druide" selected={id === "Druide"}>Druide</option>
+              <option value="Hexenmeister" selected={id === "Hexenmeister"}>Hexenmeister</option>
+              <option value="Kämpfer" selected={id === "Kämpfer"}>Kämpfer</option>
+              <option value="Kleriker" selected={id === "Kleriker"}>Kleriker</option>
+              <option value="Magier" selected={id === "Magier"}>Magier</option>
+              <option value="Mönch" selected={id === "Mönch"}>Mönch</option>
+              <option value="Paladin" selected={id === "Paladin"}>Paladin</option>
+              <option value="Schurke" selected={id === "Schurke"}>Schurke</option>
+              <option value="Waldläufer " selected={id === "Waldläufer"}>Waldläufer</option>
+              <option value="Zauberer" selected={id === "Zauberer"}>Zauberer</option>
             </select>
           </div>
         </div>
@@ -60,23 +65,23 @@ const navigate = useNavigate()
                     );
                   })}
 
-                  {user.data.includes(klassen._id) ? (
+                  {user.data.includes(klasse._id) ? (
                     <div
                       className={"bookmark"}
-                      onClick={() => faviriteStatus2(klassen._id, true)}
+                      onClick={() => faviriteStatus2(klasse._id, true)}
                     >
                       <i
-                        class="fa-solid fa-bookmark "
+                        className="fa-solid fa-bookmark "
                         style={{ color: "#30475E" }}
                       ></i>
                     </div>
                   ) : (
                     <div
                       className={"bookmark"}
-                      onClick={() => faviriteStatus2(klassen._id, false)}
+                      onClick={() => faviriteStatus2(klasse._id, false)}
                     >
                       <i
-                        class="fa-regular fa-bookmark "
+                        className="fa-regular fa-bookmark "
                         style={{ color: "#30475E" }}
                       ></i>
                     </div>

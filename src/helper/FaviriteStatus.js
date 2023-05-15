@@ -26,9 +26,17 @@ export function faviriteStatus(id, status) {
     }
 
 }
-export function filterDurchParams(state, setInfos, id){
+export function filterDurchParamsName(state, setInfos, id){
     const Filter = state.filter((info) => {
-        return info.name === id.toUpperCase();
+        return info.name.toUpperCase() === id.toUpperCase();
       });
+      console.log(id)
+      setInfos(Filter);
+} 
+export function filterDurchParamsKategorie(state, setInfos, id){
+    const Filter = state.filter((info) => {
+        return info.kategorie.toUpperCase() === id.toUpperCase();
+      });
+      console.log(id)
       setInfos(Filter);
 } 

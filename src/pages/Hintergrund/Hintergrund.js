@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useStore } from "../../context/storeContext.js";
-import { faviriteStatus } from "../../helper/FaviriteStatus";
+import { faviriteStatus, filterDurchParamsName } from "../../helper/FaviriteStatus";
+import { useEffect } from "react";
 
 export default function Hintergrund() {
   const { hintergrund, filterHintergrund, setFiltrHintergrund, user, setUser } =
@@ -10,14 +11,19 @@ const navigate = useNavigate()
   function sortArray(x, y) {
     return x.name.localeCompare(y.name);
   }
+  useEffect(()=>{
+    if (id){filterDurchParamsName(hintergrund, setFiltrHintergrund, id)}
+   },[hintergrund])
   
   const onChangeHintergrund = (e) => {
     const value = e.target.value;
+    console.log(value)
     navigate(`/hintergrund/${value}`)
     const hintergrundFilter = hintergrund.filter((info) => {
       return info.name === value;
     });
     setFiltrHintergrund(hintergrundFilter);
+    console.log(filterHintergrund)
   };
 
   const hintergrundInfo = hintergrund.filter(
@@ -69,7 +75,7 @@ const navigate = useNavigate()
                       onClick={() => faviriteStatus2(hintergrund._id, true)}
                     >
                       <i
-                        class="fa-solid fa-bookmark "
+                        className="fa-solid fa-bookmark "
                         style={{ color: "#30475E" }}
                       ></i>
                     </div>
@@ -79,7 +85,7 @@ const navigate = useNavigate()
                       onClick={() => faviriteStatus2(hintergrund._id, false)}
                     >
                       <i
-                        class="fa-regular fa-bookmark "
+                        className="fa-regular fa-bookmark "
                         style={{ color: "#30475E" }}
                       ></i>
                     </div>
