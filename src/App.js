@@ -10,6 +10,7 @@ import { Navigate } from "react-router-dom";
 
 
 function App() {
+  console.log("Webseite retten")
   const {
     setIsLoggedIn,
     setSpell,
