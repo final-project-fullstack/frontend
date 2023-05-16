@@ -176,16 +176,6 @@ form {
   border-bottom: 3px solid #ffffff;
 }
 
-
-
-.favoriteItem {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  align-items: center;
-
-}
-
 @media screen and (min-width: 800px) {
   .container {
     align-items: center;

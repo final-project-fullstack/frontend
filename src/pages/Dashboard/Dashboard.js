@@ -198,13 +198,27 @@ export default function Dashboard() {
               {favoriten.length > 0
                 ? favoriten.map((item) => {
                   return (
-                    <div key={item._id} className="favoriteItem ">
+                    <div key={item._id} className={style.favoriteItem}>
                       {" "}
-                      {select === "Volk" | select === "Klasse" | select === "Hintergrund" ? <p className="favorite"><Link to={`/${allData[select][1]}/${item.name}`}>{item.name}</Link></p> : null}
-                      {select === "Zauber" ? <p className="favorite"><Link to={`/${allData[select][1]}`}>{item.name}</Link></p> : null}
-                      {select === "Waffe" | select === "Rüstung" ? <p className="favorite"><Link to={`/${link(item.name)}`}>{item.name}</Link></p> : null}
-
-
+                      {(select === "Volk") |
+                      (select === "Klasse") |
+                      (select === "Hintergrund") ? (
+                        <p className="favorite">
+                          <Link to={`/${allData[select][1]}/${item.name}`}>
+                            {item.name}
+                          </Link>
+                        </p>
+                      ) : null}
+                      {select === "Zauber" ? (
+                        <p className="favorite">
+                          <Link to={`/${allData[select][1]}`}>{item.name}</Link>
+                        </p>
+                      ) : null}
+                      {(select === "Waffe") | (select === "Rüstung") ? (
+                        <p className="favorite">
+                          <Link to={`/${link(item.name)}`}>{item.name}</Link>
+                        </p>
+                      ) : null}
                       <i
                         className="fa-sharp fa-solid fa-trash "
                         onClick={() => deleteFavorite(item._id, true)}
@@ -217,7 +231,7 @@ export default function Dashboard() {
                     </div>
                   );
                 })
-                : "Bitte erst auswählen"}
+                : (<p>Bitte erst auswählen</p>)}
             </div>
           </div>
         </div>
