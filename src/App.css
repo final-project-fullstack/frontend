@@ -5,7 +5,7 @@
   --schwarz: #222831;
 }
 
-/* ANCHOR allgemine tags */
+/* ANCHOR allgemeine tags */
 
 body {
   box-sizing: border-box;
@@ -85,6 +85,8 @@ label {
   position: relative;
 }
 
+
+/* ANCHOR Bookmark */
 .bookmark{
   position: absolute;
   top: 0;
@@ -98,6 +100,7 @@ label {
 
 
 
+/* ANCHOR Schüttel-effekt für das gefüllte Bookmark*/
 @keyframes wobble {
   0% {
     transform: rotate(0deg);
@@ -131,17 +134,6 @@ label {
 .fa-solid {
   animation: wobble 1s 1;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* ANCHOR zauber */
@@ -214,14 +206,14 @@ form {
 }
 
 
-.werkzeug h3 {
+/* .werkzeug h3 {
   margin-top: 2rem;
-}
+} */
 
-.navbarDesktop a:hover,
+/* .navbarDesktop a:hover,
 .navbarDesktop a.active {
   border-bottom: 3px solid #ffffff;
-}
+} */
 
 
 

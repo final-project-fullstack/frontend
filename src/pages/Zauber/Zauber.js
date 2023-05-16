@@ -57,7 +57,8 @@ const Zauber = () => {
       return spell.name.includes(searchSpell);
     });
     setFilteredSpells(spellFilter);
-    setInhaltsverzeichnis([]);  };
+    setInhaltsverzeichnis([]);
+  };
   const changeValue = (e) => {
     setSearchSpell(e.target.value);
   };
@@ -150,7 +151,7 @@ const Zauber = () => {
                 <p>
                   Zeitaufwand: {spell.zeitaufwand} <br />
                   Reichweite: {spell.reichweite} <br />
-                  Koponenten: {spell.komponenten} <br />
+                  Komponenten: {spell.komponenten} <br />
                   Wirkungsdauer: {spell.wirkungsdauer}
                 </p>
                 <div>
