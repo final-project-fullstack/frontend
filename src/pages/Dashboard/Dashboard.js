@@ -19,7 +19,7 @@ export default function Dashboard() {
     klassen,
     hintergrund,
     ausrüstung,
-    werkzeuge
+    werkzeuge,
   } = useStore();
   const [passwordChange, setPasswordChange] = useState({
     password: "",
@@ -29,7 +29,7 @@ export default function Dashboard() {
   const [favoriten, setFavoriten] = useState([]);
   const [select, setSelect] = useState("");
 
-  console.log(klassen)
+  console.log(klassen);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -77,25 +77,31 @@ export default function Dashboard() {
       setProfileImage({ img: fileData });
     };
   }
-  const allData = { Volk: [volk, "v%C3%B6lker"], Klass: [klassen, "klassen"], Hintergrund: [hintergrund, "hintergrund"], Zauber: [spell, "zauber"], Waffe: [waffen, "waffen"], Rüstung: [rüstung, "rüstung"], Ausrüstung: [ausrüstung, "abenteuerausrüstung"], Werkzeuge: [werkzeuge, "werkzeuge"] };
+  const allData = {
+    Volk: [volk, "v%C3%B6lker"],
+    Klass: [klassen, "klassen"],
+    Hintergrund: [hintergrund, "hintergrund"],
+    Zauber: [spell, "zauber"],
+    Waffe: [waffen, "waffen"],
+    Rüstung: [rüstung, "rüstung"],
+    Ausrüstung: [ausrüstung, "abenteuerausrüstung"],
+    Werkzeuge: [werkzeuge, "werkzeuge"],
+  };
 
   const link = (name) => {
-
-    var oneLink = ""
-    console.log(allData[select])
+    var oneLink = "";
+    console.log(allData[select]);
     allData[select][0].forEach((item) => {
       if (item.name === name) {
         if (select === "Rüstung") {
-          oneLink = `rüstung/${item.kategorie}`
+          oneLink = `rüstung/${item.kategorie}`;
         } else if (select === "Waffe") {
-          oneLink = `waffen/${item.kategorie}`
+          oneLink = `waffen/${item.kategorie}`;
         }
       }
-
-    })
-    return oneLink
-
-  }
+    });
+    return oneLink;
+  };
 
   useEffect(() => {
     setFavoriten([]);
@@ -131,10 +137,6 @@ export default function Dashboard() {
       {isLoggedIn && (
         <div className="cards">
           <h3 className={style.h3}>Persönliche Daten</h3>
-          <div className={`${style.datenContainer} `}>
-            <p className={style.p}>Name: {user.userName}</p>
-            <p className={style.p}>Email: {user.email}</p>
-          </div>
           {user.image.length > 0 && (
             <img
               className={style.profileImage}
@@ -142,6 +144,10 @@ export default function Dashboard() {
               alt="profilbild"
             />
           )}
+          <div className={`${style.datenContainer} `}>
+            <p className={style.p}>Name: {user.userName}</p>
+            <p className={style.p}>Email: {user.email}</p>
+          </div>
 
           <input className={style.margin} type="file" onChange={setImage} />
           <button className={style.marginTop} onClick={handleSubmit2}>
@@ -197,26 +203,42 @@ export default function Dashboard() {
               </div>
               {favoriten.length > 0
                 ? favoriten.map((item) => {
-                  return (
-                    <div key={item._id} className="favoriteItem ">
-                      {" "}
-                      {select === "Volk" | select === "Klass" | select === "Hintergrund" ? <p className="favorite"><Link to={`/${allData[select][1]}/${item.name}`}>{item.name}</Link></p> : null}
-                      {select === "Zauber" ? <p className="favorite"><Link to={`/${allData[select][1]}`}>{item.name}</Link></p> : null}
-                      {select === "Waffe" | select === "Rüstung" ? <p className="favorite"><Link to={`/${link(item.name)}`}>{item.name}</Link></p> : null}
-
-
-                      <i
-                        class="fa-sharp fa-solid fa-trash "
-                        onClick={() => deleteFavorite(item._id, true)}
-                        style={{
-                          color: "#ff0000",
-                          padding: "1rem",
-                          cursor: "pointer",
-                        }}
-                      ></i>
-                    </div>
-                  );
-                })
+                    return (
+                      <div key={item._id} className="favoriteItem ">
+                        {" "}
+                        {(select === "Volk") |
+                        (select === "Klass") |
+                        (select === "Hintergrund") ? (
+                          <p className="favorite">
+                            <Link to={`/${allData[select][1]}/${item.name}`}>
+                              {item.name}
+                            </Link>
+                          </p>
+                        ) : null}
+                        {select === "Zauber" ? (
+                          <p className="favorite">
+                            <Link to={`/${allData[select][1]}`}>
+                              {item.name}
+                            </Link>
+                          </p>
+                        ) : null}
+                        {(select === "Waffe") | (select === "Rüstung") ? (
+                          <p className="favorite">
+                            <Link to={`/${link(item.name)}`}>{item.name}</Link>
+                          </p>
+                        ) : null}
+                        <i
+                          class="fa-sharp fa-solid fa-trash "
+                          onClick={() => deleteFavorite(item._id, true)}
+                          style={{
+                            color: "#ff0000",
+                            padding: "1rem",
+                            cursor: "pointer",
+                          }}
+                        ></i>
+                      </div>
+                    );
+                  })
                 : "Bitte erst auswählen"}
             </div>
           </div>
