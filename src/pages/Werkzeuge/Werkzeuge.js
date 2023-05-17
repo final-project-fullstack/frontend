@@ -8,11 +8,11 @@ export default function Werkzeuge() {
   const { werkzeuge } = useStore();
   const [filterWerkzeuge, setFilterWerkzeuge] = useState([]);
   const { user, setUser } = useStore();
-  const {id} = useParams()
+  const { id } = useParams()
   const navigate = useNavigate()
-  useEffect(()=>{
-    if (id){filterDurchParamsName(werkzeuge, setFilterWerkzeuge, id)}
-   },[werkzeuge])
+  useEffect(() => {
+    if (id) { filterDurchParamsName(werkzeuge, setFilterWerkzeuge, id) }
+  }, [werkzeuge])
 
   const onChangeWerkzeug = (event) => {
     const value = event.target.value;
@@ -38,7 +38,7 @@ export default function Werkzeuge() {
             <select onChange={onChangeWerkzeug}>
               <option>Werkzeug auswählen</option>
               {werkzeuge.map((werkzeug, i) => {
-                return <option value={werkzeug.name} selected={id=== werkzeug.name}  key={i}>{werkzeug.name}</option>;
+                return <option value={werkzeug.name} selected={id === werkzeug.name} key={i}>{werkzeug.name}</option>;
               })}
             </select>
           </div>

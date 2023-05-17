@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { useStore } from "../../context/storeContext.js";
 import { faviriteStatus, filterDurchParamsKategorie } from "../../helper/FaviriteStatus";
-import { useNavigate, useParams } from "react-router-dom";
+import { favorite } from "../../helper/notify.js";
+
 
 export default function Rüstung() {
   const { rüstung, user, setUser } = useStore();
   const [filterRüstung, setFilterRüstung] = useState([]);
-  const {id} = useParams()
-const navigate = useNavigate()
+  const { id } = useParams()
+  const navigate = useNavigate()
   // const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:3001"
 
-  useEffect(()=>{
-    if (id){filterDurchParamsKategorie(rüstung, setFilterRüstung, id)}
-   },[rüstung])
+  useEffect(() => {
+    if (id) { filterDurchParamsKategorie(rüstung, setFilterRüstung, id) }
+  }, [rüstung])
   const onChangeRüstung = (event) => {
     const value = event.target.value;
     navigate(`/rüstung/${value}`)
@@ -26,8 +28,11 @@ const navigate = useNavigate()
 
   const faviriteStatus2 = (id, status) => {
     const sdataUpdate = faviriteStatus(id, status)
-      .then((response) => setUser(response.data.userWithoutPassword))
-      .catch((err) => console.log(err));
+      .then((response) => {
+        setUser(response.data.userWithoutPassword);
+        favorite(response.data.message)
+      })
+      .catch((err) => { console.log(err); favorite(err); });
   };
 
   return (

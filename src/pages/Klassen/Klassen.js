@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { useStore } from "../../context/storeContext.js";
 import { faviriteStatus, filterDurchParamsName } from "../../helper/FaviriteStatus";
-import { useNavigate, useParams } from "react-router-dom";
+import { favorite } from "../../helper/notify.js";
+
 
 export default function Klassen() {
   const { id } = useParams()
@@ -9,9 +11,9 @@ export default function Klassen() {
   const { klassen, user, setUser } = useStore();
   const [filterKlasse, setFilterKlasse] = useState([]);
 
-  useEffect(()=>{
-    if (id){filterDurchParamsName(klassen, setFilterKlasse, id)}
-   },[klassen])
+  useEffect(() => {
+    if (id) { filterDurchParamsName(klassen, setFilterKlasse, id) }
+  }, [klassen])
 
   const onChangeKlasse = (event) => {
     const value = event.target.value;
@@ -24,8 +26,11 @@ export default function Klassen() {
 
   const faviriteStatus2 = (id, status) => {
     const sdataUpdate = faviriteStatus(id, status)
-      .then((response) => setUser(response.data.userWithoutPassword))
-      .catch((err) => console.log(err));
+      .then((response) => {
+        setUser(response.data.userWithoutPassword);
+        favorite(response.data.message)
+      })
+      .catch((err) => { console.log(err); favorite(err); });
   };
 
   const klasseInfo = klassen.filter((klasse) => klasse.name === "KLASSEN");

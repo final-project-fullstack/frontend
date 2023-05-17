@@ -1,9 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { useStore } from "../../context/storeContext.js";
 import { faviriteStatus } from "../../helper/FaviriteStatus";
-import { Link } from "react-router-dom";
+import { favorite } from "../../helper/notify.js";
+
 import style from "./dashboard.module.css";
+
 
 export default function Dashboard() {
   const {
@@ -129,8 +132,8 @@ export default function Dashboard() {
 
   const deleteFavorite = (id, status) => {
     const sdataUpdate = faviriteStatus(id, status)
-      .then((response) => setUser(response.data.userWithoutPassword))
-      .catch((err) => console.log(err));
+      .then((response) => { setUser(response.data.userWithoutPassword); favorite(response.data.message) })
+      .catch((err) => { console.log(err); favorite(err); });
   };
   return (
     <div>
@@ -203,42 +206,42 @@ export default function Dashboard() {
               </div>
               {favoriten.length > 0
                 ? favoriten.map((item) => {
-                    return (
-                      <div key={item._id} className="favoriteItem ">
-                        {" "}
-                        {(select === "Volk") |
+                  return (
+                    <div key={item._id} className="favoriteItem ">
+                      {" "}
+                      {(select === "Volk") |
                         (select === "Klass") |
                         (select === "Hintergrund") ? (
-                          <p className="favorite">
-                            <Link to={`/${allData[select][1]}/${item.name}`}>
-                              {item.name}
-                            </Link>
-                          </p>
-                        ) : null}
-                        {select === "Zauber" ? (
-                          <p className="favorite">
-                            <Link to={`/${allData[select][1]}`}>
-                              {item.name}
-                            </Link>
-                          </p>
-                        ) : null}
-                        {(select === "Waffe") | (select === "Rüstung") ? (
-                          <p className="favorite">
-                            <Link to={`/${link(item.name)}`}>{item.name}</Link>
-                          </p>
-                        ) : null}
-                        <i
-                          class="fa-sharp fa-solid fa-trash "
-                          onClick={() => deleteFavorite(item._id, true)}
-                          style={{
-                            color: "#ff0000",
-                            padding: "1rem",
-                            cursor: "pointer",
-                          }}
-                        ></i>
-                      </div>
-                    );
-                  })
+                        <p className="favorite">
+                          <Link to={`/${allData[select][1]}/${item.name}`}>
+                            {item.name}
+                          </Link>
+                        </p>
+                      ) : null}
+                      {select === "Zauber" ? (
+                        <p className="favorite">
+                          <Link to={`/${allData[select][1]}`}>
+                            {item.name}
+                          </Link>
+                        </p>
+                      ) : null}
+                      {(select === "Waffe") | (select === "Rüstung") ? (
+                        <p className="favorite">
+                          <Link to={`/${link(item.name)}`}>{item.name}</Link>
+                        </p>
+                      ) : null}
+                      <i
+                        class="fa-sharp fa-solid fa-trash "
+                        onClick={() => deleteFavorite(item._id, true)}
+                        style={{
+                          color: "#ff0000",
+                          padding: "1rem",
+                          cursor: "pointer",
+                        }}
+                      ></i>
+                    </div>
+                  );
+                })
                 : "Bitte erst auswählen"}
             </div>
           </div>
