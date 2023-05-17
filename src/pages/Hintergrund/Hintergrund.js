@@ -1,20 +1,22 @@
+import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useStore } from "../../context/storeContext.js";
 import { faviriteStatus, filterDurchParamsName } from "../../helper/FaviriteStatus";
-import { useEffect } from "react";
+import { favorite } from "../../helper/notify.js";
+
 
 export default function Hintergrund() {
   const { hintergrund, filterHintergrund, setFiltrHintergrund, user, setUser } =
     useStore();
-  const {id} = useParams()
-const navigate = useNavigate()
+  const { id } = useParams()
+  const navigate = useNavigate()
   function sortArray(x, y) {
     return x.name.localeCompare(y.name);
   }
-  useEffect(()=>{
-    if (id){filterDurchParamsName(hintergrund, setFiltrHintergrund, id)}
-   },[hintergrund])
-  
+  useEffect(() => {
+    if (id) { filterDurchParamsName(hintergrund, setFiltrHintergrund, id) }
+  }, [hintergrund])
+
   const onChangeHintergrund = (e) => {
     const value = e.target.value;
     navigate(`/hintergrund/${value}`)
@@ -30,8 +32,11 @@ const navigate = useNavigate()
 
   const faviriteStatus2 = (id, status) => {
     const sdataUpdate = faviriteStatus(id, status)
-      .then((response) => setUser(response.data.userWithoutPassword))
-      .catch((err) => console.log(err));
+      .then((response) => {
+        setUser(response.data.userWithoutPassword);
+        favorite(response.data.message)
+      })
+      .catch((err) => { console.log(err); favorite(err); });
   };
 
   return (
@@ -49,7 +54,7 @@ const navigate = useNavigate()
                   })
                   .sort(sortArray)
                   .map((info) => {
-                    return <option value={info.name} selected={id=== info.name} key={info.name}>{info.name}</option>;
+                    return <option value={info.name} selected={id === info.name} key={info.name}>{info.name}</option>;
                   })}
               </select>
             </div>

@@ -1,4 +1,6 @@
 import { useStore } from "../../context/storeContext.js";
+import { favorite } from "../../helper/notify.js";
+
 export default function GesinnungUndSprachen() {
   const { sprachen, gesinnung } = useStore();
 

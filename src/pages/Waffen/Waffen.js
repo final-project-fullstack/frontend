@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { useStore } from "../../context/storeContext.js";
-import style from "./waffen.module.css";
-import { faviriteStatus, filterDurchParams, filterDurchParamsKategorie } from "../../helper/FaviriteStatus";
 import { useNavigate, useParams } from "react-router-dom";
+import { useStore } from "../../context/storeContext.js";
+import { faviriteStatus, filterDurchParamsKategorie } from "../../helper/FaviriteStatus";
+import { favorite } from "../../helper/notify.js";
+import style from "./waffen.module.css";
 
 export default function Waffen() {
   const { waffen } = useStore();
   const [filterWaffen, setFilterWaffen] = useState([]);
   const { user, setUser } = useStore();
-  const {id} = useParams()
+  const { id } = useParams()
   const navigate = useNavigate()
-  useEffect(()=>{
-    if (id){filterDurchParamsKategorie(waffen, setFilterWaffen, id)}
-   },[waffen])
+  useEffect(() => {
+    if (id) { filterDurchParamsKategorie(waffen, setFilterWaffen, id) }
+  }, [waffen])
   const onChangeWaffe = (event) => {
     const value = event.target.value;
     navigate(`/waffen/${value}`)
@@ -23,11 +24,14 @@ export default function Waffen() {
     setFilterWaffen(waffenFilter);
   };
   console.log(waffen);
-  
+
   const faviriteStatus2 = (id, status) => {
     const sdataUpdate = faviriteStatus(id, status)
-      .then((response) => setUser(response.data.userWithoutPassword))
-      .catch((err) => console.log(err));
+      .then((response) => {
+        setUser(response.data.userWithoutPassword);
+        favorite(response.data.message)
+      })
+      .catch((err) => { console.log(err); favorite(err); });
   };
 
   return (
@@ -38,10 +42,10 @@ export default function Waffen() {
             <label>Waffe auswählen:</label>
             <select onChange={onChangeWaffe}>
               <option value="" >Waffe auswählen</option>
-              <option value="Einfache Nahkampfwaffen" selected={id==="Einfache Nahkampfwaffen"}>Einfache Nahkampfwaffen</option>
-              <option value="Einfache Fernkampfwaffen" selected={id==="Einfache Fernkampfwaffen"}>Einfache Fernkampfwaffen</option>
-              <option value="Nahkampf-Kriegswaffen" selected={id==="Nahkampf-Kriegswaffen"}>Nahkampf-Kriegswaffen</option>
-              <option value="Fernkampf-Kriegswaffen" selected={id==="Fernkampf-Kriegswaffen"}>Fernkampf-Kriegswaffen</option>
+              <option value="Einfache Nahkampfwaffen" selected={id === "Einfache Nahkampfwaffen"}>Einfache Nahkampfwaffen</option>
+              <option value="Einfache Fernkampfwaffen" selected={id === "Einfache Fernkampfwaffen"}>Einfache Fernkampfwaffen</option>
+              <option value="Nahkampf-Kriegswaffen" selected={id === "Nahkampf-Kriegswaffen"}>Nahkampf-Kriegswaffen</option>
+              <option value="Fernkampf-Kriegswaffen" selected={id === "Fernkampf-Kriegswaffen"}>Fernkampf-Kriegswaffen</option>
             </select>
           </div>
         </div>

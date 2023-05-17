@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { useStore } from "../../context/storeContext.js";
-import style from "./zauber.module.css";
 import "../../App.css";
+import { useStore } from "../../context/storeContext.js";
 import { faviriteStatus } from "../../helper/FaviriteStatus";
+import { favorite } from "../../helper/notify.js";
+import style from "./zauber.module.css";
+
 
 const Zauber = () => {
   const [klasseFilter, setKlasseFilter] = useState([]);
@@ -65,8 +67,11 @@ const Zauber = () => {
 
   const faviriteStatus2 = (id, status) => {
     const sdataUpdate = faviriteStatus(id, status)
-      .then((response) => setUser(response.data.userWithoutPassword))
-      .catch((err) => console.log(err));
+      .then((response) => {
+        setUser(response.data.userWithoutPassword);
+        favorite(response.data.message)
+      })
+      .catch((err) => { console.log(err); favorite(err); });
   };
 
   return (
