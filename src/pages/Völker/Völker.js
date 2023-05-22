@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { useStore } from "../../context/storeContext.js";
 import {
-  faviriteStatus,
-  filterDurchParams,
-  filterDurchParamsName,
+  faviriteStatus, filterDurchParamsName
 } from "../../helper/FaviriteStatus";
-import { useParams, useNavigate } from "react-router-dom";
+import { favorite } from "../../helper/notify.js";
+
 
 export default function Völker() {
   const { id } = useParams();
@@ -38,8 +38,11 @@ export default function Völker() {
 
   const faviriteStatus2 = (id, status) => {
     const sdataUpdate = faviriteStatus(id, status)
-      .then((response) => setUser(response.data.userWithoutPassword))
-      .catch((err) => console.log(err));
+      .then((response) => {
+        setUser(response.data.userWithoutPassword);
+        favorite(response.data.message)
+      })
+      .catch((err) => { console.log(err); favorite(err); });
   };
 
   return (
