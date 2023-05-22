@@ -7,7 +7,6 @@ import { favorite } from "../../helper/notify.js";
 
 import style from "./dashboard.module.css";
 
-
 export default function Dashboard() {
   const {
     isLoggedIn,
@@ -132,14 +131,20 @@ export default function Dashboard() {
 
   const deleteFavorite = (id, status) => {
     const sdataUpdate = faviriteStatus(id, status)
-      .then((response) => { setUser(response.data.userWithoutPassword); favorite(response.data.message) })
-      .catch((err) => { console.log(err); favorite(err); });
+      .then((response) => {
+        setUser(response.data.userWithoutPassword);
+        favorite(response.data.message);
+      })
+      .catch((err) => {
+        console.log(err);
+        favorite(err);
+      });
   };
   return (
     <div>
       {isLoggedIn && (
         <div className="cards">
-          <h3 className={style.h3}>Persönliche Daten</h3>
+          <h2>Persönliche Daten</h2>
           {user.image.length > 0 && (
             <img
               className={style.profileImage}
@@ -148,11 +153,21 @@ export default function Dashboard() {
             />
           )}
           <div className={`${style.datenContainer} `}>
-            <p className={style.p}>Name: {user.userName}</p>
-            <p className={style.p}>Email: {user.email}</p>
+            <p>
+              <b>Name:</b> {user.userName}
+            </p>
+            <p>
+              <b>Email:</b> {user.email}
+            </p>
           </div>
 
-          <input className={style.margin} type="file" onChange={setImage} />
+          <h2>Profilbild ändern</h2>
+          <input
+            id="uploadBtn"
+            className={style.fileUpload}
+            type="file"
+            onChange={setImage}
+          />
           <button className={style.marginTop} onClick={handleSubmit2}>
             Upload
           </button>
@@ -190,7 +205,7 @@ export default function Dashboard() {
           </div>
           <div className={style.marginTop}>
             <div className="cards">
-              <h3>Favoriten</h3>
+              <h2>Favoriten</h2>
               <br />
 
               <div className="selectContainer">
@@ -205,14 +220,14 @@ export default function Dashboard() {
                   </select>
                 </div>
               </div>
-              {favoriten.length > 0
-                ? favoriten.map((item) => {
+              {favoriten.length > 0 ? (
+                favoriten.map((item) => {
                   return (
                     <div key={item._id} className="favoriteItem ">
                       {" "}
                       {(select === "Volk") |
-                        (select === "Klass") |
-                        (select === "Hintergrund") ? (
+                      (select === "Klass") |
+                      (select === "Hintergrund") ? (
                         <p className="favorite">
                           <Link to={`/${allData[select][1]}/${item.name}`}>
                             {item.name}
@@ -221,9 +236,7 @@ export default function Dashboard() {
                       ) : null}
                       {select === "Zauber" ? (
                         <p className="favorite">
-                          <Link to={`/${allData[select][1]}`}>
-                            {item.name}
-                          </Link>
+                          <Link to={`/${allData[select][1]}`}>{item.name}</Link>
                         </p>
                       ) : null}
                       {(select === "Waffe") | (select === "Rüstung") ? (
@@ -243,7 +256,9 @@ export default function Dashboard() {
                     </div>
                   );
                 })
-                : "Bitte erst auswählen"}
+              ) : (
+                <p>Bitte erst auswählen</p>
+              )}
             </div>
           </div>
         </div>
