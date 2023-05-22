@@ -215,6 +215,7 @@ nav form {
   }
   .navbarDesktop a {
     text-decoration: none;
+    font-weight: bold;
     color: var(--grau);
     margin: 0 1.5rem;
   }
@@ -251,7 +252,7 @@ nav form {
   .navbarDesktop .submenu li {
     display: block;
     padding: 10px 0px 10px 0px;
-
+    
     width: 15em;
   }
   /**     Show the submenu on hover, focus     **/
