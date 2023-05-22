@@ -153,6 +153,7 @@ export default function Dashboard() {
           <button className={style.marginTop} onClick={handleSubmit2}>
             Upload
           </button>
+          
           <div className={style.passwordChange}>
             <h2>Passwort ändern</h2>
             <form className={style.form} onSubmit={handleSubmit}>
