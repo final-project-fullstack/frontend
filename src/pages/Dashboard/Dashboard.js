@@ -30,8 +30,24 @@ export default function Dashboard() {
   const [message, setMessage] = useState("");
   const [favoriten, setFavoriten] = useState([]);
   const [select, setSelect] = useState("");
+  const [showPopUpImg, setShowPopUpImg] = useState(false);
+  const [showPopUpPassword, setShowPopUpPassword] = useState(false);
 
-  console.log(klassen);
+  const openPopUpImg = () => {
+    setShowPopUpImg(true);
+  };
+
+  const closePopUpImg = () => {
+    setShowPopUpImg(false);
+  };
+
+  const openPopUpPassword = () => {
+    setShowPopUpPassword(true);
+  };
+
+  const closePopUpPassword = () => {
+    setShowPopUpPassword(false);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -63,6 +79,7 @@ export default function Dashboard() {
       window.location.reload();
       console.log(error);
     }
+    setShowPopUpImg(false);
   };
 
   function setImage(evt) {
@@ -159,50 +176,69 @@ export default function Dashboard() {
             <p>
               <b>Email:</b> {user.email}
             </p>
+            <p className={style.popUpLink} onClick={openPopUpImg}>Profilbild ändern</p>
+            <p className={style.popUpLink} onClick={openPopUpPassword}>Passwort ändern</p>
           </div>
 
-          <h2>Profilbild ändern</h2>
-          <input
-            id="uploadBtn"
-            className={style.fileUpload}
-            type="file"
-            onChange={setImage}
-          />
-          <button className={style.marginTop} onClick={handleSubmit2}>
-            Upload
-          </button>
-          
-          <div className={style.passwordChange}>
-            <h2>Passwort ändern</h2>
-            <form className={style.form} onSubmit={handleSubmit}>
+          {showPopUpImg && (
+            <div className={style.popUpImg}>
+              <div className={style.closePopUp} onClick={closePopUpImg}>
+                X
+              </div>
+              <h2>Profilbild ändern</h2>
               <input
-                className={style.input}
-                type="password"
-                name="password"
-                placeholder="Aktuelles Passwort"
-                onChange={(e) =>
-                  setPasswordChange({
-                    ...passwordChange,
-                    password: e.target.value,
-                  })
-                }
+                id="uploadBtn"
+                className={style.fileUpload}
+                type="file"
+                onChange={setImage}
               />
-              <input
-                className={style.input}
-                type="password"
-                name="newPasswort"
-                placeholder="Neues Passwort"
-                onChange={(e) =>
-                  setPasswordChange({
-                    ...passwordChange,
-                    newPassword: e.target.value,
-                  })
-                }
-              />
-              <input className={style.margin} type="submit" value="Speichern" />
-              {message && <p className={style.msg}>{message}</p>}
-            </form>
-          </div>
+              <button className={style.marginTop} onClick={handleSubmit2}>
+                Upload
+              </button>
+            </div>
+          )}
+
+          {showPopUpPassword && (
+            <div className={style.passwordChange}>
+              <div className={style.closePopUp} onClick={closePopUpPassword}>
+                X
+              </div>
+              <h2>Passwort ändern</h2>
+              <form className={style.form} onSubmit={handleSubmit}>
+                <input
+                  className={style.input}
+                  type="password"
+                  name="password"
+                  placeholder="Aktuelles Passwort"
+                  onChange={(e) =>
+                    setPasswordChange({
+                      ...passwordChange,
+                      password: e.target.value,
+                    })
+                  }
+                />
+                <input
+                  className={style.input}
+                  type="password"
+                  name="newPasswort"
+                  placeholder="Neues Passwort"
+                  onChange={(e) =>
+                    setPasswordChange({
+                      ...passwordChange,
+                      newPassword: e.target.value,
+                    })
+                  }
+                />
+                <input
+                  className={style.margin}
+                  type="submit"
+                  value="Speichern"
+                />
+                {message && <p className={style.msg}>{message}</p>}
+              </form>
+            </div>
+          )}
+
           <div className={style.marginTop}>
             <div className="cards">
               <h2>Favoriten</h2>

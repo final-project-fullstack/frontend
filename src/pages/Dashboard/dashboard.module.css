@@ -1,58 +1,92 @@
-:root{
---grau: #E8E8E8;
-  --rot: #F05454;
-  --blau: #30475E;
+:root {
+  --grau: #e8e8e8;
+  --rot: #f05454;
+  --blau: #30475e;
   --schwarz: #222831;
 }
 
 .passwordChange {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top:1rem;
-    padding-bottom: 1rem;;
-    
+  width: 250px;
+  height: 200px;
+  background-color: #e7e7e7;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100px;
+  margin: auto;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  z-index: 5;
+  padding: 4rem 2rem;
+  text-align: center;
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-
-.input
-{
-    margin-bottom: 1rem;
+.input {
+  margin-bottom: 1rem;
 }
-.msg{
-    color:var(--rot);
+.msg {
+  color: var(--rot);
 }
-.profileImage{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border: 3px solid var(--rot);
-    width: 130px;
-    height:130px;
-    border-radius: 360px;
+.profileImage {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 3px solid var(--rot);
+  width: 130px;
+  height: 130px;
+  border-radius: 360px;
 }
 
-.p{
-    margin-top: 0rem;
-    margin-bottom: 0rem;
-    padding: 0px;
+.popUpImg {
+  width: 250px;
+  height: 220px;
+  background-color: #e7e7e7;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100px;
+  margin: auto;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  z-index: 5;
+  padding: 4rem 2rem;
+  align-items: center;
 }
 
-.marginTop{
-    margin-top: 1rem;
+.closePopUp{
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    cursor: pointer;
 }
 
-.datenContainer{
-    margin-top: 0.1rem;
+.p {
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  padding: 0px;
 }
 
-
-.h3{
-    margin-bottom: 1rem;
+.marginTop {
+  margin-top: 3rem;
 }
 
+.datenContainer {
+  margin-top: 0.1rem;
+}
+
+.h3 {
+  margin-bottom: 1rem;
+}
+
+.popUpLink{
+    cursor: pointer;
+    text-decoration: underline;
+    color: #30475e;
+}
